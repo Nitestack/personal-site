@@ -4,6 +4,7 @@ import {
   NavigationMenuList,
   NavigationMenuViewport,
 } from "@components/navbar/client";
+import LanguageSelection from "@components/navbar/language-selection";
 import NavbarLink from "@components/navbar/link";
 import ThemeSelection from "@components/navbar/theme-selection";
 import { Button } from "@components/ui/button";
@@ -69,6 +70,7 @@ const Navbar: FC = () => {
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-[200px]">
               <ThemeSelection />
+              <LanguageSelection />
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
