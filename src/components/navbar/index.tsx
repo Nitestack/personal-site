@@ -2,19 +2,16 @@ import {
   NavigationMenu,
   NavigationMenuItem,
   NavigationMenuList,
+  NavigationMenuViewport,
 } from "@components/navbar/client";
 import NavbarLink from "@components/navbar/link";
+import ThemeSelection from "@components/navbar/theme-selection";
 import { Button } from "@components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuLabel,
   DropdownMenuTrigger,
 } from "@components/ui/dropdown-menu";
-import { Label } from "@components/ui/label";
-import { Switch } from "@components/ui/switch";
 
 import { Settings } from "lucide-react";
 import NextImage from "next/image";
@@ -25,8 +22,8 @@ import Logo from "@assets/logo.png";
 
 const Navbar: FC = () => {
   return (
-    <NavigationMenu className="bg-white dark:bg-gray-900 sticky z-10 top-0">
-      <div className="container mx-auto px-6 py-4 flex justify-between items-center">
+    <NavigationMenu className="bg-white dark:bg-gray-900 sticky z-10 top-0 inset-x-0">
+      <div className="px-6 py-4 flex justify-between items-center max-w-full">
         <div className="md:hidden"></div>
         <div className="flex items-center gap-2">
           <NextImage alt="Nhan Pham" width={36} height={36} src={Logo} />
@@ -37,7 +34,7 @@ const Navbar: FC = () => {
             Nhan Pham
           </NextLink>
         </div>
-        <NavigationMenuList className="hidden md:flex space-x-4">
+        <NavigationMenuList className="hidden md:flex flex-1 space-x-4 list-none group">
           <NavigationMenuItem>
             <NavbarLink
               className="text-gray-800 dark:text-white hover:text-gray-600 dark:hover:text-gray-400"
@@ -71,21 +68,12 @@ const Navbar: FC = () => {
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-[200px]">
-              <DropdownMenuLabel>Settings</DropdownMenuLabel>
-              <DropdownMenuGroup>
-                <DropdownMenuItem>
-                  <Switch id="theme-switch" />
-                  <Label htmlFor="theme-switch">Dark Mode</Label>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <Switch id="language-switch" />
-                  <Label htmlFor="language-switch">EN / DE</Label>
-                </DropdownMenuItem>
-              </DropdownMenuGroup>
+              <ThemeSelection />
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
       </div>
+      <NavigationMenuViewport className="origin-top-center relative mt-1.5 h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden rounded-md border bg-popover text-popover-foreground shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90 md:w-[var(--radix-navigation-menu-viewport-width)]" />
     </NavigationMenu>
   );
 };
