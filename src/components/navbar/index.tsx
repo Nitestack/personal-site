@@ -25,7 +25,7 @@ import Logo from "@assets/logo.png";
 
 const Navbar: FC = () => {
   return (
-    <NavigationMenu className="bg-white dark:bg-gray-900 z-10">
+    <NavigationMenu className="bg-white dark:bg-gray-900 sticky z-10 top-0">
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
         <div className="md:hidden"></div>
         <div className="flex items-center gap-2">
