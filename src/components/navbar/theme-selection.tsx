@@ -14,7 +14,7 @@ const ThemeSelection: FC = () => {
   const { resolvedTheme, setTheme } = useTheme();
   return (
     <>
-      <DropdownMenuLabel>Theme</DropdownMenuLabel>
+      <DropdownMenuLabel className="text-center">Theme</DropdownMenuLabel>
       <DropdownMenuSeparator />
       <DropdownMenuRadioGroup value={resolvedTheme} onValueChange={setTheme}>
         <DropdownMenuRadioItem value="light">Light</DropdownMenuRadioItem>

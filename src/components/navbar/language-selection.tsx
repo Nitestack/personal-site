@@ -12,7 +12,7 @@ import { type FC } from "react";
 const LanguageSelection: FC = () => {
   return (
     <>
-      <DropdownMenuLabel>Language</DropdownMenuLabel>
+      <DropdownMenuLabel className="text-center">Language</DropdownMenuLabel>
       <DropdownMenuSeparator />
       <DropdownMenuRadioGroup value={"en"} onValueChange={() => void 0}>
         <DropdownMenuRadioItem value="en">English</DropdownMenuRadioItem>
