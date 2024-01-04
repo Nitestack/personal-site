@@ -11,6 +11,7 @@ import { Button } from "@components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@components/ui/dropdown-menu";
 
@@ -70,6 +71,7 @@ const Navbar: FC = () => {
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-[200px]">
               <ThemeSelection />
+              <DropdownMenuSeparator />
               <LanguageSelection />
             </DropdownMenuContent>
           </DropdownMenu>
