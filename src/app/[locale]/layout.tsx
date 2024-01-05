@@ -4,7 +4,10 @@ import Footer from "@components/footer";
 import Navbar from "@components/navbar";
 
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { unstable_setRequestLocale } from "next-intl/server";
+import pick from "lodash.pick";
+import { type Metadata } from "next";
+import { useMessages } from "next-intl";
+import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import { IBM_Plex_Mono, Work_Sans } from "next/font/google";
 import { type FC, type ReactNode } from "react";
 
@@ -24,6 +27,18 @@ const ibmPlexMono = IBM_Plex_Mono({
   variable: "--font-ibm-plex-mono",
 });
 
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string };
+}): Promise<Metadata> {
+  const t = await getTranslations({ locale });
+  return {
+    title: "Nhan Pham",
+    description: "Personal website",
+  };
+}
+
 export function generateStaticParams() {
   return LOCALES.map((locale) => ({ locale }));
 }
@@ -33,6 +48,8 @@ const LocaleLayout: FC<{ children: ReactNode; params: { locale: string } }> = ({
   params: { locale },
 }) => {
   unstable_setRequestLocale(locale);
+
+  const messages = useMessages();
 
   return (
     <html
@@ -50,6 +67,10 @@ const LocaleLayout: FC<{ children: ReactNode; params: { locale: string } }> = ({
             attribute: "class",
             enableSystem: true,
             defaultTheme: "system",
+          }}
+          localeProps={{
+            locale,
+            messages: pick(messages, "Error"),
           }}
         >
           <Navbar />
