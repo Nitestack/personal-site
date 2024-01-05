@@ -1,5 +1,16 @@
 {
-  "Index": {
-    "title": "Persönliche Seite"
+  "Metadata": {
+    "description": "Persönliche Seite von Nhan Pham"
+  },
+  "Settings": {
+    "language": "Sprache",
+    "Theme": {
+      "name": "Modus",
+      "light": "Hell",
+      "dark": "Dunkel"
+    }
+  },
+  "Error": {
+    "message": "Oh nein, irgendetwas ist schiefgelaufen... vielleicht neuladen?"
   }
 }
