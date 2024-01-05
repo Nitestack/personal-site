@@ -24,10 +24,11 @@ const config = {
   importOrder: [
     dirAlias("app"),
     dirAlias("components"),
+    fileAlias("navigation"),
     dirAlias("lib"),
     thirdPartyModules,
     fileAlias("utils"),
-    dirAlias("constants"),
+    fileAlias("constants"),
     fileAlias("env"),
     dirAlias("assets"),
     fileAlias("types"),
