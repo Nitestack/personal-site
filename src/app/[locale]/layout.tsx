@@ -4,10 +4,13 @@ import Footer from "@components/footer";
 import Navbar from "@components/navbar";
 
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { unstable_setRequestLocale } from "next-intl/server";
 import { IBM_Plex_Mono, Work_Sans } from "next/font/google";
 import { type FC, type ReactNode } from "react";
 
 import { classNames } from "@utils";
+
+import { LOCALES } from "@constants";
 
 const workSans = Work_Sans({
   subsets: ["latin"],
@@ -21,10 +24,16 @@ const ibmPlexMono = IBM_Plex_Mono({
   variable: "--font-ibm-plex-mono",
 });
 
+export function generateStaticParams() {
+  return LOCALES.map((locale) => ({ locale }));
+}
+
 const LocaleLayout: FC<{ children: ReactNode; params: { locale: string } }> = ({
   children,
   params: { locale },
 }) => {
+  unstable_setRequestLocale(locale);
+
   return (
     <html
       className={classNames(
