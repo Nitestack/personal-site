@@ -15,26 +15,29 @@ import {
   DropdownMenuTrigger,
 } from "@components/ui/dropdown-menu";
 
+import { Link } from "@navigation";
+
 import { Settings } from "lucide-react";
+import { useTranslations } from "next-intl";
 import NextImage from "next/image";
-import NextLink from "next/link";
 import { type FC } from "react";
 
 import Logo from "@assets/logo.png";
 
 const Navbar: FC = () => {
+  const t = useTranslations("Settings");
   return (
     <NavigationMenu className="bg-white dark:bg-gray-900 sticky z-10 top-0 inset-x-0">
       <div className="px-6 py-4 flex justify-between items-center max-w-full">
         <div className="md:hidden"></div>
         <div className="flex items-center gap-2">
           <NextImage alt="Nhan Pham" width={36} height={36} src={Logo} />
-          <NextLink
+          <Link
             className="text-xl font-bold text-gray-800 dark:text-white"
             href="/"
           >
             Nhan Pham
-          </NextLink>
+          </Link>
         </div>
         <NavigationMenuList className="hidden md:flex flex-1 space-x-4 list-none group">
           <NavigationMenuItem>
@@ -70,9 +73,13 @@ const Navbar: FC = () => {
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-[200px]">
-              <ThemeSelection />
+              <ThemeSelection
+                label={t("Theme.name")}
+                darkLabel={t("Theme.dark")}
+                lightLabel={t("Theme.light")}
+              />
               <DropdownMenuSeparator />
-              <LanguageSelection />
+              <LanguageSelection label={t("language")} />
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
