@@ -32,10 +32,10 @@ export async function generateMetadata({
 }: {
   params: { locale: string };
 }): Promise<Metadata> {
-  const t = await getTranslations({ locale });
+  const t = await getTranslations({ locale, namespace: "Metadata" });
   return {
     title: "Nhan Pham",
-    description: "Personal website",
+    description: t("description"),
   };
 }
 
