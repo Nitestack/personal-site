@@ -72,7 +72,7 @@ const Navbar: FC = () => {
                 <Settings className="h-4 w-4" />
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="w-[200px]">
+            <DropdownMenuContent align="end" className="w-40">
               <ThemeSelection
                 label={t("Theme.name")}
                 darkLabel={t("Theme.dark")}
