@@ -1,5 +1,16 @@
 {
-  "Index": {
-    "title": "Personal Site"
+  "Metadata": {
+    "description": "Personal Site by Nhan Pham"
+  },
+  "Settings": {
+    "language": "Language",
+    "Theme": {
+      "name": "Theme",
+      "light": "Light",
+      "dark": "Dark"
+    }
+  },
+  "Error": {
+    "message": "Oh no, something went wrong... maybe refresh?"
   }
 }
