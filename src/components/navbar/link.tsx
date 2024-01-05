@@ -2,12 +2,11 @@
 
 import { navigationMenuTriggerStyle } from "@components/ui/navigation-menu";
 
+import { Link, usePathname } from "@navigation";
 import {
   NavigationMenuLink,
   type NavigationMenuLinkProps,
 } from "@radix-ui/react-navigation-menu";
-import NextLink from "next/link";
-import { usePathname } from "next/navigation";
 import { type FC } from "react";
 
 import { classNames } from "@utils";
@@ -19,13 +18,13 @@ const NavbarLink: FC<NavigationMenuLinkProps & { href: string }> = ({
 }) => {
   const pathname = usePathname();
   return (
-    <NextLink href={href} passHref legacyBehavior>
+    <Link href={href} passHref legacyBehavior>
       <NavigationMenuLink
         className={classNames(navigationMenuTriggerStyle(), className)}
         active={pathname === href}
         {...props}
       />
-    </NextLink>
+    </Link>
   );
 };
 
