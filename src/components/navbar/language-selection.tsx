@@ -7,16 +7,37 @@ import {
   DropdownMenuSeparator,
 } from "@components/ui/dropdown-menu";
 
-import { type FC } from "react";
+import { usePathname, useRouter } from "@navigation";
 
-const LanguageSelection: FC = () => {
+import { useLocale } from "next-intl";
+import { type FC, useTransition } from "react";
+
+import { LOCALES, LOCALE_MAP } from "@constants";
+
+const LanguageSelection: FC<{ label: string }> = ({ label }) => {
+  const currentLocale = useLocale();
+  const router = useRouter();
+  const pathname = usePathname();
+  const [, startTransition] = useTransition();
+
+  function onLocaleSelect(newLocale: string) {
+    startTransition(() => {
+      router.replace(pathname, { locale: newLocale });
+    });
+  }
   return (
     <>
-      <DropdownMenuLabel className="text-center">Language</DropdownMenuLabel>
+      <DropdownMenuLabel className="text-center">{label}</DropdownMenuLabel>
       <DropdownMenuSeparator />
-      <DropdownMenuRadioGroup value={"en"} onValueChange={() => void 0}>
-        <DropdownMenuRadioItem value="en">English</DropdownMenuRadioItem>
-        <DropdownMenuRadioItem value="de">Deutsch</DropdownMenuRadioItem>
+      <DropdownMenuRadioGroup
+        value={currentLocale}
+        onValueChange={onLocaleSelect}
+      >
+        {LOCALES.map((locale) => (
+          <DropdownMenuRadioItem key={locale} value={locale}>
+            {LOCALE_MAP[locale]}
+          </DropdownMenuRadioItem>
+        ))}
       </DropdownMenuRadioGroup>
     </>
   );
