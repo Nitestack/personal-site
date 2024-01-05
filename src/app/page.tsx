@@ -1,7 +1,10 @@
-import { type FC } from "react";
+import { redirect } from "next/navigation";
 
-const HomePage: FC = () => {
-  return <></>;
+import { DEFAULT_LOCALE } from "@constants";
+
+// This page only renders when the app is built statically (output: 'export')
+const RootPage = () => {
+  redirect(`/${DEFAULT_LOCALE}`);
 };
 
-export default HomePage;
+export default RootPage;
