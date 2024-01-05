@@ -8,14 +8,24 @@ import {
 } from "@components/ui/dropdown-menu";
 
 import { useTheme } from "next-themes";
-import { type FC } from "react";
+import { type FC, useEffect, useState } from "react";
 
 const ThemeSelection: FC<{
   label: string;
   darkLabel: string;
   lightLabel: string;
 }> = ({ label, darkLabel, lightLabel }) => {
+  const [mounted, setMounted] = useState(false);
   const { resolvedTheme, setTheme } = useTheme();
+
+  // useEffect only runs on the client, so now we can safely show the UI
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
   return (
     <>
       <DropdownMenuLabel className="text-center">{label}</DropdownMenuLabel>
