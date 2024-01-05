@@ -10,15 +10,21 @@ import {
 import { useTheme } from "next-themes";
 import { type FC } from "react";
 
-const ThemeSelection: FC = () => {
+const ThemeSelection: FC<{
+  label: string;
+  darkLabel: string;
+  lightLabel: string;
+}> = ({ label, darkLabel, lightLabel }) => {
   const { resolvedTheme, setTheme } = useTheme();
   return (
     <>
-      <DropdownMenuLabel className="text-center">Theme</DropdownMenuLabel>
+      <DropdownMenuLabel className="text-center">{label}</DropdownMenuLabel>
       <DropdownMenuSeparator />
       <DropdownMenuRadioGroup value={resolvedTheme} onValueChange={setTheme}>
-        <DropdownMenuRadioItem value="light">Light</DropdownMenuRadioItem>
-        <DropdownMenuRadioItem value="dark">Dark</DropdownMenuRadioItem>
+        <DropdownMenuRadioItem value="light">
+          {lightLabel}
+        </DropdownMenuRadioItem>
+        <DropdownMenuRadioItem value="dark">{darkLabel}</DropdownMenuRadioItem>
       </DropdownMenuRadioGroup>
     </>
   );
