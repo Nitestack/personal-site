@@ -1,7 +1,7 @@
 import { type FC } from "react";
 
-const Home: FC = () => {
-  return <div>Home</div>;
+const HomePage: FC = () => {
+  return <></>;
 };
 
-export default Home;
+export default HomePage;
