@@ -7,13 +7,18 @@ const LocaleError: FC<{ error: Error; reset: () => void }> = ({
   error,
   reset,
 }) => {
-  // const t = useTranslations("Error");
+  const t = useTranslations("Error");
   useEffect(() => {
     // Log the error to an error reporting service
     console.error(error);
   }, [error]);
 
-  return <div>{/* <p>{t("message")}</p> */}</div>;
+  return (
+    <div>
+      {" "}
+      <p>{t("message")}</p>{" "}
+    </div>
+  );
 };
 
 export default LocaleError;
