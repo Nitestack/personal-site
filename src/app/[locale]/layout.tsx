@@ -34,7 +34,10 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "Metadata" });
   return {
-    title: "Nhan Pham",
+    title: {
+      default: "Nhan Pham",
+      template: "%s | Nhan Pham",
+    },
     description: t("description"),
   };
 }
