@@ -24,9 +24,10 @@
       "@types": ["./types.d.ts"],
       "@env": ["./src/env.mjs"],
       "@components/*": ["./src/components/*"],
-      "@constants/*": ["./src/constants/*"],
+      "@constants": ["./src/constants.ts"],
       "@utils": ["./src/utils.ts"],
-      "@app/*": ["./src/app/*"]
+      "@app/*": ["./src/app/*"],
+      "@navigation": ["./src/navigation.ts"]
     },
     "plugins": [
       {
@@ -38,6 +39,7 @@
     ".eslintrc.cjs",
     "next-env.d.ts",
     "reset.d.ts",
+    "global.d.ts",
     "**/*.ts",
     "**/*.tsx",
     "**/*.cjs",
