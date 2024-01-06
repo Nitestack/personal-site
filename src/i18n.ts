@@ -1,10 +1,10 @@
 import { getRequestConfig } from "next-intl/server";
 import { notFound } from "next/navigation";
 
-import { LOCALES } from "@constants";
+import { LOCALIZATION_CONFIG } from "@constants";
 
 export default getRequestConfig(async ({ locale }) => {
-  if (!LOCALES.includes(locale)) notFound();
+  if (!LOCALIZATION_CONFIG.locales.includes(locale)) notFound();
 
   return {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
