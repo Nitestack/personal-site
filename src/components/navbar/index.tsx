@@ -22,6 +22,8 @@ import { useTranslations } from "next-intl";
 import NextImage from "next/image";
 import { type FC } from "react";
 
+import { SITE_CONFIG } from "@constants";
+
 import Logo from "@assets/logo.png";
 
 const Navbar: FC = () => {
@@ -31,38 +33,20 @@ const Navbar: FC = () => {
       <div className="px-6 py-4 flex justify-between items-center">
         <div className="md:hidden"></div>
         <div className="flex items-center gap-2">
-          <NextImage alt="Nhan Pham" width={36} height={36} src={Logo} />
-          <Link
-            className="text-xl font-bold text-gray-800 dark:text-white"
-            href="/"
-          >
-            Nhan Pham
+          <NextImage alt={SITE_CONFIG.name} width={36} height={36} src={Logo} />
+          <Link className="text-2xl font-bold" href="/">
+            {SITE_CONFIG.name}
           </Link>
         </div>
         <NavigationMenuList className="hidden md:flex flex-1 space-x-4 list-none group">
           <NavigationMenuItem>
-            <NavbarLink
-              className="text-gray-800 dark:text-white hover:text-gray-600 dark:hover:text-gray-400"
-              href="/about"
-            >
-              About
-            </NavbarLink>
+            <NavbarLink href="/about">About</NavbarLink>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <NavbarLink
-              className="text-gray-800 dark:text-white hover:text-gray-600 dark:hover:text-gray-400"
-              href="/projects"
-            >
-              Projects
-            </NavbarLink>
+            <NavbarLink href="/projects">Projects</NavbarLink>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <NavbarLink
-              className="text-gray-800 dark:text-white hover:text-gray-600 dark:hover:text-gray-400"
-              href="/contact"
-            >
-              Contact
-            </NavbarLink>
+            <NavbarLink href="/contact">Contact</NavbarLink>
           </NavigationMenuItem>
         </NavigationMenuList>
         <div className="flex items-center space-x-2">
