@@ -12,8 +12,7 @@ const LocaleError: FC<{ error: Error; reset: () => void }> = ({ error }) => {
 
   return (
     <div>
-      {" "}
-      <p>{t("message")}</p>{" "}
+      <p>{t("message")}</p>
     </div>
   );
 };
