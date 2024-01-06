@@ -12,7 +12,7 @@ import { usePathname, useRouter } from "@navigation";
 import { useLocale } from "next-intl";
 import { type FC, useTransition } from "react";
 
-import { LOCALES, LOCALE_MAP } from "@constants";
+import { LOCALIZATION_CONFIG } from "@constants";
 
 const LanguageSelection: FC<{ label: string }> = ({ label }) => {
   const currentLocale = useLocale();
@@ -33,9 +33,9 @@ const LanguageSelection: FC<{ label: string }> = ({ label }) => {
         value={currentLocale}
         onValueChange={onLocaleSelect}
       >
-        {LOCALES.map((locale) => (
+        {LOCALIZATION_CONFIG.locales.map((locale) => (
           <DropdownMenuRadioItem key={locale} value={locale}>
-            {LOCALE_MAP[locale]}
+            {LOCALIZATION_CONFIG.localeMap[locale]}
           </DropdownMenuRadioItem>
         ))}
       </DropdownMenuRadioGroup>
