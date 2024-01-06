@@ -5,7 +5,7 @@ import Navbar from "@components/navbar";
 
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import pick from "lodash.pick";
-import { type Metadata } from "next";
+import { type Metadata, type Viewport } from "next";
 import { useMessages } from "next-intl";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import { IBM_Plex_Mono, Work_Sans } from "next/font/google";
@@ -13,7 +13,7 @@ import { type FC, type ReactNode } from "react";
 
 import { classNames } from "@utils";
 
-import { LOCALES } from "@constants";
+import { LOCALIZATION_CONFIG, SITE_CONFIG } from "@constants";
 
 const workSans = Work_Sans({
   subsets: ["latin"],
@@ -35,15 +35,22 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: "Metadata" });
   return {
     title: {
-      default: "Nhan Pham",
-      template: "%s | Nhan Pham",
+      default: SITE_CONFIG.name,
+      template: `%s | ${SITE_CONFIG.name}`,
     },
-    description: t("description"),
+    description: t("description", { name: SITE_CONFIG.name }),
   };
 }
 
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "white" },
+    { media: "(prefers-color-scheme: dark)", color: "black" },
+  ],
+};
+
 export function generateStaticParams() {
-  return LOCALES.map((locale) => ({ locale }));
+  return LOCALIZATION_CONFIG.locales.map((locale) => ({ locale }));
 }
 
 const LocaleLayout: FC<{ children: ReactNode; params: { locale: string } }> = ({
@@ -64,12 +71,14 @@ const LocaleLayout: FC<{ children: ReactNode; params: { locale: string } }> = ({
       lang={locale}
       suppressHydrationWarning
     >
-      <body className="flex min-h-screen flex-col">
+      <head />
+      <body className="relative flex min-h-screen flex-col">
         <Providers
           themeProps={{
             attribute: "class",
             enableSystem: true,
             defaultTheme: "system",
+            disableTransitionOnChange: true,
           }}
           localeProps={{
             locale,
