@@ -27,8 +27,8 @@ import Logo from "@assets/logo.png";
 const Navbar: FC = () => {
   const t = useTranslations("Settings");
   return (
-    <NavigationMenu className="sticky z-10 top-0 inset-x-0">
-      <div className="px-6 py-4 flex justify-between items-center max-w-full">
+    <NavigationMenu className="border-b border-border/40 sticky z-10 top-0 inset-x-0 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="px-6 py-4 flex justify-between items-center">
         <div className="md:hidden"></div>
         <div className="flex items-center gap-2">
           <NextImage alt="Nhan Pham" width={36} height={36} src={Logo} />
