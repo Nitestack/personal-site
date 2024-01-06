@@ -1,6 +1,6 @@
 {
   "Metadata": {
-    "description": "Personal Site by Nhan Pham"
+    "description": "Personal Site by {name}"
   },
   "Settings": {
     "language": "Language",
@@ -11,6 +11,7 @@
     }
   },
   "Error": {
-    "message": "Oh no, something went wrong... maybe refresh?"
+    "message": "Oh no, something went wrong... maybe refresh?",
+    "retry": "Retry"
   }
 }
