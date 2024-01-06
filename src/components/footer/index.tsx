@@ -1,10 +1,12 @@
 import { Github, Twitter } from "lucide-react";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { type FC } from "react";
 
 import { SITE_CONFIG } from "@constants";
 
 const Footer: FC = () => {
+  const t = useTranslations("Footer");
   return (
     <footer className="border-t">
       <div className="container mx-auto px-6 py-4 text-center text-white">
@@ -19,7 +21,8 @@ const Footer: FC = () => {
           </Link>
         </div>
         <p className="mt-4 text-sm">
-          © {new Date().getFullYear()} {SITE_CONFIG.name}. All rights reserved.
+          © {new Date().getFullYear()} {SITE_CONFIG.name}.{" "}
+          {t("allRightsReserved")}.
         </p>
       </div>
     </footer>
