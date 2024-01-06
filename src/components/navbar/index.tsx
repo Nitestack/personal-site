@@ -39,15 +39,11 @@ const Navbar: FC = () => {
           </Link>
         </div>
         <NavigationMenuList className="hidden md:flex flex-1 space-x-4 list-none group">
-          <NavigationMenuItem>
-            <NavbarLink href="/about">About</NavbarLink>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <NavbarLink href="/projects">Projects</NavbarLink>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <NavbarLink href="/contact">Contact</NavbarLink>
-          </NavigationMenuItem>
+          {SITE_CONFIG.routes.map((route) => (
+            <NavigationMenuItem key={route.href}>
+              <NavbarLink href={route.href}>{route.name}</NavbarLink>
+            </NavigationMenuItem>
+          ))}
         </NavigationMenuList>
         <div className="flex items-center space-x-2">
           <DropdownMenu>
