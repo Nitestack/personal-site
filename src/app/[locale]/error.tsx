@@ -1,9 +1,14 @@
 "use client";
 
+import { Button } from "@components/ui/button";
+
 import { useTranslations } from "next-intl";
 import { type FC, useEffect } from "react";
 
-const LocaleError: FC<{ error: Error; reset: () => void }> = ({ error }) => {
+const LocaleError: FC<{ error: Error; reset: () => void }> = ({
+  error,
+  reset,
+}) => {
   const t = useTranslations("Error");
   useEffect(() => {
     // Log the error to an error reporting service
@@ -12,7 +17,8 @@ const LocaleError: FC<{ error: Error; reset: () => void }> = ({ error }) => {
 
   return (
     <div>
-      <p>{t("message")}</p>
+      <h1>{t("message")}</h1>
+      <Button onClick={reset}>{t("retry")}</Button>
     </div>
   );
 };
