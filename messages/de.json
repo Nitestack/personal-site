@@ -1,6 +1,6 @@
 {
   "Metadata": {
-    "description": "Persönliche Seite von Nhan Pham"
+    "description": "Persönliche Seite von {name}"
   },
   "Settings": {
     "language": "Sprache",
@@ -11,6 +11,7 @@
     }
   },
   "Error": {
-    "message": "Oh nein, irgendetwas ist schiefgelaufen... vielleicht neuladen?"
+    "message": "Oh nein, irgendetwas ist schiefgelaufen... vielleicht neuladen?",
+    "retry": "Erneut versuchen"
   }
 }
