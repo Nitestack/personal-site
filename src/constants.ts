@@ -1,7 +1,7 @@
 import { type LocalePrefix } from "node_modules/next-intl/dist/types/src/shared/types";
 
 interface NavigationRoute {
-  name: string;
+  translationKey: keyof Messages["Routes"];
   href: string;
 }
 
@@ -15,19 +15,23 @@ export const SITE_CONFIG: {
   url: "http://localhost:3000",
   routes: [
     {
-      name: "About",
+      translationKey: "about",
       href: "#about",
     },
     {
-      name: "Projects",
+      translationKey: "experience",
+      href: "#experience",
+    },
+    {
+      translationKey: "projects",
       href: "#projects",
     },
     {
-      name: "Blogs",
-      href: "/blogs",
+      translationKey: "blog",
+      href: "/blog",
     },
     {
-      name: "Contact",
+      translationKey: "contact",
       href: "#contact",
     },
   ],

@@ -2,6 +2,13 @@
   "Metadata": {
     "description": "Personal Site by {name}"
   },
+  "Routes": {
+    "about": "About",
+    "experience": "Experience",
+    "projects": "Projects",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
   "Settings": {
     "language": "Language",
     "Theme": {
