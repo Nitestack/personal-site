@@ -20,6 +20,10 @@ const nextConfig = {
       destination: "https://github.com/Nitestack",
       permanent: true,
     },
+    {
+      source: "/dotfiles",
+      destination: "https://github.com/Nitestack/dotfiles",
+    },
   ],
 };
 
