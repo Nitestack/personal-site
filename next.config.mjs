@@ -9,6 +9,18 @@ await import("./src/env.mjs");
 /** @type {import("next").NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  redirects: async () => [
+    {
+      source: "/twitter",
+      destination: "https://twitter.com/nitestack",
+      permanent: true,
+    },
+    {
+      source: "/github",
+      destination: "https://github.com/Nitestack",
+      permanent: true,
+    },
+  ],
 };
 
 export default withNextIntl()(nextConfig);
