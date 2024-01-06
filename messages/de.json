@@ -9,6 +9,9 @@
     "blog": "Blog",
     "contact": "Kontakt"
   },
+  "Footer": {
+    "allRightsReserved": "Alle Rechte vorbehalten"
+  },
   "Settings": {
     "language": "Sprache",
     "Theme": {
