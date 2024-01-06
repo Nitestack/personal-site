@@ -1,9 +1,36 @@
 import { type LocalePrefix } from "node_modules/next-intl/dist/types/src/shared/types";
 
-export const SITE_CONFIG = {
+interface NavigationRoute {
+  name: string;
+  href: string;
+}
+
+export const SITE_CONFIG: {
+  name: string;
+  url: string;
+  routes: NavigationRoute[];
+} = {
   name: "Nhan Pham",
   // TODO: Edit in production
   url: "http://localhost:3000",
+  routes: [
+    {
+      name: "About",
+      href: "#about",
+    },
+    {
+      name: "Projects",
+      href: "#projects",
+    },
+    {
+      name: "Blogs",
+      href: "/blogs",
+    },
+    {
+      name: "Contact",
+      href: "#contact",
+    },
+  ],
 };
 
 export const LOCALIZATION_CONFIG: {
