@@ -23,6 +23,7 @@ const nextConfig = {
     {
       source: "/dotfiles",
       destination: "https://github.com/Nitestack/dotfiles",
+      permanent: true,
     },
   ],
 };
