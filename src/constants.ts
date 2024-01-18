@@ -8,11 +8,15 @@ interface NavigationRoute {
 }
 
 export const SITE_CONFIG: {
+  firstName: string;
   name: string;
+  email: string;
   url: string;
   routes: NavigationRoute[];
 } = {
+  firstName: "Nhan",
   name: "Nhan Pham",
+  email: "nhan.pham@mail.de",
   // TODO: Edit in production
   url: "http://localhost:3000",
   routes: [

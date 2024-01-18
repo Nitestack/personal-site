@@ -12,6 +12,12 @@
   "Footer": {
     "allRightsReserved": "All rights reserved"
   },
+  "Home": {
+    "HeroSection": {
+      "title": "Hi, I'm {name}",
+      "description": "A passionate developer specialized in creating modern, and performant web applications."
+    }
+  },
   "Settings": {
     "language": "Language",
     "Theme": {
