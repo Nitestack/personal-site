@@ -12,6 +12,12 @@
   "Footer": {
     "allRightsReserved": "Alle Rechte vorbehalten"
   },
+  "Home": {
+    "HeroSection": {
+      "title": "Hallo, ich bin {name}",
+      "description": "Ein leidenschaftlicher Software-Entwickler tätig in der Entwicklung von modernen und performanten Websiten."
+    }
+  },
   "Settings": {
     "language": "Sprache",
     "Theme": {
