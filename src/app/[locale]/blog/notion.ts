@@ -30,6 +30,16 @@ export const getBlogPages = cache(async () => {
   const pages = await notionClient.databases.query({
     database_id: env.NOTION_DATABASE_ID,
     filter: filterByStatus,
+    sorts: [
+      {
+        timestamp: "last_edited_time",
+        direction: "descending",
+      },
+      {
+        property: "Title",
+        direction: "ascending",
+      },
+    ],
   });
   return pages.results as PageObjectResponse[];
 });
