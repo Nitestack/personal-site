@@ -18,6 +18,10 @@
       "description": "Ein leidenschaftlicher Software-Entwickler tätig in der Entwicklung von modernen und performanten Websiten."
     }
   },
+  "Blog": {
+    "description": "Blogbeiträge und Tutorials zu meiner Laufbahn als Entwickler. Im Moment ausschließlich auf Englisch. Geschrieben von {author}.",
+    "latestPosts": "Letzte Beiträge"
+  },
   "Settings": {
     "language": "Sprache",
     "Theme": {
