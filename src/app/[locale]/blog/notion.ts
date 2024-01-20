@@ -1,3 +1,5 @@
+import "server-only";
+
 import { Client } from "@notionhq/client";
 import {
   type BlockObjectResponse,
@@ -77,4 +79,10 @@ export const parseBlogPageProperties = (
 
 export const trimExcerpt = (excerpt: string) => {
   return excerpt.length > 200 ? excerpt.slice(0, 200) + "..." : excerpt;
+};
+
+export const getLocaleDateString = (date: Date) => {
+  return date.toLocaleDateString(undefined, {
+    dateStyle: "long",
+  });
 };
