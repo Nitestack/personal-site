@@ -18,6 +18,10 @@
       "description": "A passionate developer specialized in creating modern, and performant web applications."
     }
   },
+  "Blog": {
+    "description": "Blog posts and tutorials on my learning journey as a developer. Written by {author}.",
+    "latestPosts": "Latest posts"
+  },
   "Settings": {
     "language": "Language",
     "Theme": {
