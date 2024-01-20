@@ -16,3 +16,11 @@ export function cn(...inputs: ClassValue[]) {
 export function keysFromObject<T extends object>(obj: T) {
   return Object.keys(obj) as (keyof T)[];
 }
+
+export function getAvatarFallback(name: string) {
+  return name
+    .split(" ")
+    .map((n) => n[0])
+    .join("")
+    .toUpperCase();
+}
