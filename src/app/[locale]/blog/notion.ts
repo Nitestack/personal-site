@@ -35,10 +35,20 @@ export const getBlogPageBySlug = cache(async (slug: string) => {
   const pages = await notionClient.databases.query({
     database_id: env.NOTION_DATABASE_ID,
     filter: {
-      property: "Slug",
-      rich_text: {
-        equals: slug,
-      },
+      and: [
+        {
+          property: "Slug",
+          rich_text: {
+            equals: slug,
+          },
+        },
+        {
+          property: "Status",
+          select: {
+            equals: "Published",
+          },
+        },
+      ],
     },
   });
   return pages.results[0] as PageObjectResponse | undefined;
