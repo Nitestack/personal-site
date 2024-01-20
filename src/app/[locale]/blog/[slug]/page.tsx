@@ -1,5 +1,6 @@
 import {
   getBlogPageBySlug,
+  getLocaleDateString,
   getNotionPageContent,
   notionClient,
   parseBlogPageProperties,
@@ -48,8 +49,8 @@ const BlogPage: FC<{ params: { slug: string } }> = async ({
   if (!post) notFound();
 
   const { title, excerpt } = parseBlogPageProperties(post.properties);
-  const lastEditedTime = new Date(post.last_edited_time);
-  const createdTime = new Date(post.created_time);
+  const lastEditedDate = getLocaleDateString(new Date(post.last_edited_time));
+  const createdDate = getLocaleDateString(new Date(post.created_time));
 
   return (
     <article className="max-w-3xl mx-auto">
@@ -74,20 +75,14 @@ const BlogPage: FC<{ params: { slug: string } }> = async ({
           <div className="text-right flex items-start gap-10">
             <div>
               <p className="text-xs font-mono">Created at</p>
-              <p>
-                {createdTime.toLocaleDateString(undefined, {
-                  dateStyle: "long",
-                })}
-              </p>
+              <p>{createdDate}</p>
             </div>
-            <div>
-              <p className="text-xs font-mono">Last edited</p>
-              <p>
-                {lastEditedTime.toLocaleDateString(undefined, {
-                  dateStyle: "long",
-                })}
-              </p>
-            </div>
+            {createdDate.toLowerCase() !== lastEditedDate.toLowerCase() && (
+              <div>
+                <p className="text-xs font-mono">Last edited</p>
+                <p>{lastEditedDate}</p>
+              </div>
+            )}
           </div>
         </div>
       </section>

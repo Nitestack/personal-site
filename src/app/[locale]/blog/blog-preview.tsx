@@ -1,4 +1,4 @@
-import { trimExcerpt } from "@app/[locale]/blog/notion";
+import { getLocaleDateString, trimExcerpt } from "@app/[locale]/blog/notion";
 import { type BlogPostPreview } from "@app/[locale]/blog/types";
 
 import {
@@ -24,6 +24,8 @@ const BlogPostPreview: FC<BlogPostPreview> = ({
   imgUrl,
   slug,
 }) => {
+  const createdDate = getLocaleDateString(new Date(createdAtTimestamp));
+  const lastEditedDate = getLocaleDateString(new Date(lastEditedAtTimestamp));
   return (
     <Link href={`/blog/${slug}`}>
       <Card className="overflow-hidden">
@@ -42,20 +44,16 @@ const BlogPostPreview: FC<BlogPostPreview> = ({
           </CardDescription>
           <div className="flex items-start justify-between">
             <div className="text-left">
-              <p className="text-xs font-mono">Created at</p>
-              <p>
-                {new Date(createdAtTimestamp).toLocaleDateString(undefined, {
-                  dateStyle: "long",
-                })}
-              </p>
+              {createdDate.toLowerCase() !== lastEditedDate.toLowerCase() && (
+                <>
+                  <p className="text-xs font-mono">Last edited</p>
+                  <p>{lastEditedDate}</p>
+                </>
+              )}
             </div>
             <div className="text-right">
-              <p className="text-xs font-mono">Last edited</p>
-              <p>
-                {new Date(lastEditedAtTimestamp).toLocaleDateString(undefined, {
-                  dateStyle: "long",
-                })}
-              </p>
+              <p className="text-xs font-mono">Created at</p>
+              <p>{createdDate}</p>
             </div>
           </div>
         </CardHeader>
