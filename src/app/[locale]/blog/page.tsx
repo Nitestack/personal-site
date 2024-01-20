@@ -3,6 +3,7 @@ import {
   getBlogPages,
   parseBlogPageProperties,
 } from "@app/[locale]/blog/notion";
+import SkeletonBlogPreview from "@app/[locale]/blog/skeleton-blog-preview";
 
 import { type Metadata } from "next";
 import { useTranslations } from "next-intl";
@@ -33,9 +34,17 @@ const BlogOverviewPage: FC<{ params: { locale: string } }> = ({
         </p>
       </section>
       <section className="px-6 py-12">
-        <Suspense>
-          <BlogList />
-        </Suspense>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <Suspense
+            fallback={Array(4)
+              .fill(0)
+              .map((_, index) => (
+                <SkeletonBlogPreview key={index} />
+              ))}
+          >
+            <BlogList />
+          </Suspense>
+        </div>
       </section>
     </div>
   );
@@ -57,30 +66,26 @@ const BlogList: FC = async () => {
     };
   });
 
-  return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-5xl mx-auto">
-      {pages.map(
-        ({
-          slug,
-          title,
-          excerpt,
-          imgUrl,
-          createdAtTimestamp,
-          lastEditedAtTimestamp,
-        }) => (
-          <BlogPostPreview
-            key={slug}
-            title={title}
-            excerpt={excerpt}
-            imgAlt={undefined}
-            imgUrl={imgUrl}
-            slug={slug}
-            createdAtTimestamp={createdAtTimestamp}
-            lastEditedAtTimestamp={lastEditedAtTimestamp}
-          />
-        ),
-      )}
-    </div>
+  return pages.map(
+    ({
+      slug,
+      title,
+      excerpt,
+      imgUrl,
+      createdAtTimestamp,
+      lastEditedAtTimestamp,
+    }) => (
+      <BlogPostPreview
+        key={slug}
+        title={title}
+        excerpt={excerpt}
+        imgAlt={undefined}
+        imgUrl={imgUrl}
+        slug={slug}
+        createdAtTimestamp={createdAtTimestamp}
+        lastEditedAtTimestamp={lastEditedAtTimestamp}
+      />
+    ),
   );
 };
 
