@@ -1,10 +1,19 @@
 import BlogPostPreview from "@app/[locale]/blog/blog-preview";
+import {
+  getBlogPages,
+  parseBlogPageProperties,
+} from "@app/[locale]/blog/notion";
 
+import { type Metadata } from "next";
 import { useTranslations } from "next-intl";
 import { unstable_setRequestLocale } from "next-intl/server";
-import { type FC } from "react";
+import { type FC, Suspense } from "react";
 
 import { SITE_CONFIG } from "@constants";
+
+export const metadata: Metadata = {
+  title: "Blog",
+};
 
 const BlogOverviewPage: FC<{ params: { locale: string } }> = ({
   params: { locale },
@@ -16,7 +25,7 @@ const BlogOverviewPage: FC<{ params: { locale: string } }> = ({
   return (
     <div className="space-y-6">
       <section className="px-6 py-12 text-center">
-        <h1 className="text-6xl font-bold">Blog</h1>
+        <h1 className="text-4xl lg:text-5xl font-extrabold">Blog</h1>
         <p className="mt-2 text-lg">
           {t("description", {
             author: SITE_CONFIG.name,
@@ -24,23 +33,53 @@ const BlogOverviewPage: FC<{ params: { locale: string } }> = ({
         </p>
       </section>
       <section className="px-6 py-12">
-        <h2 className="text-3xl font-bold text-center mb-8">
-          {t("latestPosts")}
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {[1, 2, 3].map((i) => (
-            <BlogPostPreview
-              dateTimestamp={new Date().getTime()}
-              key={`post-${i}`}
-              title={`Post ${i}`}
-              excerpt="Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat."
-              imgAlt={`Post ${i}`}
-              imgUrl="/favicon.ico"
-              slug={`post-${i}`}
-            />
-          ))}
-        </div>
+        <Suspense>
+          <BlogList />
+        </Suspense>
       </section>
+    </div>
+  );
+};
+
+const BlogList: FC = async () => {
+  const pages = (await getBlogPages()).map((page) => {
+    const { title, excerpt, slug } = parseBlogPageProperties(page.properties);
+    return {
+      title,
+      excerpt,
+      slug,
+      imgUrl:
+        page.cover?.type == "external"
+          ? page.cover.external.url
+          : page.cover?.file.url,
+      createdAtTimestamp: new Date(page.created_time).getTime(),
+      lastEditedAtTimestamp: new Date(page.last_edited_time).getTime(),
+    };
+  });
+
+  return (
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-5xl mx-auto">
+      {pages.map(
+        ({
+          slug,
+          title,
+          excerpt,
+          imgUrl,
+          createdAtTimestamp,
+          lastEditedAtTimestamp,
+        }) => (
+          <BlogPostPreview
+            key={slug}
+            title={title}
+            excerpt={excerpt}
+            imgAlt={undefined}
+            imgUrl={imgUrl}
+            slug={slug}
+            createdAtTimestamp={createdAtTimestamp}
+            lastEditedAtTimestamp={lastEditedAtTimestamp}
+          />
+        ),
+      )}
     </div>
   );
 };
