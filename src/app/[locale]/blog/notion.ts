@@ -7,6 +7,14 @@ import { cache } from "react";
 
 import { env } from "@env";
 
+// Only get pages that are published
+const filterByStatus = {
+  property: "Status",
+  select: {
+    equals: "Published",
+  },
+};
+
 export const notionClient = new Client({
   auth: env.NOTION_SECRET,
 });
@@ -21,12 +29,7 @@ export const getNotionPageContent = cache(async (pageId: string) => {
 export const getBlogPages = cache(async () => {
   const pages = await notionClient.databases.query({
     database_id: env.NOTION_DATABASE_ID,
-    filter: {
-      property: "Status",
-      select: {
-        equals: "Published",
-      },
-    },
+    filter: filterByStatus,
   });
   return pages.results as PageObjectResponse[];
 });
@@ -42,12 +45,7 @@ export const getBlogPageBySlug = cache(async (slug: string) => {
             equals: slug,
           },
         },
-        {
-          property: "Status",
-          select: {
-            equals: "Published",
-          },
-        },
+        filterByStatus,
       ],
     },
   });
