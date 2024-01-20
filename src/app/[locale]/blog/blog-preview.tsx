@@ -4,6 +4,7 @@ import { type BlogPostPreview } from "@app/[locale]/blog/types";
 import {
   Card,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from "@components/ui/card";
@@ -37,26 +38,26 @@ const BlogPostPreview: FC<BlogPostPreview> = ({
             alt={imgAlt ?? title}
           />
         </div>
-        <CardHeader className="space-y-4">
+        <CardHeader className="space-x-4">
           <CardTitle className="text-center font-bold">{title}</CardTitle>
           <CardDescription className="text-ellipsis overflow-hidden">
             {trimExcerpt(excerpt)}
           </CardDescription>
-          <div className="flex items-start justify-between">
-            <div className="text-left">
-              {createdDate.toLowerCase() !== lastEditedDate.toLowerCase() && (
-                <>
-                  <p className="text-xs font-mono">Last edited</p>
-                  <p>{lastEditedDate}</p>
-                </>
-              )}
-            </div>
-            <div className="text-right">
-              <p className="text-xs font-mono">Created at</p>
-              <p>{createdDate}</p>
-            </div>
-          </div>
         </CardHeader>
+        <CardFooter className="justify-between items-end">
+          <div className="text-left">
+            {createdDate.toLowerCase() !== lastEditedDate.toLowerCase() && (
+              <>
+                <p className="text-xs font-mono">Last edited</p>
+                <p>{lastEditedDate}</p>
+              </>
+            )}
+          </div>
+          <div className="text-right">
+            <p className="text-xs font-mono">Created at</p>
+            <p>{createdDate}</p>
+          </div>
+        </CardFooter>
       </Card>
     </Link>
   );
