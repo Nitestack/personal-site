@@ -8,6 +8,7 @@ import {
 } from "@app/[locale]/blog/notion";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@components/ui/avatar";
+import { Skeleton } from "@components/ui/skeleton";
 
 import bookmarkPlugin from "@notion-render/bookmark-plugin";
 import { NotionRenderer } from "@notion-render/client";
@@ -86,7 +87,7 @@ const BlogPage: FC<{ params: { slug: string } }> = async ({
           </div>
         </div>
       </section>
-      <Suspense>
+      <Suspense fallback={<SkeletonBlogDescription />}>
         <BlogDescription postID={post.id} />
       </Suspense>
     </article>
@@ -101,7 +102,38 @@ const BlogDescription: FC<{ postID: string }> = async ({ postID }) => {
     <div
       className="max-w-3xl prose prose-neutral dark:prose-invert lg:prose-lg"
       dangerouslySetInnerHTML={{ __html: htmlContent }}
-    ></div>
+    />
+  );
+};
+
+const SkeletonBlogDescription: FC = () => {
+  return (
+    <div className="max-w-3xl space-y-10">
+      <div className="space-y-4">
+        <Skeleton className="h-4 lg:h-5 w-full" />
+        <Skeleton className="h-4 lg:h-5 w-5/6" />
+        <Skeleton className="h-4 lg:h-5 w-11/12" />
+        <Skeleton className="h-4 lg:h-5 w-9/12" />
+        <Skeleton className="h-4 lg:h-5 w-11/12" />
+        <Skeleton className="h-4 lg:h-5 w-8/12" />
+      </div>
+      <div className="space-y-4">
+        <Skeleton className="h-4 lg:h-5 w-full" />
+        <Skeleton className="h-4 lg:h-5 w-11/12" />
+        <Skeleton className="h-4 lg:h-5 w-9/12" />
+        <Skeleton className="h-4 lg:h-5 w-5/6" />
+        <Skeleton className="h-4 lg:h-5 w-11/12" />
+        <Skeleton className="h-4 lg:h-5 w-7/12" />
+      </div>
+      <div className="space-y-4">
+        <Skeleton className="h-4 lg:h-5 w-11/12" />
+        <Skeleton className="h-4 lg:h-5 w-9/12" />
+        <Skeleton className="h-4 lg:h-5 w-full" />
+        <Skeleton className="h-4 lg:h-5 w-11/12" />
+        <Skeleton className="h-4 lg:h-5 w-5/6" />
+        <Skeleton className="h-4 lg:h-5 w-7/12" />
+      </div>
+    </div>
   );
 };
 
