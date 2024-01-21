@@ -7,7 +7,7 @@ import SkeletonBlogPreview from "@app/[locale]/blog/skeleton-blog-preview";
 
 import { type Metadata } from "next";
 import { useTranslations } from "next-intl";
-import { unstable_setRequestLocale } from "next-intl/server";
+import { unstable_noStore } from "next/cache";
 import { type FC, Suspense } from "react";
 
 import { SITE_CONFIG } from "@constants";
@@ -16,10 +16,8 @@ export const metadata: Metadata = {
   title: "Blog",
 };
 
-const BlogOverviewPage: FC<{ params: { locale: string } }> = ({
-  params: { locale },
-}) => {
-  unstable_setRequestLocale(locale);
+const BlogOverviewPage: FC = () => {
+  unstable_noStore();
 
   const t = useTranslations("Blog");
 
