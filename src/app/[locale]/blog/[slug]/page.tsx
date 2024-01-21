@@ -119,7 +119,7 @@ const BlogDescription: FC<{ postID: string }> = async ({ postID }) => {
 
   return (
     <div
-      className="max-w-3xl prose prose-neutral dark:prose-invert lg:prose-lg"
+      className="notion-render max-w-3xl prose prose-orange dark:prose-invert lg:prose-lg"
       dangerouslySetInnerHTML={{ __html: htmlContent }}
     />
   );
