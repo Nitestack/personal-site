@@ -8,7 +8,7 @@ import pick from "lodash.pick";
 import { type Metadata, type Viewport } from "next";
 import { useMessages } from "next-intl";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
-import { IBM_Plex_Mono, Work_Sans } from "next/font/google";
+import { JetBrains_Mono, Work_Sans } from "next/font/google";
 import { type FC, type ReactNode } from "react";
 
 import { classNames } from "@utils";
@@ -21,10 +21,10 @@ const workSans = Work_Sans({
   variable: "--font-work-sans",
 });
 
-const ibmPlexMono = IBM_Plex_Mono({
+const jetBrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700"],
-  variable: "--font-ibm-plex-mono",
+  variable: "--font-jetbrains-mono",
 });
 
 export async function generateMetadata({
@@ -65,7 +65,7 @@ const LocaleLayout: FC<{ children: ReactNode; params: { locale: string } }> = ({
     <html
       className={classNames(
         workSans.variable,
-        ibmPlexMono.variable,
+        jetBrainsMono.variable,
         "antialiased scroll-smooth scroll-pt-24",
       )}
       lang={locale}
