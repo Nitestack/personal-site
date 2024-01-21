@@ -20,7 +20,10 @@
   },
   "Blog": {
     "description": "Blog posts and tutorials on my learning journey as a developer. Written by {author}.",
-    "latestPosts": "Latest posts"
+    "latestPosts": "Latest posts",
+    "createdAt": "Created at",
+    "lastEdited": "Last edited at",
+    "author": "Author"
   },
   "Settings": {
     "language": "Language",

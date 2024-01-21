@@ -16,7 +16,9 @@ import { type FC } from "react";
 
 import PlaceholderImage from "@assets/16_9_placeholder.png";
 
-const BlogPostPreview: FC<BlogPostPreview> = ({
+const BlogPostPreview: FC<
+  BlogPostPreview & { createdAtLabel: string; lastEditedLabel: string }
+> = ({
   title,
   excerpt,
   createdAtTimestamp,
@@ -24,6 +26,8 @@ const BlogPostPreview: FC<BlogPostPreview> = ({
   imgAlt,
   imgUrl,
   slug,
+  createdAtLabel,
+  lastEditedLabel,
 }) => {
   const createdDate = getLocaleDateString(new Date(createdAtTimestamp));
   const lastEditedDate = getLocaleDateString(new Date(lastEditedAtTimestamp));
@@ -48,13 +52,13 @@ const BlogPostPreview: FC<BlogPostPreview> = ({
           <div className="text-left">
             {createdDate.toLowerCase() !== lastEditedDate.toLowerCase() && (
               <>
-                <p className="text-xs font-mono">Last edited</p>
+                <p className="text-xs font-mono">{lastEditedLabel}</p>
                 <p>{lastEditedDate}</p>
               </>
             )}
           </div>
           <div className="text-right">
-            <p className="text-xs font-mono">Created at</p>
+            <p className="text-xs font-mono">{createdAtLabel}</p>
             <p>{createdDate}</p>
           </div>
         </CardFooter>

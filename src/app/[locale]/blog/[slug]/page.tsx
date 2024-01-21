@@ -14,6 +14,7 @@ import bookmarkPlugin from "@notion-render/bookmark-plugin";
 import { NotionRenderer } from "@notion-render/client";
 import hljsPlugin from "@notion-render/hljs-plugin";
 import { type Metadata } from "next";
+import { useTranslations } from "next-intl";
 import { notFound } from "next/navigation";
 import { type FC, Suspense } from "react";
 
@@ -39,9 +40,27 @@ export async function generateMetadata({
   };
 }
 
-const BlogPage: FC<{ params: { slug: string } }> = async ({
-  params: { slug },
-}) => {
+const BlogPage: FC<{ params: { slug: string } }> = ({ params: { slug } }) => {
+  const t = useTranslations("Blog");
+
+  return (
+    <Suspense>
+      <BlogPost
+        slug={slug}
+        createdAtLabel={t("createdAt")}
+        lastEditedLabel={t("lastEdited")}
+        authorLabel={t("author")}
+      />
+    </Suspense>
+  );
+};
+
+const BlogPost: FC<{
+  slug: string;
+  createdAtLabel: string;
+  lastEditedLabel: string;
+  authorLabel: string;
+}> = async ({ createdAtLabel, lastEditedLabel, authorLabel, slug }) => {
   await notionRenderer.use(hljsPlugin({}));
   await notionRenderer.use(bookmarkPlugin(undefined));
 
@@ -69,18 +88,18 @@ const BlogPage: FC<{ params: { slug: string } }> = async ({
               </AvatarFallback>
             </Avatar>
             <div>
-              <p className="text-xs font-mono">Author</p>
+              <p className="text-xs font-mono">{authorLabel}</p>
               <p>{SITE_CONFIG.name}</p>
             </div>
           </div>
           <div className="text-right flex items-start gap-10">
             <div>
-              <p className="text-xs font-mono">Created at</p>
+              <p className="text-xs font-mono">{createdAtLabel}</p>
               <p>{createdDate}</p>
             </div>
             {createdDate.toLowerCase() !== lastEditedDate.toLowerCase() && (
               <div>
-                <p className="text-xs font-mono">Last edited</p>
+                <p className="text-xs font-mono">{lastEditedLabel}</p>
                 <p>{lastEditedDate}</p>
               </div>
             )}
