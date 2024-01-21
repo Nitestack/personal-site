@@ -50,6 +50,9 @@ dependencies:
   clsx:
     specifier: ^2.1.0
     version: 2.1.0
+  highlight.js:
+    specifier: ^11.9.0
+    version: 11.9.0
   lodash.pick:
     specifier: ^4.4.0
     version: 4.4.0
