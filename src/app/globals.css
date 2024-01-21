@@ -59,7 +59,7 @@
 }
 
 code.notion-text-code {
-  @apply rounded bg-muted px-2 py-1 text-base shadow-sm shadow-ring;
+  @apply rounded bg-muted px-2 py-1 leading-8 shadow-sm shadow-ring lg:text-base;
 }
 code.notion-text-code::after,
 code.notion-text-code::before {
