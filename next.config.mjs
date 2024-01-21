@@ -11,10 +11,21 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     remotePatterns: [
+      // Notion gallery images
       {
         protocol: "https",
         hostname: "www.notion.so",
         pathname: "/images/page-cover/**",
+      },
+      // Notion Unsplash images
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+      },
+      // Notion file uploads
+      {
+        protocol: "https",
+        hostname: "prod-files-secure.s3.us-west-2.amazonaws.com",
       },
     ],
   },
