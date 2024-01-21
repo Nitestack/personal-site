@@ -7,7 +7,6 @@ import SkeletonBlogPreview from "@app/[locale]/blog/skeleton-blog-preview";
 
 import { type Metadata } from "next";
 import { useTranslations } from "next-intl";
-import { unstable_setRequestLocale } from "next-intl/server";
 import { type FC, Suspense } from "react";
 
 import { SITE_CONFIG } from "@constants";
@@ -16,11 +15,7 @@ export const metadata: Metadata = {
   title: "Blog",
 };
 
-const BlogOverviewPage: FC<{ params: { locale: string } }> = ({
-  params: { locale },
-}) => {
-  unstable_setRequestLocale(locale);
-
+const BlogOverviewPage: FC = () => {
   const t = useTranslations("Blog");
 
   return (
@@ -42,7 +37,10 @@ const BlogOverviewPage: FC<{ params: { locale: string } }> = ({
                 <SkeletonBlogPreview key={index} />
               ))}
           >
-            <BlogList />
+            <BlogList
+              createdAtLabel={t("createdAt")}
+              lastEditedLabel={t("lastEdited")}
+            />
           </Suspense>
         </div>
       </section>
@@ -50,7 +48,10 @@ const BlogOverviewPage: FC<{ params: { locale: string } }> = ({
   );
 };
 
-const BlogList: FC = async () => {
+const BlogList: FC<{
+  createdAtLabel: string;
+  lastEditedLabel: string;
+}> = async ({ createdAtLabel, lastEditedLabel }) => {
   const pages = (await getBlogPages()).map((page) => {
     const { title, excerpt, slug } = parseBlogPageProperties(page.properties);
     return {
@@ -84,6 +85,8 @@ const BlogList: FC = async () => {
         slug={slug}
         createdAtTimestamp={createdAtTimestamp}
         lastEditedAtTimestamp={lastEditedAtTimestamp}
+        createdAtLabel={createdAtLabel}
+        lastEditedLabel={lastEditedLabel}
       />
     ),
   );
