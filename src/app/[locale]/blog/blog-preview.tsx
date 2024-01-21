@@ -32,8 +32,8 @@ const BlogPostPreview: FC<
   const createdDate = getLocaleDateString(new Date(createdAtTimestamp));
   const lastEditedDate = getLocaleDateString(new Date(lastEditedAtTimestamp));
   return (
-    <Link href={`/blog/${slug}`}>
-      <Card className="overflow-hidden">
+    <Link className="group" href={`/blog/${slug}`}>
+      <Card className="overflow-hidden flex flex-col h-full w-full">
         <div className="aspect-video h-full relative">
           <NextImage
             className="object-cover"
@@ -42,26 +42,28 @@ const BlogPostPreview: FC<
             alt={imgAlt ?? title}
           />
         </div>
-        <CardHeader className="space-x-4">
-          <CardTitle className="text-center font-bold">{title}</CardTitle>
-          <CardDescription className="text-ellipsis overflow-hidden">
-            {trimExcerpt(excerpt)}
-          </CardDescription>
+        <CardHeader className="flex flex-col h-full space-y-6">
+          <div className="flex-1 space-y-4">
+            <CardTitle className="text-center font-bold">{title}</CardTitle>
+            <CardDescription className="text-ellipsis overflow-hidden">
+              {trimExcerpt(excerpt)}
+            </CardDescription>
+          </div>
+          <div className="flex justify-between items-end">
+            <div className="text-left">
+              {createdDate.toLowerCase() !== lastEditedDate.toLowerCase() && (
+                <>
+                  <p className="text-xs font-mono">{lastEditedLabel}</p>
+                  <p>{lastEditedDate}</p>
+                </>
+              )}
+            </div>
+            <div className="text-right">
+              <p className="text-xs font-mono">{createdAtLabel}</p>
+              <p>{createdDate}</p>
+            </div>
+          </div>
         </CardHeader>
-        <CardFooter className="justify-between items-end">
-          <div className="text-left">
-            {createdDate.toLowerCase() !== lastEditedDate.toLowerCase() && (
-              <>
-                <p className="text-xs font-mono">{lastEditedLabel}</p>
-                <p>{lastEditedDate}</p>
-              </>
-            )}
-          </div>
-          <div className="text-right">
-            <p className="text-xs font-mono">{createdAtLabel}</p>
-            <p>{createdDate}</p>
-          </div>
-        </CardFooter>
       </Card>
     </Link>
   );
