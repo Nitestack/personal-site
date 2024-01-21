@@ -57,3 +57,11 @@
     @apply bg-background text-foreground;
   }
 }
+
+code.notion-text-code {
+  @apply rounded bg-[var(--tw-prose-pre-bg)] px-2 py-1 text-base;
+}
+code.notion-text-code::after,
+code.notion-text-code::before {
+  @apply hidden;
+}
