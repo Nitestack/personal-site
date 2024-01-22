@@ -73,8 +73,11 @@ export const parseBlogPageProperties = (
   return {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-explicit-any
     title: (properties.Title as any).title[0].plain_text as string,
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-explicit-any
-    excerpt: (properties.Excerpt as any).rich_text[0].plain_text as string,
+    excerpt:
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-explicit-any
+      ((properties.Excerpt as any).rich_text[0]?.plain_text as
+        | string
+        | undefined) ?? "",
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-explicit-any
     slug: (properties.Slug as any).rich_text[0].plain_text as string,
   };
