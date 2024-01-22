@@ -27,16 +27,40 @@ const notionRenderer = new NotionRenderer({
 });
 
 export async function generateMetadata({
-  params: { slug },
+  params: { slug, locale },
 }: {
-  params: { slug: string };
-}): Promise<Metadata> {
+  params: { slug: string; locale: string };
+}): Promise<Metadata | undefined> {
   const post = await getBlogPageBySlug(slug);
-  if (!post) return {};
+  if (!post) return;
   const { title, excerpt } = parseBlogPageProperties(post.properties);
+  const description = trimExcerpt(excerpt);
+  const imageUrl = post.cover
+    ? post.cover.type == "external"
+      ? post.cover.external.url
+      : post.cover.file.url
+    : undefined;
+  const publishedTime = getLocaleDateString(new Date(post.created_time));
   return {
-    title: title,
-    description: trimExcerpt(excerpt),
+    title,
+    description,
+    openGraph: {
+      authors: [SITE_CONFIG.name],
+      title,
+      description,
+      type: "article",
+      url: `${SITE_CONFIG.url}/${locale}/blog/${slug}`,
+      publishedTime,
+      images: imageUrl ? [{ url: imageUrl, alt: title }] : [],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      creator: "@nitestack",
+      creatorId: "1686490852212838400",
+      images: imageUrl ? [imageUrl] : [],
+    },
   };
 }
 
