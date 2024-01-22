@@ -2,6 +2,7 @@ import {
   getBlogPageBySlug,
   getLocaleDateString,
   getNotionPageContent,
+  hljsPlugin,
   notionClient,
   parseBlogPageProperties,
   trimExcerpt,
@@ -12,7 +13,6 @@ import { Skeleton } from "@components/ui/skeleton";
 
 import bookmarkPlugin from "@notion-render/bookmark-plugin";
 import { NotionRenderer } from "@notion-render/client";
-import hljsPlugin from "@notion-render/hljs-plugin";
 import { type Metadata } from "next";
 import { useTranslations } from "next-intl";
 import { notFound } from "next/navigation";
@@ -76,8 +76,10 @@ const BlogPost: FC<{
     <article className="max-w-3xl mx-auto">
       <section className="space-y-8 py-12">
         <div className="text-center">
-          <h1 className="text-4xl font-extrabold lg:text-5xl">{title}</h1>
-          <p className="mt-4 text-lg font-mono">{excerpt}</p>
+          <h1 className="text-balance tracking-wide text-3xl font-extrabold md:text-5xl">
+            {title}
+          </h1>
+          <p className="mt-4 lg:text-lg font-mono">{excerpt}</p>
         </div>
         <div className="flex items-center justify-between gap-4">
           <div className="flex items-center gap-2">
@@ -119,7 +121,7 @@ const BlogDescription: FC<{ postID: string }> = async ({ postID }) => {
 
   return (
     <div
-      className="notion-render max-w-3xl prose prose-orange dark:prose-invert lg:prose-lg"
+      className="notion-render max-w-3xl prose prose-code:break-words prose-pre:rounded-t-none md:prose-code:break-normal prose-pre:rounded-b-md prose-pre:mt-0 prose-pre:relative prose-orange dark:prose-invert lg:prose-lg"
       dangerouslySetInnerHTML={{ __html: htmlContent }}
     />
   );
