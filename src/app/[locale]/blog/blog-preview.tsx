@@ -43,7 +43,9 @@ const BlogPostPreview: FC<
         </div>
         <CardHeader className="flex flex-col h-full space-y-6">
           <div className="flex-1 space-y-4">
-            <CardTitle className="text-center font-bold">{title}</CardTitle>
+            <CardTitle className="text-center text-balance font-bold">
+              {title}
+            </CardTitle>
             <CardDescription className="text-ellipsis overflow-hidden line-clamp-3">
               {trimExcerpt(excerpt)}
             </CardDescription>
