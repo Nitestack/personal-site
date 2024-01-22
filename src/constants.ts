@@ -18,7 +18,10 @@ export const SITE_CONFIG: {
   name: "Nhan Pham",
   email: "nhan.pham@mail.de",
   // TODO: Edit in production
-  url: "http://localhost:3000",
+  url:
+    process.env.NODE_ENV == "development"
+      ? "http://localhost:3000"
+      : "https://nhanpham.vercel.app",
   routes: [
     {
       id: "about",
