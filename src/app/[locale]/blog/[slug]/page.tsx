@@ -44,6 +44,7 @@ export async function generateMetadata({
   return {
     title,
     description,
+    authors: [{ name: SITE_CONFIG.name, url: SITE_CONFIG.url }],
     openGraph: {
       authors: [SITE_CONFIG.name],
       title,
