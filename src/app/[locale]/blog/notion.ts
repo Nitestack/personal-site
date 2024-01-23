@@ -122,8 +122,8 @@ const codeBlockRenderer = (options: Config) =>
 
       return `
         <div class="notion-${data.type}">
-          <div class="bg-muted flex justify-between items-center gap-2 h-full w-full font-bold rounded-t px-6 py-2">
-            <legend class="font-mono text-xs truncate">${data.code.caption.length >= 1 ? await renderer.render(...data.code.caption) : "Code"}</legend>
+          <div class="bg-muted flex justify-between items-center gap-2 h-full w-full font-bold rounded-t px-[calc(16_/_14_*1em)] md:py-2 lg:px-6 py-1">
+            <legend class="font-mono text-xs md:text-sm truncate">${data.code.caption.length >= 1 ? await renderer.render(...data.code.caption) : "Code"}</legend>
             <div class="flex items-center">
               <button class="hover:text-foreground/50 w-5 h-5" onclick="navigator.clipboard.writeText(\`${clipboardText}\`); this.innerHTML = \`${checkIconSvg}\`; setTimeout(() => { this.innerHTML = \`${copyIconSvg}\`; }, 2000);">
                 ${copyIconSvg}
