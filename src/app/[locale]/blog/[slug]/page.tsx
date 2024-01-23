@@ -22,6 +22,8 @@ import { getAvatarFallback } from "@utils";
 
 import { SITE_CONFIG } from "@constants";
 
+import Logo from "@assets/logo.png";
+
 const notionRenderer = new NotionRenderer({
   client: notionClient,
 });
@@ -109,7 +111,7 @@ const BlogPost: FC<{
         <div className="flex items-center justify-between gap-4">
           <div className="flex items-center gap-2">
             <Avatar>
-              <AvatarImage src="/test" />
+              <AvatarImage src={Logo.src} alt={SITE_CONFIG.name} />
               <AvatarFallback>
                 {getAvatarFallback(SITE_CONFIG.name)}
               </AvatarFallback>
