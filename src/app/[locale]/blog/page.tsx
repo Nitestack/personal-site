@@ -22,17 +22,19 @@ const BlogOverviewPage: FC = () => {
   const t = useTranslations("Blog");
 
   return (
-    <div className="space-y-6">
-      <section className="px-6 py-12 text-center">
-        <h1 className="text-4xl lg:text-5xl font-extrabold">Blog</h1>
-        <p className="mt-2 text-lg">
+    <div className="mt-4 md:mt-8 lg:mt-12 space-y-6 md:space-y-12">
+      <section className="text-center">
+        <h1 className="tracking-wide text-3xl sm:text-4xl font-extrabold lg:text-5xl">
+          Blog
+        </h1>
+        <p className="mt-2 md:text-lg">
           {t("description", {
             author: SITE_CONFIG.name,
           })}
         </p>
       </section>
-      <section className="px-6 py-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-5xl mx-auto">
+      <section className="flex items-center justify-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-8 max-w-5xl">
           <Suspense
             fallback={Array(4)
               .fill(0)
@@ -44,6 +46,7 @@ const BlogOverviewPage: FC = () => {
               createdAtLabel={t("createdAt")}
               lastEditedLabel={t("lastEdited")}
             />
+            <SkeletonBlogPreview />
           </Suspense>
         </div>
       </section>

@@ -46,7 +46,7 @@ const BlogPostPreview: FC<
             <CardTitle className="text-center text-balance font-bold">
               {title}
             </CardTitle>
-            <CardDescription className="text-ellipsis overflow-hidden line-clamp-3">
+            <CardDescription className="text-ellipsis text-balance overflow-hidden line-clamp-3">
               {trimExcerpt(excerpt)}
             </CardDescription>
           </div>
@@ -55,13 +55,13 @@ const BlogPostPreview: FC<
               {createdDate.toLowerCase() !== lastEditedDate.toLowerCase() && (
                 <>
                   <p className="text-xs font-mono">{lastEditedLabel}</p>
-                  <p>{lastEditedDate}</p>
+                  <p className="font-bold">{lastEditedDate}</p>
                 </>
               )}
             </div>
             <div className="text-right">
               <p className="text-xs font-mono">{createdAtLabel}</p>
-              <p>{createdDate}</p>
+              <p className="font-bold">{createdDate}</p>
             </div>
           </div>
         </CardHeader>
