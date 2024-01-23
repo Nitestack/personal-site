@@ -9,6 +9,7 @@ import { type Metadata, type Viewport } from "next";
 import { useMessages } from "next-intl";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import { JetBrains_Mono, Work_Sans } from "next/font/google";
+import localFont from "next/font/local";
 import { type FC, type ReactNode } from "react";
 
 import { classNames } from "@utils";
@@ -17,14 +18,12 @@ import { LOCALIZATION_CONFIG, SITE_CONFIG } from "@constants";
 
 const workSans = Work_Sans({
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   variable: "--font-work-sans",
 });
 
-const jetBrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700"],
-  variable: "--font-jetbrains-mono",
+const monaspace = localFont({
+  src: "../fonts/MonaspaceNeon.woff2",
+  variable: "--font-monaspace",
 });
 
 export async function generateMetadata({
@@ -65,7 +64,7 @@ const LocaleLayout: FC<{ children: ReactNode; params: { locale: string } }> = ({
     <html
       className={classNames(
         workSans.variable,
-        jetBrainsMono.variable,
+        monaspace.variable,
         "antialiased scroll-smooth scroll-pt-24",
       )}
       lang={locale}
