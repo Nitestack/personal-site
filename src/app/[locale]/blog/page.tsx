@@ -46,7 +46,6 @@ const BlogOverviewPage: FC = () => {
               createdAtLabel={t("createdAt")}
               lastEditedLabel={t("lastEdited")}
             />
-            <SkeletonBlogPreview />
           </Suspense>
         </div>
       </section>
