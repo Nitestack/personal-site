@@ -20,9 +20,9 @@
   },
   "Blog": {
     "description": "Blogbeiträge und Tutorials zu meiner Laufbahn als Entwickler. Im Moment ausschließlich auf Englisch. Geschrieben von {author}.",
-    "createdAt": "Erstellt am",
-    "lastEdited": "Zuletzt bearbeitet am",
-    "author": "Autor"
+    "publishedAt": "Veröffentlicht am",
+    "author": "Autor",
+    "views": "Aufrufe"
   },
   "Settings": {
     "language": "Sprache",

@@ -3,9 +3,9 @@ export interface BlogPost {
   excerpt: string;
   slug: string;
   imgUrl?: string;
-  imgAlt?: string;
-  createdAtTimestamp: number;
-  lastEditedAtTimestamp: number;
+  imgAlt: string;
+  publishedAt: Date;
+  views: number;
 }
 
-export type BlogPostPreview = Omit<BlogPost, "">;
+export type BlogPostPreview = Omit<BlogPost, "imgAlt"> & { imgAlt?: string };
