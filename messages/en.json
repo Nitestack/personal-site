@@ -1,6 +1,6 @@
 {
-  "Metadata": {
-    "description": "Personal Site by {name}"
+  "All": {
+    "description": "A passionate developer specialized in creating modern, and performant web applications."
   },
   "Routes": {
     "about": "About",
@@ -14,8 +14,7 @@
   },
   "Home": {
     "HeroSection": {
-      "title": "Hi, I'm {name}",
-      "description": "A passionate developer specialized in creating modern, and performant web applications."
+      "title": "Hi, I'm {name}"
     }
   },
   "Blog": {
