@@ -21,9 +21,9 @@
   "Blog": {
     "description": "Blog posts and tutorials on my learning journey as a developer. Written by {author}.",
     "latestPosts": "Latest posts",
-    "createdAt": "Created at",
-    "lastEdited": "Last edited at",
-    "author": "Author"
+    "publishedAt": "Published at",
+    "author": "Author",
+    "views": "Views"
   },
   "Settings": {
     "language": "Language",

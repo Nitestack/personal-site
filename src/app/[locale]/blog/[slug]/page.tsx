@@ -3,6 +3,7 @@ import {
   getLocaleDateString,
   getNotionPageContent,
   hljsPlugin,
+  incrementViewCount,
   notionClient,
   parseBlogPageProperties,
   trimExcerpt,
@@ -74,9 +75,9 @@ const BlogPage: FC<{ params: { slug: string } }> = ({ params: { slug } }) => {
     <Suspense>
       <BlogPost
         slug={slug}
-        createdAtLabel={t("createdAt")}
-        lastEditedLabel={t("lastEdited")}
+        publishedAtLabel={t("publishedAt")}
         authorLabel={t("author")}
+        viewsLabel={t("views")}
       />
     </Suspense>
   );
@@ -84,10 +85,10 @@ const BlogPage: FC<{ params: { slug: string } }> = ({ params: { slug } }) => {
 
 const BlogPost: FC<{
   slug: string;
-  createdAtLabel: string;
-  lastEditedLabel: string;
+  publishedAtLabel: string;
   authorLabel: string;
-}> = async ({ createdAtLabel, lastEditedLabel, authorLabel, slug }) => {
+  viewsLabel: string;
+}> = async ({ publishedAtLabel, authorLabel, viewsLabel, slug }) => {
   await notionRenderer.use(hljsPlugin({}));
   await notionRenderer.use(bookmarkPlugin(undefined));
 
@@ -95,9 +96,11 @@ const BlogPost: FC<{
 
   if (!post) notFound();
 
-  const { title, excerpt } = parseBlogPageProperties(post.properties);
-  const lastEditedDate = getLocaleDateString(new Date(post.last_edited_time));
-  const createdDate = getLocaleDateString(new Date(post.created_time));
+  const { title, excerpt, views, publishedAt } = parseBlogPageProperties(
+    post.properties,
+  );
+
+  void incrementViewCount(post.id, views);
 
   return (
     <article className="max-w-3xl mx-auto mt-4 md:mt-8 lg:mt-12 space-y-4 md:space-y-8">
@@ -110,7 +113,7 @@ const BlogPost: FC<{
             {excerpt}
           </p>
         </div>
-        <div className="flex flex-row items-center justify-between gap-4">
+        <div className="bg-muted shadow-sm shadow-ring p-2 rounded-lg flex flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
             <Avatar>
               <AvatarImage src={Logo.src} alt={SITE_CONFIG.name} />
@@ -123,19 +126,17 @@ const BlogPost: FC<{
               <p className="text-sm md:text-lg font-bold">{SITE_CONFIG.name}</p>
             </div>
           </div>
-          <div className="text-right flex items-start gap-10">
-            <div>
-              <p className="text-xs md:text-sm font-mono">{createdAtLabel}</p>
-              <p className="text-sm md:text-lg font-bold">{createdDate}</p>
-            </div>
-            {createdDate.toLowerCase() !== lastEditedDate.toLowerCase() && (
-              <div className="hidden sm:block">
-                <p className="text-xs md:text-sm font-mono">
-                  {lastEditedLabel}
-                </p>
-                <p className="text-sm md:text-lg font-bold">{lastEditedDate}</p>
-              </div>
-            )}
+          <div className="text-left">
+            <p className="text-xs md:text-sm font-mono">{publishedAtLabel}</p>
+            <p className="text-sm md:text-lg font-bold">
+              {getLocaleDateString(publishedAt)}
+            </p>
+          </div>
+          <div className="flex flex-col items-end">
+            <p className="text-xs md:text-sm font-mono">{viewsLabel}</p>
+            <p className="text-sm md:text-base font-mono font-bold">
+              {views >= 1e9 ? "1B+" : new Intl.NumberFormat().format(views + 1)}
+            </p>
           </div>
         </div>
       </section>

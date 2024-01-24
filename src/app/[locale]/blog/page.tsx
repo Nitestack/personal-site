@@ -43,8 +43,8 @@ const BlogOverviewPage: FC = () => {
               ))}
           >
             <BlogList
-              createdAtLabel={t("createdAt")}
-              lastEditedLabel={t("lastEdited")}
+              viewsLabel={t("views")}
+              publishedAtLabel={t("publishedAt")}
             />
           </Suspense>
         </div>
@@ -54,47 +54,39 @@ const BlogOverviewPage: FC = () => {
 };
 
 const BlogList: FC<{
-  createdAtLabel: string;
-  lastEditedLabel: string;
-}> = async ({ createdAtLabel, lastEditedLabel }) => {
+  publishedAtLabel: string;
+  viewsLabel: string;
+}> = async ({ publishedAtLabel, viewsLabel }) => {
   const pages = (await getBlogPages()).map((page) => {
-    const { title, excerpt, slug } = parseBlogPageProperties(page.properties);
+    const { title, excerpt, slug, publishedAt, views } =
+      parseBlogPageProperties(page.properties);
     return {
       title,
       excerpt,
       slug,
+      publishedAt,
+      views,
       imgUrl:
         page.cover?.type == "external"
           ? page.cover.external.url
           : page.cover?.file.url,
-      createdAtTimestamp: new Date(page.created_time).getTime(),
-      lastEditedAtTimestamp: new Date(page.last_edited_time).getTime(),
     };
   });
 
-  return pages.map(
-    ({
-      slug,
-      title,
-      excerpt,
-      imgUrl,
-      createdAtTimestamp,
-      lastEditedAtTimestamp,
-    }) => (
-      <BlogPostPreview
-        key={slug}
-        title={title}
-        excerpt={excerpt}
-        imgAlt={undefined}
-        imgUrl={imgUrl}
-        slug={slug}
-        createdAtTimestamp={createdAtTimestamp}
-        lastEditedAtTimestamp={lastEditedAtTimestamp}
-        createdAtLabel={createdAtLabel}
-        lastEditedLabel={lastEditedLabel}
-      />
-    ),
-  );
+  return pages.map(({ views, publishedAt, slug, title, excerpt, imgUrl }) => (
+    <BlogPostPreview
+      key={slug}
+      title={title}
+      excerpt={excerpt}
+      imgAlt={undefined}
+      imgUrl={imgUrl}
+      slug={slug}
+      views={views}
+      viewsLabel={viewsLabel}
+      publishedAt={publishedAt}
+      publishedAtLabel={publishedAtLabel}
+    />
+  ));
 };
 
 export default BlogOverviewPage;

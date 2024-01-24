@@ -31,6 +31,19 @@ export const getNotionPageContent = cache(async (pageId: string) => {
   return blockChildren.results as BlockObjectResponse[];
 });
 
+export const incrementViewCount = cache(
+  async (pageID: string, viewCount: number) => {
+    await notionClient.pages.update({
+      page_id: pageID,
+      properties: {
+        Views: {
+          number: viewCount + 1,
+        },
+      },
+    });
+  },
+);
+
 export const getBlogPages = cache(async () => {
   const pages = await notionClient.databases.query({
     database_id: env.NOTION_DATABASE_ID,
@@ -80,6 +93,13 @@ export const parseBlogPageProperties = (
         | undefined) ?? "",
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-explicit-any
     slug: (properties.Slug as any).rich_text[0].plain_text as string,
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-explicit-any
+    views: ((properties.Views as any).number as number | undefined) ?? 0,
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-explicit-any
+    publishedAt: (properties["Published At"] as any)?.date?.start
+      ? // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-explicit-any
+        new Date((properties["Published At"] as any).date.start as string)
+      : new Date(),
   };
 };
 

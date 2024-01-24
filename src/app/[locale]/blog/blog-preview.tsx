@@ -16,23 +16,21 @@ import { type FC } from "react";
 import PlaceholderImage from "@assets/16_9_placeholder.png";
 
 const BlogPostPreview: FC<
-  BlogPostPreview & { createdAtLabel: string; lastEditedLabel: string }
+  BlogPostPreview & { viewsLabel: string; publishedAtLabel: string }
 > = ({
   title,
   excerpt,
-  createdAtTimestamp,
-  lastEditedAtTimestamp,
   imgAlt,
   imgUrl,
   slug,
-  createdAtLabel,
-  lastEditedLabel,
+  publishedAt,
+  publishedAtLabel,
+  views,
+  viewsLabel,
 }) => {
-  const createdDate = getLocaleDateString(new Date(createdAtTimestamp));
-  const lastEditedDate = getLocaleDateString(new Date(lastEditedAtTimestamp));
   return (
     <Link className="group" href={`/blog/${slug}`}>
-      <Card className="overflow-hidden flex flex-col h-full w-full">
+      <Card className="overflow-hidden flex flex-col h-full w-full shadow-sm shadow-ring">
         <div className="aspect-video h-full relative">
           <NextImage
             className="object-cover"
@@ -50,18 +48,16 @@ const BlogPostPreview: FC<
               {trimExcerpt(excerpt)}
             </CardDescription>
           </div>
-          <div className="flex justify-between items-end">
-            <div className="text-left">
-              {createdDate.toLowerCase() !== lastEditedDate.toLowerCase() && (
-                <>
-                  <p className="text-xs font-mono">{lastEditedLabel}</p>
-                  <p className="font-bold">{lastEditedDate}</p>
-                </>
-              )}
+          <div className="bg-muted shadow-ring shadow-sm rounded-md p-2 flex items-center justify-between">
+            <div className="flex flex-col items-start">
+              <p className="text-xs font-mono">{viewsLabel}</p>
+              <p className="font-mono font-bold">
+                {views >= 1e9 ? "1B+" : new Intl.NumberFormat().format(views)}
+              </p>
             </div>
             <div className="text-right">
-              <p className="text-xs font-mono">{createdAtLabel}</p>
-              <p className="font-bold">{createdDate}</p>
+              <p className="text-xs font-mono">{publishedAtLabel}</p>
+              <p className="font-bold">{getLocaleDateString(publishedAt)}</p>
             </div>
           </div>
         </CardHeader>
