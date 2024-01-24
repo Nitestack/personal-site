@@ -8,7 +8,7 @@ import pick from "lodash.pick";
 import { type Metadata, type Viewport } from "next";
 import { useMessages } from "next-intl";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
-import { JetBrains_Mono, Work_Sans } from "next/font/google";
+import { Work_Sans } from "next/font/google";
 import localFont from "next/font/local";
 import { type FC, type ReactNode } from "react";
 
