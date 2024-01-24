@@ -1,6 +1,6 @@
 {
-  "Metadata": {
-    "description": "Persönliche Seite von {name}"
+  "All": {
+    "description": "Ein leidenschaftlicher Software-Entwickler tätig in der Entwicklung von modernen und performanten Websiten."
   },
   "Routes": {
     "about": "Über mich",
@@ -14,8 +14,7 @@
   },
   "Home": {
     "HeroSection": {
-      "title": "Hallo, ich bin {name}",
-      "description": "Ein leidenschaftlicher Software-Entwickler tätig in der Entwicklung von modernen und performanten Websiten."
+      "title": "Hallo, ich bin {name}"
     }
   },
   "Blog": {

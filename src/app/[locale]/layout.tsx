@@ -31,13 +31,14 @@ export async function generateMetadata({
 }: {
   params: { locale: string };
 }): Promise<Metadata> {
-  const t = await getTranslations({ locale, namespace: "Metadata" });
+  const t = await getTranslations({ locale, namespace: "All" });
+  const description = t("description", { name: SITE_CONFIG.name });
   return {
     title: {
       default: SITE_CONFIG.name,
       template: `%s | ${SITE_CONFIG.name}`,
     },
-    description: t("description", { name: SITE_CONFIG.name }),
+    description,
   };
 }
 

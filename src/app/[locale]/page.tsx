@@ -24,9 +24,7 @@ const HomePage: FC<{ params: { locale: string } }> = ({
             name: SITE_CONFIG.firstName,
           })}
         </h1>
-        <p className="text-center text-xl">
-          {t("Home.HeroSection.description")}
-        </p>
+        <p className="text-center text-xl">{t("All.description")}</p>
       </section>
       <AboutSection heading={t("Routes.about")} />
       <ExperienceSection heading={t("Routes.experience")} />
