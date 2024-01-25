@@ -10,7 +10,6 @@ import {
 
 import { Link } from "@navigation";
 
-import PlaceholderImage from "@public/images/16_9_placeholder.png";
 import NextImage from "next/image";
 import { type FC } from "react";
 
@@ -34,7 +33,7 @@ const BlogPostPreview: FC<
           <NextImage
             className="object-cover"
             fill
-            src={imgUrl ?? PlaceholderImage.src}
+            src={imgUrl}
             alt={imgAlt ?? title}
           />
         </div>

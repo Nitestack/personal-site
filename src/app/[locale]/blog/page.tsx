@@ -5,6 +5,7 @@ import {
   getBlogPages,
   getOGImage,
   parseBlogPageProperties,
+  trimExcerpt,
 } from "@app/[locale]/blog/notion";
 import SkeletonBlogPreview from "@app/[locale]/blog/skeleton-blog-preview";
 
@@ -39,7 +40,9 @@ export const generateMetadata = metadata((t, { params: { locale } }) => {
   };
 });
 
-const BlogOverviewPage: FC = () => {
+const BlogOverviewPage: FC<{ params: { locale: string } }> = ({
+  params: { locale },
+}) => {
   unstable_noStore();
 
   const t = useTranslations("Blog");
@@ -68,6 +71,7 @@ const BlogOverviewPage: FC = () => {
             <BlogList
               viewsLabel={t("views")}
               publishedAtLabel={t("publishedAt")}
+              locale={locale}
             />
           </Suspense>
         </div>
@@ -79,7 +83,8 @@ const BlogOverviewPage: FC = () => {
 const BlogList: FC<{
   publishedAtLabel: string;
   viewsLabel: string;
-}> = async ({ publishedAtLabel, viewsLabel }) => {
+  locale: string;
+}> = async ({ publishedAtLabel, viewsLabel, locale }) => {
   const pages = (await getBlogPages()).map((page) => {
     const { title, excerpt, slug, publishedAt, views } =
       parseBlogPageProperties(page.properties);
@@ -89,10 +94,12 @@ const BlogList: FC<{
       slug,
       publishedAt,
       views,
-      imgUrl:
-        page.cover?.type == "external"
-          ? page.cover.external.url
-          : page.cover?.file.url,
+      imgUrl: getOGImage(page.cover, {
+        title,
+        description: trimExcerpt(excerpt),
+        locale,
+        fullUrl: true,
+      }),
     };
   });
 
