@@ -10,6 +10,8 @@ import {
 import hljs, { type HighlightOptions } from "highlight.js";
 import { cache } from "react";
 
+import { SITE_CONFIG } from "@constants";
+
 import { env } from "@env";
 
 // Only get pages that are published
@@ -80,12 +82,28 @@ export const getBlogPageBySlug = cache(async (slug: string) => {
   return pages.results[0] as PageObjectResponse | undefined;
 });
 
-export const parseBlogPageCover = (cover: PageObjectResponse["cover"]) => {
-  return cover
-    ? cover.type == "external"
-      ? cover.external.url
-      : cover.file.url
-    : undefined;
+export const getOGImage = (
+  cover?: PageObjectResponse["cover"],
+  fallbackImageUrl?: {
+    title?: string;
+    description?: string;
+    locale?: string;
+    fullUrl?: boolean;
+  },
+) => {
+  let imageUrl =
+    cover?.type == "external" ? cover.external.url : cover?.file?.url;
+  if (!imageUrl) {
+    const searchParams = new URLSearchParams();
+    if (fallbackImageUrl?.title)
+      searchParams.set("title", fallbackImageUrl.title);
+    if (fallbackImageUrl?.description)
+      searchParams.set("description", fallbackImageUrl.description);
+    if (fallbackImageUrl?.locale)
+      searchParams.set("locale", fallbackImageUrl.locale);
+    imageUrl = `${fallbackImageUrl?.fullUrl ? SITE_CONFIG.url : ""}/api/og?${searchParams.toString()}`;
+  }
+  return imageUrl;
 };
 
 export const parseBlogPageProperties = (

@@ -4,10 +4,10 @@ import {
   getBlogPageBySlug,
   getLocaleDateString,
   getNotionPageContent,
+  getOGImage,
   hljsPlugin,
   incrementViewCount,
   notionClient,
-  parseBlogPageCover,
   parseBlogPageProperties,
   trimExcerpt,
 } from "@app/[locale]/blog/notion";
@@ -17,6 +17,7 @@ import { Skeleton } from "@components/ui/skeleton";
 
 import bookmarkPlugin from "@notion-render/bookmark-plugin";
 import { NotionRenderer } from "@notion-render/client";
+import Logo from "@public/images/logo.png";
 import { useTranslations } from "next-intl";
 import { type OpenGraph } from "next/dist/lib/metadata/types/opengraph-types";
 import { notFound } from "next/navigation";
@@ -26,8 +27,6 @@ import { type BlogPosting, type Thing, type WithContext } from "schema-dts";
 import { getAvatarFallback } from "@utils";
 
 import { SITE_CONFIG } from "@constants";
-
-import Logo from "@assets/logo.png";
 
 const notionRenderer = new NotionRenderer({
   client: notionClient,
@@ -41,7 +40,11 @@ export const generateMetadata = metadata<{ slug: string }>(
       post.properties,
     );
     const description = trimExcerpt(excerpt);
-    const imageUrl = parseBlogPageCover(post.cover);
+    const imageUrl = getOGImage(post.cover, {
+      title,
+      description,
+      locale,
+    });
     return {
       title,
       description,
@@ -50,13 +53,11 @@ export const generateMetadata = metadata<{ slug: string }>(
         url: `/${locale}/blog/${slug}`,
         publishedTime: publishedAt.toISOString(),
         modifiedTime: new Date(post.last_edited_time).toISOString(),
-        images: imageUrl
-          ? { url: imageUrl, alt: title, width: 1200, height: 630 }
-          : undefined,
+        images: { url: imageUrl, alt: title, width: 1200, height: 630 },
         tags,
       } satisfies OpenGraph & { type: "article" },
       twitter: {
-        images: imageUrl ? { url: imageUrl, alt: title } : undefined,
+        images: { url: imageUrl, alt: title, width: 1200, height: 630 },
       },
       alternates: {
         canonical: `/blog/${slug}`,
@@ -128,7 +129,7 @@ const BlogPost: FC<{
           keywords: tags,
           datePublished: publishedAt.toISOString(),
           dateModified: new Date(post.last_edited_time).toISOString(),
-          image: parseBlogPageCover(post.cover),
+          image: getOGImage(post.cover),
         }}
       />
       <section className="space-y-4 md:space-y-8">
