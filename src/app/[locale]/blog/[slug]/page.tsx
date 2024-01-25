@@ -50,8 +50,10 @@ export const generateMetadata = metadata<{ slug: string }>(
         url: `/${locale}/blog/${slug}`,
         publishedTime: publishedAt.toISOString(),
         modifiedTime: new Date(post.last_edited_time).toISOString(),
-        images: imageUrl ? { url: imageUrl, alt: title } : undefined,
-        tags: tags,
+        images: imageUrl
+          ? { url: imageUrl, alt: title, width: 1200, height: 630 }
+          : undefined,
+        tags,
       } satisfies OpenGraph & { type: "article" },
       twitter: {
         images: imageUrl ? { url: imageUrl, alt: title } : undefined,
