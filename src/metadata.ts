@@ -101,7 +101,9 @@ export function metadata<
       title: resolvedTitle,
       description: resolvedDescription,
       locale: locale,
-      alternateLocale: LOCALIZATION_CONFIG.locales,
+      alternateLocale: LOCALIZATION_CONFIG.locales.filter(
+        (currentLocale) => currentLocale.toLowerCase() !== locale.toLowerCase(),
+      ),
     };
     (metadata as Metadata).twitter = {
       card: "summary_large_image",
