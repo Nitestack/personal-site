@@ -40,7 +40,7 @@ interface WithLocaleProps<
 
 type MaybePromise<T> = T | Promise<T>;
 
-export const defaultMetadata = metadata((t) => {
+export const defaultMetadata = metadata((t, { params: { locale } }) => {
   return {
     applicationName: SITE_CONFIG.name,
     metadataBase: new URL(SITE_CONFIG.url),
@@ -54,10 +54,10 @@ export const defaultMetadata = metadata((t) => {
       template: `%s | ${SITE_CONFIG.name}`,
     },
     openGraph: {
-      images: "/api/og",
+      images: `/api/og?locale=${locale}`,
     },
     twitter: {
-      images: "/api/og",
+      images: `/api/og?locale=${locale}`,
     },
     robots: {},
     alternates: {
