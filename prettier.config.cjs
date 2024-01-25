@@ -32,7 +32,7 @@ const config = {
     fileAlias("utils"),
     fileAlias("constants"),
     fileAlias("env"),
-    dirAlias("assets"),
+    dirAlias("public"),
     fileAlias("types"),
   ],
   importOrderSeparation: true,
