@@ -7,6 +7,7 @@ import {
   hljsPlugin,
   incrementViewCount,
   notionClient,
+  parseBlogPageCover,
   parseBlogPageProperties,
   trimExcerpt,
 } from "@app/[locale]/blog/notion";
@@ -20,6 +21,7 @@ import { useTranslations } from "next-intl";
 import { type OpenGraph } from "next/dist/lib/metadata/types/opengraph-types";
 import { notFound } from "next/navigation";
 import { type FC, Suspense } from "react";
+import { type BlogPosting, type Thing, type WithContext } from "schema-dts";
 
 import { getAvatarFallback } from "@utils";
 
@@ -39,11 +41,7 @@ export const generateMetadata = metadata<{ slug: string }>(
       post.properties,
     );
     const description = trimExcerpt(excerpt);
-    const imageUrl = post.cover
-      ? post.cover.type == "external"
-        ? post.cover.external.url
-        : post.cover.file.url
-      : undefined;
+    const imageUrl = parseBlogPageCover(post.cover);
     return {
       title,
       description,
@@ -65,7 +63,9 @@ export const generateMetadata = metadata<{ slug: string }>(
   },
 );
 
-const BlogPage: FC<{ params: { slug: string } }> = ({ params: { slug } }) => {
+const BlogPage: FC<{ params: { slug: string; locale: string } }> = ({
+  params: { slug, locale },
+}) => {
   const t = useTranslations("Blog");
 
   return (
@@ -75,17 +75,28 @@ const BlogPage: FC<{ params: { slug: string } }> = ({ params: { slug } }) => {
         publishedAtLabel={t("publishedAt")}
         authorLabel={t("author")}
         viewsLabel={t("views")}
+        locale={locale}
       />
     </Suspense>
   );
 };
 
+function JsonLd<T extends Thing>({ json }: { json: WithContext<T> }) {
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }}
+    />
+  );
+}
+
 const BlogPost: FC<{
   slug: string;
+  locale: string;
   publishedAtLabel: string;
   authorLabel: string;
   viewsLabel: string;
-}> = async ({ publishedAtLabel, authorLabel, viewsLabel, slug }) => {
+}> = async ({ publishedAtLabel, authorLabel, viewsLabel, slug, locale }) => {
   await notionRenderer.use(hljsPlugin({}));
   await notionRenderer.use(bookmarkPlugin(undefined));
 
@@ -93,7 +104,7 @@ const BlogPost: FC<{
 
   if (!post) notFound();
 
-  const { title, excerpt, views, publishedAt } = parseBlogPageProperties(
+  const { title, excerpt, views, publishedAt, tags } = parseBlogPageProperties(
     post.properties,
   );
 
@@ -101,6 +112,23 @@ const BlogPost: FC<{
 
   return (
     <article className="max-w-3xl mx-auto mt-4 md:mt-8 lg:mt-12 space-y-4 md:space-y-8">
+      <JsonLd<BlogPosting>
+        json={{
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          headline: title,
+          description: excerpt,
+          author: {
+            "@type": "Person",
+            name: SITE_CONFIG.name,
+          },
+          url: `${SITE_CONFIG.url}/${locale}/blog/${slug}`,
+          keywords: tags,
+          datePublished: publishedAt.toISOString(),
+          dateModified: new Date(post.last_edited_time).toISOString(),
+          image: parseBlogPageCover(post.cover),
+        }}
+      />
       <section className="space-y-4 md:space-y-8">
         <div className="text-center space-y-4 md:space-y-8 lg:space-y-12">
           <h1 className="text-balance tracking-wide text-3xl sm:text-4xl font-extrabold lg:text-5xl">

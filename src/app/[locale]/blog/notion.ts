@@ -80,6 +80,14 @@ export const getBlogPageBySlug = cache(async (slug: string) => {
   return pages.results[0] as PageObjectResponse | undefined;
 });
 
+export const parseBlogPageCover = (cover: PageObjectResponse["cover"]) => {
+  return cover
+    ? cover.type == "external"
+      ? cover.external.url
+      : cover.file.url
+    : undefined;
+};
+
 export const parseBlogPageProperties = (
   properties: PageObjectResponse["properties"],
 ) => {
