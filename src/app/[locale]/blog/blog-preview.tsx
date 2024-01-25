@@ -10,10 +10,9 @@ import {
 
 import { Link } from "@navigation";
 
+import PlaceholderImage from "@public/images/16_9_placeholder.png";
 import NextImage from "next/image";
 import { type FC } from "react";
-
-import PlaceholderImage from "@assets/16_9_placeholder.png";
 
 const BlogPostPreview: FC<
   BlogPostPreview & { viewsLabel: string; publishedAtLabel: string }

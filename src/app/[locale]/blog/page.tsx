@@ -1,24 +1,43 @@
+import { metadata } from "@metadata";
+
 import BlogPostPreview from "@app/[locale]/blog/blog-preview";
 import {
   getBlogPages,
+  getOGImage,
   parseBlogPageProperties,
 } from "@app/[locale]/blog/notion";
 import SkeletonBlogPreview from "@app/[locale]/blog/skeleton-blog-preview";
 
-import { metadata } from "@metadata";
 import { useTranslations } from "next-intl";
 import { unstable_noStore } from "next/cache";
 import { type FC, Suspense } from "react";
 
 import { SITE_CONFIG } from "@constants";
 
-export const generateMetadata = metadata((t) => ({
-  title: "Blog",
-  description: t("Blog.description", { author: SITE_CONFIG.name }),
-  alternates: {
-    canonical: "/blog",
-  },
-}));
+export const generateMetadata = metadata((t, { params: { locale } }) => {
+  const title = "Blog";
+  const description = t("Blog.description", { author: SITE_CONFIG.name });
+
+  const imageUrl = getOGImage(undefined, {
+    title,
+    description,
+    locale,
+  });
+
+  return {
+    title,
+    description,
+    openGraph: {
+      images: imageUrl,
+    },
+    twitter: {
+      images: imageUrl,
+    },
+    alternates: {
+      canonical: "/blog",
+    },
+  };
+});
 
 const BlogOverviewPage: FC = () => {
   unstable_noStore();

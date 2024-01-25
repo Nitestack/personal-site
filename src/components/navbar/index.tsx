@@ -17,14 +17,13 @@ import {
 
 import { Link } from "@navigation";
 
+import Logo from "@public/images/logo.png";
 import { Settings } from "lucide-react";
 import { useTranslations } from "next-intl";
 import NextImage from "next/image";
 import { type FC } from "react";
 
 import { SITE_CONFIG } from "@constants";
-
-import Logo from "@assets/logo.png";
 
 const Navbar: FC = () => {
   const t = useTranslations();

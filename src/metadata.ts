@@ -53,8 +53,12 @@ export const defaultMetadata = metadata((t) => {
       default: SITE_CONFIG.name,
       template: `%s | ${SITE_CONFIG.name}`,
     },
-    openGraph: {},
-    twitter: {},
+    openGraph: {
+      images: "/api/og",
+    },
+    twitter: {
+      images: "/api/og",
+    },
     robots: {},
     alternates: {
       canonical: "/",
