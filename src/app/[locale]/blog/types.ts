@@ -2,7 +2,7 @@ export interface BlogPost {
   title: string;
   excerpt: string;
   slug: string;
-  imgUrl?: string;
+  imgUrl: string;
   imgAlt: string;
   publishedAt: Date;
   views: number;
