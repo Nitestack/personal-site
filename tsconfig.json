@@ -27,7 +27,8 @@
       "@constants": ["./src/constants.ts"],
       "@utils": ["./src/utils.ts"],
       "@app/*": ["./src/app/*"],
-      "@navigation": ["./src/navigation.ts"]
+      "@navigation": ["./src/navigation.ts"],
+      "@metadata": ["./src/metadata.ts"]
     },
     "plugins": [
       {

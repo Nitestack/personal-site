@@ -23,6 +23,7 @@ const config = {
   // Import sorting
   importOrder: [
     "^server-only$",
+    fileAlias("metadata"),
     dirAlias("app"),
     dirAlias("components"),
     fileAlias("navigation"),

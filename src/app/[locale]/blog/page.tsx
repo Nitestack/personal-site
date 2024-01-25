@@ -5,16 +5,20 @@ import {
 } from "@app/[locale]/blog/notion";
 import SkeletonBlogPreview from "@app/[locale]/blog/skeleton-blog-preview";
 
-import { type Metadata } from "next";
+import { metadata } from "@metadata";
 import { useTranslations } from "next-intl";
 import { unstable_noStore } from "next/cache";
 import { type FC, Suspense } from "react";
 
 import { SITE_CONFIG } from "@constants";
 
-export const metadata: Metadata = {
+export const generateMetadata = metadata((t) => ({
   title: "Blog",
-};
+  description: t("Blog.description", { author: SITE_CONFIG.name }),
+  alternates: {
+    canonical: "/blog",
+  },
+}));
 
 const BlogOverviewPage: FC = () => {
   unstable_noStore();

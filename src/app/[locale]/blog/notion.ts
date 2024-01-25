@@ -100,6 +100,11 @@ export const parseBlogPageProperties = (
       ? // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-explicit-any
         new Date((properties["Published At"] as any).date.start as string)
       : new Date(),
+    tags:
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-explicit-any
+      ((properties.Tags as any).multi_select.map(
+        (tag: { name: string }) => tag.name,
+      ) as string[] | undefined) ?? [],
   };
 };
 
