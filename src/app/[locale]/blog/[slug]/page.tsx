@@ -1,3 +1,5 @@
+import { metadata } from "@metadata";
+
 import {
   getBlogPageBySlug,
   getLocaleDateString,
@@ -14,8 +16,8 @@ import { Skeleton } from "@components/ui/skeleton";
 
 import bookmarkPlugin from "@notion-render/bookmark-plugin";
 import { NotionRenderer } from "@notion-render/client";
-import { type Metadata } from "next";
 import { useTranslations } from "next-intl";
+import { type OpenGraph } from "next/dist/lib/metadata/types/opengraph-types";
 import { notFound } from "next/navigation";
 import { type FC, Suspense } from "react";
 
@@ -29,44 +31,39 @@ const notionRenderer = new NotionRenderer({
   client: notionClient,
 });
 
-export async function generateMetadata({
-  params: { slug, locale },
-}: {
-  params: { slug: string; locale: string };
-}): Promise<Metadata | undefined> {
-  const post = await getBlogPageBySlug(slug);
-  if (!post) return;
-  const { title, excerpt } = parseBlogPageProperties(post.properties);
-  const description = trimExcerpt(excerpt);
-  const imageUrl = post.cover
-    ? post.cover.type == "external"
-      ? post.cover.external.url
-      : post.cover.file.url
-    : undefined;
-  const publishedTime = getLocaleDateString(new Date(post.created_time));
-  return {
-    title,
-    description,
-    authors: [{ name: SITE_CONFIG.name, url: SITE_CONFIG.url }],
-    openGraph: {
-      authors: [SITE_CONFIG.name],
+export const generateMetadata = metadata<{ slug: string }>(
+  async (_, { params: { slug, locale } }) => {
+    const post = await getBlogPageBySlug(slug);
+    if (!post) return;
+    const { title, excerpt, publishedAt, tags } = parseBlogPageProperties(
+      post.properties,
+    );
+    const description = trimExcerpt(excerpt);
+    const imageUrl = post.cover
+      ? post.cover.type == "external"
+        ? post.cover.external.url
+        : post.cover.file.url
+      : undefined;
+    return {
       title,
       description,
-      type: "article",
-      url: `${SITE_CONFIG.url}/${locale}/blog/${slug}`,
-      publishedTime,
-      images: imageUrl ? [{ url: imageUrl, alt: title }] : [],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-      creator: "@nitestack",
-      creatorId: "1686490852212838400",
-      images: imageUrl ? [imageUrl] : [],
-    },
-  };
-}
+      openGraph: {
+        type: "article",
+        url: `/${locale}/blog/${slug}`,
+        publishedTime: publishedAt.toISOString(),
+        modifiedTime: new Date(post.last_edited_time).toISOString(),
+        images: imageUrl ? { url: imageUrl, alt: title } : undefined,
+        tags: tags,
+      } satisfies OpenGraph & { type: "article" },
+      twitter: {
+        images: imageUrl ? { url: imageUrl, alt: title } : undefined,
+      },
+      alternates: {
+        canonical: `/blog/${slug}`,
+      },
+    };
+  },
+);
 
 const BlogPage: FC<{ params: { slug: string } }> = ({ params: { slug } }) => {
   const t = useTranslations("Blog");

@@ -3,18 +3,19 @@ import Providers from "@app/providers";
 import Footer from "@components/footer";
 import Navbar from "@components/navbar";
 
+import { defaultMetadata } from "@metadata";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import pick from "lodash.pick";
-import { type Metadata, type Viewport } from "next";
+import { type Viewport } from "next";
 import { useMessages } from "next-intl";
-import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
+import { unstable_setRequestLocale } from "next-intl/server";
 import { Work_Sans } from "next/font/google";
 import localFont from "next/font/local";
 import { type FC, type ReactNode } from "react";
 
 import { classNames } from "@utils";
 
-import { LOCALIZATION_CONFIG, SITE_CONFIG } from "@constants";
+import { LOCALIZATION_CONFIG } from "@constants";
 
 const workSans = Work_Sans({
   subsets: ["latin"],
@@ -26,21 +27,7 @@ const monaspace = localFont({
   variable: "--font-monaspace",
 });
 
-export async function generateMetadata({
-  params: { locale },
-}: {
-  params: { locale: string };
-}): Promise<Metadata> {
-  const t = await getTranslations({ locale, namespace: "All" });
-  const description = t("description", { name: SITE_CONFIG.name });
-  return {
-    title: {
-      default: SITE_CONFIG.name,
-      template: `%s | ${SITE_CONFIG.name}`,
-    },
-    description,
-  };
-}
+export const generateMetadata = defaultMetadata;
 
 export const viewport: Viewport = {
   themeColor: [
