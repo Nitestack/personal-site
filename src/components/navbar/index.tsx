@@ -6,6 +6,7 @@ import {
 } from "@components/navbar/client";
 import LanguageSelection from "@components/navbar/language-selection";
 import NavbarLink from "@components/navbar/link";
+import MobileSidebar from "@components/navbar/mobile";
 import ThemeSelection from "@components/navbar/theme-selection";
 import { Button } from "@components/ui/button";
 import {
@@ -32,24 +33,8 @@ const Navbar: FC = () => {
     <NavigationMenu className="border-b border-border/40 sticky z-10 top-0 inset-x-0 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container px-6 py-4 flex justify-between items-center max-w-screen-2xl h-20">
         <div className="flex items-center gap-2">
-          {/* <div className="md:hidden"> */}
-          <div>
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button size="icon" variant="outline">
-                  <Settings className="h-4 w-4" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="start" className="w-40">
-                <ThemeSelection
-                  label={t("Settings.Theme.name")}
-                  darkLabel={t("Settings.Theme.dark")}
-                  lightLabel={t("Settings.Theme.light")}
-                />
-                <DropdownMenuSeparator />
-                <LanguageSelection label={t("Settings.language")} />
-              </DropdownMenuContent>
-            </DropdownMenu>
+          <div className="md:hidden">
+            <MobileSidebar />
           </div>
           <NextImage alt={SITE_CONFIG.name} width={36} height={36} src={Logo} />
           <Link className="text-2xl font-bold" href="/">
@@ -66,7 +51,7 @@ const Navbar: FC = () => {
             </NavigationMenuItem>
           ))}
         </NavigationMenuList>
-        <div className="flex items-center space-x-2">
+        <div className="md:flex hidden items-center space-x-2">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button size="icon" variant="outline">
