@@ -78,5 +78,5 @@ export default {
   future: {
     hoverOnlyWhenSupported: true,
   },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
 } satisfies Config;
