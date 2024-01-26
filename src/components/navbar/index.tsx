@@ -17,7 +17,6 @@ import {
 
 import { Link } from "@navigation";
 
-import Logo from "@public/images/logo.png";
 import { Settings } from "lucide-react";
 import { useTranslations } from "next-intl";
 import NextImage from "next/image";
@@ -25,13 +24,33 @@ import { type FC } from "react";
 
 import { SITE_CONFIG } from "@constants";
 
+import Logo from "@public/images/logo.png";
+
 const Navbar: FC = () => {
   const t = useTranslations();
   return (
     <NavigationMenu className="border-b border-border/40 sticky z-10 top-0 inset-x-0 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container px-6 py-4 flex justify-between items-center max-w-screen-2xl h-20">
-        <div className="md:hidden"></div>
         <div className="flex items-center gap-2">
+          {/* <div className="md:hidden"> */}
+          <div>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button size="icon" variant="outline">
+                  <Settings className="h-4 w-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start" className="w-40">
+                <ThemeSelection
+                  label={t("Settings.Theme.name")}
+                  darkLabel={t("Settings.Theme.dark")}
+                  lightLabel={t("Settings.Theme.light")}
+                />
+                <DropdownMenuSeparator />
+                <LanguageSelection label={t("Settings.language")} />
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
           <NextImage alt={SITE_CONFIG.name} width={36} height={36} src={Logo} />
           <Link className="text-2xl font-bold" href="/">
             {SITE_CONFIG.name}
