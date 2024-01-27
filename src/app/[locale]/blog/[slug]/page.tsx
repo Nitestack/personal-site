@@ -17,7 +17,6 @@ import { Skeleton } from "@components/ui/skeleton";
 
 import bookmarkPlugin from "@notion-render/bookmark-plugin";
 import { NotionRenderer } from "@notion-render/client";
-import Logo from "@public/images/logo.png";
 import { useTranslations } from "next-intl";
 import { type OpenGraph } from "next/dist/lib/metadata/types/opengraph-types";
 import { notFound } from "next/navigation";
@@ -27,6 +26,8 @@ import { type BlogPosting, type Thing, type WithContext } from "schema-dts";
 import { getAvatarFallback } from "@utils";
 
 import { SITE_CONFIG } from "@constants";
+
+import Logo from "@public/images/logo.png";
 
 const notionRenderer = new NotionRenderer({
   client: notionClient,
@@ -142,7 +143,7 @@ const BlogPost: FC<{
           </p>
         </div>
         <div className="bg-muted shadow-sm shadow-ring p-2 rounded-lg flex flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
+          <div className="hidden sm:flex items-center gap-2">
             <Avatar>
               <AvatarImage src={Logo.src} alt={SITE_CONFIG.name} />
               <AvatarFallback>
