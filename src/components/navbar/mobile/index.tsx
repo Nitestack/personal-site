@@ -3,6 +3,7 @@ import MobileThemeSelection from "@components/navbar/mobile/theme-selection";
 import { Button } from "@components/ui/button";
 import {
   Sheet,
+  SheetClose,
   SheetContent,
   SheetDescription,
   SheetHeader,
@@ -12,7 +13,7 @@ import {
 
 import { Link } from "@navigation";
 
-import { Menu } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useTranslations } from "next-intl";
 import NextImage from "next/image";
 import { type FC } from "react";
@@ -30,16 +31,21 @@ const MobileSidebar: FC = () => {
           <Menu className="h-6 w-6" />
         </Button>
       </SheetTrigger>
-      <SheetContent className="px-0" side="left">
+      <SheetContent className="px-0 pt-0" side="left">
         <SheetHeader>
-          <SheetTitle className="pb-5 flex items-center justify-center gap-2 border-b border-border/40">
+          <SheetTitle className="px-6 h-20 flex items-center gap-2 border-b border-border/40">
+            <SheetClose asChild>
+              <Button className="shadow-none px-2" size="icon" variant="ghost">
+                <X className="h-6 w-6" />
+              </Button>
+            </SheetClose>
             <NextImage
               alt={SITE_CONFIG.name}
               width={36}
               height={36}
               src={Logo}
             />
-            <Link className="text-2xl font-bold" href="/">
+            <Link className="text-2xl font-bold whitespace-nowrap" href="/">
               {SITE_CONFIG.name}
             </Link>
           </SheetTitle>
