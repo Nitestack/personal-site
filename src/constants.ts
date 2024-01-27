@@ -1,8 +1,6 @@
 import { type UrlObject } from "node:url";
 import { type LocalePrefix } from "node_modules/next-intl/dist/types/src/shared/types";
 
-import { env } from "@env";
-
 interface NavigationRoute {
   id: string;
   translationKey: keyof Messages["Routes"];
@@ -20,7 +18,7 @@ export const SITE_CONFIG: {
   name: "Nhan Pham",
   email: "nhan.pham@mail.de",
   url:
-    env.NODE_ENV == "development"
+    process.env.NODE_ENV == "development"
       ? "http://localhost:3000"
       : "https://nhanpham.vercel.app",
   routes: [
