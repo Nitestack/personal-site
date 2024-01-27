@@ -37,7 +37,7 @@ const Navbar: FC = () => {
             <MobileSidebar />
           </div>
           <NextImage alt={SITE_CONFIG.name} width={36} height={36} src={Logo} />
-          <Link className="text-2xl font-bold" href="/">
+          <Link className="text-2xl font-bold whitespace-nowrap" href="/">
             {SITE_CONFIG.name}
           </Link>
         </div>
