@@ -17,6 +17,6 @@ export const config = {
     "/(de|en)/:path*",
     // Enable redirects that add missing locales
     // (e.g. `/pathnames` -> `/en/pathnames`)
-    "/((?!api|_next|_vercel|favicon.ico|.*\\..*).*)",
+    "/((?!api|_next|_vercel|favicon.ico|images|.*\\..*).*)",
   ],
 };

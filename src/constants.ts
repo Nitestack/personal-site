@@ -17,7 +17,6 @@ export const SITE_CONFIG: {
   firstName: "Nhan",
   name: "Nhan Pham",
   email: "nhan.pham@mail.de",
-  // TODO: Edit in production
   url:
     process.env.NODE_ENV == "development"
       ? "http://localhost:3000"
