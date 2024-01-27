@@ -27,6 +27,8 @@ import { getAvatarFallback } from "@utils";
 
 import { SITE_CONFIG } from "@constants";
 
+import { env } from "@env";
+
 import Logo from "@public/images/logo.png";
 
 const notionRenderer = new NotionRenderer({
@@ -112,7 +114,7 @@ const BlogPost: FC<{
     post.properties,
   );
 
-  void incrementViewCount(post.id, views);
+  if (env.NODE_ENV === "production") void incrementViewCount(post.id, views);
 
   return (
     <article className="max-w-3xl mx-auto mt-4 md:mt-8 lg:mt-12 space-y-4 md:space-y-8">
