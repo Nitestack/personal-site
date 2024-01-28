@@ -101,6 +101,7 @@ export function metadata<
     (metadata as Metadata).openGraph = {
       type: "website",
       siteName: SITE_CONFIG.name,
+      url: metadata.alternates.canonical,
       ...(metadata.openGraph ?? {}),
       title: resolvedTitle,
       description: resolvedDescription,
