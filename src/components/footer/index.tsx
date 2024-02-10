@@ -1,3 +1,5 @@
+import { MotionFooter } from "@components/motion";
+
 import { Github, MessageCircle, Twitter } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
@@ -8,10 +10,17 @@ import { SITE_CONFIG } from "@constants";
 const Footer: FC = () => {
   const t = useTranslations("Footer");
   return (
-    <footer className="border-t">
+    <MotionFooter
+      className="border-t"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 1.5 }}
+    >
       <div className="container mx-auto px-6 py-4 text-center">
         <h3 className="text-xl font-bold">Let's Connect</h3>
-        <p className="mt-2">Email: {SITE_CONFIG.email}</p>
+        <Link href={`mailto:${SITE_CONFIG.email}`} className="mt-2">
+          Email: {SITE_CONFIG.email}
+        </Link>
         <div className="flex justify-center mt-4 space-x-2">
           <Link target="_blank" href="/twitter">
             <Twitter className="h-6 w-6" />
@@ -28,7 +37,7 @@ const Footer: FC = () => {
           {t("allRightsReserved")}.
         </p>
       </div>
-    </footer>
+    </MotionFooter>
   );
 };
 
