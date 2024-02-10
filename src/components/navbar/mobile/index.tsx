@@ -1,18 +1,17 @@
 import NavbarLogo from "@components/navbar/logo";
+import { MobileSidebarContextProvider } from "@components/navbar/mobile/context";
 import MobileLanguageSelection from "@components/navbar/mobile/language-selection";
+import MobileSidebarLink from "@components/navbar/mobile/link";
+import MobileSidebarLogo from "@components/navbar/mobile/logo";
 import MobileThemeSelection from "@components/navbar/mobile/theme-selection";
 import { Button } from "@components/ui/button";
 import {
-  Sheet,
   SheetClose,
   SheetContent,
-  SheetDescription,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from "@components/ui/sheet";
-
-import { Link } from "@navigation";
 
 import { Menu, X } from "lucide-react";
 import { useTranslations } from "next-intl";
@@ -23,7 +22,7 @@ import { SITE_CONFIG } from "@constants";
 const MobileSidebar: FC = () => {
   const t = useTranslations();
   return (
-    <Sheet>
+    <MobileSidebarContextProvider>
       <SheetTrigger asChild>
         <Button className="shadow-none" size="icon" variant="ghost">
           <Menu className="h-6 w-6" />
@@ -37,35 +36,29 @@ const MobileSidebar: FC = () => {
                 <X className="h-6 w-6" />
               </Button>
             </SheetClose>
-            <NavbarLogo />
+            <MobileSidebarLogo />
           </SheetTitle>
-          <SheetDescription className="space-y-4">
-            <div className="space-y-2">
-              {SITE_CONFIG.routes.map((route) => (
-                <Button
-                  className="w-full text-xl tracking-wider font-bold shadow-none border-none rounded-none"
-                  key={route.id}
-                  variant="outline"
-                  asChild
-                >
-                  <Link href={route.url}>
-                    {t(`Routes.${route.translationKey}`)}
-                  </Link>
-                </Button>
-              ))}
-            </div>
-            <div className="border-t border-border" />
-            <MobileThemeSelection
-              label={t("Settings.Theme.name")}
-              lightLabel={t("Settings.Theme.light")}
-              darkLabel={t("Settings.Theme.dark")}
-            />
-            <div className="border-t border-border" />
-            <MobileLanguageSelection label={t("Settings.language")} />
-          </SheetDescription>
         </SheetHeader>
+        <div className="text-muted-foreground space-y-4">
+          <div className="space-y-2">
+            {SITE_CONFIG.routes.map((route) => (
+              <MobileSidebarLink id={route.id} key={route.id} href={route.url}>
+                {/* eslint-disable-next-line @typescript-eslint/restrict-template-expressions */}
+                {t(`Routes.${route.translationKey}`)}
+              </MobileSidebarLink>
+            ))}
+          </div>
+          <div className="border-t border-border" />
+          <MobileThemeSelection
+            label={t("Settings.Theme.name")}
+            lightLabel={t("Settings.Theme.light")}
+            darkLabel={t("Settings.Theme.dark")}
+          />
+          <div className="border-t border-border" />
+          <MobileLanguageSelection label={t("Settings.language")} />
+        </div>
       </SheetContent>
-    </Sheet>
+    </MobileSidebarContextProvider>
   );
 };
 
