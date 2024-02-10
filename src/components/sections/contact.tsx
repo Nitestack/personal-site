@@ -1,11 +1,12 @@
+import Section from "@components/sections/section";
+
+import { useTranslations } from "next-intl";
 import { type FC } from "react";
 
-const ContactSection: FC<{ heading: string }> = ({ heading }) => {
+const ContactSection: FC = () => {
+  const t = useTranslations("Routes");
   return (
-    <section>
-      <h1 className="text-3xl mb-3" id="contact">
-        {heading}
-      </h1>
+    <Section heading={t("contact")} sectionID="contact">
       <p className="tracking-wide italic">
         Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit
         enim labore culpa sint ad nisi Lorem pariatur mollit ex esse
@@ -39,7 +40,7 @@ const ContactSection: FC<{ heading: string }> = ({ heading }) => {
         duis sunt velit enim. Voluptate laboris sint cupidatat ullamco ut ea
         consectetur et est culpa et culpa duis.
       </p>
-    </section>
+    </Section>
   );
 };
 

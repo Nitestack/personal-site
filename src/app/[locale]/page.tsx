@@ -1,4 +1,5 @@
 import AboutSection from "@components/sections/about";
+import BlogSection from "@components/sections/blog";
 import ContactSection from "@components/sections/contact";
 import ExperienceSection from "@components/sections/experience";
 import ProjectsSection from "@components/sections/projects";
@@ -26,10 +27,12 @@ const HomePage: FC<{ params: { locale: string } }> = ({
         </h1>
         <p className="text-center text-xl">{t("All.description")}</p>
       </section>
-      <AboutSection heading={t("Routes.about")} />
-      <ExperienceSection heading={t("Routes.experience")} />
-      <ProjectsSection heading={t("Routes.projects")} />
-      <ContactSection heading={t("Routes.contact")} />
+      <HeroSection />
+      <AboutSection />
+      <ExperienceSection />
+      <ProjectsSection />
+      <BlogSection />
+      <ContactSection />
     </div>
   );
 };
