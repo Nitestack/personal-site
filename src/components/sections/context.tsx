@@ -1,6 +1,9 @@
 "use client";
 
+import { MotionSection } from "@components/motion";
+
 import {
+  type ComponentPropsWithoutRef,
   type Dispatch,
   type FC,
   type ReactNode,
@@ -57,7 +60,7 @@ export function useSectionsContext() {
   return context;
 }
 
-export function useSectionInView(section: string, threshold = 0.75) {
+export function useSectionInView(section: string | null, threshold = 0.75) {
   const { ref, inView } = useInView({
     threshold,
   });
@@ -66,7 +69,6 @@ export function useSectionInView(section: string, threshold = 0.75) {
   useEffect(() => {
     if (inView && Date.now() - timeOfLastClick > 1000) {
       setActiveSection(section);
-      location.hash = `#${section}`;
     }
   }, [inView, setActiveSection, timeOfLastClick, section]);
 
@@ -74,3 +76,16 @@ export function useSectionInView(section: string, threshold = 0.75) {
     ref,
   };
 }
+
+export const HeroSectionView: FC<
+  Omit<ComponentPropsWithoutRef<typeof MotionSection>, "children"> & {
+    children: ReactNode;
+  }
+> = ({ children, ...props }) => {
+  const { ref } = useSectionInView(null);
+  return (
+    <MotionSection id="hero" {...props} ref={ref}>
+      {children}
+    </MotionSection>
+  );
+};
