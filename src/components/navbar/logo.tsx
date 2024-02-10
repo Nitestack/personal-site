@@ -12,13 +12,15 @@ import { SITE_CONFIG } from "@constants";
 
 import Logo from "@public/images/logo.png";
 
-const NavbarLogo: FC = () => {
-  const { setActiveSection } = useSectionsContext();
+const NavbarLogo: FC<{ onClick?: () => void }> = ({ onClick }) => {
+  const { setActiveSection, setTimeOfLastClick } = useSectionsContext();
   function handleOnClick() {
     setActiveSection(null);
+    setTimeOfLastClick(Date.now());
+    onClick?.();
   }
   return (
-    <Link passHref legacyBehavior href="/">
+    <Link passHref legacyBehavior href={{ pathname: "/", hash: "#intro" }}>
       <MotionA
         className="flex items-center gap-2"
         initial={{ opacity: 0, x: "-100%" }}
