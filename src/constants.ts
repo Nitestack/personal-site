@@ -49,7 +49,10 @@ export const SITE_CONFIG: {
     {
       id: "blog",
       translationKey: "blog",
-      url: "/blog",
+      url: {
+        pathname: "/",
+        hash: "#blog",
+      },
     },
     {
       id: "contact",

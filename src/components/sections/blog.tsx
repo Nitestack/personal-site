@@ -1,12 +1,10 @@
 import Section from "@components/sections/section";
 
-import { useTranslations } from "next-intl";
 import { type FC } from "react";
 
-const ProjectsSection: FC = () => {
-  const t = useTranslations("Routes");
+const BlogSection: FC = () => {
   return (
-    <Section heading={t("projects")} sectionID="projects">
+    <Section heading="Blog" sectionID="blog">
       <p className="tracking-wide italic">
         Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit
         enim labore culpa sint ad nisi Lorem pariatur mollit ex esse
@@ -44,4 +42,4 @@ const ProjectsSection: FC = () => {
   );
 };
 
-export default ProjectsSection;
+export default BlogSection;

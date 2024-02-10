@@ -1,5 +1,7 @@
 "use client";
 
+import { SectionsContextProvider } from "@components/sections/context";
+
 import { type AbstractIntlMessages, NextIntlClientProvider } from "next-intl";
 import { ThemeProvider } from "next-themes";
 import { type ThemeProviderProps } from "next-themes/dist/types";
@@ -22,7 +24,7 @@ const Providers: FC<ProviderProps> = ({
   return (
     <ThemeProvider {...themeProps}>
       <NextIntlClientProvider {...localeProps}>
-        {children}
+        <SectionsContextProvider>{children}</SectionsContextProvider>
       </NextIntlClientProvider>
     </ThemeProvider>
   );
