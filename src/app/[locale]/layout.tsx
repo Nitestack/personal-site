@@ -1,9 +1,10 @@
+import { defaultMetadata } from "@metadata";
+
 import Providers from "@app/providers";
 
 import Footer from "@components/footer";
 import Navbar from "@components/navbar";
 
-import { defaultMetadata } from "@metadata";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import pick from "lodash.pick";
 import { type Viewport } from "next";
@@ -53,7 +54,7 @@ const LocaleLayout: FC<{ children: ReactNode; params: { locale: string } }> = ({
       className={classNames(
         workSans.variable,
         monaspace.variable,
-        "antialiased scroll-smooth scroll-pt-24",
+        "antialiased scroll-smooth scroll-pt-16 md:scroll-pt-24 scrollbar-none",
       )}
       lang={locale}
       suppressHydrationWarning
