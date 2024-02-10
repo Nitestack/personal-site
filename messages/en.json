@@ -12,7 +12,10 @@
   "Footer": {
     "allRightsReserved": "All rights reserved"
   },
-  "Home": {},
+  "Home": {
+    "aboutMe": "Hello! I'm a {age}-year-old student from Germany currently working towards my Abitur, which I'll be completing this July. In my free time, I'm passionate about building apps and always eager to learn new things. I also enjoy experimenting with development tools, and Neovim has been my go-to editor for quite a while now. I'm open to conversations and love connecting with other coders!",
+    "aboutMyOtherHobbies": "In addition to coding, I'm passionate about playing the piano and enjoy traveling and exploring new places with friends."
+  },
   "Blog": {
     "description": "Blog posts and tutorials on my learning journey as a developer. Written by {author}.",
     "latestPosts": "Latest posts",

@@ -12,7 +12,10 @@
   "Footer": {
     "allRightsReserved": "Alle Rechte vorbehalten"
   },
-  "Home": {},
+  "Home": {
+    "aboutMe": "Hallo! Ich bin ein {age}-jähriger Gymnasiast aus Deutschland. Derzeit mache ich mein Abitur, das ich diesen Juli abschließen werde. In meiner Freizeit programmiere ich gerne Apps und bin immer offen Neues zu lernen. Ich experimentiere auch gerne mit Entwicklertools; Neovim ist seit einiger Zeit mein Haupt-Code-Editor. Ich bin offen für Gespräche und mag es mich mit anderen Programmierern auszutauschen!",
+    "aboutMyOtherHobbies": "Neben dem Programmieren spiele ich gerne Klavier und reise gerne mit Freunden, um neue Orte zu erkunden."
+  },
   "Blog": {
     "description": "Blogbeiträge und Tutorials zu meiner Laufbahn als Entwickler. Im Moment ausschließlich auf Englisch. Geschrieben von {author}.",
     "publishedAt": "Veröffentlicht am",
