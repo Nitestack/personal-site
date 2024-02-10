@@ -1,3 +1,4 @@
+import { MotionDiv } from "@components/motion";
 import Section from "@components/sections/section";
 
 import { useTranslations } from "next-intl";
@@ -39,14 +40,19 @@ const AboutSection: FC = () => {
             />
           </div>
         </div>
-        <div className="flex-1 text-balance space-y-5">
+        <MotionDiv
+          initial={{ opacity: 0, x: "100%" }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+          className="flex-1 text-balance space-y-5"
+        >
           <p>
             {t("Home.aboutMe", {
               age: calculateAge(SITE_CONFIG.birthday),
             })}
           </p>
           <p>{t("Home.aboutMyOtherHobbies")}</p>
-        </div>
+        </MotionDiv>
       </div>
     </Section>
   );
