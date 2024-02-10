@@ -22,7 +22,7 @@ const LanguageSelection: FC<{ label: string }> = ({ label }) => {
 
   function onLocaleSelect(newLocale: string) {
     startTransition(() => {
-      router.replace(pathname, { locale: newLocale });
+      router.replace(pathname + location.hash, { locale: newLocale });
     });
   }
   return (
