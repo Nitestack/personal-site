@@ -32,48 +32,16 @@ export const SITE_CONFIG: {
     process.env.NODE_ENV == "development"
       ? "http://localhost:3000"
       : "https://nhanpham.vercel.app",
-  routes: [
-    {
-      id: "about",
-      translationKey: "about",
+  routes: sections
+    .filter((section) => section !== "intro")
+    .map<NavigationRoute>((section) => ({
+      id: section,
+      translationKey: section as keyof Messages["Routes"],
       url: {
         pathname: "/",
-        hash: "#about",
+        hash: `#${section}`,
       },
-    },
-    {
-      id: "experience",
-      translationKey: "experience",
-      url: {
-        pathname: "/",
-        hash: "#experience",
-      },
-    },
-    {
-      id: "projects",
-      translationKey: "projects",
-      url: {
-        pathname: "/",
-        hash: "#projects",
-      },
-    },
-    {
-      id: "blog",
-      translationKey: "blog",
-      url: {
-        pathname: "/",
-        hash: "#blog",
-      },
-    },
-    {
-      id: "contact",
-      translationKey: "contact",
-      url: {
-        pathname: "/",
-        hash: "#contact",
-      },
-    },
-  ],
+    })),
 };
 
 export const LOCALIZATION_CONFIG: {
