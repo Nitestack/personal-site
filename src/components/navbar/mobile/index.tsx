@@ -1,4 +1,3 @@
-import NavbarLogo from "@components/navbar/logo";
 import { MobileSidebarContextProvider } from "@components/navbar/mobile/context";
 import MobileLanguageSelection from "@components/navbar/mobile/language-selection";
 import MobileSidebarLink from "@components/navbar/mobile/link";
