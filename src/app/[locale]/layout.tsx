@@ -5,6 +5,7 @@ import Providers from "@app/providers";
 import Footer from "@components/footer";
 import Navbar from "@components/navbar";
 
+import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import pick from "lodash.pick";
 import { type Viewport } from "next";
@@ -78,6 +79,7 @@ const LocaleLayout: FC<{ children: ReactNode; params: { locale: string } }> = ({
             {children}
           </main>
           <Footer />
+          <Analytics />
           <SpeedInsights />
         </Providers>
       </body>
