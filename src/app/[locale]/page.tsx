@@ -13,7 +13,7 @@ const HomePage: FC<{ params: { locale: string } }> = ({
 }) => {
   unstable_setRequestLocale(locale);
   return (
-    <div className="space-y-6">
+    <div className="space-y-20">
       <HeroSection />
       <AboutSection />
       <ExperienceSection />

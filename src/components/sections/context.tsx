@@ -84,7 +84,7 @@ export const HeroSectionView: FC<
 > = ({ children, ...props }) => {
   const { ref } = useSectionInView(null);
   return (
-    <MotionSection id="hero" {...props} ref={ref}>
+    <MotionSection id="intro" {...props} ref={ref}>
       {children}
     </MotionSection>
   );

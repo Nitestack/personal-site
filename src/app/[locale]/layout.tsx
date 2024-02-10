@@ -54,7 +54,7 @@ const LocaleLayout: FC<{ children: ReactNode; params: { locale: string } }> = ({
       className={classNames(
         workSans.variable,
         monaspace.variable,
-        "antialiased scroll-smooth scroll-pt-16 md:scroll-pt-24 scrollbar-none",
+        "antialiased scroll-smooth scrollbar-none",
       )}
       lang={locale}
       suppressHydrationWarning
