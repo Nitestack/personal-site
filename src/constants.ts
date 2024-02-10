@@ -22,12 +22,14 @@ export const SITE_CONFIG: {
   firstName: string;
   name: string;
   email: string;
+  birthday: Date;
   url: string;
   routes: NavigationRoute[];
 } = {
   firstName: "Nhan",
   name: "Nhan Pham",
   email: "nhan.pham@mail.de",
+  birthday: new Date(2006, 2, 6),
   url:
     process.env.NODE_ENV == "development"
       ? "http://localhost:3000"

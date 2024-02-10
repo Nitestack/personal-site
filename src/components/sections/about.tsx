@@ -1,45 +1,53 @@
 import Section from "@components/sections/section";
 
 import { useTranslations } from "next-intl";
+import NextImage from "next/image";
 import { type FC } from "react";
 
+import { SITE_CONFIG } from "@constants";
+
+import Neovim from "@public/images/neovim.png";
+
+function calculateAge(dateOfBirth: Date) {
+  const currentDate = new Date();
+  let age = currentDate.getFullYear() - dateOfBirth.getFullYear();
+  const currentMonth = currentDate.getMonth();
+  const birthMonth = dateOfBirth.getMonth();
+  // Check if the current month is before the birthday
+  if (
+    currentMonth < birthMonth ||
+    (currentMonth === birthMonth &&
+      currentDate.getDate() < dateOfBirth.getDate())
+  ) {
+    age--;
+  }
+  return age;
+}
+
 const AboutSection: FC = () => {
-  const t = useTranslations("Routes");
+  const t = useTranslations();
   return (
-    <Section heading={t("about")} sectionID="about">
-      <p className="tracking-wide italic">
-        Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit
-        enim labore culpa sint ad nisi Lorem pariatur mollit ex esse
-        exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit
-        nostrud nostrud ipsum Lorem est aliquip amet voluptate voluptate dolor
-        minim nulla est proident. Nostrud officia pariatur ut officia. Sit irure
-        elit esse ea nulla sunt ex occaecat reprehenderit commodo officia dolor
-        Lorem duis laboris cupidatat officia voluptate. Culpa proident
-        adipisicing id nulla nisi laboris ex in Lorem sunt duis officia eiusmod.
-        Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim.
-        Voluptate laboris sint cupidatat ullamco ut ea consectetur et est culpa
-        et culpa duis. Lorem ipsum dolor sit amet, officia excepteur ex fugiat
-        reprehenderit enim labore culpa sint ad nisi Lorem pariatur mollit ex
-        esse exercitation amet. Nisi anim cupidatat excepteur officia.
-        Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate
-        voluptate dolor minim nulla est proident. Nostrud officia pariatur ut
-        officia. Sit irure elit esse ea nulla sunt ex occaecat reprehenderit
-        commodo officia dolor Lorem duis laboris cupidatat officia voluptate.
-        Culpa proident adipisicing id nulla nisi laboris ex in Lorem sunt duis
-        officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt
-        velit enim. Voluptate laboris sint cupidatat ullamco ut ea consectetur
-        et est culpa et culpa duis. Lorem ipsum dolor sit amet, officia
-        excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem
-        pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur
-        officia. Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet
-        voluptate voluptate dolor minim nulla est proident. Nostrud officia
-        pariatur ut officia. Sit irure elit esse ea nulla sunt ex occaecat
-        reprehenderit commodo officia dolor Lorem duis laboris cupidatat officia
-        voluptate. Culpa proident adipisicing id nulla nisi laboris ex in Lorem
-        sunt duis officia eiusmod. Aliqua reprehenderit commodo ex non excepteur
-        duis sunt velit enim. Voluptate laboris sint cupidatat ullamco ut ea
-        consectetur et est culpa et culpa duis.
-      </p>
+    <Section heading={t("Routes.about")} sectionID="about">
+      <div className="flex gap-4 md:gap-8 flex-col lg:items-center lg:flex-row">
+        <div className="flex-1">
+          <div className="relative w-full aspect-video overflow-hidden rounded-sm border-2 border-border/40 shadow-lg shadow-ring dark:shadow-ring/10">
+            <NextImage
+              fill
+              className="object-contai"
+              src={Neovim}
+              alt="Neovim"
+            />
+          </div>
+        </div>
+        <div className="flex-1 text-balance space-y-5">
+          <p>
+            {t("Home.aboutMe", {
+              age: calculateAge(SITE_CONFIG.birthday),
+            })}
+          </p>
+          <p>{t("Home.aboutMyOtherHobbies")}</p>
+        </div>
+      </div>
     </Section>
   );
 };
