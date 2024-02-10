@@ -1,11 +1,12 @@
+import { MotionDiv, MotionUl } from "@components/motion";
 import {
   NavigationMenu,
-  NavigationMenuItem,
   NavigationMenuList,
   NavigationMenuViewport,
 } from "@components/navbar/client";
 import LanguageSelection from "@components/navbar/language-selection";
 import NavbarLink from "@components/navbar/link";
+import NavbarLogo from "@components/navbar/logo";
 import MobileSidebar from "@components/navbar/mobile";
 import ThemeSelection from "@components/navbar/theme-selection";
 import { Button } from "@components/ui/button";
@@ -16,45 +17,48 @@ import {
   DropdownMenuTrigger,
 } from "@components/ui/dropdown-menu";
 
-import { Link } from "@navigation";
-
 import { Settings } from "lucide-react";
 import { useTranslations } from "next-intl";
-import NextImage from "next/image";
 import { type FC } from "react";
 
 import { SITE_CONFIG } from "@constants";
 
-import Logo from "@public/images/logo.png";
-
 const Navbar: FC = () => {
   const t = useTranslations();
   return (
-    <NavigationMenu className="border-b border-border/40 sticky z-10 top-0 inset-x-0 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container px-6 py-4 flex justify-between items-center max-w-screen-2xl h-20">
+    <NavigationMenu className="sticky z-50 top-0 inset-x-0 md:top-6 mx-auto max-w-screen-md border rounded-none md:rounded-full border-border/40 w-full bg-background/80 shadow-lg shadow-ring/5 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="px-4 lg:px-6 py-1 flex justify-between items-center gap-8">
         <div className="flex items-center gap-2">
           <div className="md:hidden">
             <MobileSidebar />
           </div>
-          <NextImage alt={SITE_CONFIG.name} width={36} height={36} src={Logo} />
-          <Link className="text-2xl font-bold whitespace-nowrap" href="/">
-            {SITE_CONFIG.name}
-          </Link>
+          <NavbarLogo />
         </div>
-        <NavigationMenuList className="hidden md:flex flex-1 space-x-4 list-none group">
-          {SITE_CONFIG.routes.map((route) => (
-            <NavigationMenuItem key={route.id}>
-              <NavbarLink href={route.url}>
+        <NavigationMenuList
+          asChild
+          className="hidden md:flex flex-1 gap-1 list-none group"
+        >
+          <MotionUl
+            initial={{ opacity: 0, y: "-100%" }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.25 }}
+          >
+            {SITE_CONFIG.routes.map((route) => (
+              <NavbarLink id={route.id} key={route.id} href={route.url}>
                 {/* eslint-disable-next-line @typescript-eslint/restrict-template-expressions */}
                 {t(`Routes.${route.translationKey}`)}
               </NavbarLink>
-            </NavigationMenuItem>
-          ))}
+            ))}
+          </MotionUl>
         </NavigationMenuList>
-        <div className="md:flex hidden items-center space-x-2">
+        <MotionDiv
+          className="md:flex hidden items-center space-x-2"
+          initial={{ opacity: 0, x: "100%" }}
+          animate={{ opacity: 1, x: 0 }}
+        >
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button size="icon" variant="outline">
+              <Button className="rounded-full" size="icon" variant="outline">
                 <Settings className="h-4 w-4" />
               </Button>
             </DropdownMenuTrigger>
@@ -68,7 +72,7 @@ const Navbar: FC = () => {
               <LanguageSelection label={t("Settings.language")} />
             </DropdownMenuContent>
           </DropdownMenu>
-        </div>
+        </MotionDiv>
       </div>
       <NavigationMenuViewport className="origin-top-center relative mt-1.5 h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden rounded-md border bg-popover text-popover-foreground shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90 md:w-[var(--radix-navigation-menu-viewport-width)]" />
     </NavigationMenu>
