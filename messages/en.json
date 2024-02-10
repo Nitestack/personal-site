@@ -1,6 +1,6 @@
 {
   "All": {
-    "description": "A passionate developer specialized in creating modern, and performant web applications."
+    "description": "A passionate hobbyist software engineer dedicated to learning and specializing in creating modern, performant applications."
   },
   "Routes": {
     "about": "About",
@@ -12,11 +12,7 @@
   "Footer": {
     "allRightsReserved": "All rights reserved"
   },
-  "Home": {
-    "HeroSection": {
-      "title": "Hi, I'm {name}"
-    }
-  },
+  "Home": {},
   "Blog": {
     "description": "Blog posts and tutorials on my learning journey as a developer. Written by {author}.",
     "latestPosts": "Latest posts",
