@@ -14,7 +14,11 @@ import NextImage from "next/image";
 import { type FC } from "react";
 
 const BlogPostPreview: FC<
-  BlogPostPreview & { viewsLabel: string; publishedAtLabel: string }
+  BlogPostPreview & {
+    viewsLabel: string;
+    publishedAtLabel: string;
+    locale?: string;
+  }
 > = ({
   title,
   excerpt,
@@ -25,6 +29,7 @@ const BlogPostPreview: FC<
   publishedAtLabel,
   views,
   viewsLabel,
+  locale,
 }) => {
   return (
     <Link className="group" href={`/blog/${slug}`}>
@@ -55,7 +60,9 @@ const BlogPostPreview: FC<
             </div>
             <div className="text-right">
               <p className="text-xs font-mono">{publishedAtLabel}</p>
-              <p className="font-bold">{getLocaleDateString(publishedAt)}</p>
+              <p className="font-bold">
+                {getLocaleDateString(publishedAt, locale)}
+              </p>
             </div>
           </div>
         </CardHeader>

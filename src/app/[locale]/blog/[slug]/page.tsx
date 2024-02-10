@@ -160,7 +160,7 @@ const BlogPost: FC<{
           <div className="text-left">
             <p className="text-xs md:text-sm font-mono">{publishedAtLabel}</p>
             <p className="text-sm md:text-lg font-bold">
-              {getLocaleDateString(publishedAt)}
+              {getLocaleDateString(publishedAt, locale)}
             </p>
           </div>
           <div className="flex flex-col items-end">

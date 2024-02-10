@@ -138,8 +138,11 @@ export const trimExcerpt = (excerpt: string) => {
   return excerpt.length > 200 ? excerpt.slice(0, 200) + "..." : excerpt;
 };
 
-export const getLocaleDateString = (date: Date) => {
-  return date.toLocaleDateString(undefined, {
+export const getLocaleDateString = (
+  date: Date,
+  locales?: Intl.LocalesArgument,
+) => {
+  return date.toLocaleDateString(locales, {
     dateStyle: "long",
   });
 };
