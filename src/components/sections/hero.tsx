@@ -32,7 +32,7 @@ const HeroSection: FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h1 className="text-5xl md:text-8xl tracking-wider font-bold mb-3">
+          <h1 className="text-5xl sm:text-8xl tracking-wider font-bold mb-3">
             {SITE_CONFIG.name}
           </h1>
           <p className="text-balance text-xl text-muted-foreground">
