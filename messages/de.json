@@ -1,6 +1,6 @@
 {
   "All": {
-    "description": "Ein leidenschaftlicher Software-Entwickler tätig in der Entwicklung von modernen und performanten Websiten."
+    "description": "Ein leidenschaftlicher Hobby-Softwareentwickler, der sich darauf spezialisiert hat, moderne und performante Anwendungen zu erstellen"
   },
   "Routes": {
     "about": "Über mich",
@@ -12,11 +12,7 @@
   "Footer": {
     "allRightsReserved": "Alle Rechte vorbehalten"
   },
-  "Home": {
-    "HeroSection": {
-      "title": "Hallo, ich bin {name}"
-    }
-  },
+  "Home": {},
   "Blog": {
     "description": "Blogbeiträge und Tutorials zu meiner Laufbahn als Entwickler. Im Moment ausschließlich auf Englisch. Geschrieben von {author}.",
     "publishedAt": "Veröffentlicht am",
