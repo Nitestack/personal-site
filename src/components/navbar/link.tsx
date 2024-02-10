@@ -4,7 +4,7 @@ import { MotionDiv } from "@components/motion";
 import { useSectionsContext } from "@components/sections/context";
 import { navigationMenuTriggerStyle } from "@components/ui/navigation-menu";
 
-import { Link, usePathname } from "@navigation";
+import { Link } from "@navigation";
 
 import {
   NavigationMenuItem,
@@ -22,15 +22,10 @@ const NavbarLink: FC<
     id: string;
   }
 > = ({ id, href, className, children, ...props }) => {
-  const pathname = typeof href === "string" ? href : href.pathname;
-  const currentPathname = usePathname();
-  const isMatchingPathname =
-    pathname == "/" ? false : currentPathname === pathname;
   const { activeSection, setActiveSection } = useSectionsContext();
-  const isActive = activeSection === id || isMatchingPathname;
+  const isActive = activeSection === id;
   function handleOnClick() {
-    if (isMatchingPathname) setActiveSection(null);
-    else setActiveSection(id);
+    setActiveSection(id);
   }
   return (
     <NavigationMenuItem>
