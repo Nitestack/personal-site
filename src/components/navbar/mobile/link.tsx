@@ -12,8 +12,10 @@ import { type FC } from "react";
 
 import { classNames } from "@utils";
 
+import { type Section } from "@constants";
+
 const MobileSidebarLink: FC<{
-  id: string;
+  id: Section;
   children: string;
   href: LinkProps["href"];
 }> = ({ id, children, href }) => {

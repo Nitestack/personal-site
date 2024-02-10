@@ -2,10 +2,21 @@ import { type UrlObject } from "node:url";
 import { type LocalePrefix } from "node_modules/next-intl/dist/types/src/shared/types";
 
 interface NavigationRoute {
-  id: string;
+  id: Section;
   translationKey: keyof Messages["Routes"];
   url: string | UrlObject;
 }
+
+export const sections = [
+  "intro",
+  "about",
+  "experience",
+  "projects",
+  "blog",
+  "contact",
+] as const;
+
+export type Section = (typeof sections)[number];
 
 export const SITE_CONFIG: {
   firstName: string;

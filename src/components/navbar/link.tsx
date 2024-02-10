@@ -15,8 +15,10 @@ import { type FC } from "react";
 
 import { classNames } from "@utils";
 
+import { type Section } from "@constants";
+
 const NavbarLink: FC<{
-  id: string;
+  id: Section;
   href: LinkProps["href"];
   children: string;
 }> = ({ id, href, children }) => {

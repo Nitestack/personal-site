@@ -15,9 +15,11 @@ import {
 } from "react";
 import { useInView } from "react-intersection-observer";
 
+import { type Section, sections } from "@constants";
+
 export interface SectionsContextType {
-  activeSection: string | null;
-  setActiveSection: Dispatch<SetStateAction<string | null>>;
+  activeSection: Section | null;
+  setActiveSection: Dispatch<SetStateAction<Section | null>>;
   timeOfLastClick: number;
   setTimeOfLastClick: Dispatch<SetStateAction<number>>;
 }
@@ -27,11 +29,15 @@ const SectionsContext = createContext<SectionsContextType | null>(null);
 export const SectionsContextProvider: FC<{ children: ReactNode }> = ({
   children,
 }) => {
-  const [activeSection, setActiveSection] = useState<string | null>(null);
+  const [activeSection, setActiveSection] = useState<Section | null>(null);
   const [timeOfLastClick, setTimeOfLastClick] = useState(0);
 
   useEffect(() => {
-    setActiveSection(location.hash.length ? location.hash.slice(1) : null);
+    setActiveSection(
+      location.hash.length && sections.includes(location.hash.slice(1))
+        ? (location.hash.slice(1) as Section)
+        : null,
+    );
   }, []);
 
   return (
@@ -60,7 +66,7 @@ export function useSectionsContext() {
   return context;
 }
 
-export function useSectionInView(section: string | null, threshold = 0.75) {
+export function useSectionInView(section: Section | null, threshold = 0.75) {
   const { ref, inView } = useInView({
     threshold,
   });
@@ -82,9 +88,10 @@ export const HeroSectionView: FC<
     children: ReactNode;
   }
 > = ({ children, ...props }) => {
+  const introSection: Section = "intro";
   const { ref } = useSectionInView(null);
   return (
-    <MotionSection id="intro" {...props} ref={ref}>
+    <MotionSection {...props} id={introSection} ref={ref}>
       {children}
     </MotionSection>
   );

@@ -7,10 +7,12 @@ import { type ComponentPropsWithoutRef, type FC, type ReactNode } from "react";
 
 import { classNames } from "@utils";
 
+import { type Section as SectionType } from "@constants";
+
 const Section: FC<
   Omit<ComponentPropsWithoutRef<typeof MotionSection>, "id" | "children"> & {
     children: ReactNode;
-    sectionID: string;
+    sectionID: SectionType;
     heading: string;
   }
 > = ({ heading, children, sectionID, className, ...props }) => {
