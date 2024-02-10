@@ -8,7 +8,7 @@ import { SITE_CONFIG } from "@constants";
 const HeroSection: FC = () => {
   const t = useTranslations();
   return (
-    <HeroSectionView className="h-screen">
+    <HeroSectionView className="scroll-mt-28 h-screen">
       <h1 className="text-8xl tracking-wide font-bold text-center">
         {t("Home.HeroSection.title", {
           name: SITE_CONFIG.firstName,
