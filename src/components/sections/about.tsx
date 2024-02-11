@@ -43,7 +43,7 @@ const AboutSection: FC = () => {
         <MotionDiv
           initial={{ opacity: 0, x: "100%" }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1 }}
+          transition={{ duration: 0.5 }}
           className="flex-1 text-balance space-y-5"
         >
           <p>
