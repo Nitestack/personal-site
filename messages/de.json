@@ -15,6 +15,12 @@
   },
   "Experience": {
     "latest": "Aktuellste",
+    "Skills": {
+      "languages": "Sprachen",
+      "libs": "Frameworks & Biblotheken",
+      "tools": "Tools",
+      "os": "Betriebssysteme"
+    },
     "JobTitles": {
       "schoolInternship": "Schulpraktikant"
     },
