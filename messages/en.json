@@ -15,6 +15,12 @@
   },
   "Experience": {
     "latest": "Latest",
+    "Skills": {
+      "languages": "Languages",
+      "libs": "Frameworks & Libraries",
+      "tools": "Tools",
+      "os": "Operating Systems"
+    },
     "JobTitles": {
       "schoolInternship": "School Intern"
     },
