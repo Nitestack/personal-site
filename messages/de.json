@@ -14,8 +14,10 @@
     "aboutMyOtherHobbies": "Neben dem Programmieren spiele ich gerne Klavier und reise gerne mit Freunden, um neue Orte zu erkunden."
   },
   "Experience": {
-    "schoolInternship": "Schulpraktikant",
     "latest": "Aktuellste",
+    "JobTitles": {
+      "schoolInternship": "Schulpraktikant"
+    },
     "CompanyDescriptions": {
       "mbjSolutions": "In diesem Unternehmen sammelte ich Erfahrungen in der Fertigung, einschließlich Montage, Schaltschrankbau und Inbetriebnahme. Darüber hinaus war ich am Wareneingang und Lagermanagement beteiligt.",
       "vonBorstel": "In diesem Unternehmen habe ich Einblicke in die Backend-Entwicklung mit PHP bekommen. Mit diesem erworbenen Wissen habe ich eine Blogseite mit Solid.js als Client und PHP als Backend erstellt."
