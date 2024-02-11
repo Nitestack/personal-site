@@ -14,8 +14,10 @@
     "aboutMyOtherHobbies": "In addition to coding, I'm passionate about playing the piano and enjoy traveling and exploring new places with friends."
   },
   "Experience": {
-    "schoolInternship": "School Intern",
     "latest": "Latest",
+    "JobTitles": {
+      "schoolInternship": "School Intern"
+    },
     "CompanyDescriptions": {
       "mbjSolutions": "During my time at the company, I gained experience in manufacturing, including assembly, control cabinet construction, and commissioning. Additionally, I was involved in managing incoming goods and warehouse operations.",
       "vonBorstel": "During my time at the company, I learned about backend development using PHP. Using this knowledge, I built a blog page with Solid.js as the client and PHP as the backend."
