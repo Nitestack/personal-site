@@ -39,7 +39,7 @@ const ExperienceTimeline: FC<{
           <li className="mb-10 ms-4">
             <MotionDiv
               className={classNames(
-                "absolute w-3 h-3 rounded-full mt-1.5 -start-1.5 border",
+                "absolute w-3 h-3 rounded-full mt-1 -start-1.5 border",
                 event.latest
                   ? "bg-primary border-primary"
                   : "bg-muted border-muted",
@@ -59,45 +59,51 @@ const ExperienceTimeline: FC<{
               }}
             />
             <MotionDiv
+              className="space-y-2"
               initial={{ opacity: 0, x: "-100%" }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <time className="mb-1 text-sm font-normal leading-none text-muted-foreground">
-                {new Date(year, monthIndex - 1).toLocaleDateString(
-                  locale ?? undefined,
-                  {
-                    month: "long",
-                    year: "numeric",
-                  },
-                )}
-                {endDate && (
-                  <>
-                    {" - "}
-                    {new Date(
-                      Number(endDate[1]),
-                      Number(endDate[0]) - 1,
-                    ).toLocaleDateString(locale ?? undefined, {
+              <div className="text-sm font-normal leading-none flex flex-wrap items-center gap-2">
+                <p className="text-muted-foreground py-1">
+                  {new Date(year, monthIndex - 1).toLocaleDateString(
+                    locale ?? undefined,
+                    {
                       month: "long",
                       year: "numeric",
-                    })}
-                  </>
+                    },
+                  )}
+                  {endDate && (
+                    <>
+                      {" - "}
+                      {new Date(
+                        Number(endDate[1]),
+                        Number(endDate[0]) - 1,
+                      ).toLocaleDateString(locale ?? undefined, {
+                        month: "long",
+                        year: "numeric",
+                      })}
+                    </>
+                  )}
+                  {event.duration?.length && (
+                    <>
+                      {" ("}
+                      {formatter.format(...event.duration).replace("in ", "")}
+                      {")"}
+                    </>
+                  )}
+                </p>
+                {event.latest && (
+                  <span className="bg-primary w-fit text-primary-foreground font-medium px-2 py-1 rounded">
+                    {t("latest")}
+                  </span>
                 )}
-                {event.duration?.length && (
-                  <>
-                    {" ("}
-                    {formatter.format(...event.duration).replace("in ", "")}
-                    {")"}
-                  </>
-                )}
-              </time>
-              <h3 className="flex items-center mb-1 text-2xl font-semibold">
-                {event.title}
-                {event.company && (
-                  <>
-                    {" "}
-                    @{" "}
-                    <span className="ml-2 rounded bg-muted px-2 py-0.5 leading-8">
+              </div>
+              <h3 className="flex items-center flex-wrap gap-2 text-2xl font-semibold">
+                <span className="flex items-center gap-2 flex-wrap">
+                  {event.title}
+                  {event.company && (
+                    <span className="rounded bg-muted px-2 py-0.5 leading-8">
                       {event.companyLink ? (
                         <Link href={event.companyLink} target="_blank">
                           {event.company}
@@ -106,13 +112,8 @@ const ExperienceTimeline: FC<{
                         event.company
                       )}
                     </span>
-                  </>
-                )}
-                {event.latest && (
-                  <span className="bg-primary text-primary-foreground text-base font-medium me-2 px-3 py-0.5 rounded ms-3">
-                    {t("latest")}
-                  </span>
-                )}
+                  )}
+                </span>
               </h3>
               <p className="text-base font-normal text-muted-foreground">
                 {event.description}
