@@ -12,7 +12,7 @@ export interface ExperienceTimelineItem {
   date: `${MonthIndex}-${number}`;
   endDate?: `${MonthIndex}-${number}`;
   duration?: Parameters<InstanceType<typeof Intl.RelativeTimeFormat>["format"]>;
-  title: ReactNode;
+  title: string;
   description: ReactNode;
   latest?: boolean;
   company?: string;
@@ -36,7 +36,7 @@ const ExperienceTimeline: FC<{
 
         const endDate = event.endDate?.split("-");
         return (
-          <li className="mb-10 ms-4">
+          <li key={event.title + event.date.toString()} className="mb-10 ms-4">
             <MotionDiv
               className={classNames(
                 "absolute w-3 h-3 rounded-full mt-1 -start-1.5 border",
