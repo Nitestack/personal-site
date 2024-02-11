@@ -276,7 +276,7 @@ export const SITE_CONFIG: {
         textColor: "text-white",
       },
       {
-        name: "Arch Linux",
+        name: "Arch Linux (WSL)",
         level: "Beginner",
         imageUrl: "/images/logos/arch.svg",
         bgColor: "bg-[#1894d4]",
