@@ -13,6 +13,14 @@
     "aboutMe": "Hallo! Ich bin ein {age}-jähriger Gymnasiast aus Deutschland. Derzeit mache ich mein Abitur, welches ich im Juli abschließen werde. In meiner Freizeit programmiere ich gerne Apps und bin immer offen Neues zu lernen. Auch experimentiere ich gerne mit Entwicklertools; Neovim ist seit einiger Zeit mein Haupt-Code-Editor.",
     "aboutMyOtherHobbies": "Neben dem Programmieren spiele ich gerne Klavier und reise gerne mit Freunden, um neue Orte zu erkunden."
   },
+  "Experience": {
+    "schoolInternship": "Schulpraktikant",
+    "latest": "Aktuellste",
+    "CompanyDescriptions": {
+      "mbjSolutions": "In diesem Unternehmen sammelte ich Erfahrungen in der Fertigung, einschließlich Montage, Schaltschrankbau und Inbetriebnahme. Darüber hinaus war ich am Wareneingang und Lagermanagement beteiligt.",
+      "vonBorstel": "In diesem Unternehmen habe ich Einblicke in die Backend-Entwicklung mit PHP bekommen. Mit diesem erworbenen Wissen habe ich eine Blogseite mit Solid.js als Client und PHP als Backend erstellt."
+    }
+  },
   "Blog": {
     "description": "Blogbeiträge und Tutorials zu meiner Laufbahn als Entwickler. Im Moment ausschließlich auf Englisch. Geschrieben von {author}.",
     "publishedAt": "Veröffentlicht am",

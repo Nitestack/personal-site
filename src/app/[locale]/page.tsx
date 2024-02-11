@@ -16,7 +16,7 @@ const HomePage: FC<{ params: { locale: string } }> = ({
     <div className="space-y-20 leading-loose">
       <HeroSection />
       <AboutSection />
-      <ExperienceSection />
+      <ExperienceSection locale={locale} />
       <ProjectsSection />
       <BlogSection />
       <ContactSection />

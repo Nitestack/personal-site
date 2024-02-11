@@ -1,45 +1,40 @@
 import Section from "@components/sections/section";
+import ExperienceTimeline, {
+  type ExperienceTimelineItem,
+} from "@components/ui/timeline";
 
 import { useTranslations } from "next-intl";
 import { type FC } from "react";
 
-const ExperienceSection: FC = () => {
-  const t = useTranslations("Routes");
+import { classNames } from "@utils";
+
+const ExperienceSection: FC<{ locale: string }> = ({ locale }) => {
+  const t = useTranslations();
+
+  const events: ExperienceTimelineItem[] = [
+    {
+      date: "6-2022",
+      duration: [2, "week"],
+      title: t("Experience.schoolInternship"),
+      company: "von Borstel GmbH",
+      companyLink: "https://www.von-borstel.de",
+      description: t("Experience.CompanyDescriptions.vonBorstel"),
+      latest: true,
+    },
+    {
+      date: "6-2021",
+      duration: [2, "week"],
+      title: t("Experience.schoolInternship"),
+      company: "MBJ Solutions GmbH",
+      companyLink: "https://www.mbj-solutions.com",
+      description: t("Experience.CompanyDescriptions.mbjSolutions"),
+    },
+  ];
   return (
-    <Section heading={t("experience")} sectionID="experience">
-      <p className="tracking-wide italic">
-        Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit
-        enim labore culpa sint ad nisi Lorem pariatur mollit ex esse
-        exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit
-        nostrud nostrud ipsum Lorem est aliquip amet voluptate voluptate dolor
-        minim nulla est proident. Nostrud officia pariatur ut officia. Sit irure
-        elit esse ea nulla sunt ex occaecat reprehenderit commodo officia dolor
-        Lorem duis laboris cupidatat officia voluptate. Culpa proident
-        adipisicing id nulla nisi laboris ex in Lorem sunt duis officia eiusmod.
-        Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim.
-        Voluptate laboris sint cupidatat ullamco ut ea consectetur et est culpa
-        et culpa duis. Lorem ipsum dolor sit amet, officia excepteur ex fugiat
-        reprehenderit enim labore culpa sint ad nisi Lorem pariatur mollit ex
-        esse exercitation amet. Nisi anim cupidatat excepteur officia.
-        Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate
-        voluptate dolor minim nulla est proident. Nostrud officia pariatur ut
-        officia. Sit irure elit esse ea nulla sunt ex occaecat reprehenderit
-        commodo officia dolor Lorem duis laboris cupidatat officia voluptate.
-        Culpa proident adipisicing id nulla nisi laboris ex in Lorem sunt duis
-        officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt
-        velit enim. Voluptate laboris sint cupidatat ullamco ut ea consectetur
-        et est culpa et culpa duis. Lorem ipsum dolor sit amet, officia
-        excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem
-        pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur
-        officia. Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet
-        voluptate voluptate dolor minim nulla est proident. Nostrud officia
-        pariatur ut officia. Sit irure elit esse ea nulla sunt ex occaecat
-        reprehenderit commodo officia dolor Lorem duis laboris cupidatat officia
-        voluptate. Culpa proident adipisicing id nulla nisi laboris ex in Lorem
-        sunt duis officia eiusmod. Aliqua reprehenderit commodo ex non excepteur
-        duis sunt velit enim. Voluptate laboris sint cupidatat ullamco ut ea
-        consectetur et est culpa et culpa duis.
-      </p>
+    <Section heading={t("Routes.experience")} sectionID="experience">
+      <div className="space-y-8">
+        <ExperienceTimeline locale={locale} items={events} />
+      </div>
     </Section>
   );
 };
