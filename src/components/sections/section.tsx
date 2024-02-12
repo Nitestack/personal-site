@@ -22,6 +22,7 @@ const Section: FC<
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1 }}
+      viewport={{ once: true }}
       {...props}
       className={classNames(
         "scroll-mt-20 md:scroll-mt-24 min-h-screen",
@@ -30,7 +31,7 @@ const Section: FC<
       ref={ref}
       id={sectionID}
     >
-      <h1 className="text-3xl mb-12 font-medium tracking-[0.5em] uppercase font-mono text-center">
+      <h1 className="text-3xl mb-6 md:mb-12 font-medium tracking-[0.5em] uppercase font-mono text-center">
         {heading}
       </h1>
       {children}
