@@ -14,6 +14,7 @@ const Footer: FC = () => {
       className="border-t"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
       transition={{ duration: 1.5 }}
     >
       <div className="container mx-auto px-6 py-4 text-center">

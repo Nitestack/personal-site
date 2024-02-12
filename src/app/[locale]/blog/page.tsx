@@ -13,6 +13,8 @@ import { useTranslations } from "next-intl";
 import { unstable_noStore } from "next/cache";
 import { type FC, Suspense } from "react";
 
+import { classNames } from "@utils";
+
 import { SITE_CONFIG } from "@constants";
 
 export const generateMetadata = metadata((t, { params: { locale } }) => {
@@ -53,34 +55,56 @@ const BlogOverviewPage: FC<{ params: { locale: string } }> = ({
         <h1 className="tracking-wide text-3xl sm:text-4xl font-extrabold lg:text-5xl">
           Blog
         </h1>
-        <p className="mt-2 md:text-lg">
+        <p className="text-balance mt-2 md:text-lg">
           {t("description", {
             author: SITE_CONFIG.name,
           })}
         </p>
       </section>
-      <section className="flex items-center justify-center">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-8 max-w-5xl">
-          <Suspense
-            fallback={Array(4)
-              .fill(0)
-              .map((_, index) => (
-                <SkeletonBlogPreview key={index} />
-              ))}
-          >
-            <BlogList
-              viewsLabel={t("views")}
-              publishedAtLabel={t("publishedAt")}
-              locale={locale}
-            />
-          </Suspense>
-        </div>
-      </section>
+      <BlogList locale={locale} />
     </div>
   );
 };
 
-const BlogList: FC<{
+export const BlogList: FC<{ locale: string; showcase?: boolean }> = ({
+  locale,
+  showcase,
+}) => {
+  const t = useTranslations("Blog");
+  return (
+    <section
+      className={classNames(
+        "flex",
+        showcase
+          ? "overflow-x-auto overflow-y-hidden lg:max-w-5xl max-w-full mx-auto rounded-lg p-1 snap-x snap-mandatory"
+          : "items-center justify-center",
+      )}
+    >
+      <div
+        className={classNames(
+          "flex justify-center gap-4 lg:gap-8",
+          showcase ? "flex-nowrap" : "flex-wrap",
+        )}
+      >
+        <Suspense
+          fallback={Array(4)
+            .fill(0)
+            .map((_, index) => (
+              <SkeletonBlogPreview key={index} />
+            ))}
+        >
+          <BlogListItems
+            viewsLabel={t("views")}
+            publishedAtLabel={t("publishedAt")}
+            locale={locale}
+          />
+        </Suspense>
+      </div>
+    </section>
+  );
+};
+
+const BlogListItems: FC<{
   publishedAtLabel: string;
   viewsLabel: string;
   locale: string;
@@ -103,20 +127,22 @@ const BlogList: FC<{
     };
   });
 
-  return pages.map(({ views, publishedAt, slug, title, excerpt, imgUrl }) => (
-    <BlogPostPreview
-      key={slug}
-      title={title}
-      excerpt={excerpt}
-      imgAlt={undefined}
-      imgUrl={imgUrl}
-      slug={slug}
-      views={views}
-      viewsLabel={viewsLabel}
-      publishedAt={publishedAt}
-      publishedAtLabel={publishedAtLabel}
-    />
-  ));
+  return [...pages, ...pages, ...pages].map(
+    ({ views, publishedAt, slug, title, excerpt, imgUrl }) => (
+      <BlogPostPreview
+        key={slug}
+        title={title}
+        excerpt={excerpt}
+        imgAlt={undefined}
+        imgUrl={imgUrl}
+        slug={slug}
+        views={views}
+        viewsLabel={viewsLabel}
+        publishedAt={publishedAt}
+        publishedAtLabel={publishedAtLabel}
+      />
+    ),
+  );
 };
 
 export default BlogOverviewPage;

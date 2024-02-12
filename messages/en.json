@@ -30,10 +30,11 @@
     }
   },
   "Blog": {
-    "description": "Blog posts and tutorials on my learning journey as a developer. Written by {author}.",
+    "description": "Blog posts and tutorials on my learning journey as a developer.",
     "publishedAt": "Published at",
     "author": "Author",
-    "views": "Views"
+    "views": "Views",
+    "exploreMore": "See full blog"
   },
   "Footer": {
     "allRightsReserved": "All rights reserved"
