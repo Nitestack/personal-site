@@ -139,18 +139,6 @@ export const SITE_CONFIG: {
         bgColor: "bg-[#00007D]",
       },
       {
-        name: "Bash",
-        level: "Intermediate",
-        imageUrl: "/images/logos/bash.svg",
-        bgColor: "bg-[#283037]",
-      },
-      {
-        name: "PowerShell",
-        level: "Intermediate",
-        imageUrl: "/images/logos/powershell.svg",
-        bgColor: "bg-[#0f1822]",
-      },
-      {
         name: "C++",
         level: "Beginner",
         imageUrl: "/images/logos/cpp.svg",
@@ -254,6 +242,18 @@ export const SITE_CONFIG: {
         level: "Intermediate",
         imageUrl: "/images/logos/lazygit.png",
         bgColor: "bg-[#303030]",
+      },
+      {
+        name: "Bash",
+        level: "Intermediate",
+        imageUrl: "/images/logos/bash.svg",
+        bgColor: "bg-[#283037]",
+      },
+      {
+        name: "PowerShell",
+        level: "Intermediate",
+        imageUrl: "/images/logos/powershell.svg",
+        bgColor: "bg-[#0f1822]",
       },
       {
         name: "Zsh",
