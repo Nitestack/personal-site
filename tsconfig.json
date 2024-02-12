@@ -24,7 +24,7 @@
       "@types": ["./types.d.ts"],
       "@env": ["./src/env.mjs"],
       "@components/*": ["./src/components/*"],
-      "@constants": ["./src/constants.ts"],
+      "@constants": ["./src/constants.tsx"],
       "@utils": ["./src/utils.ts"],
       "@app/*": ["./src/app/*"],
       "@navigation": ["./src/navigation.ts"],
