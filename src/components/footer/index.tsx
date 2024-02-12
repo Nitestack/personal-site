@@ -18,7 +18,10 @@ const Footer: FC = () => {
     >
       <div className="container mx-auto px-6 py-4 text-center">
         <h3 className="text-xl font-bold">Let's Connect</h3>
-        <Link href={`mailto:${SITE_CONFIG.email}`} className="mt-2">
+        <Link
+          className="mt-2 text-primary hover:underline"
+          href={`mailto:${SITE_CONFIG.email}`}
+        >
           Email: {SITE_CONFIG.email}
         </Link>
         <div className="flex justify-center mt-4 space-x-2">
