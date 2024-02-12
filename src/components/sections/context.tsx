@@ -66,7 +66,7 @@ export function useSectionsContext() {
   return context;
 }
 
-export function useSectionInView(section: Section | null, threshold = 0.75) {
+export function useSectionInView(section: Section | null, threshold = 0.5) {
   const { ref, inView } = useInView({
     threshold,
   });
