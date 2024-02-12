@@ -59,7 +59,7 @@ export const SITE_CONFIG: {
         title: "schoolInternship",
         company: "von Borstel GmbH",
         companyLink: "https://www.von-borstel.de",
-        description: "mbjSolutions",
+        description: "vonBorstel",
         latest: true,
       },
       {
