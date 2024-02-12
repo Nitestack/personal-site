@@ -22,7 +22,6 @@ const Section: FC<
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1 }}
-      viewport={{ once: true }}
       {...props}
       className={classNames(
         "scroll-mt-20 md:scroll-mt-24 min-h-screen",
