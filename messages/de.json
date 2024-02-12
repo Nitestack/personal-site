@@ -1,6 +1,7 @@
 {
   "All": {
-    "description": "Ein leidenschaftlicher Hobby-Softwareentwickler mit Fokus auf Entwicklung von modernen, performanten Anwendungen."
+    "description": "Ein leidenschaftlicher Hobby-Softwareentwickler mit Fokus auf Entwicklung von modernen, performanten Anwendungen.",
+    "comingSoon": "Kommt bald"
   },
   "Routes": {
     "about": "Über mich",
