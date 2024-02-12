@@ -32,17 +32,21 @@ const SkillCategory: FC<{
       className="flex items-center justify-center flex-col gap-4"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
       transition={{
         delay: 0.5,
       }}
     >
       <h3 className="text-xl tracking-widest uppercase">{name}</h3>
-      <div className="flex md:justify-center overflow-x-auto md:overflow-x-hidden w-full rounded-xl py-1 snap-x snap-mandatory">
+      <div className="flex md:justify-center overflow-x-auto md:overflow-x-hidden w-full rounded-xl p-1 snap-x snap-mandatory">
         <div className="flex flex-nowrap md:flex-wrap justify-center gap-2 md:gap-4 lg:gap-6">
           {skills.map((skill) => (
-            <div
-              className="cursor-pointer min-w-24 snap-center"
+            <MotionDiv
               key={skill.name}
+              className="cursor-pointer min-w-24 snap-center"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.1 }}
             >
               <div
                 className={classNames(
@@ -88,7 +92,7 @@ const SkillCategory: FC<{
                   {skill.name}
                 </p>
               </div>
-            </div>
+            </MotionDiv>
           ))}
         </div>
       </div>

@@ -16,7 +16,7 @@ const HeroSection: FC = () => {
       <div className="flex flex-col gap-10 items-center h-full mt-20">
         <MotionDiv
           initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.25 }}
           className="relative aspect-video w-full max-w-3xl"
         >
