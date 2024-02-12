@@ -44,6 +44,7 @@ const AboutSection: FC = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.25 }}
+          viewport={{ once: true }}
           className="flex-1 text-balance space-y-5"
         >
           <p>
