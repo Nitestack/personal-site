@@ -105,7 +105,11 @@ const ExperienceTimeline: FC<{
                   {event.company && (
                     <span className="rounded bg-muted px-2 py-0.5 leading-8">
                       {event.companyLink ? (
-                        <Link href={event.companyLink} target="_blank">
+                        <Link
+                          className="hover:underline text-primary"
+                          href={event.companyLink}
+                          target="_blank"
+                        >
                           {event.company}
                         </Link>
                       ) : (
