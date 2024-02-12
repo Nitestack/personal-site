@@ -43,7 +43,7 @@ const SkillCategory: FC<{
           {skills.map((skill) => (
             <MotionDiv
               key={skill.name}
-              className="cursor-pointer min-w-24 snap-center"
+              className="cursor-pointer select-none min-w-24 snap-center"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               transition={{ duration: 0.1 }}
@@ -54,38 +54,40 @@ const SkillCategory: FC<{
                   skill.bgColor,
                 )}
               >
-                <div className="h-16 w-full bg-black rounded-t-xl flex items-center justify-center">
-                  <NextImage
-                    src={skill.imageUrl}
-                    alt={skill.name}
-                    width={48}
-                    height={48}
-                  />
-                </div>
-                <div className="flex items-center justify-center gap-1 bg-black p-1">
-                  {Array(getStarRating(skill.level))
-                    .fill(0)
-                    .map((_, index) => (
-                      <Star
-                        key={`star-filled-${index}`}
-                        className="w-4 h-4"
-                        color="#FFF500"
-                        fill="#FFF500"
-                      />
-                    ))}
-                  {Array(5 - getStarRating(skill.level))
-                    .fill(0)
-                    .map((_, index) => (
-                      <Star
-                        key={`star-unfilled-${index}`}
-                        className="w-4 h-4"
-                        fill="none"
-                      />
-                    ))}
+                <div className="bg-black rounded-t-xl p-1">
+                  <div className="h-16 w-full flex items-center justify-center">
+                    <NextImage
+                      src={skill.imageUrl}
+                      alt={skill.name}
+                      width={48}
+                      height={48}
+                    />
+                  </div>
+                  <div className="flex items-center justify-center gap-0.5">
+                    {Array(getStarRating(skill.level))
+                      .fill(0)
+                      .map((_, index) => (
+                        <Star
+                          key={`star-filled-${index}`}
+                          className="w-4 h-4"
+                          color="#FFF500"
+                          fill="#FFF500"
+                        />
+                      ))}
+                    {Array(5 - getStarRating(skill.level))
+                      .fill(0)
+                      .map((_, index) => (
+                        <Star
+                          key={`star-unfilled-${index}`}
+                          className="w-4 h-4"
+                          fill="none"
+                        />
+                      ))}
+                  </div>
                 </div>
                 <p
                   className={classNames(
-                    "text-white rounded-b-xl py-0.5 text-center font-semibold",
+                    "text-white rounded-b-xl p-0.5 text-center font-semibold",
                     skill.textColor,
                   )}
                 >
