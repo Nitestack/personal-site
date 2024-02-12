@@ -32,9 +32,8 @@ const SkillCategory: FC<{
       className="flex items-center justify-center flex-col gap-4"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
       transition={{
-        delay: 0.5,
+        delay: 0.25,
       }}
     >
       <h3 className="text-xl tracking-widest uppercase">{name}</h3>
@@ -87,7 +86,7 @@ const SkillCategory: FC<{
                 </div>
                 <p
                   className={classNames(
-                    "text-foreground rounded-b-xl p-0.5 text-center font-semibold",
+                    "text-foreground whitespace-nowrap rounded-b-xl p-0.5 text-center font-semibold",
                     skill.textColor,
                   )}
                 >
