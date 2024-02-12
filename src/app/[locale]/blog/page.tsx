@@ -127,22 +127,20 @@ const BlogListItems: FC<{
     };
   });
 
-  return [...pages, ...pages, ...pages].map(
-    ({ views, publishedAt, slug, title, excerpt, imgUrl }) => (
-      <BlogPostPreview
-        key={slug}
-        title={title}
-        excerpt={excerpt}
-        imgAlt={undefined}
-        imgUrl={imgUrl}
-        slug={slug}
-        views={views}
-        viewsLabel={viewsLabel}
-        publishedAt={publishedAt}
-        publishedAtLabel={publishedAtLabel}
-      />
-    ),
-  );
+  return pages.map(({ views, publishedAt, slug, title, excerpt, imgUrl }) => (
+    <BlogPostPreview
+      key={slug}
+      title={title}
+      excerpt={excerpt}
+      imgAlt={undefined}
+      imgUrl={imgUrl}
+      slug={slug}
+      views={views}
+      viewsLabel={viewsLabel}
+      publishedAt={publishedAt}
+      publishedAtLabel={publishedAtLabel}
+    />
+  ));
 };
 
 export default BlogOverviewPage;
