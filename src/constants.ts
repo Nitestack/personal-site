@@ -44,6 +44,7 @@ export const SITE_CONFIG: {
     libs: Skill[];
     languages: Skill[];
     tools: Skill[];
+    platforms: Skill[];
     os: Skill[];
   };
 } = {
@@ -105,6 +106,20 @@ export const SITE_CONFIG: {
         bgColor: "bg-[#E48E1A]",
       },
       {
+        name: "Java",
+        level: "Beginner",
+        imageUrl: "/images/logos/java.svg",
+        bgColor: "bg-[#E48E1A]",
+        textColor: "text-[#FAF9F8]",
+      },
+      {
+        name: "PHP",
+        level: "Beginner",
+        imageUrl: "/images/logos/php.svg",
+        bgColor: "bg-[#777BB3]",
+        textColor: "text-black",
+      },
+      {
         name: "Dart",
         level: "Beginner",
         imageUrl: "/images/logos/dart.svg",
@@ -155,6 +170,13 @@ export const SITE_CONFIG: {
         level: "Intermediate",
         imageUrl: "/images/logos/discordjs.svg",
         bgColor: "bg-[#5865F2]",
+      },
+      {
+        name: "MongoDB",
+        level: "Intermediate",
+        imageUrl: "/images/logos/mongodb.svg",
+        bgColor: "bg-[#001E2B]",
+        textColor: "text-[#00ED64]",
       },
       {
         name: "PUG",
@@ -258,6 +280,25 @@ export const SITE_CONFIG: {
         imageUrl: "/images/logos/tmux.svg",
         bgColor: "bg-[#3c3c3c]",
         textColor: "text-[#1bb91f]",
+      },
+    ],
+    platforms: [
+      {
+        name: "Heroku",
+        level: "Beginner",
+        imageUrl: "/images/logos/heroku.svg",
+        bgColor: "bg-[#430098]",
+        textColor: "text-white",
+      },
+      {
+        name: "Vercel",
+        level: "Intermediate",
+        imageUrl: "/images/logos/vercel.svg",
+      },
+      {
+        name: "PlanetScale",
+        level: "Beginner",
+        imageUrl: "/images/logos/planetscale.svg",
       },
     ],
     os: [

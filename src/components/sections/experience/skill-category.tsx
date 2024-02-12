@@ -50,17 +50,17 @@ const SkillCategory: FC<{
             >
               <div
                 className={classNames(
-                  "h-full p-0.5 rounded-xl bg-muted shadow-lg shadow-ring/20",
+                  "bg-background h-full p-0.5 rounded-xl shadow-lg shadow-ring/20",
                   skill.bgColor,
                 )}
               >
-                <div className="bg-black rounded-t-xl p-1">
-                  <div className="h-16 w-full flex items-center justify-center">
+                <div className="bg-black rounded-t-xl p-1 space-y-1">
+                  <div className="relative h-14 w-full flex items-center justify-center">
                     <NextImage
+                      className="object-contain"
+                      fill
                       src={skill.imageUrl}
                       alt={skill.name}
-                      width={48}
-                      height={48}
                     />
                   </div>
                   <div className="flex items-center justify-center gap-0.5">
@@ -87,7 +87,7 @@ const SkillCategory: FC<{
                 </div>
                 <p
                   className={classNames(
-                    "text-white rounded-b-xl p-0.5 text-center font-semibold",
+                    "text-foreground rounded-b-xl p-0.5 text-center font-semibold",
                     skill.textColor,
                   )}
                 >

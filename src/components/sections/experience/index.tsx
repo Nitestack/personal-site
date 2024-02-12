@@ -37,6 +37,10 @@ const ExperienceSection: FC<{ locale: string }> = ({ locale }) => {
           skills={SITE_CONFIG.experience.tools}
         />
         <SkillCategory
+          name={t("Experience.Skills.platforms")}
+          skills={SITE_CONFIG.experience.platforms}
+        />
+        <SkillCategory
           name={t("Experience.Skills.os")}
           skills={SITE_CONFIG.experience.os}
         />
