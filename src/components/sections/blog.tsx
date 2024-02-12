@@ -1,43 +1,31 @@
-import Section from "@components/sections/section";
+import { BlogList } from "@app/[locale]/blog/page";
 
+import { MotionDiv } from "@components/motion";
+import Section from "@components/sections/section";
+import { Button } from "@components/ui/button";
+
+import { Link } from "@navigation";
+
+import { useTranslations } from "next-intl";
 import { type FC } from "react";
 
-const BlogSection: FC = () => {
+const BlogSection: FC<{ locale: string }> = ({ locale }) => {
+  const t = useTranslations("Blog");
   return (
     <Section heading="Blog" sectionID="blog">
-      <p className="tracking-wide italic">
-        Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit
-        enim labore culpa sint ad nisi Lorem pariatur mollit ex esse
-        exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit
-        nostrud nostrud ipsum Lorem est aliquip amet voluptate voluptate dolor
-        minim nulla est proident. Nostrud officia pariatur ut officia. Sit irure
-        elit esse ea nulla sunt ex occaecat reprehenderit commodo officia dolor
-        Lorem duis laboris cupidatat officia voluptate. Culpa proident
-        adipisicing id nulla nisi laboris ex in Lorem sunt duis officia eiusmod.
-        Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim.
-        Voluptate laboris sint cupidatat ullamco ut ea consectetur et est culpa
-        et culpa duis. Lorem ipsum dolor sit amet, officia excepteur ex fugiat
-        reprehenderit enim labore culpa sint ad nisi Lorem pariatur mollit ex
-        esse exercitation amet. Nisi anim cupidatat excepteur officia.
-        Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate
-        voluptate dolor minim nulla est proident. Nostrud officia pariatur ut
-        officia. Sit irure elit esse ea nulla sunt ex occaecat reprehenderit
-        commodo officia dolor Lorem duis laboris cupidatat officia voluptate.
-        Culpa proident adipisicing id nulla nisi laboris ex in Lorem sunt duis
-        officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt
-        velit enim. Voluptate laboris sint cupidatat ullamco ut ea consectetur
-        et est culpa et culpa duis. Lorem ipsum dolor sit amet, officia
-        excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem
-        pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur
-        officia. Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet
-        voluptate voluptate dolor minim nulla est proident. Nostrud officia
-        pariatur ut officia. Sit irure elit esse ea nulla sunt ex occaecat
-        reprehenderit commodo officia dolor Lorem duis laboris cupidatat officia
-        voluptate. Culpa proident adipisicing id nulla nisi laboris ex in Lorem
-        sunt duis officia eiusmod. Aliqua reprehenderit commodo ex non excepteur
-        duis sunt velit enim. Voluptate laboris sint cupidatat ullamco ut ea
-        consectetur et est culpa et culpa duis.
-      </p>
+      <MotionDiv
+        className="flex items-center flex-col gap-4 md:gap-6 lg:gap-8 justify-center"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.25 }}
+      >
+        <p className="text-center text-balance">{t("description")}</p>
+        <BlogList showcase locale={locale} />
+        <Button variant="outline" asChild>
+          <Link href="/blog">{t("exploreMore")}</Link>
+        </Button>
+      </MotionDiv>
     </Section>
   );
 };

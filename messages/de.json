@@ -30,10 +30,11 @@
     }
   },
   "Blog": {
-    "description": "Blogbeiträge und Tutorials zu meiner Laufbahn als Entwickler. Im Moment ausschließlich auf Englisch. Geschrieben von {author}.",
+    "description": "Blogbeiträge und Tutorials zu meiner Laufbahn als Entwickler. Im Moment ausschließlich auf Englisch.",
     "publishedAt": "Veröffentlicht am",
     "author": "Autor",
-    "views": "Aufrufe"
+    "views": "Aufrufe",
+    "exploreMore": "Vollständigen Blog ansehen"
   },
   "Footer": {
     "allRightsReserved": "Alle Rechte vorbehalten"
