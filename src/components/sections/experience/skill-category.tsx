@@ -37,10 +37,13 @@ const SkillCategory: FC<{
       }}
     >
       <h3 className="text-xl tracking-widest uppercase">{name}</h3>
-      <div className="flex md:justify-center overflow-x-auto md:overflow-x-hidden w-full">
+      <div className="flex md:justify-center overflow-x-auto md:overflow-x-hidden w-full rounded-xl py-1 snap-x snap-mandatory">
         <div className="flex flex-nowrap md:flex-wrap justify-center gap-2 md:gap-4 lg:gap-6">
           {skills.map((skill) => (
-            <div className="cursor-pointer min-w-24" key={skill.name}>
+            <div
+              className="cursor-pointer min-w-24 snap-center"
+              key={skill.name}
+            >
               <div
                 className={classNames(
                   "h-full p-0.5 rounded-xl bg-muted shadow-lg shadow-ring/20",
