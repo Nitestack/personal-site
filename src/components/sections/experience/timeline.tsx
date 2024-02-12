@@ -62,7 +62,6 @@ const ExperienceTimeline: FC<{
               className="space-y-2"
               initial={{ opacity: 0, x: "-100%" }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
               <div className="text-sm font-normal leading-none flex flex-wrap items-center gap-2">

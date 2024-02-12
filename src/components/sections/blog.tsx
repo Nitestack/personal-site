@@ -17,7 +17,6 @@ const BlogSection: FC<{ locale: string }> = ({ locale }) => {
         className="flex items-center flex-col gap-4 md:gap-6 lg:gap-8 justify-center"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.25 }}
       >
         <p className="text-center text-balance">{t("description")}</p>
