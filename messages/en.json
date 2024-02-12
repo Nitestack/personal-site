@@ -1,6 +1,7 @@
 {
   "All": {
-    "description": "A passionate hobbyist software engineer dedicated to learning and specializing in creating modern, performant applications."
+    "description": "A passionate hobbyist software engineer dedicated to learning and specializing in creating modern, performant applications.",
+    "comingSoon": "Coming soon"
   },
   "Routes": {
     "about": "About",
