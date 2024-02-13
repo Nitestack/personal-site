@@ -1,5 +1,6 @@
 import { type ExperienceTimelineItem } from "@components/sections/experience/timeline";
 
+import { type icons } from "lucide-react";
 import { type UrlObject } from "node:url";
 import { type LocalePrefix } from "node_modules/next-intl/dist/types/src/shared/types";
 
@@ -34,8 +35,8 @@ export const SITE_CONFIG: {
   name: string;
   email: string;
   birthday: Date;
-  url: string;
-  routes: NavigationRoute[];
+  location: string;
+  socials: { name: string; url: string; iconName: keyof typeof icons }[];
   experience: {
     events: (Omit<ExperienceTimelineItem, "title" | "description"> & {
       title: keyof Messages["Experience"]["JobTitles"];
@@ -47,11 +48,31 @@ export const SITE_CONFIG: {
     platforms: Skill[];
     os: Skill[];
   };
+  url: string;
+  routes: NavigationRoute[];
 } = {
   firstName: "Nhan",
   name: "Nhan Pham",
   email: "nhan.pham@mail.de",
   birthday: new Date(2006, 2, 6),
+  location: "Hamburg, DE",
+  socials: [
+    {
+      name: "GitHub",
+      url: "/github",
+      iconName: "Github",
+    },
+    {
+      name: "X",
+      url: "/twitter",
+      iconName: "Twitter",
+    },
+    {
+      name: "Discord",
+      url: "/discord",
+      iconName: "MessageCircle",
+    },
+  ],
   experience: {
     events: [
       {
