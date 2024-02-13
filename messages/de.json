@@ -23,6 +23,13 @@
       "platforms": "Plattformen",
       "os": "Betriebssysteme"
     },
+    "Levels": {
+      "basic": "Grundlegend",
+      "skilled": "Geübt",
+      "experienced": "Erfahren",
+      "advanced": "Fortgeschritten",
+      "expert": "Experte"
+    },
     "JobTitles": {
       "schoolInternship": "Schulpraktikant"
     },

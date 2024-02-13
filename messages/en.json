@@ -23,6 +23,13 @@
       "platforms": "Platforms",
       "os": "Operating Systems"
     },
+    "Levels": {
+      "basic": "Basic",
+      "skilled": "Skilled",
+      "experienced": "Experienced",
+      "advanced": "Advanced",
+      "expert": "Expert"
+    },
     "JobTitles": {
       "schoolInternship": "School Intern"
     },
