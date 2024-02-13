@@ -10,14 +10,14 @@ import { type Skill } from "@constants";
 
 function getStarRating(level: Skill["level"]) {
   switch (level) {
-    case "Professional":
+    case "expert":
       return 5;
-    case "Intermediate":
-      return 2;
-    case "Advanced":
-      return 3;
-    case "Expert":
+    case "advanced":
       return 4;
+    case "experienced":
+      return 3;
+    case "skilled":
+      return 2;
     default:
       return 1;
   }
