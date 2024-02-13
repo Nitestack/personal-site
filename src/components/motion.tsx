@@ -8,3 +8,5 @@ export const MotionUl = motion.ul;
 export const MotionFooter = motion.footer;
 export const MotionSection = motion.section;
 export const MotionSpan = motion.span;
+
+export { AnimatePresence } from "framer-motion";

@@ -1,6 +1,8 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
+import { type Skill } from "@constants";
+
 /**
  * Converts all class names into one class string
  * @param classLists The class(es)
@@ -23,4 +25,19 @@ export function getAvatarFallback(name: string) {
     .map((n) => n[0])
     .join("")
     .toUpperCase();
+}
+
+export function getStarRating(level: Skill["level"]) {
+  switch (level) {
+    case "expert":
+      return 5;
+    case "advanced":
+      return 4;
+    case "experienced":
+      return 3;
+    case "skilled":
+      return 2;
+    default:
+      return 1;
+  }
 }
