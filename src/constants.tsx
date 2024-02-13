@@ -1,8 +1,8 @@
 import { type ExperienceTimelineItem } from "@components/sections/experience/timeline";
 
 import { type icons } from "lucide-react";
+import type createMiddleware from "next-intl/middleware";
 import { type UrlObject } from "node:url";
-import { type LocalePrefix } from "node_modules/next-intl/dist/types/src/shared/types";
 
 interface NavigationRoute {
   id: Section;
@@ -12,7 +12,7 @@ interface NavigationRoute {
 
 export interface Skill {
   name: string;
-  level: "Beginner" | "Intermediate" | "Advanced" | "Expert" | "Professional";
+  level: "basic" | "skilled" | "experienced" | "advanced" | "expert";
   info?: string;
   imageUrl: string;
   bgColor?: string;
@@ -27,6 +27,8 @@ export const sections = [
   "blog",
   "contact",
 ] as const;
+
+type LocalePrefix = Parameters<typeof createMiddleware>[0]["localePrefix"];
 
 export type Section = (typeof sections)[number];
 
@@ -96,72 +98,72 @@ export const SITE_CONFIG: {
     languages: [
       {
         name: "Javascript",
-        level: "Advanced",
+        level: "experienced",
         imageUrl: "/images/logos/javascript.svg",
         bgColor: "bg-[#F7DF1E]",
         textColor: "text-[#323330]",
       },
       {
         name: "TypeScript",
-        level: "Advanced",
+        level: "experienced",
         imageUrl: "/images/logos/typescript.svg",
         bgColor: "bg-[#3178C6]",
         textColor: "text-[#FAF9F8]",
       },
       {
         name: "HTML",
-        level: "Advanced",
+        level: "experienced",
         imageUrl: "/images/logos/html.svg",
         bgColor: "bg-[#F16529]",
       },
       {
         name: "CSS",
-        level: "Advanced",
+        level: "experienced",
         imageUrl: "/images/logos/css.svg",
         bgColor: "bg-[#2965F1]",
       },
       {
         name: "SQL",
-        level: "Beginner",
+        level: "basic",
         imageUrl: "/images/logos/sql.svg",
         bgColor: "bg-[#E48E1A]",
       },
       {
         name: "Java",
-        level: "Beginner",
+        level: "basic",
         imageUrl: "/images/logos/java.svg",
         bgColor: "bg-[#E48E1A]",
         textColor: "text-[#FAF9F8]",
       },
       {
         name: "PHP",
-        level: "Beginner",
+        level: "basic",
         imageUrl: "/images/logos/php.svg",
         bgColor: "bg-[#777BB3]",
         textColor: "text-black",
       },
       {
         name: "Dart",
-        level: "Beginner",
+        level: "basic",
         imageUrl: "/images/logos/dart.svg",
         bgColor: "bg-[#0175C2]",
         textColor: "text-[#D5D7DA]",
       },
       {
         name: "C#",
-        level: "Beginner",
+        level: "basic",
         imageUrl: "/images/logos/csharp.svg",
         bgColor: "bg-[#280068]",
       },
       {
         name: "Lua",
-        level: "Intermediate",
+        level: "skilled",
         imageUrl: "/images/logos/lua.svg",
         bgColor: "bg-[#00007D]",
       },
       {
         name: "C++",
-        level: "Beginner",
+        level: "basic",
         imageUrl: "/images/logos/cpp.svg",
         bgColor: "bg-[#044F88]",
       },
@@ -169,64 +171,64 @@ export const SITE_CONFIG: {
     libs: [
       {
         name: "Node.js",
-        level: "Advanced",
+        level: "experienced",
         imageUrl: "/images/logos/nodejs.svg",
         bgColor: "bg-[#339933]",
         textColor: "text-[#333333]",
       },
       {
         name: "discord.js",
-        level: "Intermediate",
+        level: "skilled",
         imageUrl: "/images/logos/discordjs.svg",
         bgColor: "bg-[#5865F2]",
       },
       {
         name: "MongoDB",
-        level: "Intermediate",
+        level: "skilled",
         imageUrl: "/images/logos/mongodb.svg",
         bgColor: "bg-[#001E2B]",
         textColor: "text-[#00ED64]",
       },
       {
         name: "PUG",
-        level: "Intermediate",
+        level: "skilled",
         imageUrl: "/images/logos/pug.svg",
         bgColor: "bg-[#A86454]",
       },
       {
         name: "React",
-        level: "Advanced",
+        level: "experienced",
         imageUrl: "/images/logos/react.svg",
         bgColor: "bg-[#68DCFC]",
         textColor: "text-black",
       },
       {
         name: "Next.js",
-        level: "Advanced",
+        level: "experienced",
         imageUrl: "/images/logos/nextjs.svg",
       },
       {
         name: "Tailwind CSS",
-        level: "Advanced",
+        level: "experienced",
         imageUrl: "/images/logos/tailwindcss.svg",
         bgColor: "bg-[#40BCFC]",
         textColor: "text-black",
       },
       {
         name: "Prisma",
-        level: "Advanced",
+        level: "experienced",
         imageUrl: "/images/logos/prisma.svg",
         bgColor: "bg-[#2D3748]",
       },
       {
         name: "Flutter",
-        level: "Beginner",
+        level: "basic",
         imageUrl: "/images/logos/flutter.svg",
         bgColor: "bg-[#027DFD]",
       },
       {
         name: "Solid",
-        level: "Intermediate",
+        level: "skilled",
         imageUrl: "/images/logos/solid.svg",
         bgColor: "bg-[#2C4F7C]",
       },
@@ -234,70 +236,70 @@ export const SITE_CONFIG: {
     tools: [
       {
         name: "VSCode",
-        level: "Advanced",
+        level: "experienced",
         imageUrl: "/images/logos/vscode.svg",
         bgColor: "bg-[#0098FF]",
         textColor: "text-[#F3F3F3]",
       },
       {
         name: "Git",
-        level: "Intermediate",
+        level: "skilled",
         imageUrl: "/images/logos/git.svg",
         bgColor: "bg-[#DE4C36]",
         textColor: "text-[#2F2707]",
       },
       {
         name: "GitHub",
-        level: "Intermediate",
+        level: "skilled",
         imageUrl: "/images/logos/github.svg",
         bgColor: "bg-[#24292F]",
       },
       {
         name: "Neovim",
-        level: "Intermediate",
+        level: "skilled",
         imageUrl: "/images/logos/neovim.svg",
         bgColor: "bg-[#69A33E]",
       },
       {
         name: "Lazygit",
-        level: "Intermediate",
+        level: "skilled",
         imageUrl: "/images/logos/lazygit.png",
         bgColor: "bg-[#303030]",
       },
       {
         name: "Bash",
-        level: "Intermediate",
+        level: "skilled",
         imageUrl: "/images/logos/bash.svg",
         bgColor: "bg-[#283037]",
       },
       {
         name: "PowerShell",
-        level: "Intermediate",
+        level: "skilled",
         imageUrl: "/images/logos/powershell.svg",
         bgColor: "bg-[#0f1822]",
       },
       {
         name: "Zsh",
-        level: "Beginner",
+        level: "basic",
         imageUrl: "/images/logos/zsh.svg",
       },
       {
         name: "chezmoi",
-        level: "Intermediate",
+        level: "skilled",
         imageUrl: "/images/logos/chezmoi.svg",
         bgColor: "bg-[#284FEB]",
         textColor: "text-[#FEFEFE]",
       },
       {
         name: "WezTerm",
-        level: "Intermediate",
+        level: "skilled",
         imageUrl: "/images/logos/wezterm.svg",
         bgColor: "bg-[#182125]",
         textColor: "text-[#4E49EE]",
       },
       {
         name: "tmux",
-        level: "Beginner",
+        level: "basic",
         imageUrl: "/images/logos/tmux.svg",
         bgColor: "bg-[#3c3c3c]",
         textColor: "text-[#1bb91f]",
@@ -306,40 +308,40 @@ export const SITE_CONFIG: {
     platforms: [
       {
         name: "Heroku",
-        level: "Beginner",
+        level: "basic",
         imageUrl: "/images/logos/heroku.svg",
         bgColor: "bg-[#430098]",
         textColor: "text-white",
       },
       {
         name: "Vercel",
-        level: "Intermediate",
+        level: "skilled",
         imageUrl: "/images/logos/vercel.svg",
       },
       {
         name: "PlanetScale",
-        level: "Beginner",
+        level: "basic",
         imageUrl: "/images/logos/planetscale.svg",
       },
     ],
     os: [
       {
         name: "Windows",
-        level: "Intermediate",
+        level: "skilled",
         imageUrl: "/images/logos/windows.svg",
         bgColor: "bg-[#00ADEF]",
         textColor: "text-white",
       },
       {
         name: "Ubuntu (WSL)",
-        level: "Beginner",
+        level: "basic",
         imageUrl: "/images/logos/ubuntu.svg",
         bgColor: "bg-[#f47421]",
         textColor: "text-white",
       },
       {
         name: "Arch Linux (WSL)",
-        level: "Beginner",
+        level: "basic",
         imageUrl: "/images/logos/arch.svg",
         bgColor: "bg-[#1894d4]",
         textColor: "text-white",
