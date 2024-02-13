@@ -1,5 +1,6 @@
 "use client";
 
+import { MotionDiv } from "@components/motion";
 import { useSkillContext } from "@components/sections/experience/skill-context";
 import { Checkbox } from "@components/ui/checkbox";
 
@@ -9,7 +10,12 @@ import { type FC } from "react";
 const LegendStar: FC<{ stars: number; label: string }> = ({ stars, label }) => {
   const { isFiltered, toggleStar } = useSkillContext();
   return (
-    <div className="flex items-center gap-3">
+    <MotionDiv
+      className="flex items-center gap-3"
+      initial={{ opacity: 0, x: "100%" }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.5 }}
+    >
       <Checkbox
         className="rounded-sm h-5 w-5"
         checked={isFiltered(stars)}
@@ -37,7 +43,7 @@ const LegendStar: FC<{ stars: number; label: string }> = ({ stars, label }) => {
           ))}
       </div>
       <p className="">{label}</p>
-    </div>
+    </MotionDiv>
   );
 };
 
