@@ -27,6 +27,7 @@
     "@vercel/speed-insights": "^1.0.9",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
+    "embla-carousel-react": "8.0.0-rc22",
     "framer-motion": "^11.0.5",
     "highlight.js": "^11.9.0",
     "lodash.pick": "^4.4.0",
