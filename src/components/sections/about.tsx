@@ -30,7 +30,12 @@ const AboutSection: FC = () => {
   return (
     <Section heading={t("Routes.about")} sectionID="about">
       <div className="flex gap-4 md:gap-8 flex-col lg:items-center lg:flex-row">
-        <div className="flex-1">
+        <MotionDiv
+          className="flex-1"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.25 }}
+        >
           <div className="relative w-full aspect-video overflow-hidden rounded-sm border-2 border-border/40 shadow-lg shadow-ring dark:shadow-ring/10">
             <NextImage
               fill
@@ -39,20 +44,22 @@ const AboutSection: FC = () => {
               alt="Neovim"
             />
           </div>
-        </div>
-        <MotionDiv
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.25 }}
-          className="flex-1 text-balance space-y-5"
-        >
-          <p>
-            {t("Home.aboutMe", {
-              age: calculateAge(SITE_CONFIG.birthday),
-            })}
-          </p>
-          <p>{t("Home.aboutMyOtherHobbies")}</p>
         </MotionDiv>
+        <div className="flex-1 overflow-x-hidden">
+          <MotionDiv
+            initial={{ opacity: 0, x: "100%" }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.25 }}
+            className="text-balance space-y-5"
+          >
+            <p>
+              {t("Home.aboutMe", {
+                age: calculateAge(SITE_CONFIG.birthday),
+              })}
+            </p>
+            <p>{t("Home.aboutMyOtherHobbies")}</p>
+          </MotionDiv>
+        </div>
       </div>
     </Section>
   );
