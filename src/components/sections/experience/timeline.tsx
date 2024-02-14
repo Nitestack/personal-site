@@ -7,7 +7,8 @@ import { type FC, type ReactNode } from "react";
 
 import { classNames } from "@utils";
 
-type MonthIndex = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+import { type MonthIndex } from "@constants";
+
 export interface ExperienceTimelineItem {
   date: `${MonthIndex}-${number}`;
   endDate?: `${MonthIndex}-${number}`;
