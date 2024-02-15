@@ -4,6 +4,7 @@ import Providers from "@app/providers";
 
 import Footer from "@components/footer";
 import Navbar from "@components/navbar";
+import ScrollProgress from "@components/scroll-progress";
 
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -79,6 +80,7 @@ const LocaleLayout: FC<{ children: ReactNode; params: { locale: string } }> = ({
             {children}
           </main>
           <Footer />
+          <ScrollProgress />
           <Analytics />
           <SpeedInsights />
         </Providers>
