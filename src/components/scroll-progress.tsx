@@ -3,12 +3,10 @@
 import { MotionDiv } from "@components/motion";
 
 import { useScroll } from "framer-motion";
-import { type FC, useEffect } from "react";
+import { type FC } from "react";
 
 const ScrollProgress: FC = () => {
   const { scrollYProgress } = useScroll();
-
-  useEffect(() => console.log(scrollYProgress), [scrollYProgress]);
 
   return (
     <MotionDiv
