@@ -56,6 +56,10 @@
       "dark": "Dark"
     }
   },
+  "NotFound": {
+    "message": "The requested page could not be found.",
+    "returnToHome": "Return to Home page"
+  },
   "Error": {
     "message": "Oh no, something went wrong... maybe refresh?",
     "retry": "Retry"

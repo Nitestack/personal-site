@@ -56,6 +56,10 @@
       "dark": "Dunkel"
     }
   },
+  "NotFound": {
+    "message": "Die angeforderte Seite ist nicht verfügbar.",
+    "returnToHome": "Zur Startseite"
+  },
   "Error": {
     "message": "Oh nein, irgendetwas ist schiefgelaufen... vielleicht neuladen?",
     "retry": "Erneut versuchen"
