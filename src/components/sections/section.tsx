@@ -24,7 +24,7 @@ const Section: FC<
       transition={{ duration: 1 }}
       {...props}
       className={classNames(
-        "scroll-mt-20 md:scroll-mt-24 min-h-screen",
+        "scroll-mt-20 md:scroll-mt-24 min-h-svh",
         className,
       )}
       ref={ref}
