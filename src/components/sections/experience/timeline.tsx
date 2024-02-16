@@ -18,6 +18,7 @@ export interface ExperienceTimelineItem {
   latest?: boolean;
   company?: string;
   companyLink?: string;
+  tags?: string[];
 }
 
 const ExperienceTimeline: FC<{
@@ -123,6 +124,18 @@ const ExperienceTimeline: FC<{
               <p className="text-base font-normal text-muted-foreground">
                 {event.description}
               </p>
+              {event.tags?.length && (
+                <div className="flex items-center gap-2">
+                  {event.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded bg-muted px-2 py-0.5 leading-8"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              )}
             </MotionDiv>
           </li>
         );

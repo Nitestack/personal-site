@@ -48,6 +48,7 @@ export const SITE_CONFIG: {
     events: (Omit<ExperienceTimelineItem, "title" | "description"> & {
       title: keyof Messages["Experience"]["JobTitles"];
       description: keyof Messages["Experience"]["CompanyDescriptions"];
+      techStack?: string[];
     })[];
     libs: Skill[];
     languages: Skill[];
@@ -90,6 +91,7 @@ export const SITE_CONFIG: {
         companyLink: "https://www.von-borstel.de",
         description: "vonBorstel",
         latest: true,
+        techStack: ["PHP", "Solid.js", "TailwindCSS"],
       },
       {
         date: "6-2021",
