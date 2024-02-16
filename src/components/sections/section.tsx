@@ -30,9 +30,9 @@ const Section: FC<
       ref={ref}
       id={sectionID}
     >
-      <h1 className="text-3xl mb-6 md:mb-12 font-medium tracking-[0.5em] uppercase font-mono text-center">
+      <h2 className="text-3xl mb-6 md:mb-12 font-medium tracking-[0.5em] uppercase font-mono text-center">
         {heading}
-      </h1>
+      </h2>
       {children}
     </MotionSection>
   );
