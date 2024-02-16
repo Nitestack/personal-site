@@ -128,7 +128,7 @@ const ExperienceTimeline: FC<{
                 <div className="flex items-center gap-2">
                   {event.tags.map((tag) => (
                     <span
-                      key={tag}
+                      key={`${event.title}-${tag}`}
                       className="rounded bg-muted px-2 py-0.5 leading-8"
                     >
                       {tag}
