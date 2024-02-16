@@ -19,7 +19,7 @@ const ExperienceSection: FC<{ locale: string }> = ({ locale }) => {
             <ExperienceTimeline
               locale={locale}
               items={SITE_CONFIG.experience.events.map(
-                ({ title, description, ...restEvent }) => ({
+                ({ title, description, techStack, ...restEvent }) => ({
                   ...restEvent,
                   // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
                   title: t(`Experience.JobTitles.${title}`),
@@ -27,6 +27,7 @@ const ExperienceSection: FC<{ locale: string }> = ({ locale }) => {
                   description: t(
                     `Experience.CompanyDescriptions.${description}`,
                   ),
+                  tags: techStack,
                 }),
               )}
             />
