@@ -21,6 +21,9 @@ export interface Skill {
   textColor?: string;
 }
 
+/**
+ * List of sections. Order determines the order of the fixed scroll button
+ */
 export const sections = [
   "intro",
   "about",
@@ -223,16 +226,23 @@ export const SITE_CONFIG: {
         bgColor: "bg-[#2D3748]",
       },
       {
+        name: "Vite",
+        level: "basic",
+        imageUrl: "/images/logos/vite.svg",
+        bgColor: "bg-[#BD34FE]",
+        textColor: "text-[#FAF9F8]",
+      },
+      {
+        name: "Solid.js",
+        level: "skilled",
+        imageUrl: "/images/logos/solid.svg",
+        bgColor: "bg-[#2C4F7C]",
+      },
+      {
         name: "Flutter",
         level: "basic",
         imageUrl: "/images/logos/flutter.svg",
         bgColor: "bg-[#027DFD]",
-      },
-      {
-        name: "Solid",
-        level: "skilled",
-        imageUrl: "/images/logos/solid.svg",
-        bgColor: "bg-[#2C4F7C]",
       },
     ],
     tools: [
