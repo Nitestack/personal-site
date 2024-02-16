@@ -50,8 +50,8 @@ const ContactSection: FC = () => {
           transition={{ duration: 0.5 }}
         >
           {SITE_CONFIG.socials.map(({ name, url, iconName }) => (
-            <Button size="icon" variant="ghost" asChild>
-              <Link key={name} target="_blank" href={url}>
+            <Button key={name} size="icon" variant="ghost" asChild>
+              <Link target="_blank" href={url}>
                 <LucideIcon name={iconName} className="w-8 h-8" />
               </Link>
             </Button>
