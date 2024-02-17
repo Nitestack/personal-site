@@ -2,6 +2,7 @@ import Section from "@components/sections/section";
 import {
   Card,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from "@components/ui/card";
@@ -47,7 +48,7 @@ const ProjectsSection: FC = () => {
                   target={project.repoLink ? "_blank" : "_self"}
                   className="group"
                 >
-                  <Card className="h-full space-y-2 hover:bg-muted cursor-pointer shadow-md overflow-x-hidden">
+                  <Card className="h-full flex flex-col gap-2 hover:bg-muted cursor-pointer shadow-md overflow-x-hidden">
                     <div className="relative aspect-video w-full group-hover:opacity-75 border-b border-border">
                       <NextImage
                         fill
@@ -56,27 +57,25 @@ const ProjectsSection: FC = () => {
                         alt={project.name}
                       />
                     </div>
-                    <CardHeader className="flex flex-col space-y-6 group-hover:bg-accent">
-                      <div className="flex-1 space-y-4">
-                        <CardTitle className="text-center text-balance font-bold">
-                          {project.name}
-                        </CardTitle>
-                        <CardDescription className="md:text-base text-ellipsis text-balance overflow-hidden line-clamp-3">
-                          {/* eslint-disable-next-line @typescript-eslint/restrict-template-expressions */}
-                          {t(`Projects.Descriptions.${project.description}`)}
-                        </CardDescription>
-                      </div>
-                      <div className="flex items-center justify-center flex-wrap gap-2">
-                        {project.tags.map((tag) => (
-                          <span
-                            key={`${project.name}-${tag}`}
-                            className="rounded border text-xs/4 flex items-center px-2.5 py-1.5 bg-primary text-primary-foreground"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
+                    <CardHeader className="py-2 md:py-4 flex-1 space-y-2 group-hover:bg-accent">
+                      <CardTitle className="text-center text-balance font-bold">
+                        {project.name}
+                      </CardTitle>
+                      <CardDescription className="md:text-base text-balance">
+                        {/* eslint-disable-next-line @typescript-eslint/restrict-template-expressions */}
+                        {t(`Projects.Descriptions.${project.description}`)}
+                      </CardDescription>
                     </CardHeader>
+                    <CardFooter className="flex items-end justify-center flex-wrap gap-2">
+                      {project.tags.map((tag) => (
+                        <span
+                          key={`${project.name}-${tag}`}
+                          className="rounded border text-xs/4 flex items-center px-1.5 py-0.5 md:px-2.5 md:py-1.5 bg-primary text-primary-foreground"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </CardFooter>
                   </Card>
                 </Link>
               </CarouselItem>
