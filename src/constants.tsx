@@ -105,6 +105,38 @@ export const SITE_CONFIG: {
     },
   ],
   projects: [
+    {
+      name: "personal-site",
+      imageUrl: "/images/portfolio.png",
+      description: "personalSite",
+      tags: [
+        "Next.js",
+        "Tailwind CSS",
+        "Notion",
+        "Framer Motion",
+        "next-intl",
+        "Vercel",
+      ],
+      repoLink: "personal-site",
+    },
+    {
+      name: "dotfiles",
+      imageUrl: "/images/neovim.png",
+      description: "dotfiles",
+      tags: [
+        "chezmoi",
+        "Git",
+        "Bash",
+        "PowerShell",
+        "Zsh",
+        "WSL",
+        "Neovim",
+        "WezTerm",
+        "Lazygit",
+        "tmux",
+      ],
+      repoLink: "dotfiles",
+    },
   ],
   experience: {
     events: [
