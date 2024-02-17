@@ -68,7 +68,7 @@ const BlogPostPreview: FC<
             </div>
             <div className="flex items-center justify-between">
               <p className="font-bold">
-                {views >= 1e9 ? "1B+" : formatter.format(905435423)}
+                {views >= 1e9 ? "1B+" : formatter.format(views)}
               </p>
               <p className="font-bold">
                 {carouselItem
