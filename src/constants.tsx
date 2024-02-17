@@ -1,14 +1,26 @@
 import { type ExperienceTimelineItem } from "@components/sections/experience/timeline";
 
 import { type icons } from "lucide-react";
+import {
+  type NamespaceKeys,
+  type NestedKeyOf,
+  type useTranslations,
+} from "next-intl";
 import type createMiddleware from "next-intl/middleware";
 import { type UrlObject } from "node:url";
 
 interface NavigationRoute {
   id: Section;
-  translationKey: keyof Messages["Routes"];
+  translationKey: TranslationKey<"Routes">;
   url: string | UrlObject;
 }
+
+export type TranslationKey<
+  NestedKey extends NamespaceKeys<
+    IntlMessages,
+    NestedKeyOf<IntlMessages>
+  > = never,
+> = Parameters<ReturnType<typeof useTranslations<NestedKey>>>["0"];
 
 export type MonthIndex = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 
@@ -19,6 +31,14 @@ export interface Skill {
   imageUrl: string;
   bgColor?: string;
   textColor?: string;
+}
+
+export interface Project {
+  name: string;
+  imageUrl: string;
+  description: TranslationKey<"Projects.Descriptions">;
+  tags: string[];
+  repoLink?: string;
 }
 
 /**
@@ -40,14 +60,16 @@ export type Section = (typeof sections)[number];
 export const SITE_CONFIG: {
   firstName: string;
   name: string;
+  githubUsername: string;
   email: string;
   birthday: Date;
   location: string;
   socials: { name: string; url: string; iconName: keyof typeof icons }[];
+  projects: Project[];
   experience: {
     events: (Omit<ExperienceTimelineItem, "title" | "description"> & {
-      title: keyof Messages["Experience"]["JobTitles"];
-      description: keyof Messages["Experience"]["CompanyDescriptions"];
+      title: TranslationKey<"Experience.JobTitles">;
+      description: TranslationKey<"Experience.CompanyDescriptions">;
       techStack?: string[];
     })[];
     libs: Skill[];
@@ -62,6 +84,7 @@ export const SITE_CONFIG: {
   firstName: "Nhan",
   name: "Nhan Pham",
   email: "nhan.pham@mail.de",
+  githubUsername: "Nitestack",
   birthday: new Date(2006, 2, 6),
   location: "Hamburg, DE",
   socials: [
@@ -80,6 +103,8 @@ export const SITE_CONFIG: {
       url: "/discord",
       iconName: "MessageCircle",
     },
+  ],
+  projects: [
   ],
   experience: {
     events: [
@@ -370,7 +395,7 @@ export const SITE_CONFIG: {
     .filter((section) => section !== "intro")
     .map<NavigationRoute>((section) => ({
       id: section,
-      translationKey: section as keyof Messages["Routes"],
+      translationKey: section as TranslationKey<"Routes">,
       url: {
         pathname: "/",
         hash: `#${section}`,

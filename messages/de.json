@@ -14,6 +14,10 @@
     "aboutMe": "Hallo! Ich bin ein {age}-jähriger Gymnasiast aus Deutschland. Derzeit mache ich mein Abitur, welches ich im Juli abschließen werde. In meiner Freizeit programmiere ich gerne Apps und bin immer offen Neues zu lernen. Auch experimentiere ich gerne mit Entwicklertools; Neovim ist seit einiger Zeit mein Haupt-Code-Editor.",
     "aboutMyOtherHobbies": "Neben dem Programmieren spiele ich gerne Klavier und reise gerne mit Freunden, um neue Orte zu erkunden."
   },
+  "Projects": {
+    "Descriptions": {
+    }
+  },
   "Experience": {
     "latest": "Aktuellste",
     "Skills": {
