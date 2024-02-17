@@ -1,5 +1,10 @@
 import Section from "@components/sections/section";
-import { Card, CardContent } from "@components/ui/card";
+import {
+  Card,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@components/ui/card";
 import {
   Carousel,
   CarouselContent,
@@ -51,25 +56,27 @@ const ProjectsSection: FC = () => {
                         alt={project.name}
                       />
                     </div>
-                    <CardContent className="space-y-2">
-                      <h3 className="font-semibold text-2xl sm:text-3xl">
-                        {project.name}
-                      </h3>
-                      <p className="text-muted-foreground text-balance text-sm sm:text-base">
-                        {/* eslint-disable-next-line @typescript-eslint/restrict-template-expressions */}
-                        {t(`Projects.Descriptions.${project.description}`)}
-                      </p>
+                    <CardHeader className="flex flex-col space-y-6 group-hover:bg-accent">
+                      <div className="flex-1 space-y-4">
+                        <CardTitle className="text-center text-balance font-bold">
+                          {project.name}
+                        </CardTitle>
+                        <CardDescription className="md:text-base text-ellipsis text-balance overflow-hidden line-clamp-3">
+                          {/* eslint-disable-next-line @typescript-eslint/restrict-template-expressions */}
+                          {t(`Projects.Descriptions.${project.description}`)}
+                        </CardDescription>
+                      </div>
                       <div className="flex items-center justify-center flex-wrap gap-2">
                         {project.tags.map((tag) => (
                           <span
                             key={`${project.name}-${tag}`}
-                            className="rounded-full border text-xs/4 flex items-center px-2.5 py-1.5 bg-primary text-primary-foreground"
+                            className="rounded border text-xs/4 flex items-center px-2.5 py-1.5 bg-primary text-primary-foreground"
                           >
                             {tag}
                           </span>
                         ))}
                       </div>
-                    </CardContent>
+                    </CardHeader>
                   </Card>
                 </Link>
               </CarouselItem>
