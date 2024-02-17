@@ -1,7 +1,7 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
-import { type Skill } from "@constants";
+import { SITE_CONFIG, type Skill } from "@constants";
 
 /**
  * Converts all class names into one class string
@@ -25,6 +25,12 @@ export function getAvatarFallback(name: string) {
     .map((n) => n[0])
     .join("")
     .toUpperCase();
+}
+
+export function getGitHubRepositoryUrl(name: string, user?: string) {
+  return user
+    ? `https://github.com/${user}/${name}`
+    : `https://github.com/${SITE_CONFIG.githubUsername}/${name}`;
 }
 
 export function getStarRating(level: Skill["level"]) {
