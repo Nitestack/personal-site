@@ -1,4 +1,4 @@
-import { getLocaleDateString, trimExcerpt } from "@app/[locale]/blog/notion";
+import { getLocaleDateString } from "@app/[locale]/blog/notion";
 import { type BlogPostPreview } from "@app/[locale]/blog/types";
 
 import {
@@ -13,11 +13,14 @@ import { Link } from "@navigation";
 import NextImage from "next/image";
 import { type FC } from "react";
 
+import { classNames } from "@utils";
+
 const BlogPostPreview: FC<
   BlogPostPreview & {
     viewsLabel: string;
     publishedAtLabel: string;
     locale?: string;
+    carouselItem?: boolean;
   }
 > = ({
   title,
@@ -30,11 +33,12 @@ const BlogPostPreview: FC<
   views,
   viewsLabel,
   locale,
+  carouselItem,
 }) => {
-  const formatter = new Intl.NumberFormat();
+  const formatter = new Intl.NumberFormat(locale);
   return (
     <Link className="group snap-center" href={`/blog/${slug}`}>
-      <Card className="overflow-hidden flex flex-col h-full min-w-72 lg:min-w-96 max-w-md shadow-sm shadow-ring">
+      <Card className="overflow-hidden flex flex-col">
         <div className="aspect-video h-full relative group-hover:opacity-75">
           <NextImage
             className="object-cover"
@@ -43,26 +47,37 @@ const BlogPostPreview: FC<
             alt={imgAlt ?? title}
           />
         </div>
-        <CardHeader className="flex flex-col h-full space-y-6 group-hover:bg-accent">
+        <CardHeader
+          className={classNames(
+            "flex flex-col h-full space-y-6 group-hover:bg-accent",
+            carouselItem && "px-2 py-3 sm:px-4 sm:py-5 md:px-6 md:py-7",
+          )}
+        >
           <div className="flex-1 space-y-4">
             <CardTitle className="text-center text-balance font-bold">
               {title}
             </CardTitle>
-            <CardDescription className="text-ellipsis text-balance overflow-hidden line-clamp-3">
-              {trimExcerpt(excerpt)}
+            <CardDescription className="md:text-base text-ellipsis text-balance overflow-hidden line-clamp-3">
+              {excerpt}
             </CardDescription>
           </div>
-          <div className="bg-muted shadow-ring shadow-sm rounded-md p-2 flex items-center justify-between">
-            <div className="flex flex-col items-start">
+          <div className="bg-muted shadow-ring shadow-sm rounded-md p-2 space-y-1">
+            <div className="flex items-center justify-between">
               <p className="text-xs font-mono">{viewsLabel}</p>
-              <p className="font-mono font-bold">
-                {views >= 1e9 ? "1B+" : formatter.format(views)}
-              </p>
-            </div>
-            <div className="text-right">
               <p className="text-xs font-mono">{publishedAtLabel}</p>
+            </div>
+            <div className="flex items-center justify-between">
               <p className="font-bold">
-                {getLocaleDateString(publishedAt, locale)}
+                {views >= 1e9 ? "1B+" : formatter.format(905435423)}
+              </p>
+              <p className="font-bold">
+                {carouselItem
+                  ? publishedAt.toLocaleDateString(locale, {
+                      year: "numeric",
+                      month: "short",
+                      day: "numeric",
+                    })
+                  : getLocaleDateString(publishedAt, locale)}
               </p>
             </div>
           </div>
