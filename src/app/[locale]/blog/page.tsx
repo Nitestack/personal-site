@@ -9,11 +9,11 @@ import {
 } from "@app/[locale]/blog/notion";
 import SkeletonBlogPreview from "@app/[locale]/blog/skeleton-blog-preview";
 
+import { CarouselItem } from "@components/ui/carousel";
+
 import { useTranslations } from "next-intl";
 import { unstable_noStore } from "next/cache";
-import { type FC, Suspense } from "react";
-
-import { classNames } from "@utils";
+import { type FC, Fragment, Suspense } from "react";
 
 import { SITE_CONFIG } from "@constants";
 
@@ -71,44 +71,52 @@ export const BlogList: FC<{ locale: string; showcase?: boolean }> = ({
   showcase,
 }) => {
   const t = useTranslations("Blog");
-  return (
-    <section
-      className={classNames(
-        "flex",
-        showcase
-          ? "overflow-x-auto overflow-y-hidden lg:max-w-5xl max-w-full mx-auto rounded-lg p-1 snap-x snap-mandatory"
-          : "items-center justify-center",
-      )}
-    >
-      <div
-        className={classNames(
-          "flex justify-center gap-4 lg:gap-8",
-          showcase ? "flex-nowrap" : "flex-wrap",
-        )}
+
+  if (showcase)
+    return (
+      <Suspense
+        fallback={Array(4)
+          .fill(0)
+          .map((_, index) => (
+            <SkeletonBlogPreview key={index} />
+          ))}
       >
-        <Suspense
-          fallback={Array(4)
-            .fill(0)
-            .map((_, index) => (
-              <SkeletonBlogPreview key={index} />
-            ))}
-        >
-          <BlogListItems
-            viewsLabel={t("views")}
-            publishedAtLabel={t("publishedAt")}
-            locale={locale}
-          />
-        </Suspense>
-      </div>
-    </section>
-  );
+        <BlogListItems
+          viewsLabel={t("views")}
+          publishedAtLabel={t("publishedAt")}
+          locale={locale}
+          carousel
+        />
+      </Suspense>
+    );
+  else
+    return (
+      <section className="flex items-center justify-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-8 max-w-5xl">
+          <Suspense
+            fallback={Array(4)
+              .fill(0)
+              .map((_, index) => (
+                <SkeletonBlogPreview key={index} />
+              ))}
+          >
+            <BlogListItems
+              viewsLabel={t("views")}
+              publishedAtLabel={t("publishedAt")}
+              locale={locale}
+            />
+          </Suspense>
+        </div>
+      </section>
+    );
 };
 
 const BlogListItems: FC<{
   publishedAtLabel: string;
   viewsLabel: string;
   locale: string;
-}> = async ({ publishedAtLabel, viewsLabel, locale }) => {
+  carousel?: boolean;
+}> = async ({ publishedAtLabel, viewsLabel, locale, carousel }) => {
   const pages = (await getBlogPages()).map((page) => {
     const { title, excerpt, slug, publishedAt, views } =
       parseBlogPageProperties(page.properties);
@@ -127,20 +135,26 @@ const BlogListItems: FC<{
     };
   });
 
-  return pages.map(({ views, publishedAt, slug, title, excerpt, imgUrl }) => (
-    <BlogPostPreview
-      key={slug}
-      title={title}
-      excerpt={excerpt}
-      imgAlt={undefined}
-      imgUrl={imgUrl}
-      slug={slug}
-      views={views}
-      viewsLabel={viewsLabel}
-      publishedAt={publishedAt}
-      publishedAtLabel={publishedAtLabel}
-    />
-  ));
+  const Comp = carousel ? CarouselItem : Fragment;
+
+  return [...pages /*, ...pages, ...pages, ...pages*/].map(
+    ({ views, publishedAt, slug, title, excerpt, imgUrl }) => (
+      <Comp key={slug} className="md:basis-1/2">
+        <BlogPostPreview
+          title={title}
+          excerpt={excerpt}
+          imgAlt={undefined}
+          imgUrl={imgUrl}
+          slug={slug}
+          views={views}
+          viewsLabel={viewsLabel}
+          publishedAt={publishedAt}
+          publishedAtLabel={publishedAtLabel}
+          carouselItem={carousel}
+        />
+      </Comp>
+    ),
+  );
 };
 
 export default BlogOverviewPage;
