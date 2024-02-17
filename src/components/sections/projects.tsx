@@ -42,8 +42,8 @@ const ProjectsSection: FC = () => {
                   target={project.repoLink ? "_blank" : "_self"}
                   className="group"
                 >
-                  <Card className="h-full space-y-2 hover:bg-muted cursor-pointer shadow-md">
-                    <div className="relative aspect-video w-full group-hover:opacity-75">
+                  <Card className="h-full space-y-2 hover:bg-muted cursor-pointer shadow-md overflow-x-hidden">
+                    <div className="relative aspect-video w-full group-hover:opacity-75 border-b border-border">
                       <NextImage
                         fill
                         className="object-fill"
