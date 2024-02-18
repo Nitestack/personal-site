@@ -47,7 +47,7 @@ const Project: FC<TranslatedProject> = (project) => {
           <div className="relative aspect-video w-full group-hover:opacity-75 border-b border-border">
             <NextImage
               fill
-              className="object-fill"
+              className="object-contain"
               src={project.imageUrl}
               alt={project.name}
             />
