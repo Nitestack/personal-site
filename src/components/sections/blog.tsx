@@ -1,6 +1,5 @@
 import { BlogList } from "@app/[locale]/blog/page";
 
-import { MotionDiv } from "@components/motion";
 import Section from "@components/sections/section";
 import { Button } from "@components/ui/button";
 import {
