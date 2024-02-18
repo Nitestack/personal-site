@@ -149,6 +149,38 @@ export const SITE_CONFIG: {
       ],
       repoLink: "dotfiles",
     },
+    {
+      name: "Tic Tac Toe",
+      status: "completed",
+      imageUrl: "/images/tic-tac-toe.png",
+      description: "ticTacToe",
+      repoLink: "tic-tac-toe",
+      tags: ["Solid.js", "Vercel"],
+    },
+    {
+      name: "Games Web",
+      status: "archived",
+      imageUrl: "/images/games-web.png",
+      repoLink: "games-web",
+      description: "gamesWeb",
+      tags: ["Node.js", "Express", "Pug", "jQuery"],
+    },
+    {
+      name: "Math Tools",
+      status: "archived",
+      imageUrl: "/images/math-tools.png",
+      repoLink: "math-calculator",
+      description: "mathTools",
+      tags: ["Node.js", "Express", "Pug", "jQuery"],
+    },
+    {
+      name: "Galaxy Alpha",
+      status: "archived",
+      imageUrl: "/images/Galaxy Alpha.png",
+      repoLink: "Galaxy-Alpha",
+      description: "galaxyAlpha",
+      tags: ["Node.js", "discord.js", "Express", "Pug", "jQuery", "MongoDB"],
+    },
   ],
   experience: {
     events: [
@@ -266,10 +298,21 @@ export const SITE_CONFIG: {
         textColor: "text-[#00ED64]",
       },
       {
-        name: "PUG",
+        name: "Express",
+        level: "basic",
+        imageUrl: "/images/logos/express.svg",
+      },
+      {
+        name: "Pug",
         level: "skilled",
         imageUrl: "/images/logos/pug.svg",
         bgColor: "bg-[#A86454]",
+      },
+      {
+        name: "jQuery",
+        level: "basic",
+        imageUrl: "/images/logos/jquery.svg",
+        bgColor: "bg-[#106CAC]",
       },
       {
         name: "React",
