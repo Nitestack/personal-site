@@ -62,7 +62,7 @@ const ExperienceSection: FC<{ locale: string }> = ({ locale }) => {
               )}
             />
             <div className="flex items-center justify-center w-full md:w-fit">
-              <div className="flex flex-col gap-1 p-4 w-full md:w-fit overflow-x-hidden rounded-lg border border-border">
+              <div className="flex flex-col gap-1 px-3 py-4 w-full md:w-fit overflow-x-hidden rounded-lg border border-border">
                 <LegendStar stars={1} label={t("Experience.Levels.basic")} />
                 <LegendStar stars={2} label={t("Experience.Levels.skilled")} />
                 <LegendStar
