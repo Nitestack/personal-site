@@ -31,12 +31,12 @@ const Project: FC<TranslatedProject> = (project) => {
               hash: "#",
             }
       }
-      target={project.repoLink ? "_blank" : "_self"}
       className="group"
       passHref
       legacyBehavior
     >
       <MotionA
+        target={project.repoLink ? "_blank" : "_self"}
         initial={{ opacity: 0 }}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
