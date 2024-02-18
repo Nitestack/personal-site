@@ -33,11 +33,21 @@ export interface Skill {
   textColor?: string;
 }
 
+export const status = [
+  "completed",
+  "active",
+  "developing",
+  "archived",
+] as const;
+
+export type ProjectStatus = (typeof status)[number];
+
 export interface Project {
   name: string;
   imageUrl: string;
   description: TranslationKey<"Projects.Descriptions">;
   tags: string[];
+  status: ProjectStatus;
   repoLink?: string;
 }
 
@@ -106,7 +116,8 @@ export const SITE_CONFIG: {
   ],
   projects: [
     {
-      name: "personal-site",
+      name: "Personal Site",
+      status: "active",
       imageUrl: "/images/portfolio.png",
       description: "personalSite",
       tags: [
@@ -120,7 +131,8 @@ export const SITE_CONFIG: {
       repoLink: "personal-site",
     },
     {
-      name: "dotfiles",
+      name: "Dotfiles",
+      status: "active",
       imageUrl: "/images/neovim.png",
       description: "dotfiles",
       tags: [

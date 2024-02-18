@@ -42,7 +42,7 @@ const LegendStar: FC<{ stars: number; label: string }> = ({ stars, label }) => {
             />
           ))}
       </div>
-      <p className="">{label}</p>
+      <p>{label}</p>
     </MotionDiv>
   );
 };
