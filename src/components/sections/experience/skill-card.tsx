@@ -11,7 +11,6 @@ import { type Skill } from "@constants";
 const SkillCard: FC<Skill> = (skill) => {
   return (
     <MotionDiv
-      key={skill.name}
       className="cursor-pointer select-none min-w-24 snap-center"
       initial={{ opacity: 0 }}
       whileHover={{ scale: 1.05 }}
