@@ -137,24 +137,22 @@ const BlogListItems: FC<{
 
   const Comp = carousel ? CarouselItem : Fragment;
 
-  return [...pages /*, ...pages, ...pages, ...pages*/].map(
-    ({ views, publishedAt, slug, title, excerpt, imgUrl }) => (
-      <Comp key={slug} className="md:basis-1/2">
-        <BlogPostPreview
-          title={title}
-          excerpt={excerpt}
-          imgAlt={undefined}
-          imgUrl={imgUrl}
-          slug={slug}
-          views={views}
-          viewsLabel={viewsLabel}
-          publishedAt={publishedAt}
-          publishedAtLabel={publishedAtLabel}
-          carouselItem={carousel}
-        />
-      </Comp>
-    ),
-  );
+  return pages.map(({ views, publishedAt, slug, title, excerpt, imgUrl }) => (
+    <Comp key={slug} className="md:basis-1/2">
+      <BlogPostPreview
+        title={title}
+        excerpt={excerpt}
+        imgAlt={undefined}
+        imgUrl={imgUrl}
+        slug={slug}
+        views={views}
+        viewsLabel={viewsLabel}
+        publishedAt={publishedAt}
+        publishedAtLabel={publishedAtLabel}
+        carouselItem={carousel}
+      />
+    </Comp>
+  ));
 };
 
 export default BlogOverviewPage;

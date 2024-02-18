@@ -37,9 +37,9 @@ const BlogPostPreview: FC<
 }) => {
   const formatter = new Intl.NumberFormat(locale);
   return (
-    <Link className="group snap-center" href={`/blog/${slug}`}>
-      <Card className="overflow-hidden flex flex-col">
-        <div className="aspect-video h-full relative group-hover:opacity-75">
+    <Link className="group" href={`/blog/${slug}`}>
+      <Card className="overflow-x-hidden flex flex-col">
+        <div className="aspect-video h-full relative group-hover:opacity-75 border-b border-border">
           <NextImage
             className="object-cover"
             fill

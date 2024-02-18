@@ -18,27 +18,26 @@ import { type FC } from "react";
 const BlogSection: FC<{ locale: string }> = ({ locale }) => {
   const t = useTranslations("Blog");
   return (
-    <Section heading="Blog" sectionID="blog">
-      <MotionDiv
-        className="flex items-center flex-col gap-4 md:gap-6 lg:gap-8 justify-center"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.25 }}
-      >
-        <p className="text-center text-balance">{t("description")}</p>
-        <div className="px-7 lg:max-w-5xl mx-auto">
-          <Carousel className="w-full" opts={{ loop: true }}>
-            <CarouselContent>
-              <BlogList showcase locale={locale} />
-            </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
-          </Carousel>
-        </div>
+    <Section
+      className="space-y-4 md:space-y-6 lg:space-y-8"
+      heading="Blog"
+      sectionID="blog"
+    >
+      <p className="text-center text-balance">{t("description")}</p>
+      <div className="px-7 lg:max-w-5xl mx-auto">
+        <Carousel className="w-full" opts={{ loop: true }}>
+          <CarouselContent>
+            <BlogList showcase locale={locale} />
+          </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
+      </div>
+      <div className="flex items-center justify-center">
         <Button variant="outline" asChild>
           <Link href="/blog">{t("exploreMore")}</Link>
         </Button>
-      </MotionDiv>
+      </div>
     </Section>
   );
 };
