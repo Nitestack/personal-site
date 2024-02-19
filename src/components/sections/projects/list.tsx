@@ -15,7 +15,10 @@ import {
 
 import { type FC } from "react";
 
-const ProjectList: FC<{ projects: TranslatedProject[] }> = ({ projects }) => {
+const ProjectList: FC<{
+  projects: TranslatedProject[];
+  readMoreLabel: string;
+}> = ({ projects, readMoreLabel }) => {
   const { isValid } = useProjectStatusContext();
   return (
     <div className="px-7 lg:max-w-5xl mx-auto">
@@ -26,7 +29,11 @@ const ProjectList: FC<{ projects: TranslatedProject[] }> = ({ projects }) => {
               .filter((project) => isValid(project.status))
               .map((project) => (
                 <CarouselItem key={project.name} className="md:basis-1/2">
-                  <Project key={project.name} {...project} />
+                  <Project
+                    readMoreLabel={readMoreLabel}
+                    key={project.name}
+                    {...project}
+                  />
                 </CarouselItem>
               ))}
           </AnimatePresence>

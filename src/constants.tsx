@@ -1,6 +1,6 @@
 import { type ExperienceTimelineItem } from "@components/sections/experience/timeline";
 
-import { type icons } from "lucide-react";
+import { type LucideIcon, type icons } from "lucide-react";
 import {
   type NamespaceKeys,
   type NestedKeyOf,
@@ -44,11 +44,14 @@ export type ProjectStatus = (typeof status)[number];
 
 export interface Project {
   name: string;
+  visibility: TranslationKey<"Projects.Visibility">;
   imageUrl: string;
   description: TranslationKey<"Projects.Descriptions">;
   tags: string[];
   status: ProjectStatus;
   repoLink?: string;
+  liveLink?: string;
+  links?: { name: string; url: string; icon?: LucideIcon }[];
 }
 
 /**
@@ -66,6 +69,11 @@ export const sections = [
 type LocalePrefix = Parameters<typeof createMiddleware>[0]["localePrefix"];
 
 export type Section = (typeof sections)[number];
+
+const siteUrl =
+  process.env.NODE_ENV == "development"
+    ? "http://localhost:3000"
+    : "https://nhanpham.vercel.app";
 
 export const SITE_CONFIG: {
   firstName: string;
@@ -96,7 +104,7 @@ export const SITE_CONFIG: {
   email: "nhan.pham@mail.de",
   githubUsername: "Nitestack",
   birthday: new Date(2006, 2, 6),
-  location: "Hamburg, DE",
+  location: "Hamburg, Germany",
   socials: [
     {
       name: "GitHub",
@@ -117,21 +125,25 @@ export const SITE_CONFIG: {
   projects: [
     {
       name: "Personal Site",
+      visibility: "public",
       status: "active",
       imageUrl: "/images/portfolio.png",
       description: "personalSite",
       tags: [
         "Next.js",
+        "shadcn/ui",
         "Tailwind CSS",
         "Notion",
         "Framer Motion",
         "next-intl",
         "Vercel",
       ],
+      liveLink: siteUrl,
       repoLink: "personal-site",
     },
     {
       name: "Dotfiles",
+      visibility: "public",
       status: "active",
       imageUrl: "/images/neovim.png",
       description: "dotfiles",
@@ -150,36 +162,67 @@ export const SITE_CONFIG: {
       repoLink: "dotfiles",
     },
     {
+      name: "Players Alliance Dashboard",
+      visibility: "private",
+      status: "active",
+      imageUrl: "/images/players-alliance-dashboard.png",
+      description: "playersAllianceDashboard",
+      liveLink: "https://coc-players-alliance.vercel.app",
+      tags: ["Next.js", "Tailwind CSS", "Vercel"],
+    },
+    {
+      name: "Young Thieves",
+      visibility: "private",
+      status: "developing",
+      imageUrl: "/images/youngthieves-clo.png",
+      description: "youngThievesClo",
+      liveLink: "https://youngthieves-beta.vercel.app",
+      tags: ["Next.js", "Mantine", "Tailwind CSS", "next-intl", "Vercel"],
+    },
+    {
       name: "Tic Tac Toe",
+      visibility: "public",
       status: "completed",
       imageUrl: "/images/tic-tac-toe.png",
       description: "ticTacToe",
       repoLink: "tic-tac-toe",
+      liveLink: "https://tic-tac-toe-informatik-s2-alex-nhan.vercel.app",
       tags: ["Solid.js", "Vercel"],
     },
     {
       name: "Games Web",
+      visibility: "public",
       status: "archived",
       imageUrl: "/images/games-web.png",
       repoLink: "games-web",
       description: "gamesWeb",
-      tags: ["Node.js", "Express", "Pug", "jQuery"],
+      tags: ["Node.js", "Express", "Pug", "Bootstrap", "jQuery"],
     },
     {
       name: "Math Tools",
+      visibility: "public",
       status: "archived",
       imageUrl: "/images/math-tools.png",
       repoLink: "math-calculator",
       description: "mathTools",
-      tags: ["Node.js", "Express", "Pug", "jQuery"],
+      tags: ["Node.js", "Express", "Pug", "Bootstrap", "jQuery"],
     },
     {
       name: "Galaxy Alpha",
+      visibility: "public",
       status: "archived",
       imageUrl: "/images/Galaxy Alpha.png",
       repoLink: "Galaxy-Alpha",
       description: "galaxyAlpha",
-      tags: ["Node.js", "discord.js", "Express", "Pug", "jQuery", "MongoDB"],
+      tags: [
+        "Node.js",
+        "discord.js",
+        "Express",
+        "Pug",
+        "Bootstrap",
+        "jQuery",
+        "MongoDB",
+      ],
     },
   ],
   experience: {
@@ -474,10 +517,7 @@ export const SITE_CONFIG: {
       },
     ],
   },
-  url:
-    process.env.NODE_ENV == "development"
-      ? "http://localhost:3000"
-      : "https://nhanpham.vercel.app",
+  url: siteUrl,
   routes: sections
     .filter((section) => section !== "intro")
     .map<NavigationRoute>((section) => ({

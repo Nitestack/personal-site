@@ -21,10 +21,17 @@
       "active": "Stable (active)",
       "completed": "Stable (completed)"
     },
+    "Visibility": {
+      "private": "Private",
+      "public": "Public"
+    },
+    "readMore": "More",
     "Descriptions": {
       "personalSite": "Bilingual portfolio showcasing me, my skills, my projects and my blog.",
       "dotfiles": "A collection of configuration files for Windows and Linux (Ubuntu, Arch). This also includes a Neovim configuration and a customized CLI built on top of chezmoi.",
-      "ticTacToe": "A simple website for playing Tic Tac Toe. Part of a school project.",
+      "playersAllianceDashboard": "A dashboard designed for the 'Players Alliance', a gaming community dedicated to 'Clash of Clans'. This management tool enables moderators and administrators to oversee monthly in-game events. It interfaces with the CoC API to retrieve player data.",
+      "youngThievesClo": "A shopping website that offers a variety of clothes, including T-shirts, hoodies, jackets, jeans, shorts, and accessories.",
+      "ticTacToe": "A simple website for playing Tic Tac Toe. Part of a school project created with a friend.",
       "gamesWeb": "A simple website for playing games such as Tic Tac Toe and Connect Four.",
       "mathTools": "A simple website for mathematical operations such as the PQ formula, Pythagorean theorem, and triangle calculations.",
       "galaxyAlpha": "A multi-purpose all in one Discord bot with ticket, giveaway, currency, moderation, game and music system. Also features a web interface for easy management of bot settings."
