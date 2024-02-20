@@ -4,20 +4,22 @@ import { Button } from "@components/ui/button";
 
 import { Link } from "@navigation";
 
-import { GithubIcon, ZapIcon } from "lucide-react";
+import { GithubIcon, LinkIcon, ZapIcon } from "lucide-react";
 import NextImage from "next/image";
 import { type FC } from "react";
 
 import { getGitHubRepositoryUrl } from "@utils";
 
 const ProjectDetails: FC<TranslatedProject> = (project) => {
-  const links: NonNullable<TranslatedProject["links"]> = project.links ?? [];
+  const links: NonNullable<TranslatedProject["links"]> = project.links
+    ? [...project.links]
+    : [];
 
   if (project.repoLink) {
     links.unshift({
       name: "GitHub",
       url: getGitHubRepositoryUrl(project.repoLink),
-      icon: GithubIcon,
+      type: "github",
     });
   }
 
@@ -25,7 +27,7 @@ const ProjectDetails: FC<TranslatedProject> = (project) => {
     links.unshift({
       name: "Live",
       url: project.liveLink,
-      icon: ZapIcon,
+      type: "live",
     });
   }
 
@@ -42,7 +44,7 @@ const ProjectDetails: FC<TranslatedProject> = (project) => {
         </div>
       </div>
       {links.length && (
-        <div className="flex items-center gap-2 w-full">
+        <div className="flex items-center gap-2 w-full flex-wrap">
           {links.map((link) => (
             <Button asChild variant="outline" key={link.url} className="w-full">
               <Link
@@ -50,8 +52,12 @@ const ProjectDetails: FC<TranslatedProject> = (project) => {
                 href={link.url}
                 target="_blank"
               >
-                {link.icon && (
-                  <link.icon className="w-4 h-4 lg:w-5 lg:h-5 text-primary" />
+                {link.type === "github" ? (
+                  <GithubIcon className="w-4 h-4 lg:w-5 lg:h-5 text-primary" />
+                ) : link.type === "live" ? (
+                  <ZapIcon className="w-4 h-4 lg:w-5 lg:h-5 text-primary" />
+                ) : (
+                  <LinkIcon className="w-4 h-4 lg:w-5 lg:h-5 text-primary" />
                 )}
                 <span>{link.name}</span>
               </Link>
