@@ -18,7 +18,7 @@ export function getProjectStatusIcon(status: ProjectStatus) {
         : "📥";
 }
 
-const ProjectsSection: FC = () => {
+const ProjectsSection: FC<{ locale: string }> = ({ locale }) => {
   const t = useTranslations();
   return (
     <Section
@@ -39,6 +39,7 @@ const ProjectsSection: FC = () => {
           </div>
         </div>
         <ProjectList
+          locale={locale}
           readMoreLabel={t("Projects.readMore")}
           projects={SITE_CONFIG.projects.map((project) => ({
             ...project,

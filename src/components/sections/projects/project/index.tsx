@@ -1,8 +1,8 @@
 import { MotionDiv } from "@components/motion";
 import ProjectDetails from "@components/sections/projects/project/details";
+import ProjectInfo from "@components/sections/projects/project/info";
 import ProjectTags from "@components/sections/projects/project/tags";
 import ProjectTitle from "@components/sections/projects/project/title";
-import ProjectVisibility from "@components/sections/projects/project/visibility";
 import { Button } from "@components/ui/button";
 import {
   Card,
@@ -38,19 +38,18 @@ export type TranslatedProject = Omit<Project, "description"> & {
   visibilityLabel: string;
 };
 
-const Project: FC<TranslatedProject & { readMoreLabel: string }> = ({
-  readMoreLabel,
-  ...project
-}) => {
+const Project: FC<
+  TranslatedProject & { readMoreLabel: string; locale: string }
+> = ({ readMoreLabel, locale, ...project }) => {
   return (
     <MotionDiv
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1, transition: { duration: 0.5 } }}
       exit={{ opacity: 0, transition: { duration: 0.5 } }}
-      className="h-full group"
+      className="h-full"
     >
-      <Card className="h-full flex flex-col gap-2 hover:bg-muted cursor-pointer shadow-md overflow-x-hidden">
-        <div className="hidden sm:block relative aspect-video w-full group-hover:opacity-75 border-b border-border">
+      <Card className="h-full flex flex-col gap-2 shadow-md overflow-x-hidden">
+        <div className="hidden sm:block relative aspect-video w-full border-b border-border">
           <NextImage
             fill
             className="object-contain"
@@ -58,13 +57,15 @@ const Project: FC<TranslatedProject & { readMoreLabel: string }> = ({
             alt={project.name}
           />
         </div>
-        <CardHeader className="py-2 md:py-4 flex-1 space-y-2 group-hover:bg-accent">
+        <CardHeader className="py-2 md:py-4 flex-1 space-y-2">
           <ProjectTitle status={project.status} className="mt-2 sm:mt-0">
             <CardTitle className="font-bold text-balance">
               {project.name}
             </CardTitle>
           </ProjectTitle>
-          <ProjectVisibility
+          <ProjectInfo
+            locale={locale}
+            startDate={project.startDate}
             visibility={project.visibility}
             visibilityLabel={project.visibilityLabel}
           />
@@ -90,7 +91,9 @@ const Project: FC<TranslatedProject & { readMoreLabel: string }> = ({
                   <ProjectTitle status={project.status}>
                     {project.name}
                   </ProjectTitle>
-                  <ProjectVisibility
+                  <ProjectInfo
+                    locale={locale}
+                    startDate={project.startDate}
                     visibility={project.visibility}
                     visibilityLabel={project.visibilityLabel}
                   />
@@ -114,7 +117,9 @@ const Project: FC<TranslatedProject & { readMoreLabel: string }> = ({
                   <ProjectTitle status={project.status}>
                     {project.name}
                   </ProjectTitle>
-                  <ProjectVisibility
+                  <ProjectInfo
+                    locale={locale}
+                    startDate={project.startDate}
                     visibility={project.visibility}
                     visibilityLabel={project.visibilityLabel}
                   />
