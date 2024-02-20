@@ -18,7 +18,8 @@ import { type FC } from "react";
 const ProjectList: FC<{
   projects: TranslatedProject[];
   readMoreLabel: string;
-}> = ({ projects, readMoreLabel }) => {
+  locale: string;
+}> = ({ projects, readMoreLabel, locale }) => {
   const { isValid } = useProjectStatusContext();
   return (
     <div className="px-7 lg:max-w-5xl mx-auto">
@@ -31,6 +32,7 @@ const ProjectList: FC<{
                 <CarouselItem key={project.name} className="md:basis-1/2">
                   <Project
                     readMoreLabel={readMoreLabel}
+                    locale={locale}
                     key={project.name}
                     {...project}
                   />

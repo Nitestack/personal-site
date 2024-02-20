@@ -17,7 +17,7 @@ const HomePage: FC<{ params: { locale: string } }> = ({
       <HeroSection />
       <AboutSection />
       <ExperienceSection locale={locale} />
-      <ProjectsSection />
+      <ProjectsSection locale={locale} />
       <BlogSection locale={locale} />
       <ContactSection />
     </div>
