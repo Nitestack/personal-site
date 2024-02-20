@@ -1,6 +1,6 @@
 import { type ExperienceTimelineItem } from "@components/sections/experience/timeline";
 
-import { type LucideIcon, type icons } from "lucide-react";
+import { type icons } from "lucide-react";
 import {
   type NamespaceKeys,
   type NestedKeyOf,
@@ -44,6 +44,7 @@ export type ProjectStatus = (typeof status)[number];
 
 export interface Project {
   name: string;
+  startDate: `${MonthIndex}-${number}`;
   visibility: TranslationKey<"Projects.Visibility">;
   imageUrl: string;
   description: TranslationKey<"Projects.Descriptions">;
@@ -51,7 +52,7 @@ export interface Project {
   status: ProjectStatus;
   repoLink?: string;
   liveLink?: string;
-  links?: { name: string; url: string; icon?: LucideIcon }[];
+  links?: { name: string; url: string; type?: "github" | "live" }[];
 }
 
 /**
@@ -69,11 +70,6 @@ export const sections = [
 type LocalePrefix = Parameters<typeof createMiddleware>[0]["localePrefix"];
 
 export type Section = (typeof sections)[number];
-
-const siteUrl =
-  process.env.NODE_ENV == "development"
-    ? "http://localhost:3000"
-    : "https://nhanpham.vercel.app";
 
 export const SITE_CONFIG: {
   firstName: string;
@@ -125,6 +121,7 @@ export const SITE_CONFIG: {
   projects: [
     {
       name: "Personal Site",
+      startDate: "12-2023",
       visibility: "public",
       status: "active",
       imageUrl: "/images/portfolio.png",
@@ -138,11 +135,12 @@ export const SITE_CONFIG: {
         "next-intl",
         "Vercel",
       ],
-      liveLink: siteUrl,
+      liveLink: "/",
       repoLink: "personal-site",
     },
     {
       name: "Dotfiles",
+      startDate: "12-2023",
       visibility: "public",
       status: "active",
       imageUrl: "/images/neovim.png",
@@ -162,25 +160,58 @@ export const SITE_CONFIG: {
       repoLink: "dotfiles",
     },
     {
+      name: "Project Manager CLI",
+      startDate: "12-2023",
+      visibility: "public",
+      status: "active",
+      repoLink: "project-manager",
+      tags: ["Node.js", "Commander.js", "Clack"],
+      imageUrl: "/images/project-manager-cli.png",
+      description: "projectManagerCli",
+      links: [
+        {
+          name: "NPM",
+          url: "https://www.npmjs.com/package/@nitestack/project-manager",
+        },
+        {
+          name: "v0 in PowerShell",
+          type: "github",
+          url: "https://github.com/Nitestack/PS-Project-Manager",
+        },
+      ],
+    },
+    {
+      name: "PowerShell Neovim Switcher",
+      startDate: "10-2023",
+      visibility: "public",
+      status: "completed",
+      repoLink: "PSNvimSwitcher",
+      description: "psNvimSwitcher",
+      imageUrl: "/images/ps-nvim-switcher.png",
+      tags: ["PowerShell", "Neovim"],
+    },
+    {
       name: "Players Alliance Dashboard",
+      startDate: "7-2023",
       visibility: "private",
       status: "active",
       imageUrl: "/images/players-alliance-dashboard.png",
       description: "playersAllianceDashboard",
       liveLink: "https://coc-players-alliance.vercel.app",
-      tags: ["Next.js", "Tailwind CSS", "Vercel"],
-    },
-    {
-      name: "Young Thieves",
-      visibility: "private",
-      status: "developing",
-      imageUrl: "/images/youngthieves-clo.png",
-      description: "youngThievesClo",
-      liveLink: "https://youngthieves-beta.vercel.app",
-      tags: ["Next.js", "Mantine", "Tailwind CSS", "next-intl", "Vercel"],
+      tags: [
+        "Next.js",
+        "NextUI",
+        "Tailwind CSS",
+        "tRPC",
+        "Zustand",
+        "Prisma",
+        "PlanetScale",
+        "Vercel",
+      ],
     },
     {
       name: "Tic Tac Toe",
+      startDate: "4-2023",
       visibility: "public",
       status: "completed",
       imageUrl: "/images/tic-tac-toe.png",
@@ -190,7 +221,53 @@ export const SITE_CONFIG: {
       tags: ["Solid.js", "Vercel"],
     },
     {
+      name: "Young Thieves",
+      startDate: "7-2022",
+      visibility: "private",
+      status: "developing",
+      imageUrl: "/images/youngthieves-clo.png",
+      description: "youngThievesClo",
+      liveLink: "https://youngthieves-beta.vercel.app",
+      tags: ["Next.js", "Mantine", "Tailwind CSS", "next-intl", "Vercel"],
+    },
+    {
+      name: "Nite Clash",
+      startDate: "9-2021",
+      visibility: "public",
+      status: "archived",
+      imageUrl: "/images/nite-clash.png",
+      description: "niteClash",
+      tags: [
+        "Next.js",
+        "NextUI",
+        "Tailwind CSS",
+        "tRPC",
+        "Zustand",
+        "Prisma",
+        "PlanetScale",
+        "Vercel",
+      ],
+      links: [
+        {
+          name: "Next.js v2",
+          url: "https://github.com/Nitestack/nite-clash",
+          type: "github",
+        },
+        {
+          name: "Next.js v1",
+          url: "https://github.com/Nitestack/night-clash",
+          type: "github",
+        },
+        {
+          name: "Pug v1",
+          url: "https://github.com/Nitestack/supercell-web",
+          type: "github",
+        },
+      ],
+    },
+    {
       name: "Games Web",
+      startDate: "4-2021",
       visibility: "public",
       status: "archived",
       imageUrl: "/images/games-web.png",
@@ -200,6 +277,7 @@ export const SITE_CONFIG: {
     },
     {
       name: "Math Tools",
+      startDate: "4-2021",
       visibility: "public",
       status: "archived",
       imageUrl: "/images/math-tools.png",
@@ -209,6 +287,7 @@ export const SITE_CONFIG: {
     },
     {
       name: "Galaxy Alpha",
+      startDate: "10-2020",
       visibility: "public",
       status: "archived",
       imageUrl: "/images/Galaxy Alpha.png",
@@ -517,7 +596,10 @@ export const SITE_CONFIG: {
       },
     ],
   },
-  url: siteUrl,
+  url:
+    process.env.NODE_ENV == "development"
+      ? "http://localhost:3000"
+      : "https://nhanpham.vercel.app",
   routes: sections
     .filter((section) => section !== "intro")
     .map<NavigationRoute>((section) => ({
