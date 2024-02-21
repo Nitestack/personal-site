@@ -9,8 +9,8 @@ import {
   CarouselPrevious,
 } from "@components/ui/carousel";
 
-import { Link } from "@navigation";
-
+import { TransitionLink } from "@hooks";
+import { Loader2 } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { type FC } from "react";
 
@@ -34,7 +34,12 @@ const BlogSection: FC<{ locale: string }> = ({ locale }) => {
       </div>
       <div className="flex items-center justify-center">
         <Button variant="outline" asChild>
-          <Link href="/blog">{t("exploreMore")}</Link>
+          <TransitionLink
+            fallback={<Loader2 className="size-6 animate-spin" />}
+            href="/blog"
+          >
+            {t("exploreMore")}
+          </TransitionLink>
         </Button>
       </div>
     </Section>

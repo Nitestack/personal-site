@@ -1,4 +1,5 @@
 import { getLocaleDateString } from "@app/[locale]/blog/notion";
+import SkeletonBlogPreview from "@app/[locale]/blog/skeleton-blog-preview";
 import { type BlogPostPreview } from "@app/[locale]/blog/types";
 
 import {
@@ -10,8 +11,10 @@ import {
 
 import { Link } from "@navigation";
 
+import { Loader2Icon } from "lucide-react";
 import NextImage from "next/image";
 import { type FC } from "react";
+import { TransitionLink } from "src/hooks";
 
 import { classNames } from "@utils";
 
@@ -37,7 +40,11 @@ const BlogPostPreview: FC<
 }) => {
   const formatter = new Intl.NumberFormat(locale);
   return (
-    <Link className="group" href={`/blog/${slug}`}>
+    <TransitionLink
+      fallback={<SkeletonBlogPreview />}
+      className="group"
+      href={`/blog/${slug}`}
+    >
       <Card className="overflow-x-hidden flex flex-col">
         <div className="aspect-video h-full relative group-hover:opacity-75 border-b border-border">
           <NextImage
@@ -83,7 +90,7 @@ const BlogPostPreview: FC<
           </div>
         </CardHeader>
       </Card>
-    </Link>
+    </TransitionLink>
   );
 };
 
