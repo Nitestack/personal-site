@@ -26,6 +26,7 @@ const config = {
     fileAlias("metadata"),
     dirAlias("app"),
     dirAlias("components"),
+    fileAlias("hooks"),
     fileAlias("navigation"),
     dirAlias("lib"),
     thirdPartyModules,

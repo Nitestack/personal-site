@@ -28,7 +28,8 @@
       "@utils": ["./src/utils.ts"],
       "@app/*": ["./src/app/*"],
       "@navigation": ["./src/navigation.ts"],
-      "@metadata": ["./src/metadata.ts"]
+      "@metadata": ["./src/metadata.ts"],
+      "@hooks": ["./src/hooks.tsx"]
     },
     "plugins": [
       {
