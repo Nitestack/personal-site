@@ -42,6 +42,19 @@ export const status = [
 
 export type ProjectStatus = (typeof status)[number];
 
+interface ProjectBaseLink {
+  name: string;
+}
+
+export interface ProjectSingleLink extends ProjectBaseLink {
+  url: string;
+  type?: "github" | "live";
+}
+
+export interface ProjectMultiLink extends ProjectBaseLink {
+  links: ProjectSingleLink[];
+}
+
 export interface Project {
   name: string;
   startDate: `${MonthIndex}-${number}`;
@@ -52,7 +65,7 @@ export interface Project {
   status: ProjectStatus;
   repoLink?: string;
   liveLink?: string;
-  links?: { name: string; url: string; type?: "github" | "live" }[];
+  links?: (ProjectSingleLink | ProjectMultiLink)[];
 }
 
 /**
@@ -219,6 +232,92 @@ export const SITE_CONFIG: {
       repoLink: "tic-tac-toe",
       liveLink: "https://tic-tac-toe-informatik-s2-alex-nhan.vercel.app",
       tags: ["Solid.js", "Vercel"],
+    },
+    {
+      name: "Frontend Mentor Challenges",
+      startDate: "10-2022",
+      tags: ["Solid.js", "TailwindCSS"],
+      visibility: "public",
+      status: "active",
+      imageUrl: "/images/frontend-mentor-challenges.png",
+      description: "frontendMentorChallenges",
+      links: [
+        {
+          name: "Chart Bar",
+          links: [
+            {
+              name: "Live",
+              type: "live",
+              url: "https://chart-bar-solid.vercel.app",
+            },
+            {
+              name: "GitHub",
+              type: "github",
+              url: "https://github.com/Nitestack/chart-bar-solid",
+            },
+          ],
+        },
+        {
+          name: "Interactive Rating",
+          links: [
+            {
+              name: "Live",
+              type: "live",
+              url: "https://interactive-rating-solid.vercel.app",
+            },
+            {
+              name: "GitHub",
+              type: "github",
+              url: "https://github.com/Nitestack/interactive-rating-solid",
+            },
+          ],
+        },
+        {
+          name: "QR Code",
+          links: [
+            {
+              name: "Live",
+              type: "live",
+              url: "https://qr-code-solid.vercel.app",
+            },
+            {
+              name: "GitHub",
+              type: "github",
+              url: "https://github.com/Nitestack/qr-code-solid",
+            },
+          ],
+        },
+        {
+          name: "NFT Preview Card",
+          links: [
+            {
+              name: "Live",
+              type: "live",
+              url: "https://nft-preview-card-solid.vercel.app",
+            },
+            {
+              name: "GitHub",
+              type: "github",
+              url: "https://github.com/Nitestack/nft-preview-card-solid",
+            },
+          ],
+        },
+        {
+          name: "Tip Calculator",
+          links: [
+            {
+              name: "Live",
+              type: "live",
+              url: "https://tip-calculator-solid.vercel.app",
+            },
+            {
+              name: "GitHub",
+              type: "github",
+              url: "https://github.com/Nitestack/tip-calculator-solid",
+            },
+          ],
+        },
+      ],
     },
     {
       name: "Young Thieves",

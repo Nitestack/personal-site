@@ -85,7 +85,7 @@ const Project: FC<
                 {readMoreLabel}
               </Button>
             </DialogTrigger>
-            <DialogContent>
+            <DialogContent className="max-h-[80%] overflow-auto scrollbar-none">
               <DialogHeader>
                 <DialogTitle className="space-y-1">
                   <ProjectTitle status={project.status}>
@@ -111,25 +111,27 @@ const Project: FC<
                 {readMoreLabel}
               </Button>
             </DrawerTrigger>
-            <DrawerContent>
-              <DrawerHeader>
-                <DrawerTitle className="space-y-1">
-                  <ProjectTitle status={project.status}>
-                    {project.name}
-                  </ProjectTitle>
-                  <ProjectInfo
-                    locale={locale}
-                    startDate={project.startDate}
-                    visibility={project.visibility}
-                    visibilityLabel={project.visibilityLabel}
-                  />
-                </DrawerTitle>
-                <DrawerDescription className="text-balance">
-                  {project.description}
-                </DrawerDescription>
-              </DrawerHeader>
-              <div className="p-4">
-                <ProjectDetails {...project} />
+            <DrawerContent className="max-h-[80%]">
+              <div className="overflow-y-auto">
+                <DrawerHeader>
+                  <DrawerTitle className="space-y-1">
+                    <ProjectTitle status={project.status}>
+                      {project.name}
+                    </ProjectTitle>
+                    <ProjectInfo
+                      locale={locale}
+                      startDate={project.startDate}
+                      visibility={project.visibility}
+                      visibilityLabel={project.visibilityLabel}
+                    />
+                  </DrawerTitle>
+                  <DrawerDescription className="text-balance">
+                    {project.description}
+                  </DrawerDescription>
+                </DrawerHeader>
+                <div className="p-4">
+                  <ProjectDetails {...project} />
+                </div>
               </div>
             </DrawerContent>
           </Drawer>
