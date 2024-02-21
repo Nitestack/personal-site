@@ -33,6 +33,7 @@
       "psNvimSwitcher": "A PowerShell module for effortless switching between various Neovim distributions.",
       "playersAllianceDashboard": "A dashboard designed for the 'Players Alliance', a gaming community dedicated to 'Clash of Clans'. This management tool enables moderators and administrators to oversee monthly in-game events. It interfaces with the CoC API to retrieve player data.",
       "ticTacToe": "A simple website for playing Tic Tac Toe. Part of a school project created with a friend.",
+      "frontendMentorChallenges": "Small and simple challenges from Frontend Mentor.",
       "youngThievesClo": "A shopping website that offers a variety of clothes, including T-shirts, hoodies, jackets, jeans, shorts, and accessories.",
       "niteClash": "An upgrade progress tracker for the game 'Clash of Clans', which interacts with the CoC API to fetch player data.",
       "gamesWeb": "A simple website for playing games such as Tic Tac Toe and Connect Four.",

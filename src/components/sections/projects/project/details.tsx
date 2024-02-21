@@ -10,6 +10,38 @@ import { type FC } from "react";
 
 import { getGitHubRepositoryUrl } from "@utils";
 
+import { type ProjectSingleLink } from "@constants";
+
+const ProjectDetailsLink: FC<ProjectSingleLink & { fullWidth?: boolean }> = ({
+  name,
+  url,
+  type,
+  fullWidth,
+}) => {
+  return (
+    <Button
+      asChild
+      variant="outline"
+      className={fullWidth ? "w-full" : undefined}
+    >
+      <Link
+        className="flex items-center gap-2 md:text-lg"
+        href={url}
+        target="_blank"
+      >
+        {type === "github" ? (
+          <GithubIcon className="w-4 h-4 lg:w-5 lg:h-5 text-primary" />
+        ) : type === "live" ? (
+          <ZapIcon className="w-4 h-4 lg:w-5 lg:h-5 text-primary" />
+        ) : (
+          <LinkIcon className="w-4 h-4 lg:w-5 lg:h-5 text-primary" />
+        )}
+        <span>{name}</span>
+      </Link>
+    </Button>
+  );
+};
+
 const ProjectDetails: FC<TranslatedProject> = (project) => {
   const links: NonNullable<TranslatedProject["links"]> = project.links
     ? [...project.links]
@@ -45,24 +77,27 @@ const ProjectDetails: FC<TranslatedProject> = (project) => {
       </div>
       {links.length && (
         <div className="flex items-center gap-2 w-full flex-wrap">
-          {links.map((link) => (
-            <Button asChild variant="outline" key={link.url} className="w-full">
-              <Link
-                className="flex items-center gap-2 md:text-lg"
-                href={link.url}
-                target="_blank"
-              >
-                {link.type === "github" ? (
-                  <GithubIcon className="w-4 h-4 lg:w-5 lg:h-5 text-primary" />
-                ) : link.type === "live" ? (
-                  <ZapIcon className="w-4 h-4 lg:w-5 lg:h-5 text-primary" />
-                ) : (
-                  <LinkIcon className="w-4 h-4 lg:w-5 lg:h-5 text-primary" />
-                )}
-                <span>{link.name}</span>
-              </Link>
-            </Button>
-          ))}
+          {links.map((link, i) => {
+            if ("links" in link)
+              return (
+                <div
+                  key={link.name + i.toString()}
+                  className="flex-col md:flex-row flex items-start md:items-center justify-between gap-2 w-full flex-wrap"
+                >
+                  <p className="bg-accent px-1 py-0.5 rounded">{link.name}:</p>
+                  <div className="flex items-center gap-1">
+                    {link.links.map((l) => (
+                      <ProjectDetailsLink
+                        key={`${link.name}-${l.name}`}
+                        {...l}
+                      />
+                    ))}
+                  </div>
+                </div>
+              );
+            else
+              return <ProjectDetailsLink key={link.name} {...link} fullWidth />;
+          })}
         </div>
       )}
       <ProjectTags name={project.name} tags={project.tags} />
