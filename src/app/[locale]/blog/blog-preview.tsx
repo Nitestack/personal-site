@@ -9,9 +9,6 @@ import {
   CardTitle,
 } from "@components/ui/card";
 
-import { Link } from "@navigation";
-
-import { Loader2Icon } from "lucide-react";
 import NextImage from "next/image";
 import { type FC } from "react";
 import { TransitionLink } from "src/hooks";
