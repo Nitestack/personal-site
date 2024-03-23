@@ -184,6 +184,7 @@ export const SITE_CONFIG: {
       links: [
         {
           name: "NPM",
+          type: "live",
           url: "https://www.npmjs.com/package/@nitestack/project-manager",
         },
         {
@@ -194,14 +195,26 @@ export const SITE_CONFIG: {
       ],
     },
     {
-      name: "PowerShell Neovim Switcher",
+      name: "Neovim Config Switcher CLI",
       startDate: "10-2023",
       visibility: "public",
-      status: "completed",
-      repoLink: "PSNvimSwitcher",
-      description: "psNvimSwitcher",
+      status: "developing",
+      repoLink: "nvim-switcher",
+      description: "nvimSwitcher",
       imageUrl: "/images/ps-nvim-switcher.png",
-      tags: ["PowerShell", "Neovim"],
+      tags: ["Rust", "clap", "fzf", "Neovim"],
+      links: [
+        {
+          name: "crates.io",
+          type: "live",
+          url: "https://crates.io/crates/nvim-switcher",
+        },
+        {
+          name: "v0 in PowerShell",
+          type: "github",
+          url: "https://github.com/Nitestack/PSNvimSwitcher",
+        },
+      ],
     },
     {
       name: "Players Alliance Dashboard",
