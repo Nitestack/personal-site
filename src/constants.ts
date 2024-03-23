@@ -491,24 +491,24 @@ export const SITE_CONFIG: {
         bgColor: "bg-[#0175C2]",
         textColor: "text-[#D5D7DA]",
       },
-      {
-        name: "C#",
-        level: "basic",
-        imageUrl: "/images/logos/csharp.svg",
-        bgColor: "bg-[#280068]",
-      },
+      // {
+      //   name: "C#",
+      //   level: "basic",
+      //   imageUrl: "/images/logos/csharp.svg",
+      //   bgColor: "bg-[#280068]",
+      // },
       {
         name: "Lua",
         level: "skilled",
         imageUrl: "/images/logos/lua.svg",
         bgColor: "bg-[#00007D]",
       },
-      {
-        name: "C++",
-        level: "basic",
-        imageUrl: "/images/logos/cpp.svg",
-        bgColor: "bg-[#044F88]",
-      },
+      // {
+      //   name: "C++",
+      //   level: "basic",
+      //   imageUrl: "/images/logos/cpp.svg",
+      //   bgColor: "bg-[#044F88]",
+      // },
       {
         name: "Rust",
         level: "basic",
