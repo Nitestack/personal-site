@@ -509,6 +509,11 @@ export const SITE_CONFIG: {
         imageUrl: "/images/logos/cpp.svg",
         bgColor: "bg-[#044F88]",
       },
+      {
+        name: "Rust",
+        level: "basic",
+        imageUrl: "/images/logos/rust.svg",
+      },
     ],
     libs: [
       {
