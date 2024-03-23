@@ -102,7 +102,6 @@ export const SITE_CONFIG: {
     libs: Skill[];
     languages: Skill[];
     tools: Skill[];
-    platforms: Skill[];
     os: Skill[];
   };
   url: string;
@@ -668,25 +667,6 @@ export const SITE_CONFIG: {
         imageUrl: "/images/logos/tmux.svg",
         bgColor: "bg-[#3c3c3c]",
         textColor: "text-[#1bb91f]",
-      },
-    ],
-    platforms: [
-      {
-        name: "Heroku",
-        level: "basic",
-        imageUrl: "/images/logos/heroku.svg",
-        bgColor: "bg-[#430098]",
-        textColor: "text-white",
-      },
-      {
-        name: "Vercel",
-        level: "skilled",
-        imageUrl: "/images/logos/vercel.svg",
-      },
-      {
-        name: "PlanetScale",
-        level: "basic",
-        imageUrl: "/images/logos/planetscale.svg",
       },
     ],
     os: [
