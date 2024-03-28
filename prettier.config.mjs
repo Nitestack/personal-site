@@ -15,7 +15,7 @@ function fileAlias(fileName) {
 const thirdPartyModules = "<THIRD_PARTY_MODULES>";
 
 /** @type {import('prettier').Config & import('prettier-plugin-tailwindcss').PluginOptions & import('@trivago/prettier-plugin-sort-imports').PluginConfig} */
-const config = {
+export default {
   plugins: [
     "prettier-plugin-tailwindcss",
     "@trivago/prettier-plugin-sort-imports",
@@ -39,5 +39,3 @@ const config = {
   importOrderSeparation: true,
   importOrderSortSpecifiers: true,
 };
-
-module.exports = config;
