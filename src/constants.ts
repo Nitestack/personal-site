@@ -197,10 +197,10 @@ export const SITE_CONFIG: {
       name: "Neovim Config Switcher CLI",
       startDate: "10-2023",
       visibility: "public",
-      status: "developing",
+      status: "active",
       repoLink: "nvim-switcher",
       description: "nvimSwitcher",
-      imageUrl: "/images/ps-nvim-switcher.png",
+      imageUrl: "/images/nvim-switcher-cli.png",
       tags: ["Rust", "clap", "fzf", "Neovim"],
       links: [
         {
