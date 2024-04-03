@@ -1,5 +1,9 @@
-import { BlogList } from "@app/[locale]/blog/page";
+import { TransitionLink } from "@hooks";
+import { Loader2 } from "lucide-react";
+import { useTranslations } from "next-intl";
+import { type FC } from "react";
 
+import { BlogList } from "@app/[locale]/blog/page";
 import Section from "@components/sections/section";
 import { Button } from "@components/ui/button";
 import {
@@ -8,11 +12,6 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@components/ui/carousel";
-
-import { TransitionLink } from "@hooks";
-import { Loader2 } from "lucide-react";
-import { useTranslations } from "next-intl";
-import { type FC } from "react";
 
 const BlogSection: FC<{ locale: string }> = ({ locale }) => {
   const t = useTranslations("Blog");

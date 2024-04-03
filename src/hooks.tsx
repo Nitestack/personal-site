@@ -1,13 +1,9 @@
 "use client";
 
 import { Link, useRouter } from "@navigation";
+import { useTransition } from "react";
 
-import {
-  type ComponentPropsWithoutRef,
-  type FC,
-  type ReactNode,
-  useTransition,
-} from "react";
+import type { ComponentPropsWithoutRef, FC, ReactNode } from "react";
 
 export const TransitionLink: FC<
   Omit<ComponentPropsWithoutRef<typeof Link>, "href"> & {

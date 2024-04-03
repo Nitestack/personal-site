@@ -1,12 +1,13 @@
+import { SITE_CONFIG, status } from "@constants";
+import { useTranslations } from "next-intl";
+import { type FC } from "react";
+
 import LegendProjectStatus from "@components/sections/projects/legend-status";
 import ProjectList from "@components/sections/projects/list";
 import { ProjectStatusContextProvider } from "@components/sections/projects/status-context";
 import Section from "@components/sections/section";
 
-import { useTranslations } from "next-intl";
-import { type FC } from "react";
-
-import { type ProjectStatus, SITE_CONFIG, status } from "@constants";
+import type { ProjectStatus } from "@constants";
 
 export function getProjectStatusIcon(status: ProjectStatus) {
   return status == "active"

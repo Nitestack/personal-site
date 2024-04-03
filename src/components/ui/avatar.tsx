@@ -1,14 +1,12 @@
 "use client";
 
 import * as AvatarPrimitive from "@radix-ui/react-avatar";
-import NextImage, { type ImageProps } from "next/image";
-import {
-  type ComponentPropsWithoutRef,
-  type ElementRef,
-  forwardRef,
-} from "react";
-
 import { classNames } from "@utils";
+import NextImage from "next/image";
+import { forwardRef } from "react";
+
+import type { ImageProps } from "next/image";
+import type { ComponentPropsWithoutRef, ElementRef } from "react";
 
 const Avatar = forwardRef<
   ElementRef<typeof AvatarPrimitive.Root>,
@@ -18,7 +16,7 @@ const Avatar = forwardRef<
     ref={ref}
     className={classNames(
       "relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full",
-      className,
+      className
     )}
     {...props}
   />
@@ -47,7 +45,7 @@ const AvatarFallback = forwardRef<
     ref={ref}
     className={classNames(
       "flex h-full w-full items-center justify-center rounded-full bg-muted",
-      className,
+      className
     )}
     {...props}
   />

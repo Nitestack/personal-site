@@ -1,3 +1,4 @@
+import { LOCALIZATION_CONFIG, SITE_CONFIG } from "@constants";
 import { type Metadata, type ResolvingMetadata } from "next";
 import { getTranslations } from "next-intl/server";
 import {
@@ -5,8 +6,6 @@ import {
   type AbsoluteTemplateString,
   type DefaultTemplateString,
 } from "next/dist/lib/metadata/types/metadata-types";
-
-import { LOCALIZATION_CONFIG, SITE_CONFIG } from "@constants";
 
 interface RequiredMetadata {
   title: NonNullable<Metadata["title"]>;
@@ -76,16 +75,16 @@ export function metadata<
   generateMetadata: (
     t: Awaited<ReturnType<typeof getTranslations<never>>>,
     props: WithLocaleProps<Params, SearchParams>,
-    parent: ResolvingMetadata,
+    parent: ResolvingMetadata
   ) => MaybePromise<
     | (Omit<Metadata, keyof RequiredMetadata | "metadataBase"> &
         RequiredMetadata)
     | undefined
-  >,
+  >
 ) {
   return async function (
     props: WithLocaleProps<Params, SearchParams>,
-    parent: ResolvingMetadata,
+    parent: ResolvingMetadata
   ): Promise<Metadata | undefined> {
     const { locale } = props.params;
     const t = await getTranslations({ locale });
@@ -107,7 +106,7 @@ export function metadata<
       description: resolvedDescription,
       locale: locale,
       alternateLocale: LOCALIZATION_CONFIG.locales.filter(
-        (currentLocale) => currentLocale.toLowerCase() !== locale.toLowerCase(),
+        (currentLocale) => currentLocale.toLowerCase() !== locale.toLowerCase()
       ),
     };
     (metadata as Metadata).twitter = {

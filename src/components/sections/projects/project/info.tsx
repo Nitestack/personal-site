@@ -1,9 +1,8 @@
-import { type TranslatedProject } from "@components/sections/projects/project";
-import { Button } from "@components/ui/button";
-
+import { classNames } from "@utils";
 import { type FC } from "react";
 
-import { classNames } from "@utils";
+import { type TranslatedProject } from "@components/sections/projects/project";
+import { Button } from "@components/ui/button";
 
 const ProjectInfo: FC<
   Pick<TranslatedProject, "visibility" | "visibilityLabel" | "startDate"> & {
@@ -19,7 +18,7 @@ const ProjectInfo: FC<
         size="sm"
         className={classNames(
           "px-1.5 py-0.5 h-fit rounded",
-          visibility === "private" ? "bg-red-500" : "bg-blue-500",
+          visibility === "private" ? "bg-red-500" : "bg-blue-500"
         )}
       >
         {visibilityLabel}

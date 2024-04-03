@@ -1,12 +1,10 @@
-import { MotionDiv } from "@components/motion";
-import Section from "@components/sections/section";
-
+import { SITE_CONFIG } from "@constants";
 import { useTranslations } from "next-intl";
 import NextImage from "next/image";
 import { type FC } from "react";
 
-import { SITE_CONFIG } from "@constants";
-
+import { MotionDiv } from "@components/motion";
+import Section from "@components/sections/section";
 import Neovim from "@public/images/neovim.png";
 
 function calculateAge(dateOfBirth: Date) {

@@ -1,9 +1,8 @@
-import { getProjectStatusIcon } from "@components/sections/projects";
-import { type TranslatedProject } from "@components/sections/projects/project";
-
+import { classNames } from "@utils";
 import { type FC, type ReactNode } from "react";
 
-import { classNames } from "@utils";
+import { getProjectStatusIcon } from "@components/sections/projects";
+import { type TranslatedProject } from "@components/sections/projects/project";
 
 const ProjectTitle: FC<
   Pick<TranslatedProject, "status"> & {
@@ -15,7 +14,7 @@ const ProjectTitle: FC<
     <div
       className={classNames(
         "flex items-center justify-center gap-2",
-        className,
+        className
       )}
     >
       {children}

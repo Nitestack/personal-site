@@ -1,5 +1,8 @@
 "use client";
 
+import { type Skill } from "@constants";
+import { type FC } from "react";
+
 import { AnimatePresence } from "@components/motion";
 import SkillCard from "@components/sections/experience/skill-card";
 import { useSkillContext } from "@components/sections/experience/skill-context";
@@ -8,10 +11,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@components/ui/accordion";
-
-import { type FC } from "react";
-
-import { type Skill } from "@constants";
 
 const SkillCategory: FC<{
   id: string;

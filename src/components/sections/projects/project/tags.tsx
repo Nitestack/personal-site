@@ -1,8 +1,7 @@
-import { type TranslatedProject } from "@components/sections/projects/project";
-
+import { classNames } from "@utils";
 import { type FC } from "react";
 
-import { classNames } from "@utils";
+import { type TranslatedProject } from "@components/sections/projects/project";
 
 const ProjectTags: FC<
   Pick<TranslatedProject, "tags" | "name"> & { onCard?: boolean }
@@ -11,7 +10,7 @@ const ProjectTags: FC<
     <div
       className={classNames(
         "items-end justify-center flex-wrap gap-2",
-        onCard ? "hidden md:flex" : "flex",
+        onCard ? "hidden md:flex" : "flex"
       )}
     >
       {tags.map((tag) => (

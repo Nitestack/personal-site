@@ -1,9 +1,9 @@
 "use client";
 
+import { type FC } from "react";
+
 import { AnimatePresence } from "@components/motion";
-import Project, {
-  type TranslatedProject,
-} from "@components/sections/projects/project";
+import Project from "@components/sections/projects/project";
 import { useProjectStatusContext } from "@components/sections/projects/status-context";
 import {
   Carousel,
@@ -13,7 +13,7 @@ import {
   CarouselPrevious,
 } from "@components/ui/carousel";
 
-import { type FC } from "react";
+import type { TranslatedProject } from "@components/sections/projects/project";
 
 const ProjectList: FC<{
   projects: TranslatedProject[];

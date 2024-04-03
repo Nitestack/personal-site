@@ -1,10 +1,12 @@
 "use client";
 
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
+
 import { Label } from "@components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@components/ui/radio-group";
 
-import { useTheme } from "next-themes";
-import { type FC, useEffect, useState } from "react";
+import type { FC } from "react";
 
 const MobileThemeSelection: FC<{
   label: string;

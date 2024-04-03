@@ -1,11 +1,6 @@
+import { LOCALIZATION_CONFIG } from "@constants";
 import { defaultMetadata } from "@metadata";
-
-import Providers from "@app/providers";
-
-import Footer from "@components/footer";
-import Navbar from "@components/navbar";
-import ScrollProgress from "@components/scroll-progress";
-
+import { classNames } from "@utils";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import pick from "lodash.pick";
@@ -16,9 +11,10 @@ import { Work_Sans } from "next/font/google";
 import localFont from "next/font/local";
 import { type FC, type ReactNode } from "react";
 
-import { classNames } from "@utils";
-
-import { LOCALIZATION_CONFIG } from "@constants";
+import Providers from "@app/providers";
+import Footer from "@components/footer";
+import Navbar from "@components/navbar";
+import ScrollProgress from "@components/scroll-progress";
 
 const workSans = Work_Sans({
   subsets: ["latin"],
@@ -56,7 +52,7 @@ const LocaleLayout: FC<{ children: ReactNode; params: { locale: string } }> = ({
       className={classNames(
         workSans.variable,
         monaspace.variable,
-        "antialiased scroll-smooth scrollbar-none",
+        "antialiased scroll-smooth scrollbar-none"
       )}
       lang={locale}
       suppressHydrationWarning

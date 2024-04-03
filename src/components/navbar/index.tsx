@@ -1,3 +1,8 @@
+import { SITE_CONFIG } from "@constants";
+import { Settings } from "lucide-react";
+import { useTranslations } from "next-intl";
+import { type FC } from "react";
+
 import { MotionDiv, MotionUl } from "@components/motion";
 import {
   NavigationMenu,
@@ -16,12 +21,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@components/ui/dropdown-menu";
-
-import { Settings } from "lucide-react";
-import { useTranslations } from "next-intl";
-import { type FC } from "react";
-
-import { SITE_CONFIG } from "@constants";
 
 const Navbar: FC = () => {
   const t = useTranslations();

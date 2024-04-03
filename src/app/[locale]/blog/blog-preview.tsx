@@ -1,19 +1,17 @@
+import { classNames } from "@utils";
+import NextImage from "next/image";
+import { type FC } from "react";
+import { TransitionLink } from "src/hooks";
+
 import { getLocaleDateString } from "@app/[locale]/blog/notion";
 import SkeletonBlogPreview from "@app/[locale]/blog/skeleton-blog-preview";
 import { type BlogPostPreview } from "@app/[locale]/blog/types";
-
 import {
   Card,
   CardDescription,
   CardHeader,
   CardTitle,
 } from "@components/ui/card";
-
-import NextImage from "next/image";
-import { type FC } from "react";
-import { TransitionLink } from "src/hooks";
-
-import { classNames } from "@utils";
 
 const BlogPostPreview: FC<
   BlogPostPreview & {
@@ -54,7 +52,7 @@ const BlogPostPreview: FC<
         <CardHeader
           className={classNames(
             "flex flex-col h-full space-y-6 group-hover:bg-accent",
-            carouselItem && "px-2 py-3 sm:px-4 sm:py-5 md:px-6 md:py-7",
+            carouselItem && "px-2 py-3 sm:px-4 sm:py-5 md:px-6 md:py-7"
           )}
         >
           <div className="flex-1 space-y-4">
