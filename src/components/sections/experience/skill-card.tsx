@@ -1,12 +1,10 @@
-import { MotionDiv } from "@components/motion";
-
+import { type Skill } from "@constants";
+import { classNames, getStarRating } from "@utils";
 import { Star } from "lucide-react";
 import NextImage from "next/image";
 import { type FC } from "react";
 
-import { classNames, getStarRating } from "@utils";
-
-import { type Skill } from "@constants";
+import { MotionDiv } from "@components/motion";
 
 const SkillCard: FC<Skill> = (skill) => {
   return (
@@ -21,7 +19,7 @@ const SkillCard: FC<Skill> = (skill) => {
       <div
         className={classNames(
           "bg-background h-full p-0.5 rounded-xl shadow-lg shadow-ring/20",
-          skill.bgColor,
+          skill.bgColor
         )}
       >
         <div className="bg-black rounded-t-xl p-1 space-y-1">
@@ -58,7 +56,7 @@ const SkillCard: FC<Skill> = (skill) => {
         <p
           className={classNames(
             "text-foreground whitespace-nowrap rounded-b-xl p-0.5 text-center font-semibold",
-            skill.textColor,
+            skill.textColor
           )}
         >
           {skill.name}

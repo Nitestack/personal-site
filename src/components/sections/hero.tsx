@@ -1,12 +1,10 @@
-import { MotionDiv } from "@components/motion";
-import { HeroSectionView } from "@components/sections/context";
-
+import { SITE_CONFIG } from "@constants";
 import { useTranslations } from "next-intl";
 import NextImage from "next/image";
 import { type FC } from "react";
 
-import { SITE_CONFIG } from "@constants";
-
+import { MotionDiv } from "@components/motion";
+import { HeroSectionView } from "@components/sections/context";
 import AppNetwork from "@public/images/app-network.png";
 
 const HeroSection: FC = () => {

@@ -1,4 +1,14 @@
+import { SITE_CONFIG } from "@constants";
+import { env } from "@env";
 import { metadata } from "@metadata";
+import bookmarkPlugin from "@notion-render/bookmark-plugin";
+import { NotionRenderer } from "@notion-render/client";
+import { getAvatarFallback } from "@utils";
+import { useTranslations } from "next-intl";
+import { type OpenGraph } from "next/dist/lib/metadata/types/opengraph-types";
+import { notFound } from "next/navigation";
+import { Suspense } from "react";
+import { type BlogPosting, type Thing, type WithContext } from "schema-dts";
 
 import {
   getBlogPageBySlug,
@@ -11,25 +21,11 @@ import {
   parseBlogPageProperties,
   trimExcerpt,
 } from "@app/[locale]/blog/notion";
-
 import { Avatar, AvatarFallback, AvatarImage } from "@components/ui/avatar";
 import { Skeleton } from "@components/ui/skeleton";
-
-import bookmarkPlugin from "@notion-render/bookmark-plugin";
-import { NotionRenderer } from "@notion-render/client";
-import { useTranslations } from "next-intl";
-import { type OpenGraph } from "next/dist/lib/metadata/types/opengraph-types";
-import { notFound } from "next/navigation";
-import { type FC, Suspense } from "react";
-import { type BlogPosting, type Thing, type WithContext } from "schema-dts";
-
-import { getAvatarFallback } from "@utils";
-
-import { SITE_CONFIG } from "@constants";
-
-import { env } from "@env";
-
 import Logo from "@public/images/logo.png";
+
+import type { FC } from "react";
 
 const notionRenderer = new NotionRenderer({
   client: notionClient,
@@ -40,7 +36,7 @@ export const generateMetadata = metadata<{ slug: string }>(
     const post = await getBlogPageBySlug(slug);
     if (!post) return;
     const { title, excerpt, publishedAt, tags } = parseBlogPageProperties(
-      post.properties,
+      post.properties
     );
     const description = trimExcerpt(excerpt);
     const imageUrl = getOGImage(post.cover, {
@@ -66,7 +62,7 @@ export const generateMetadata = metadata<{ slug: string }>(
         canonical: `/blog/${slug}`,
       },
     };
-  },
+  }
 );
 
 const BlogPage: FC<{ params: { slug: string; locale: string } }> = ({
@@ -111,7 +107,7 @@ const BlogPost: FC<{
   if (!post) notFound();
 
   const { title, excerpt, views, publishedAt, tags } = parseBlogPageProperties(
-    post.properties,
+    post.properties
   );
 
   if (env.NODE_ENV === "production") void incrementViewCount(post.id, views);

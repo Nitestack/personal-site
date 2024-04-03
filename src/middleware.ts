@@ -1,6 +1,5 @@
-import createMiddleware from "next-intl/middleware";
-
 import { LOCALIZATION_CONFIG } from "@constants";
+import createMiddleware from "next-intl/middleware";
 
 export default createMiddleware({
   locales: LOCALIZATION_CONFIG.locales,

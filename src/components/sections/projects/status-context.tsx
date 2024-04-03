@@ -1,15 +1,10 @@
 "use client";
 
-import {
-  type FC,
-  type ReactNode,
-  createContext,
-  useCallback,
-  useContext,
-  useState,
-} from "react";
+import { status } from "@constants";
+import { createContext, useCallback, useContext, useState } from "react";
 
-import { type ProjectStatus, status } from "@constants";
+import type { ProjectStatus } from "@constants";
+import type { FC, ReactNode } from "react";
 
 interface ProjectStatusType {
   filteredProjectStatuses: ProjectStatus[];
@@ -23,7 +18,7 @@ export const ProjectStatusContextProvider: FC<{ children: ReactNode }> = ({
   children,
 }) => {
   const [projectStatuses, setProjectStatuses] = useState<ProjectStatus[]>(
-    status as unknown as ProjectStatus[],
+    status as unknown as ProjectStatus[]
   );
 
   const toggleProjectStatus = useCallback(
@@ -31,7 +26,7 @@ export const ProjectStatusContextProvider: FC<{ children: ReactNode }> = ({
       return () => {
         if (projectStatuses.includes(status)) {
           setProjectStatuses((currentProjectStatuses) =>
-            currentProjectStatuses.filter((s) => s !== status),
+            currentProjectStatuses.filter((s) => s !== status)
           );
         } else {
           setProjectStatuses((currentProjectStatuses) => [
@@ -41,11 +36,11 @@ export const ProjectStatusContextProvider: FC<{ children: ReactNode }> = ({
         }
       };
     },
-    [projectStatuses],
+    [projectStatuses]
   );
   const isValid = useCallback(
     (status: ProjectStatus) => projectStatuses.includes(status),
-    [projectStatuses],
+    [projectStatuses]
   );
 
   return (
@@ -66,7 +61,7 @@ export function useProjectStatusContext() {
 
   if (context === null) {
     throw new Error(
-      "useProjectStatusContext must be inside of <ProjectStatusContextProvider />",
+      "useProjectStatusContext must be inside of <ProjectStatusContextProvider />"
     );
   }
 

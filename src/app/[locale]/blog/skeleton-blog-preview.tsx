@@ -1,7 +1,7 @@
+import { type FC } from "react";
+
 import { Card, CardHeader } from "@components/ui/card";
 import { Skeleton } from "@components/ui/skeleton";
-
-import { type FC } from "react";
 
 const SkeletonBlogPreview: FC = () => {
   return (

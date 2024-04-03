@@ -1,13 +1,12 @@
 "use client";
 
+import { type ProjectStatus } from "@constants";
+import { type FC } from "react";
+
 import { MotionDiv } from "@components/motion";
 import { getProjectStatusIcon } from "@components/sections/projects";
 import { useProjectStatusContext } from "@components/sections/projects/status-context";
 import { Checkbox } from "@components/ui/checkbox";
-
-import { type FC } from "react";
-
-import { type ProjectStatus } from "@constants";
 
 const LegendProjectStatus: FC<{
   status: ProjectStatus;

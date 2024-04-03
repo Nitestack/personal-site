@@ -1,5 +1,8 @@
 "use client";
 
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
+
 import {
   DropdownMenuLabel,
   DropdownMenuRadioGroup,
@@ -7,8 +10,7 @@ import {
   DropdownMenuSeparator,
 } from "@components/ui/dropdown-menu";
 
-import { useTheme } from "next-themes";
-import { type FC, useEffect, useState } from "react";
+import type { FC } from "react";
 
 const ThemeSelection: FC<{
   label: string;

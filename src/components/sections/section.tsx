@@ -1,13 +1,11 @@
 "use client";
 
-import { MotionSection } from "@components/motion";
-import { useSectionInView } from "@components/sections/context";
-
+import { type Section as SectionType } from "@constants";
+import { classNames } from "@utils";
 import { type ComponentPropsWithoutRef, type FC, type ReactNode } from "react";
 
-import { classNames } from "@utils";
-
-import { type Section as SectionType } from "@constants";
+import { MotionSection } from "@components/motion";
+import { useSectionInView } from "@components/sections/context";
 
 const Section: FC<
   Omit<ComponentPropsWithoutRef<typeof MotionSection>, "id" | "children"> & {
@@ -25,7 +23,7 @@ const Section: FC<
       {...props}
       className={classNames(
         "scroll-mt-20 md:scroll-mt-24 min-h-svh",
-        className,
+        className
       )}
       ref={ref}
       id={sectionID}

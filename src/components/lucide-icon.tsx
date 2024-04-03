@@ -1,5 +1,7 @@
-import { type LucideIcon as LucideIconType, icons } from "lucide-react";
+import { icons } from "lucide-react";
 import { type ComponentProps, type FC } from "react";
+
+import type { LucideIcon as LucideIconType } from "lucide-react";
 
 const LucideIcon: FC<
   { name: keyof typeof icons } & ComponentProps<LucideIconType>

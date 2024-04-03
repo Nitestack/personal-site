@@ -1,16 +1,10 @@
 "use client";
 
+import { createContext, useContext, useState } from "react";
+
 import { Sheet } from "@components/ui/sheet";
 
-import {
-  type Dispatch,
-  type FC,
-  type ReactNode,
-  type SetStateAction,
-  createContext,
-  useContext,
-  useState,
-} from "react";
+import type { Dispatch, FC, ReactNode, SetStateAction } from "react";
 
 const MobileSidebarContext = createContext<{
   open: boolean;
@@ -35,7 +29,7 @@ export function useMobileSidebarContext() {
 
   if (context === null) {
     throw new Error(
-      "useMobileSidebarContext must be inside of <MobileSidebarContextProvider />",
+      "useMobileSidebarContext must be inside of <MobileSidebarContextProvider />"
     );
   }
 

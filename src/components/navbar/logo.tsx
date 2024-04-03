@@ -1,15 +1,12 @@
 "use client";
 
-import { MotionA } from "@components/motion";
-import { useSectionsContext } from "@components/sections/context";
-
+import { SITE_CONFIG } from "@constants";
 import { Link } from "@navigation";
-
 import NextImage from "next/image";
 import { type FC } from "react";
 
-import { SITE_CONFIG } from "@constants";
-
+import { MotionA } from "@components/motion";
+import { useSectionsContext } from "@components/sections/context";
 import Logo from "@public/images/logo.png";
 
 const NavbarLogo: FC<{ onClick?: () => void }> = ({ onClick }) => {

@@ -1,5 +1,10 @@
 "use client";
 
+import { LOCALIZATION_CONFIG } from "@constants";
+import { usePathname, useRouter } from "@navigation";
+import { useLocale } from "next-intl";
+import { useTransition } from "react";
+
 import {
   DropdownMenuLabel,
   DropdownMenuRadioGroup,
@@ -7,12 +12,7 @@ import {
   DropdownMenuSeparator,
 } from "@components/ui/dropdown-menu";
 
-import { usePathname, useRouter } from "@navigation";
-
-import { useLocale } from "next-intl";
-import { type FC, useTransition } from "react";
-
-import { LOCALIZATION_CONFIG } from "@constants";
+import type { FC } from "react";
 
 const LanguageSelection: FC<{ label: string }> = ({ label }) => {
   const currentLocale = useLocale();

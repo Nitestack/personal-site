@@ -1,14 +1,13 @@
+import { LOCALIZATION_CONFIG, SITE_CONFIG } from "@constants";
 import { getTranslations } from "next-intl/server";
 import { ImageResponse } from "next/og";
 import { type NextRequest } from "next/server";
-
-import { LOCALIZATION_CONFIG, SITE_CONFIG } from "@constants";
 
 export const runtime = "edge";
 
 export async function GET(request: NextRequest) {
   const workSansExtraBold = fetch(
-    new URL("../../fonts/WorkSans-Bold.ttf", import.meta.url),
+    new URL("../../fonts/WorkSans-Bold.ttf", import.meta.url)
   ).then((res) => res.arrayBuffer());
 
   const { searchParams, origin } = request.nextUrl;
@@ -20,7 +19,7 @@ export async function GET(request: NextRequest) {
   const locale =
     hasLocale &&
     LOCALIZATION_CONFIG.locales.includes(
-      searchParams.get("locale")!.toLowerCase(),
+      searchParams.get("locale")!.toLowerCase()
     )
       ? searchParams.get("locale")!
       : LOCALIZATION_CONFIG.defaultLocale;
@@ -136,7 +135,7 @@ export async function GET(request: NextRequest) {
             style: "normal",
           },
         ],
-      },
+      }
     );
   } catch (err) {
     console.log(`${(err as Error).message}`);

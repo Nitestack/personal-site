@@ -1,21 +1,18 @@
 "use client";
 
-import { MotionSpan } from "@components/motion";
-import { useSectionsContext } from "@components/sections/context";
-import { navigationMenuTriggerStyle } from "@components/ui/navigation-menu";
-
+import { type Section } from "@constants";
 import { Link } from "@navigation";
-
 import {
   NavigationMenuItem,
   NavigationMenuLink,
 } from "@radix-ui/react-navigation-menu";
+import { classNames } from "@utils";
 import { type LinkProps } from "next/link";
 import { type FC } from "react";
 
-import { classNames } from "@utils";
-
-import { type Section } from "@constants";
+import { MotionSpan } from "@components/motion";
+import { useSectionsContext } from "@components/sections/context";
+import { navigationMenuTriggerStyle } from "@components/ui/navigation-menu";
 
 const NavbarLink: FC<{
   id: Section;

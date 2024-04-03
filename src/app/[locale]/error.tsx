@@ -1,10 +1,12 @@
 "use client";
 
-import { Button } from "@components/ui/button";
-
 import { useTranslations } from "next-intl";
 import NextImage from "next/image";
-import { type FC, useEffect } from "react";
+import { useEffect } from "react";
+
+import { Button } from "@components/ui/button";
+
+import type { FC } from "react";
 
 const LocaleError: FC<{ error: Error; reset: () => void }> = ({
   error,

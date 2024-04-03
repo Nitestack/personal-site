@@ -1,18 +1,15 @@
 "use client";
 
+import { type Section } from "@constants";
+import { Link } from "@navigation";
+import { classNames } from "@utils";
+import { type LinkProps } from "next/link";
+import { type FC } from "react";
+
 import { MotionSpan } from "@components/motion";
 import { useMobileSidebarContext } from "@components/navbar/mobile/context";
 import { useSectionsContext } from "@components/sections/context";
 import { Button } from "@components/ui/button";
-
-import { Link } from "@navigation";
-
-import { type LinkProps } from "next/link";
-import { type FC } from "react";
-
-import { classNames } from "@utils";
-
-import { type Section } from "@constants";
 
 const MobileSidebarLink: FC<{
   id: Section;
@@ -34,7 +31,7 @@ const MobileSidebarLink: FC<{
         "relative z-0 w-full text-xl tracking-wider font-bold shadow-none border-none rounded-none",
         {
           "text-accent-foreground": isActive,
-        },
+        }
       )}
       variant="outline"
       asChild

@@ -1,14 +1,13 @@
-import LucideIcon from "@components/lucide-icon";
-import { MotionDiv } from "@components/motion";
-import Section from "@components/sections/section";
-import { Button } from "@components/ui/button";
-
+import { SITE_CONFIG } from "@constants";
 import { Mail, MapPin, User } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { type FC } from "react";
 
-import { SITE_CONFIG } from "@constants";
+import LucideIcon from "@components/lucide-icon";
+import { MotionDiv } from "@components/motion";
+import Section from "@components/sections/section";
+import { Button } from "@components/ui/button";
 
 const ContactSection: FC = () => {
   const t = useTranslations();

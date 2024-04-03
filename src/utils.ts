@@ -1,7 +1,9 @@
-import { type ClassValue, clsx } from "clsx";
+import { SITE_CONFIG } from "@constants";
+import { clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
-import { SITE_CONFIG, type Skill } from "@constants";
+import type { Skill } from "@constants";
+import type { ClassValue } from "clsx";
 
 /**
  * Converts all class names into one class string

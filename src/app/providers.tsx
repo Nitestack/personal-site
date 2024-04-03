@@ -1,11 +1,13 @@
 "use client";
 
-import { SectionsContextProvider } from "@components/sections/context";
-
-import { type AbstractIntlMessages, NextIntlClientProvider } from "next-intl";
+import { NextIntlClientProvider } from "next-intl";
 import { ThemeProvider } from "next-themes";
 import { type ThemeProviderProps } from "next-themes/dist/types";
 import { type FC, type ReactNode } from "react";
+
+import { SectionsContextProvider } from "@components/sections/context";
+
+import type { AbstractIntlMessages } from "next-intl";
 
 interface ProviderProps {
   children: ReactNode;

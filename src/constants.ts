@@ -1,4 +1,4 @@
-import { type ExperienceTimelineItem } from "@components/sections/experience/timeline";
+import { type UrlObject } from "node:url";
 
 import { type icons } from "lucide-react";
 import {
@@ -6,8 +6,10 @@ import {
   type NestedKeyOf,
   type useTranslations,
 } from "next-intl";
+
+import { type ExperienceTimelineItem } from "@components/sections/experience/timeline";
+
 import type createMiddleware from "next-intl/middleware";
-import { type UrlObject } from "node:url";
 
 interface NavigationRoute {
   id: Section;

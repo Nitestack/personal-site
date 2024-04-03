@@ -1,21 +1,19 @@
 "use client";
 
-import { MotionSection } from "@components/motion";
-
-import {
-  type ComponentPropsWithoutRef,
-  type Dispatch,
-  type FC,
-  type ReactNode,
-  type SetStateAction,
-  createContext,
-  useContext,
-  useEffect,
-  useState,
-} from "react";
+import { sections } from "@constants";
+import { createContext, useContext, useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 
-import { type Section, sections } from "@constants";
+import { MotionSection } from "@components/motion";
+
+import type { Section } from "@constants";
+import type {
+  ComponentPropsWithoutRef,
+  Dispatch,
+  FC,
+  ReactNode,
+  SetStateAction,
+} from "react";
 
 export interface SectionsContextType {
   activeSection: Section | null;
@@ -36,7 +34,7 @@ export const SectionsContextProvider: FC<{ children: ReactNode }> = ({
     setActiveSection(
       location.hash.length && sections.includes(location.hash.slice(1))
         ? (location.hash.slice(1) as Section)
-        : null,
+        : null
     );
   }, []);
 
@@ -59,7 +57,7 @@ export function useSectionsContext() {
 
   if (context === null) {
     throw new Error(
-      "useSectionsContext must be inside of <SectionsContextProvider />",
+      "useSectionsContext must be inside of <SectionsContextProvider />"
     );
   }
 
