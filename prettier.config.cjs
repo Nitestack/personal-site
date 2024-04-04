@@ -35,6 +35,5 @@ module.exports = {
     TYPES.THIRD_PARTY,
     TYPES.RELATIVE,
   ],
-  importOrderParserPlugins: ["typescript", "jsx"],
   importOrderTypeScriptVersion: "5.4.3",
 };
