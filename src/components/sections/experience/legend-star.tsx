@@ -17,7 +17,7 @@ const LegendStar: FC<{ stars: number; label: string }> = ({ stars, label }) => {
       transition={{ duration: 0.5 }}
     >
       <Checkbox
-        className="rounded-sm h-5 w-5"
+        className="h-5 w-5 rounded-sm"
         checked={isFiltered(stars)}
         onCheckedChange={toggleStar(stars)}
       />
@@ -27,7 +27,7 @@ const LegendStar: FC<{ stars: number; label: string }> = ({ stars, label }) => {
           .map((_, index) => (
             <Star
               key={`star-filled-${index}`}
-              className="w-4 h-4"
+              className="h-4 w-4"
               color="#FFF500"
               fill="#FFF500"
             />
@@ -37,7 +37,7 @@ const LegendStar: FC<{ stars: number; label: string }> = ({ stars, label }) => {
           .map((_, index) => (
             <Star
               key={`star-unfilled-${index}`}
-              className="w-4 h-4"
+              className="h-4 w-4"
               fill="none"
             />
           ))}

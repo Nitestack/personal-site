@@ -21,7 +21,7 @@ const LegendProjectStatus: FC<{
       transition={{ duration: 0.5 }}
     >
       <Checkbox
-        className="rounded-sm h-5 w-5"
+        className="h-5 w-5 rounded-sm"
         checked={isValid(status)}
         onCheckedChange={toggleProjectStatus(status)}
       />

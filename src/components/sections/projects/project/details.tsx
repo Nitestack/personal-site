@@ -27,11 +27,11 @@ const ProjectDetailsLink: FC<ProjectSingleLink & { fullWidth?: boolean }> = ({
         target="_blank"
       >
         {type === "github" ? (
-          <GithubIcon className="w-4 h-4 lg:w-5 lg:h-5 text-primary" />
+          <GithubIcon className="h-4 w-4 text-primary lg:h-5 lg:w-5" />
         ) : type === "live" ? (
-          <ZapIcon className="w-4 h-4 lg:w-5 lg:h-5 text-primary" />
+          <ZapIcon className="h-4 w-4 text-primary lg:h-5 lg:w-5" />
         ) : (
-          <LinkIcon className="w-4 h-4 lg:w-5 lg:h-5 text-primary" />
+          <LinkIcon className="h-4 w-4 text-primary lg:h-5 lg:w-5" />
         )}
         <span>{name}</span>
       </Link>
@@ -62,7 +62,7 @@ const ProjectDetails: FC<TranslatedProject> = (project) => {
 
   return (
     <div className="flex flex-col gap-3 overflow-x-hidden">
-      <div className="relative aspect-video w-full border border-border rounded-md">
+      <div className="relative aspect-video w-full rounded-md border border-border">
         <div className="relative aspect-video w-full">
           <NextImage
             fill
@@ -73,15 +73,15 @@ const ProjectDetails: FC<TranslatedProject> = (project) => {
         </div>
       </div>
       {links.length && (
-        <div className="flex items-center gap-2 w-full flex-wrap">
+        <div className="flex w-full flex-wrap items-center gap-2">
           {links.map((link, i) => {
             if ("links" in link)
               return (
                 <div
                   key={link.name + i.toString()}
-                  className="flex-col md:flex-row flex items-start md:items-center justify-between gap-2 w-full flex-wrap"
+                  className="flex w-full flex-col flex-wrap items-start justify-between gap-2 md:flex-row md:items-center"
                 >
-                  <p className="bg-accent px-1 py-0.5 rounded">{link.name}:</p>
+                  <p className="rounded bg-accent px-1 py-0.5">{link.name}:</p>
                   <div className="flex items-center gap-1">
                     {link.links.map((l) => (
                       <ProjectDetailsLink

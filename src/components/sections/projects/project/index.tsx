@@ -47,8 +47,8 @@ const Project: FC<
       exit={{ opacity: 0, transition: { duration: 0.5 } }}
       className="h-full"
     >
-      <Card className="h-full flex flex-col gap-2 shadow-md overflow-x-hidden">
-        <div className="hidden sm:block relative aspect-video w-full border-b border-border">
+      <Card className="flex h-full flex-col gap-2 overflow-x-hidden shadow-md">
+        <div className="relative hidden aspect-video w-full border-b border-border sm:block">
           <NextImage
             fill
             className="object-contain"
@@ -56,9 +56,9 @@ const Project: FC<
             alt={project.name}
           />
         </div>
-        <CardHeader className="py-2 md:py-4 flex-1 space-y-2">
+        <CardHeader className="flex-1 space-y-2 py-2 md:py-4">
           <ProjectTitle status={project.status} className="mt-2 sm:mt-0">
-            <CardTitle className="font-bold text-balance">
+            <CardTitle className="text-balance font-bold">
               {project.name}
             </CardTitle>
           </ProjectTitle>
@@ -68,11 +68,11 @@ const Project: FC<
             visibility={project.visibility}
             visibilityLabel={project.visibilityLabel}
           />
-          <CardDescription className="md:text-base text-balance">
+          <CardDescription className="text-balance md:text-base">
             {project.description}
           </CardDescription>
         </CardHeader>
-        <CardFooter className="space-y-4 flex flex-col items-center">
+        <CardFooter className="flex flex-col items-center space-y-4">
           <ProjectTags name={project.name} tags={project.tags} onCard />
           <Dialog>
             <DialogTrigger asChild>

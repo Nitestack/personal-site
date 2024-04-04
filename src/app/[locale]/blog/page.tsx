@@ -49,12 +49,12 @@ const BlogOverviewPage: FC<{ params: { locale: string } }> = ({
   const t = useTranslations("Blog");
 
   return (
-    <div className="mt-4 md:mt-8 lg:mt-12 space-y-6 md:space-y-12">
+    <div className="mt-4 space-y-6 md:mt-8 md:space-y-12 lg:mt-12">
       <section className="text-center">
-        <h1 className="tracking-wide text-3xl sm:text-4xl font-extrabold lg:text-5xl">
+        <h1 className="text-3xl font-extrabold tracking-wide sm:text-4xl lg:text-5xl">
           Blog
         </h1>
-        <p className="text-balance mt-2 md:text-lg">
+        <p className="mt-2 text-balance md:text-lg">
           {t("description", {
             author: SITE_CONFIG.name,
           })}
@@ -91,7 +91,7 @@ export const BlogList: FC<{ locale: string; showcase?: boolean }> = ({
   else
     return (
       <section className="flex items-center justify-center">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-8 max-w-5xl">
+        <div className="grid max-w-5xl grid-cols-1 gap-4 md:grid-cols-2 lg:gap-8">
           <Suspense
             fallback={Array(4)
               .fill(0)

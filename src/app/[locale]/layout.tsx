@@ -52,7 +52,7 @@ const LocaleLayout: FC<{ children: ReactNode; params: { locale: string } }> = ({
       className={classNames(
         workSans.variable,
         monaspace.variable,
-        "antialiased scroll-smooth scrollbar-none"
+        "scroll-smooth antialiased scrollbar-none"
       )}
       lang={locale}
       suppressHydrationWarning
@@ -72,7 +72,7 @@ const LocaleLayout: FC<{ children: ReactNode; params: { locale: string } }> = ({
           }}
         >
           <Navbar />
-          <main className="container mb-8 mx-auto mt-4 md:mt-12 w-full flex-grow px-6 sm:px-6 lg:px-8">
+          <main className="container mx-auto mb-8 mt-4 w-full flex-grow px-6 sm:px-6 md:mt-12 lg:px-8">
             {children}
           </main>
           <Footer />

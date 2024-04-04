@@ -10,7 +10,7 @@ const ScrollProgress: FC = () => {
 
   return (
     <MotionDiv
-      className="fixed bottom-0 inset-x-0 h-1 origin-left bg-primary z-50"
+      className="fixed inset-x-0 bottom-0 z-50 h-1 origin-left bg-primary"
       style={{ scaleX: scrollYProgress }}
     />
   );

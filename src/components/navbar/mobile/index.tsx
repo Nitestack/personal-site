@@ -28,16 +28,16 @@ const MobileSidebar: FC = () => {
       </SheetTrigger>
       <SheetContent className="px-0 pt-0" side="left">
         <SheetHeader>
-          <SheetTitle className="px-4 py-1 flex items-center gap-2 border-b border-border/40">
+          <SheetTitle className="flex items-center gap-2 border-b border-border/40 px-4 py-1">
             <SheetClose asChild>
-              <Button className="shadow-none px-2" size="icon" variant="ghost">
+              <Button className="px-2 shadow-none" size="icon" variant="ghost">
                 <X className="h-6 w-6" />
               </Button>
             </SheetClose>
             <MobileSidebarLogo />
           </SheetTitle>
         </SheetHeader>
-        <div className="text-muted-foreground space-y-4">
+        <div className="space-y-4 text-muted-foreground">
           <div className="space-y-2">
             {SITE_CONFIG.routes.map((route) => (
               <MobileSidebarLink id={route.id} key={route.id} href={route.url}>

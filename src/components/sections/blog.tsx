@@ -21,8 +21,8 @@ const BlogSection: FC<{ locale: string }> = ({ locale }) => {
       heading="Blog"
       sectionID="blog"
     >
-      <p className="text-center text-balance">{t("description")}</p>
-      <div className="px-7 lg:max-w-5xl mx-auto">
+      <p className="text-balance text-center">{t("description")}</p>
+      <div className="mx-auto px-7 lg:max-w-5xl">
         <Carousel className="w-full" opts={{ loop: true }}>
           <CarouselContent>
             <BlogList showcase locale={locale} />

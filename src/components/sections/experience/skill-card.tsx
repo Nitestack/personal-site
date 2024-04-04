@@ -9,7 +9,7 @@ import { MotionDiv } from "@components/motion";
 const SkillCard: FC<Skill> = (skill) => {
   return (
     <MotionDiv
-      className="cursor-pointer select-none min-w-24 snap-center"
+      className="min-w-24 cursor-pointer select-none snap-center"
       initial={{ opacity: 0 }}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
@@ -18,12 +18,12 @@ const SkillCard: FC<Skill> = (skill) => {
     >
       <div
         className={classNames(
-          "bg-background h-full p-0.5 rounded-xl shadow-lg shadow-ring/20",
+          "h-full rounded-xl bg-background p-0.5 shadow-lg shadow-ring/20",
           skill.bgColor
         )}
       >
-        <div className="bg-black rounded-t-xl p-1 space-y-1">
-          <div className="relative h-14 w-full flex items-center justify-center">
+        <div className="space-y-1 rounded-t-xl bg-black p-1">
+          <div className="relative flex h-14 w-full items-center justify-center">
             <NextImage
               className="object-contain"
               fill
@@ -37,7 +37,7 @@ const SkillCard: FC<Skill> = (skill) => {
               .map((_, index) => (
                 <Star
                   key={`star-filled-${index}`}
-                  className="w-4 h-4"
+                  className="h-4 w-4"
                   color="#FFF500"
                   fill="#FFF500"
                 />
@@ -47,7 +47,7 @@ const SkillCard: FC<Skill> = (skill) => {
               .map((_, index) => (
                 <Star
                   key={`star-unfilled-${index}`}
-                  className="w-4 h-4"
+                  className="h-4 w-4"
                   fill="none"
                 />
               ))}
@@ -55,7 +55,7 @@ const SkillCard: FC<Skill> = (skill) => {
         </div>
         <p
           className={classNames(
-            "text-foreground whitespace-nowrap rounded-b-xl p-0.5 text-center font-semibold",
+            "whitespace-nowrap rounded-b-xl p-0.5 text-center font-semibold text-foreground",
             skill.textColor
           )}
         >

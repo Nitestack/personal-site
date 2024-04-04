@@ -41,7 +41,7 @@ const ExperienceSection: FC<{ locale: string }> = ({ locale }) => {
     <Section heading={t("Routes.experience")} sectionID="experience">
       <SkillContextProvider>
         <div className="space-y-12">
-          <div className="flex flex-col md:flex-row gap-4 items-center md:items-start justify-center md:justify-start">
+          <div className="flex flex-col items-center justify-center gap-4 md:flex-row md:items-start md:justify-start">
             <ExperienceTimeline
               locale={locale}
               items={SITE_CONFIG.experience.events.map(
@@ -57,8 +57,8 @@ const ExperienceSection: FC<{ locale: string }> = ({ locale }) => {
                 })
               )}
             />
-            <div className="flex items-center justify-center w-full md:w-fit">
-              <div className="flex flex-col gap-1 px-3 py-4 w-full md:w-fit overflow-x-hidden rounded-lg border border-border">
+            <div className="flex w-full items-center justify-center md:w-fit">
+              <div className="flex w-full flex-col gap-1 overflow-x-hidden rounded-lg border border-border px-3 py-4 md:w-fit">
                 <LegendStar stars={1} label={t("Experience.Levels.basic")} />
                 <LegendStar stars={2} label={t("Experience.Levels.skilled")} />
                 <LegendStar

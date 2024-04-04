@@ -22,7 +22,7 @@ const ProjectList: FC<{
 }> = ({ projects, readMoreLabel, locale }) => {
   const { isValid } = useProjectStatusContext();
   return (
-    <div className="px-7 lg:max-w-5xl mx-auto">
+    <div className="mx-auto px-7 lg:max-w-5xl">
       <Carousel className="w-full max-w-full" opts={{ loop: true }}>
         <CarouselContent>
           <AnimatePresence>

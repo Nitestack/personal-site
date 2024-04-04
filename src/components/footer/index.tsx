@@ -23,10 +23,10 @@ const Footer: FC = () => {
         >
           Email: {SITE_CONFIG.email}
         </Link>
-        <div className="flex justify-center mt-4 space-x-2">
+        <div className="mt-4 flex justify-center space-x-2">
           {SITE_CONFIG.socials.map(({ name, url, iconName }) => (
             <Link key={name} target="_blank" href={url}>
-              <LucideIcon name={iconName} className="w-6 h-6" />
+              <LucideIcon name={iconName} className="h-6 w-6" />
             </Link>
           ))}
         </div>
