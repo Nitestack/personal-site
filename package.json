@@ -1,12 +1,21 @@
 {
   "name": "personal-site",
   "version": "0.1.0",
+  "description": "My website to represent my work and share my experience",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Nitestack/personal-site.git"
+  },
   "private": true,
   "scripts": {
+    "typecheck": "tsc",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "prettier '**/*.{cjs,mjs,ts,tsx,md,json}' --ignore-path .gitignore --ignore-unknown --no-error-on-unmatched-pattern --write",
+    "format:check": "prettier '**/*.{cjs,mjs,ts,tsx,md,json}' --ignore-path .gitignore --ignore-unknown --no-error-on-unmatched-pattern --check"
   },
   "dependencies": {
     "@notion-render/bookmark-plugin": "^0.0.2",
