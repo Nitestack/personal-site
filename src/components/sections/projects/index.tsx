@@ -23,13 +23,13 @@ const ProjectsSection: FC<{ locale: string }> = ({ locale }) => {
   const t = useTranslations();
   return (
     <Section
-      className="text-center space-y-4 md:space-y-6 lg:space-y-8"
+      className="space-y-4 text-center md:space-y-6 lg:space-y-8"
       heading={t("Routes.projects")}
       sectionID="projects"
     >
       <ProjectStatusContextProvider>
         <div className="flex items-center justify-center">
-          <div className="flex flex-col gap-1 px-3 py-4 overflow-x-hidden rounded-lg border border-border">
+          <div className="flex flex-col gap-1 overflow-x-hidden rounded-lg border border-border px-3 py-4">
             {status.map((status) => (
               <LegendProjectStatus
                 key={status}

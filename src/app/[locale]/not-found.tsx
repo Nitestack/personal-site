@@ -8,7 +8,7 @@ import { Button } from "@components/ui/button";
 const LocaleNotFoundPage: FC = () => {
   const t = useTranslations("NotFound");
   return (
-    <div className="flex items-center justify-center flex-col gap-2 sm:gap-4 md:gap-6 lg:gap-8 my-6">
+    <div className="my-6 flex flex-col items-center justify-center gap-2 sm:gap-4 md:gap-6 lg:gap-8">
       <div className="relative aspect-square w-full max-w-md">
         <NextImage
           fill
@@ -17,7 +17,7 @@ const LocaleNotFoundPage: FC = () => {
           alt="Not Found"
         />
       </div>
-      <h1 className="text-3xl text-center text-balance font-bold">
+      <h1 className="text-balance text-center text-3xl font-bold">
         {t("message")}
       </h1>
       <Button asChild variant="destructive">

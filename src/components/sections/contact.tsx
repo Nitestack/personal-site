@@ -17,33 +17,33 @@ const ContactSection: FC = () => {
       heading={t("Routes.contact")}
       sectionID="contact"
     >
-      <div className="overflow-x-hidden grid items-center justify-center gap-4 px-4 text-center md:px-6 lg:gap-10">
+      <div className="grid items-center justify-center gap-4 overflow-x-hidden px-4 text-center md:px-6 lg:gap-10">
         <MotionDiv
-          className="mx-auto max-w-sm grid gap-1.5 text-left rounded-lg border border-border p-4"
+          className="mx-auto grid max-w-sm gap-1.5 rounded-lg border border-border p-4 text-left"
           initial={{ opacity: 0, x: "-100%" }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
         >
           <p className="flex items-center gap-2">
-            <User className="w-5 h-5" />
+            <User className="h-5 w-5" />
             <span className="font-medium">{SITE_CONFIG.name}</span>
           </p>
           <div className="flex items-center gap-2">
-            <Mail className="w-5 h-5" />
+            <Mail className="h-5 w-5" />
             <Link
-              className="hover:underline font-medium"
+              className="font-medium hover:underline"
               href={`mailto:${SITE_CONFIG.email}`}
             >
               {SITE_CONFIG.email}
             </Link>
           </div>
           <p className="flex items-center gap-2">
-            <MapPin className="w-5 h-5" />
+            <MapPin className="h-5 w-5" />
             <span className="font-medium">{SITE_CONFIG.location}</span>
           </p>
         </MotionDiv>
         <MotionDiv
-          className="flex justify-center space-x-4 p-2 rounded-lg border border-border"
+          className="flex justify-center space-x-4 rounded-lg border border-border p-2"
           initial={{ opacity: 0, x: "100%" }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
@@ -51,7 +51,7 @@ const ContactSection: FC = () => {
           {SITE_CONFIG.socials.map(({ name, url, iconName }) => (
             <Button key={name} size="icon" variant="ghost" asChild>
               <Link target="_blank" href={url}>
-                <LucideIcon name={iconName} className="w-8 h-8" />
+                <LucideIcon name={iconName} className="h-8 w-8" />
               </Link>
             </Button>
           ))}

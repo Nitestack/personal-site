@@ -113,7 +113,7 @@ const BlogPost: FC<{
   if (env.NODE_ENV === "production") void incrementViewCount(post.id, views);
 
   return (
-    <article className="max-w-3xl mx-auto mt-4 md:mt-8 lg:mt-12 space-y-4 md:space-y-8">
+    <article className="mx-auto mt-4 max-w-3xl space-y-4 md:mt-8 md:space-y-8 lg:mt-12">
       <JsonLd<BlogPosting>
         json={{
           "@context": "https://schema.org",
@@ -132,16 +132,16 @@ const BlogPost: FC<{
         }}
       />
       <section className="space-y-4 md:space-y-8">
-        <div className="text-center space-y-4 md:space-y-8 lg:space-y-12">
-          <h1 className="text-balance tracking-wide text-3xl sm:text-4xl font-extrabold lg:text-5xl">
+        <div className="space-y-4 text-center md:space-y-8 lg:space-y-12">
+          <h1 className="text-balance text-3xl font-extrabold tracking-wide sm:text-4xl lg:text-5xl">
             {title}
           </h1>
-          <p className="mt-4 text-balance text-sm sm:text-base lg:text-lg font-mono md:italic">
+          <p className="mt-4 text-balance font-mono text-sm sm:text-base md:italic lg:text-lg">
             {excerpt}
           </p>
         </div>
-        <div className="bg-muted shadow-sm shadow-ring p-2 rounded-lg flex flex-row items-center justify-between gap-4">
-          <div className="hidden sm:flex items-center gap-2">
+        <div className="flex flex-row items-center justify-between gap-4 rounded-lg bg-muted p-2 shadow-sm shadow-ring">
+          <div className="hidden items-center gap-2 sm:flex">
             <Avatar>
               <AvatarImage src={Logo.src} alt={SITE_CONFIG.name} />
               <AvatarFallback>
@@ -149,19 +149,19 @@ const BlogPost: FC<{
               </AvatarFallback>
             </Avatar>
             <div>
-              <p className="text-xs md:text-sm font-mono">{authorLabel}</p>
-              <p className="text-sm md:text-lg font-bold">{SITE_CONFIG.name}</p>
+              <p className="font-mono text-xs md:text-sm">{authorLabel}</p>
+              <p className="text-sm font-bold md:text-lg">{SITE_CONFIG.name}</p>
             </div>
           </div>
           <div className="text-left">
-            <p className="text-xs md:text-sm font-mono">{publishedAtLabel}</p>
-            <p className="text-sm md:text-lg font-bold">
+            <p className="font-mono text-xs md:text-sm">{publishedAtLabel}</p>
+            <p className="text-sm font-bold md:text-lg">
               {getLocaleDateString(publishedAt, locale)}
             </p>
           </div>
           <div className="flex flex-col items-end">
-            <p className="text-xs md:text-sm font-mono">{viewsLabel}</p>
-            <p className="text-sm md:text-base font-mono font-bold">
+            <p className="font-mono text-xs md:text-sm">{viewsLabel}</p>
+            <p className="font-mono text-sm font-bold md:text-base">
               {views >= 1e9 ? "1B+" : new Intl.NumberFormat().format(views + 1)}
             </p>
           </div>
@@ -180,7 +180,7 @@ const BlogDescription: FC<{ postID: string }> = async ({ postID }) => {
 
   return (
     <div
-      className="notion-render max-w-3xl prose prose-code:break-words prose-pre:rounded-t-none md:prose-code:break-normal prose-pre:rounded-b-md prose-pre:mt-0 prose-pre:relative prose-orange dark:prose-invert lg:prose-lg"
+      className="notion-render prose prose-orange max-w-3xl dark:prose-invert lg:prose-lg prose-code:break-words prose-pre:relative prose-pre:mt-0 prose-pre:rounded-b-md prose-pre:rounded-t-none md:prose-code:break-normal"
       dangerouslySetInnerHTML={{ __html: htmlContent }}
     />
   );
@@ -190,28 +190,28 @@ const SkeletonBlogDescription: FC = () => {
   return (
     <div className="max-w-3xl space-y-10">
       <div className="space-y-4">
-        <Skeleton className="h-4 lg:h-5 w-full" />
-        <Skeleton className="h-4 lg:h-5 w-5/6" />
-        <Skeleton className="h-4 lg:h-5 w-11/12" />
-        <Skeleton className="h-4 lg:h-5 w-9/12" />
-        <Skeleton className="h-4 lg:h-5 w-11/12" />
-        <Skeleton className="h-4 lg:h-5 w-8/12" />
+        <Skeleton className="h-4 w-full lg:h-5" />
+        <Skeleton className="h-4 w-5/6 lg:h-5" />
+        <Skeleton className="h-4 w-11/12 lg:h-5" />
+        <Skeleton className="h-4 w-9/12 lg:h-5" />
+        <Skeleton className="h-4 w-11/12 lg:h-5" />
+        <Skeleton className="h-4 w-8/12 lg:h-5" />
       </div>
       <div className="space-y-4">
-        <Skeleton className="h-4 lg:h-5 w-full" />
-        <Skeleton className="h-4 lg:h-5 w-11/12" />
-        <Skeleton className="h-4 lg:h-5 w-9/12" />
-        <Skeleton className="h-4 lg:h-5 w-5/6" />
-        <Skeleton className="h-4 lg:h-5 w-11/12" />
-        <Skeleton className="h-4 lg:h-5 w-7/12" />
+        <Skeleton className="h-4 w-full lg:h-5" />
+        <Skeleton className="h-4 w-11/12 lg:h-5" />
+        <Skeleton className="h-4 w-9/12 lg:h-5" />
+        <Skeleton className="h-4 w-5/6 lg:h-5" />
+        <Skeleton className="h-4 w-11/12 lg:h-5" />
+        <Skeleton className="h-4 w-7/12 lg:h-5" />
       </div>
       <div className="space-y-4">
-        <Skeleton className="h-4 lg:h-5 w-11/12" />
-        <Skeleton className="h-4 lg:h-5 w-9/12" />
-        <Skeleton className="h-4 lg:h-5 w-full" />
-        <Skeleton className="h-4 lg:h-5 w-11/12" />
-        <Skeleton className="h-4 lg:h-5 w-5/6" />
-        <Skeleton className="h-4 lg:h-5 w-7/12" />
+        <Skeleton className="h-4 w-11/12 lg:h-5" />
+        <Skeleton className="h-4 w-9/12 lg:h-5" />
+        <Skeleton className="h-4 w-full lg:h-5" />
+        <Skeleton className="h-4 w-11/12 lg:h-5" />
+        <Skeleton className="h-4 w-5/6 lg:h-5" />
+        <Skeleton className="h-4 w-7/12 lg:h-5" />
       </div>
     </div>
   );

@@ -78,7 +78,7 @@ const SheetClose = forwardRef<
   <SheetPrimitive.Close
     ref={ref}
     className={cn(
-      "rounded-sm opacity-70 transition-opacity hover:opacity-100 disabled:pointer-events-none data-[state=open]:bg-secondary",
+      "rounded-sm opacity-70 transition-opacity data-[state=open]:bg-secondary hover:opacity-100 disabled:pointer-events-none",
       className
     )}
     {...props}

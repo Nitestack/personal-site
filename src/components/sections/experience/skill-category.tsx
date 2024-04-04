@@ -21,11 +21,11 @@ const SkillCategory: FC<{
   return (
     <AccordionItem value={id} className="border-0">
       <AccordionTrigger className="justify-center gap-2">
-        <h3 className="text-xl tracking-widest uppercase">{name}</h3>
+        <h3 className="text-xl uppercase tracking-widest">{name}</h3>
       </AccordionTrigger>
       <AccordionContent>
-        <div className="flex md:justify-center overflow-x-auto md:overflow-x-hidden w-full rounded-xl p-1 snap-x snap-mandatory">
-          <div className="flex flex-nowrap md:flex-wrap justify-center gap-2 md:gap-4 lg:gap-6">
+        <div className="flex w-full snap-x snap-mandatory overflow-x-auto rounded-xl p-1 md:justify-center md:overflow-x-hidden">
+          <div className="flex flex-nowrap justify-center gap-2 md:flex-wrap md:gap-4 lg:gap-6">
             <AnimatePresence>
               {skills
                 .filter((skill) => isValid(skill.level))

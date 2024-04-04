@@ -25,8 +25,8 @@ import {
 const Navbar: FC = () => {
   const t = useTranslations();
   return (
-    <NavigationMenu className="sticky z-50 top-0 inset-x-0 md:top-6 mx-auto max-w-screen-md border rounded-none md:rounded-full border-border/40 w-full bg-background/80 shadow-lg shadow-ring/5 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="px-4 lg:px-6 py-1 flex justify-between items-center gap-8">
+    <NavigationMenu className="sticky inset-x-0 top-0 z-50 mx-auto w-full max-w-screen-md rounded-none border border-border/40 bg-background/80 shadow-lg shadow-ring/5 backdrop-blur supports-[backdrop-filter]:bg-background/60 md:top-6 md:rounded-full">
+      <div className="flex items-center justify-between gap-8 px-4 py-1 lg:px-6">
         <div className="flex items-center gap-2">
           <div className="md:hidden">
             <MobileSidebar />
@@ -35,7 +35,7 @@ const Navbar: FC = () => {
         </div>
         <NavigationMenuList
           asChild
-          className="hidden md:flex flex-1 gap-1 list-none group"
+          className="group hidden flex-1 list-none gap-1 md:flex"
         >
           <MotionUl
             initial={{ opacity: 0, y: "-100%" }}
@@ -51,7 +51,7 @@ const Navbar: FC = () => {
           </MotionUl>
         </NavigationMenuList>
         <MotionDiv
-          className="md:flex hidden items-center space-x-2"
+          className="hidden items-center space-x-2 md:flex"
           initial={{ opacity: 0, x: "100%" }}
           animate={{ opacity: 1, x: 0 }}
         >

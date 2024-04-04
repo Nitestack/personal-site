@@ -22,13 +22,13 @@ const Section: FC<
       transition={{ duration: 1 }}
       {...props}
       className={classNames(
-        "scroll-mt-20 md:scroll-mt-24 min-h-svh",
+        "min-h-svh scroll-mt-20 md:scroll-mt-24",
         className
       )}
       ref={ref}
       id={sectionID}
     >
-      <h2 className="text-3xl mb-6 md:mb-12 font-medium tracking-[0.5em] uppercase font-mono text-center">
+      <h2 className="mb-6 text-center font-mono text-3xl font-medium uppercase tracking-[0.5em] md:mb-12">
         {heading}
       </h2>
       {children}

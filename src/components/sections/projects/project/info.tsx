@@ -13,11 +13,11 @@ const ProjectInfo: FC<
   const date = new Date(Number(year), Number(month) - 1);
 
   return (
-    <div className="flex items-center justify-center gap-1 pointer-events-none">
+    <div className="pointer-events-none flex items-center justify-center gap-1">
       <Button
         size="sm"
         className={classNames(
-          "px-1.5 py-0.5 h-fit rounded",
+          "h-fit rounded px-1.5 py-0.5",
           visibility === "private" ? "bg-red-500" : "bg-blue-500"
         )}
       >
@@ -25,7 +25,7 @@ const ProjectInfo: FC<
       </Button>
       <Button
         size="sm"
-        className="bg-muted text-muted-foreground px-1.5 py-0.5 h-fit rounded"
+        className="h-fit rounded bg-muted px-1.5 py-0.5 text-muted-foreground"
       >
         {date.toLocaleDateString(locale ?? undefined, {
           month: "long",

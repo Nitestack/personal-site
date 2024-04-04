@@ -28,7 +28,7 @@ const MobileSidebarLink: FC<{
   return (
     <Button
       className={classNames(
-        "relative z-0 w-full text-xl tracking-wider font-bold shadow-none border-none rounded-none",
+        "relative z-0 w-full rounded-none border-none text-xl font-bold tracking-wider shadow-none",
         {
           "text-accent-foreground": isActive,
         }
@@ -40,7 +40,7 @@ const MobileSidebarLink: FC<{
         {children}
         {isActive && (
           <MotionSpan
-            className="bg-accent absolute inset-0 -z-10"
+            className="absolute inset-0 -z-10 bg-accent"
             layoutId="activeMobileSection"
             transition={{
               type: "spring",

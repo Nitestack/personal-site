@@ -19,7 +19,7 @@ const LocaleError: FC<{ error: Error; reset: () => void }> = ({
   }, [error]);
 
   return (
-    <div className="flex items-center justify-center flex-col gap-2 sm:gap-4 md:gap-6 lg:gap-8 my-6">
+    <div className="my-6 flex flex-col items-center justify-center gap-2 sm:gap-4 md:gap-6 lg:gap-8">
       <div className="relative aspect-square w-full max-w-md">
         <NextImage
           fill
@@ -28,7 +28,7 @@ const LocaleError: FC<{ error: Error; reset: () => void }> = ({
           alt="Error"
         />
       </div>
-      <h1 className="text-3xl text-center text-balance font-bold">
+      <h1 className="text-balance text-center text-3xl font-bold">
         {t("message")}
       </h1>
       <Button variant="destructive" onClick={reset}>

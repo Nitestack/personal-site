@@ -27,14 +27,14 @@ const AboutSection: FC = () => {
   const t = useTranslations();
   return (
     <Section heading={t("Routes.about")} sectionID="about">
-      <div className="flex gap-4 md:gap-8 flex-col lg:items-center lg:flex-row">
+      <div className="flex flex-col gap-4 md:gap-8 lg:flex-row lg:items-center">
         <MotionDiv
           className="flex-1"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.25 }}
         >
-          <div className="relative w-full aspect-video overflow-hidden rounded-sm border-2 border-border/40 shadow-lg shadow-ring dark:shadow-ring/10">
+          <div className="relative aspect-video w-full overflow-hidden rounded-sm border-2 border-border/40 shadow-lg shadow-ring dark:shadow-ring/10">
             <NextImage
               fill
               className="object-contai"
@@ -48,7 +48,7 @@ const AboutSection: FC = () => {
             initial={{ opacity: 0, x: "100%" }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.25 }}
-            className="text-balance space-y-5"
+            className="space-y-5 text-balance"
           >
             <p>
               {t("Home.aboutMe", {

@@ -25,7 +25,7 @@ const NavbarLogo: FC<{ onClick?: () => void }> = ({ onClick }) => {
         onClick={handleOnClick}
       >
         <NextImage alt={SITE_CONFIG.name} width={36} height={36} src={Logo} />
-        <span className="text-2xl font-bold whitespace-nowrap">
+        <span className="whitespace-nowrap text-2xl font-bold">
           {SITE_CONFIG.name}
         </span>
       </MotionA>

@@ -26,7 +26,7 @@ const MobileThemeSelection: FC<{
   }
   return (
     <div className="px-6">
-      <p className="text-xl tracking-wider font-bold text-center">{label}</p>
+      <p className="text-center text-xl font-bold tracking-wider">{label}</p>
       <RadioGroup defaultValue={resolvedTheme} onValueChange={setTheme}>
         <div className="flex items-center space-x-2">
           <RadioGroupItem id="light-radio" value="light" />

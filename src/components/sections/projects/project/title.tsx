@@ -18,7 +18,7 @@ const ProjectTitle: FC<
       )}
     >
       {children}
-      <span className="text-base p-0.5 bg-muted rounded">
+      <span className="rounded bg-muted p-0.5 text-base">
         {getProjectStatusIcon(status)}
       </span>
     </div>

@@ -10,8 +10,8 @@ import AppNetwork from "@public/images/app-network.png";
 const HeroSection: FC = () => {
   const t = useTranslations();
   return (
-    <HeroSectionView className="scroll-mt-48 h-svh text-center">
-      <div className="flex flex-col gap-10 items-center h-full mt-20">
+    <HeroSectionView className="h-svh scroll-mt-48 text-center">
+      <div className="mt-20 flex h-full flex-col items-center gap-10">
         <MotionDiv
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -30,7 +30,7 @@ const HeroSection: FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h1 className="text-5xl sm:text-8xl tracking-wider font-bold mb-3">
+          <h1 className="mb-3 text-5xl font-bold tracking-wider sm:text-8xl">
             {SITE_CONFIG.name}
           </h1>
           <p className="text-balance text-xl text-muted-foreground">

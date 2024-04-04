@@ -23,7 +23,7 @@ const MobileLanguageSelection: FC<{ label: string }> = ({ label }) => {
   }
   return (
     <div className="px-6">
-      <p className="text-center font-bold tracking-wider text-xl">{label}</p>
+      <p className="text-center text-xl font-bold tracking-wider">{label}</p>
       <RadioGroup defaultValue={currentLocale} onValueChange={onLocaleSelect}>
         {LOCALIZATION_CONFIG.locales.map((locale) => (
           <div className="flex items-center space-x-2" key={locale}>
