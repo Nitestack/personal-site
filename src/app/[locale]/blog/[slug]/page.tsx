@@ -3,7 +3,7 @@ import { env } from "@env";
 import { metadata } from "@metadata";
 import bookmarkPlugin from "@notion-render/bookmark-plugin";
 import { NotionRenderer } from "@notion-render/client";
-import { getAvatarFallback } from "@utils";
+import { getAvatarFallback, getLocaleDateString } from "@utils";
 import { useTranslations } from "next-intl";
 import { type OpenGraph } from "next/dist/lib/metadata/types/opengraph-types";
 import { notFound } from "next/navigation";
@@ -12,7 +12,6 @@ import { type BlogPosting, type Thing, type WithContext } from "schema-dts";
 
 import {
   getBlogPageBySlug,
-  getLocaleDateString,
   getNotionPageContent,
   getOGImage,
   hljsPlugin,
