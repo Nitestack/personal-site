@@ -49,3 +49,12 @@ export function getStarRating(level: Skill["level"]) {
       return 1;
   }
 }
+
+export const getLocaleDateString = (
+  date: Date,
+  locales?: Intl.LocalesArgument
+) => {
+  return date.toLocaleDateString(locales, {
+    dateStyle: "long",
+  });
+};

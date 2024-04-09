@@ -1,9 +1,8 @@
-import { classNames } from "@utils";
+import { classNames, getLocaleDateString } from "@utils";
 import NextImage from "next/image";
 import { type FC } from "react";
 import { TransitionLink } from "src/hooks";
 
-import { getLocaleDateString } from "@app/[locale]/blog/notion";
 import SkeletonBlogPreview from "@app/[locale]/blog/skeleton-blog-preview";
 import { type BlogPostPreview } from "@app/[locale]/blog/types";
 import {
