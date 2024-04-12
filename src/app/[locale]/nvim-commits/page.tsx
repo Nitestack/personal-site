@@ -99,7 +99,10 @@ const CommitsAccordion: FC<{
       <p className="px-2 text-xl font-semibold">{date}</p>
       <div className="space-y-2">
         {groupedByDate[date]!.map((commitInfo) => (
-          <div key={commitInfo.sha} className="flex flex-col gap-1 rounded-lg border border-border p-2 hover:bg-accent">
+          <div
+            key={commitInfo.sha}
+            className="flex flex-col gap-1 rounded-lg border border-border p-2 hover:bg-accent"
+          >
             <Link
               target="_blank"
               className="text-lg font-semibold text-blue-500 hover:underline"
