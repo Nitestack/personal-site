@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Suspense } from "react";
 
 import Calender from "@app/[locale]/nvim-commits/calender";
+import Layout from "@components/layout";
 import { Avatar, AvatarFallback, AvatarImage } from "@components/ui/avatar";
 import {
   CommitMessage,
@@ -21,15 +22,8 @@ const NeovimCommitsPage: FC<{
   searchParams: { until: string; since: string };
 }> = ({ params: { locale }, searchParams: { until, since } }) => {
   const t = useTranslations("NeovimConfig");
-
   return (
-    <div className="mt-4 space-y-6 md:mt-8 md:space-y-12 lg:mt-12">
-      <section className="text-center">
-        <h1 className="text-3xl font-extrabold tracking-wide sm:text-4xl lg:text-5xl">
-          {t("title")}
-        </h1>
-        <p className="mt-2 text-balance md:text-lg">{t("description")}</p>
-      </section>
+    <Layout title={t("title")} description={t("description")}>
       <section className="space-y-6">
         <div className="flex flex-col justify-between gap-2 sm:flex-row sm:gap-4">
           <Calender type="since" />
@@ -39,7 +33,7 @@ const NeovimCommitsPage: FC<{
           <CommitsAccordion locale={locale} since={since} until={until} />
         </Suspense>
       </section>
-    </div>
+    </Layout>
   );
 };
 
@@ -76,7 +70,7 @@ const CommitsAccordion: FC<{
   return Object.keys(groupedByDate).map((date) => (
     <div key={date} className="space-y-2">
       <p className="px-2 text-xl font-semibold">{date}</p>
-      <div>
+      <div className="space-y-2">
         {groupedByDate[date]!.map((commitInfo) => (
           <div className="flex flex-col gap-1 rounded-lg border-border/40 p-2 hover:bg-accent">
             <Link
