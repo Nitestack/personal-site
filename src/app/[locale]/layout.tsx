@@ -15,6 +15,7 @@ import Providers from "@app/providers";
 import Footer from "@components/footer";
 import Navbar from "@components/navbar";
 import ScrollProgress from "@components/scroll-progress";
+import { Toaster } from "@components/ui/sonner";
 
 const workSans = Work_Sans({
   subsets: ["latin"],
@@ -76,6 +77,7 @@ const LocaleLayout: FC<{ children: ReactNode; params: { locale: string } }> = ({
             {children}
           </main>
           <Footer />
+          <Toaster />
           <ScrollProgress />
           <Analytics />
           <SpeedInsights />
