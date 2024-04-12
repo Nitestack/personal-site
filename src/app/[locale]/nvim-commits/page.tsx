@@ -8,16 +8,16 @@ import { Suspense } from "react";
 
 import { getOGImage } from "@app/[locale]/blog/notion";
 import Calender from "@app/[locale]/nvim-commits/calender";
-import Layout from "@components/layout";
-import { Avatar, AvatarFallback, AvatarImage } from "@components/ui/avatar";
 import {
   CommitMessage,
   getNeovimRepositoryCommits,
   getRepoName,
 } from "@app/[locale]/nvim-commits/github";
+import Layout from "@components/layout";
+import { Avatar, AvatarFallback, AvatarImage } from "@components/ui/avatar";
 
-import type { FC } from "react";
 import type { ListCommits } from "@app/[locale]/nvim-commits/github";
+import type { FC } from "react";
 
 export const generateMetadata = metadata((t, { params: { locale } }) => {
   const title = t("NeovimConfig.title");
