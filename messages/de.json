@@ -73,7 +73,7 @@
   },
   "NeovimConfig": {
     "title": "Commits der Neovim-Distributionen",
-    "description": "Neuste Commits von der folgenden Neovim-Distributionen: NvChad, LazyVim, AstroNvim, LunarVim",
+    "description": "Neuste Commits von folgenden Neovim-Distributionen: NvChad, LazyVim, AstroNvim, LunarVim",
     "committed": "hat {relativeTime} geändert"
   },
   "Footer": {
