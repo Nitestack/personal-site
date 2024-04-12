@@ -1,7 +1,7 @@
 import "server-only";
 
 import { env } from "@env";
-import { Endpoints } from "@octokit/types";
+import { type Endpoints } from "@octokit/types";
 import Link from "next/link";
 import { Octokit } from "octokit";
 import { cache } from "react";
