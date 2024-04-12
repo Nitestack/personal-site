@@ -1,3 +1,4 @@
+import { metadata } from "@metadata";
 import { getLocaleDateString } from "@utils";
 import { intlFormatDistance } from "date-fns";
 import { useTranslations } from "next-intl";
@@ -5,6 +6,7 @@ import { getTranslations } from "next-intl/server";
 import Link from "next/link";
 import { Suspense } from "react";
 
+import { getOGImage } from "@app/[locale]/blog/notion";
 import Calender from "@app/[locale]/nvim-commits/calender";
 import Layout from "@components/layout";
 import { Avatar, AvatarFallback, AvatarImage } from "@components/ui/avatar";
@@ -16,6 +18,31 @@ import {
 
 import type { FC } from "react";
 import type { ListCommits } from "./github";
+
+export const generateMetadata = metadata((t, { params: { locale } }) => {
+  const title = t("NeovimConfig.title");
+  const description = t("NeovimConfig.description");
+
+  const imageUrl = getOGImage(undefined, {
+    title,
+    description,
+    locale,
+  });
+
+  return {
+    title,
+    description,
+    openGraph: {
+      images: imageUrl,
+    },
+    twitter: {
+      images: imageUrl,
+    },
+    alternates: {
+      canonical: "/nvim-commits",
+    },
+  };
+});
 
 const NeovimCommitsPage: FC<{
   params: { locale: string };
@@ -72,7 +99,7 @@ const CommitsAccordion: FC<{
       <p className="px-2 text-xl font-semibold">{date}</p>
       <div className="space-y-2">
         {groupedByDate[date]!.map((commitInfo) => (
-          <div className="flex flex-col gap-1 rounded-lg border-border/40 p-2 hover:bg-accent">
+          <div key={commitInfo.sha} className="flex flex-col gap-1 rounded-lg border border-border p-2 hover:bg-accent">
             <Link
               target="_blank"
               className="text-lg font-semibold text-blue-500 hover:underline"
