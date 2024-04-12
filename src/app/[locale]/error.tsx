@@ -1,41 +1,15 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import NextImage from "next/image";
-import { useEffect } from "react";
 
-import { Button } from "@components/ui/button";
+import Error from "@components/error";
 
+import type { ErrorComponentProps } from "@components/error";
 import type { FC } from "react";
 
-const LocaleError: FC<{ error: Error; reset: () => void }> = ({
-  error,
-  reset,
-}) => {
-  const t = useTranslations("Error");
-  useEffect(() => {
-    // Log the error to an error reporting service
-    console.error(error);
-  }, [error]);
-
-  return (
-    <div className="my-6 flex flex-col items-center justify-center gap-2 sm:gap-4 md:gap-6 lg:gap-8">
-      <div className="relative aspect-square w-full max-w-md">
-        <NextImage
-          fill
-          className="object-contain"
-          src="/images/error.png"
-          alt="Error"
-        />
-      </div>
-      <h1 className="text-balance text-center text-3xl font-bold">
-        {t("message")}
-      </h1>
-      <Button variant="destructive" onClick={reset}>
-        {t("retry")}
-      </Button>
-    </div>
-  );
+const LocaleError: FC<ErrorComponentProps> = (props) => {
+  const t = useTranslations("Error.Messages");
+  return <Error message={t("default")} {...props} />;
 };
 
 export default LocaleError;

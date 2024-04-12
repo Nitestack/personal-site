@@ -92,7 +92,11 @@
     "returnToHome": "Return to Home page"
   },
   "Error": {
-    "message": "Oh no, something went wrong... maybe refresh?",
+    "Messages": {
+      "default": "Oh no, something went wrong... maybe refresh?",
+      "nvimCommits": "Failed to load commits of Neovim distributions... maybe refresh?",
+      "blogOverview": "Failed to load blogs... maybe refresh?"
+    },
     "retry": "Retry"
   }
 }
