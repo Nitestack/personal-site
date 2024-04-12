@@ -14,10 +14,10 @@ import {
   CommitMessage,
   getNeovimRepositoryCommits,
   getRepoName,
-} from "./github";
+} from "@app/[locale]/nvim-commits/github";
 
 import type { FC } from "react";
-import type { ListCommits } from "./github";
+import type { ListCommits } from "@app/[locale]/nvim-commits/github";
 
 export const generateMetadata = metadata((t, { params: { locale } }) => {
   const title = t("NeovimConfig.title");
