@@ -12,6 +12,7 @@ import {
   trimExcerpt,
 } from "@app/[locale]/blog/notion";
 import SkeletonBlogPreview from "@app/[locale]/blog/skeleton-blog-preview";
+import Layout from "@components/layout";
 import { CarouselItem } from "@components/ui/carousel";
 
 import type { FC } from "react";
@@ -49,19 +50,14 @@ const BlogOverviewPage: FC<{ params: { locale: string } }> = ({
   const t = useTranslations("Blog");
 
   return (
-    <div className="mt-4 space-y-6 md:mt-8 md:space-y-12 lg:mt-12">
-      <section className="text-center">
-        <h1 className="text-3xl font-extrabold tracking-wide sm:text-4xl lg:text-5xl">
-          Blog
-        </h1>
-        <p className="mt-2 text-balance md:text-lg">
-          {t("description", {
-            author: SITE_CONFIG.name,
-          })}
-        </p>
-      </section>
+    <Layout
+      title="Blog"
+      description={t("description", {
+        author: SITE_CONFIG.name,
+      })}
+    >
       <BlogList locale={locale} />
-    </div>
+    </Layout>
   );
 };
 
