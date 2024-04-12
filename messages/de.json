@@ -92,7 +92,11 @@
     "returnToHome": "Zur Startseite"
   },
   "Error": {
-    "message": "Oh nein, irgendetwas ist schiefgelaufen... vielleicht neuladen?",
+    "Messages": {
+      "default": "Oh nein, irgendetwas ist schiefgelaufen... vielleicht neuladen?",
+      "nvimCommits": "Commits der Neovim-Distributionen konnten nicht abgerufen werden... vielleicht neuladen?",
+      "blogOverview": "Blog konnte nicht abgerufen werden... vielleicht neuladen?"
+    },
     "retry": "Erneut versuchen"
   }
 }
