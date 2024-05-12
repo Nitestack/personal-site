@@ -4,15 +4,17 @@ import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
 import { cn } from "@utils";
 import { cva } from "class-variance-authority";
 import { ChevronDown } from "lucide-react";
-import * as React from "react";
+import { forwardRef } from "react";
+
+import type { ComponentPropsWithoutRef, ElementRef } from "react";
 
 const navigationMenuTriggerStyle = cva(
   "relative group inline-flex w-max items-center justify-center rounded-full px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground disabled:pointer-events-none data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
 );
 
-const NavigationMenuTrigger = React.forwardRef<
-  React.ElementRef<typeof NavigationMenuPrimitive.Trigger>,
-  React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Trigger>
+const NavigationMenuTrigger = forwardRef<
+  ElementRef<typeof NavigationMenuPrimitive.Trigger>,
+  ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Trigger>
 >(({ className, children, ...props }, ref) => (
   <NavigationMenuPrimitive.Trigger
     ref={ref}
@@ -28,9 +30,9 @@ const NavigationMenuTrigger = React.forwardRef<
 ));
 NavigationMenuTrigger.displayName = NavigationMenuPrimitive.Trigger.displayName;
 
-const NavigationMenuContent = React.forwardRef<
-  React.ElementRef<typeof NavigationMenuPrimitive.Content>,
-  React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Content>
+const NavigationMenuContent = forwardRef<
+  ElementRef<typeof NavigationMenuPrimitive.Content>,
+  ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Content>
 >(({ className, ...props }, ref) => (
   <NavigationMenuPrimitive.Content
     ref={ref}
@@ -43,9 +45,9 @@ const NavigationMenuContent = React.forwardRef<
 ));
 NavigationMenuContent.displayName = NavigationMenuPrimitive.Content.displayName;
 
-const NavigationMenuIndicator = React.forwardRef<
-  React.ElementRef<typeof NavigationMenuPrimitive.Indicator>,
-  React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Indicator>
+const NavigationMenuIndicator = forwardRef<
+  ElementRef<typeof NavigationMenuPrimitive.Indicator>,
+  ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Indicator>
 >(({ className, ...props }, ref) => (
   <NavigationMenuPrimitive.Indicator
     ref={ref}
