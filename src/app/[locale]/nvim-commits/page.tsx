@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain  */
+
 import { metadata } from "@metadata";
 import { getLocaleDateString } from "@utils";
 import { intlFormatDistance } from "date-fns";
