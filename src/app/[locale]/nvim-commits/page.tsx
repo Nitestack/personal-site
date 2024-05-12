@@ -17,6 +17,7 @@ import {
 } from "@app/[locale]/nvim-commits/github";
 import Layout from "@components/layout";
 import { Avatar, AvatarFallback, AvatarImage } from "@components/ui/avatar";
+import { Skeleton } from "@components/ui/skeleton";
 
 import type { ListCommits } from "@app/[locale]/nvim-commits/github";
 import type { FC } from "react";
@@ -58,11 +59,42 @@ const NeovimCommitsPage: FC<{
           <Calender type="since" />
           <Calender type="until" />
         </div>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense
+          fallback={Array(4)
+            .fill(0)
+            .map((_, index) => (
+              <CommitsSkeleton key={index} />
+            ))}
+        >
           <CommitsAccordion locale={locale} since={since} until={until} />
         </Suspense>
       </section>
     </Layout>
+  );
+};
+
+const CommitsSkeleton: FC = () => {
+  return (
+    <div className="space-y-2">
+      <Skeleton className="h-6 w-36 m-3" />
+      <div className="space-y-2">
+        {Array(4)
+          .fill(0)
+          .map((_, i) => (
+            <div
+              key={i}
+              className="flex flex-col gap-3 rounded-lg border border-border p-2"
+            >
+              <Skeleton className="h-5 w-11/12" />
+              <Skeleton className="h-4 w-11/12" />
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <Skeleton className="h-6 w-6 rounded-full" />
+                <Skeleton className="h-4 w-11/12" />
+              </div>
+            </div>
+          ))}
+      </div>
+    </div>
   );
 };
 
