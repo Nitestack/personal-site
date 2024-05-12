@@ -76,23 +76,40 @@ const NeovimCommitsPage: FC<{
 const CommitsSkeleton: FC = () => {
   return (
     <div className="space-y-2">
-      <Skeleton className="h-6 w-36 m-3" />
+      <Skeleton className="ml-2 my-4 h-5 w-36" />
       <div className="space-y-2">
-        {Array(4)
-          .fill(0)
-          .map((_, i) => (
-            <div
-              key={i}
-              className="flex flex-col gap-3 rounded-lg border border-border p-2"
-            >
-              <Skeleton className="h-5 w-11/12" />
-              <Skeleton className="h-4 w-11/12" />
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <Skeleton className="h-6 w-6 rounded-full" />
-                <Skeleton className="h-4 w-11/12" />
-              </div>
-            </div>
-          ))}
+        <div className="flex flex-col gap-3 rounded-lg border border-border p-2">
+          <Skeleton className="h-5 w-44" />
+          <Skeleton className="h-4 w-11/12" />
+          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <Skeleton className="h-6 w-6 rounded-full" />
+            <Skeleton className="h-4 w-3/12" />
+          </div>
+        </div>
+        <div className="flex flex-col gap-3 rounded-lg border border-border p-2">
+          <Skeleton className="h-5 w-48" />
+          <Skeleton className="h-4 w-8/12" />
+          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <Skeleton className="h-6 w-6 rounded-full" />
+            <Skeleton className="h-4 w-5/12" />
+          </div>
+        </div>
+        <div className="flex flex-col gap-3 rounded-lg border border-border p-2">
+          <Skeleton className="h-5 w-40" />
+          <Skeleton className="h-4 w-10/12" />
+          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <Skeleton className="h-6 w-6 rounded-full" />
+            <Skeleton className="h-4 w-2/12" />
+          </div>
+        </div>
+        <div className="flex flex-col gap-3 rounded-lg border border-border p-2">
+          <Skeleton className="h-5 w-52" />
+          <Skeleton className="h-4 w-9/12" />
+          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <Skeleton className="h-6 w-6 rounded-full" />
+            <Skeleton className="h-4 w-4/12" />
+          </div>
+        </div>
       </div>
     </div>
   );
