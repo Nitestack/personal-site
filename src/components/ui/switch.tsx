@@ -2,11 +2,13 @@
 
 import * as SwitchPrimitives from "@radix-ui/react-switch";
 import { cn } from "@utils";
-import * as React from "react";
+import { forwardRef } from "react";
 
-const Switch = React.forwardRef<
-  React.ElementRef<typeof SwitchPrimitives.Root>,
-  React.ComponentPropsWithoutRef<typeof SwitchPrimitives.Root>
+import type { ComponentPropsWithoutRef, ElementRef } from "react";
+
+const Switch = forwardRef<
+  ElementRef<typeof SwitchPrimitives.Root>,
+  ComponentPropsWithoutRef<typeof SwitchPrimitives.Root>
 >(({ className, ...props }, ref) => (
   <SwitchPrimitives.Root
     className={cn(

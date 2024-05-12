@@ -2,7 +2,8 @@
 
 import * as TooltipPrimitive from "@radix-ui/react-tooltip";
 import { cn } from "@utils";
-import { type ComponentProps, type FC } from "react";
+
+import type { ComponentProps, FC } from "react";
 
 const TooltipProvider = TooltipPrimitive.Provider;
 
