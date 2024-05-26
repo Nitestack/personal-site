@@ -57,27 +57,27 @@ const ExperienceSection: FC<{ locale: string }> = ({ locale }) => {
                 })
               )}
             />
-            <div className="flex w-full items-center justify-center md:w-fit">
-              <div className="flex w-full flex-col gap-1 overflow-x-hidden rounded-lg border border-border px-3 py-4 md:w-fit">
-                <LegendStar stars={1} label={t("Experience.Levels.basic")} />
-                <LegendStar stars={2} label={t("Experience.Levels.skilled")} />
-                <LegendStar
-                  stars={3}
-                  label={t("Experience.Levels.experienced")}
-                />
-                <LegendStar stars={4} label={t("Experience.Levels.advanced")} />
-                <LegendStar stars={5} label={t("Experience.Levels.expert")} />
-              </div>
-            </div>
+            {/* <div className="flex w-full items-center justify-center md:w-fit"> */}
+            {/*   <div className="flex w-full flex-col gap-1 overflow-x-hidden rounded-lg border border-border px-3 py-4 md:w-fit"> */}
+            {/*     <LegendStar stars={1} label={t("Experience.Levels.basic")} /> */}
+            {/*     <LegendStar stars={2} label={t("Experience.Levels.skilled")} /> */}
+            {/*     <LegendStar */}
+            {/*       stars={3} */}
+            {/*       label={t("Experience.Levels.experienced")} */}
+            {/*     /> */}
+            {/*     <LegendStar stars={4} label={t("Experience.Levels.advanced")} /> */}
+            {/*     <LegendStar stars={5} label={t("Experience.Levels.expert")} /> */}
+            {/*   </div> */}
+            {/* </div> */}
           </div>
-          <Accordion
-            type="multiple"
-            defaultValue={skillCategories.map(({ id }) => id)}
-          >
-            {skillCategories.map(({ id, name, skills }) => (
-              <SkillCategory key={id} id={id} name={name} skills={skills} />
-            ))}
-          </Accordion>
+          {/* <Accordion */}
+          {/*   type="multiple" */}
+          {/*   defaultValue={skillCategories.map(({ id }) => id)} */}
+          {/* > */}
+          {/*   {skillCategories.map(({ id, name, skills }) => ( */}
+          {/*     <SkillCategory key={id} id={id} name={name} skills={skills} /> */}
+          {/*   ))} */}
+          {/* </Accordion> */}
         </div>
       </SkillContextProvider>
     </Section>
