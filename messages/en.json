@@ -27,6 +27,7 @@
     },
     "readMore": "More",
     "Descriptions": {
+      "comingSoon": "Coming soon...",
       "personalSite": "Bilingual portfolio showcasing me, my skills, my projects and my blog.",
       "dotfiles": "A collection of configuration files for Windows and Linux (Ubuntu, Arch). This also includes a Neovim configuration and a customized CLI built on top of chezmoi.",
       "projectManagerCli": "A cross-platform CLI tool for optimized project management and quick switching between projects.",
