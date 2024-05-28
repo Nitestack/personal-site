@@ -134,6 +134,23 @@ export const SITE_CONFIG: {
   ],
   projects: [
     {
+      name: "Life OS",
+      startDate: "5-2024",
+      visibility: "private",
+      status: "active",
+      imageUrl: "/images/coming-soon.png",
+      description: "comingSoon",
+      tags: [
+        "Next.js",
+        "Mantine",
+        "Tailwind CSS",
+        "Vercel",
+        "PostgreSQL",
+        "drizzle",
+        "auth",
+      ],
+    },
+    {
       name: "Personal Site",
       startDate: "12-2023",
       visibility: "public",
