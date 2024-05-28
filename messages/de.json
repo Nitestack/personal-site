@@ -27,6 +27,7 @@
     },
     "readMore": "Mehr",
     "Descriptions": {
+      "comingSoon": "Kommt bald...",
       "personalSite": "Englisch-/deutschsprachiges Portfolio, welches mich, mein Fähigkeiten, meine Projekte und meinen Blog präsentieren.",
       "dotfiles": "Eine Sammlung von Konfigurationsdateien, welche für Windows und Linux (Ubuntu, Arch) optimiert sind. Beeinhaltet auch eine Neovim-Konfiguration und eine CLI neben chezmoi.",
       "projectManagerCli": "Ein plattformübergreifendes CLI-Tool, um das Projektmanagement zu optimieren und schnell zwischen verschiedenen Projekten zu wechseln.",
