@@ -50,7 +50,7 @@ export const incrementViewCount = cache(
 export const getBlogPages = cache(async () => {
   const pages = await notionClient.databases.query({
     database_id: env.NOTION_DATABASE_ID,
-    filter: filterByStatus,
+    filter: env.NODE_ENV === "production" ? filterByStatus : undefined,
     sorts: [
       {
         timestamp: "last_edited_time",
@@ -76,7 +76,7 @@ export const getBlogPageBySlug = cache(async (slug: string) => {
             equals: slug,
           },
         },
-        filterByStatus,
+        ...(env.NODE_ENV === "production" ? [filterByStatus] : []),
       ],
     },
   });
