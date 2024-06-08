@@ -3,7 +3,7 @@ import "server-only";
 import { SITE_CONFIG } from "@constants";
 import { env } from "@env";
 import { createBlockRenderer } from "@notion-render/client";
-import { Client } from "@notionhq/client";
+import { Client, collectPaginatedAPI } from "@notionhq/client";
 import {
   type BlockObjectResponse,
   type CodeBlockObjectResponse,
@@ -28,10 +28,10 @@ export const notionClient = new Client({
 });
 
 export const getNotionPageContent = cache(async (pageId: string) => {
-  const blockChildren = await notionClient.blocks.children.list({
+  const blocks = await collectPaginatedAPI(notionClient.blocks.children.list, {
     block_id: pageId,
   });
-  return blockChildren.results as BlockObjectResponse[];
+  return blocks as BlockObjectResponse[];
 });
 
 export const incrementViewCount = cache(
