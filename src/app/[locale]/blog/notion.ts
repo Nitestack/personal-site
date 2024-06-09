@@ -176,7 +176,7 @@ const codeBlockRenderer = (options: Config) =>
               </button>
             </div>
           </div>
-          <pre><code class="language-${data.code.language}">${result.value}</code></pre>
+          <pre class="bg-[#22272E]"><code class="language-${data.code.language}">${result.value}</code></pre>
         </div>
     `;
     }
