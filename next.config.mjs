@@ -15,7 +15,6 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "notion.so",
-        pathname: "/images/page-cover/**",
       },
       // Notion Unsplash images
       {
