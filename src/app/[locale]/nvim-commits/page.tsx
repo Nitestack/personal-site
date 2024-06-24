@@ -76,7 +76,7 @@ const NeovimCommitsPage: FC<{
 const CommitsSkeleton: FC = () => {
   return (
     <div className="space-y-2">
-      <Skeleton className="ml-2 my-4 h-5 w-36" />
+      <Skeleton className="my-4 ml-2 h-5 w-36" />
       <div className="space-y-2">
         <div className="flex flex-col gap-3 rounded-lg border border-border p-2">
           <Skeleton className="h-5 w-44" />
@@ -139,7 +139,7 @@ const CommitsAccordion: FC<{
       if (!acc[date]) {
         acc[date] = [];
       }
-      acc[date]!.push(commitInfo);
+      acc[date]?.push(commitInfo);
       return acc;
     },
     {}
