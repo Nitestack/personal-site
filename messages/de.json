@@ -29,7 +29,7 @@
     "Descriptions": {
       "comingSoon": "Kommt bald...",
       "personalSite": "Englisch-/deutschsprachiges Portfolio, welches mich, mein Fähigkeiten, meine Projekte und meinen Blog präsentieren.",
-      "dotfiles": "Eine Sammlung von Konfigurationsdateien, welche für Windows und Linux (Ubuntu, Arch) optimiert sind. Beeinhaltet auch eine Neovim-Konfiguration und eine CLI neben chezmoi.",
+      "dotfiles": "Personalisieren und sichern Sie Ihre Setups mühelos auf Arch Linux, macOS und Windows mit kuratierten Konfigurationen und Skripten mit chezmoi.",
       "projectManagerCli": "Ein plattformübergreifendes CLI-Tool, um das Projektmanagement zu optimieren und schnell zwischen verschiedenen Projekten zu wechseln.",
       "nvimSwitcher": "Ein plattformübergreifendes CLI-Tool zum einfachen Wechsel zwischen verschiedenen Neovim-Distributionen.",
       "playersAllianceDashboard": "Ein Dashboard für die 'Players Alliance', eine Gaming-Community für das Spiel 'Clash of Clans'. Ein Verwaltungstool für Moderatoren und Administratoren, um monatliche Events im Spiel zu verwalten. Es kommuniziert mit der CoC-API, um Spielerdaten abzurufen.",
