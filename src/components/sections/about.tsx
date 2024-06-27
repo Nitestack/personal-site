@@ -5,7 +5,7 @@ import { type FC } from "react";
 
 import { MotionDiv } from "@components/motion";
 import Section from "@components/sections/section";
-import Neovim from "@public/images/neovim.png";
+import ArchLinuxDesktop from "@public/images/arch-linux-desktop.png";
 
 function calculateAge(dateOfBirth: Date) {
   const currentDate = new Date();
@@ -38,8 +38,8 @@ const AboutSection: FC = () => {
             <NextImage
               fill
               className="object-contai"
-              src={Neovim}
-              alt="Neovim"
+              src={ArchLinuxDesktop}
+              alt="Arch Linux Desktop"
             />
           </div>
         </MotionDiv>
