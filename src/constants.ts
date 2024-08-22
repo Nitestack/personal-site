@@ -93,6 +93,10 @@ export const SITE_CONFIG: {
   email: string;
   birthday: Date;
   location: string;
+  employer?: {
+    name: string;
+    url: string;
+  };
   socials: { name: string; url: string; iconName: keyof typeof icons }[];
   projects: Project[];
   experience: {
@@ -114,7 +118,11 @@ export const SITE_CONFIG: {
   email: "nhan.pham@mail.de",
   githubUsername: "Nitestack",
   birthday: new Date(2006, 2, 6),
-  location: "Hamburg, Germany",
+  location: "Dortmund, Germany",
+  employer: {
+    name: "adesso SE",
+    url: "https://www.adesso.de",
+  },
   socials: [
     {
       name: "GitHub",
@@ -135,19 +143,19 @@ export const SITE_CONFIG: {
   projects: [
     {
       name: "Life OS",
-      startDate: "5-2024",
+      startDate: "8-2024",
       visibility: "private",
       status: "active",
       imageUrl: "/images/coming-soon.png",
       description: "comingSoon",
       tags: [
         "Next.js",
-        "Mantine",
+        "Material UI",
         "Tailwind CSS",
         "Vercel",
         "PostgreSQL",
         "drizzle",
-        "auth",
+        "Auth.js",
       ],
     },
     {
@@ -445,7 +453,6 @@ export const SITE_CONFIG: {
         company: "von Borstel GmbH",
         companyLink: "https://www.von-borstel.de",
         description: "vonBorstel",
-        latest: true,
         techStack: ["PHP", "Solid.js", "TailwindCSS"],
       },
       {
