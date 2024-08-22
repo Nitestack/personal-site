@@ -1,5 +1,5 @@
 import { SITE_CONFIG } from "@constants";
-import { Mail, MapPin, User } from "lucide-react";
+import { Building2, Mail, MapPin, User } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { type FC } from "react";
@@ -41,6 +41,17 @@ const ContactSection: FC = () => {
             <MapPin className="h-5 w-5" />
             <span className="font-medium">{SITE_CONFIG.location}</span>
           </p>
+          {SITE_CONFIG.employer && (
+            <div className="flex items-center gap-2">
+              <Building2 className="h-5 w-5" />
+              <Link
+                className="font-medium hover:underline"
+                href={SITE_CONFIG.employer.url}
+              >
+                {SITE_CONFIG.employer.name}
+              </Link>
+            </div>
+          )}
         </MotionDiv>
         <MotionDiv
           className="flex justify-center space-x-4 rounded-lg border border-border p-2"
