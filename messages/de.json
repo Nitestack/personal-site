@@ -43,7 +43,7 @@
     }
   },
   "Experience": {
-    "latest": "Aktuellste",
+    "current": "Aktuell",
     "Skills": {
       "languages": "Sprachen",
       "libs": "Frameworks & Biblotheken",
