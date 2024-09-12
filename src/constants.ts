@@ -447,6 +447,23 @@ export const SITE_CONFIG: {
   experience: {
     events: [
       {
+        date: "8-2024",
+        latest: true,
+        title: "dualStudent",
+        company: "adesso SE",
+        companyLink: "https://www.adesso.de",
+        description: "adesso",
+        techStack: [
+          "Java",
+          "Kotlin",
+          "TypeScript",
+          "Spring Boot",
+          "Angular",
+          "PostgreSQL",
+          "Bootstrap",
+        ],
+      },
+      {
         date: "6-2022",
         duration: [2, "week"],
         title: "schoolInternship",
