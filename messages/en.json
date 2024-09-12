@@ -43,7 +43,7 @@
     }
   },
   "Experience": {
-    "latest": "Latest",
+    "current": "Current",
     "Skills": {
       "languages": "Languages",
       "libs": "Frameworks & Libraries",

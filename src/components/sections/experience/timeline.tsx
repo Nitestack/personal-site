@@ -12,7 +12,7 @@ export interface ExperienceTimelineItem {
   duration?: Parameters<InstanceType<typeof Intl.RelativeTimeFormat>["format"]>;
   title: string;
   description: ReactNode;
-  latest?: boolean;
+  current?: boolean;
   company?: string;
   companyLink?: string;
   tags?: string[];
@@ -39,13 +39,13 @@ const ExperienceTimeline: FC<{
             <MotionDiv
               className={classNames(
                 "absolute -start-1.5 mt-1 h-3 w-3 rounded-full border",
-                event.latest
+                event.current
                   ? "border-primary bg-primary"
                   : "border-muted bg-muted"
               )}
-              initial={event.latest ? { opacity: 0 } : undefined}
+              initial={event.current ? { opacity: 0 } : undefined}
               animate={
-                event.latest
+                event.current
                   ? {
                       opacity: [0.1, 1],
                     }
@@ -92,9 +92,9 @@ const ExperienceTimeline: FC<{
                     </>
                   )}
                 </p>
-                {event.latest && (
+                {event.current && (
                   <span className="w-fit rounded bg-primary px-2 py-1 font-medium text-primary-foreground">
-                    {t("latest")}
+                    {t("current")}
                   </span>
                 )}
               </div>

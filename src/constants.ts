@@ -448,7 +448,7 @@ export const SITE_CONFIG: {
     events: [
       {
         date: "8-2024",
-        latest: true,
+        current: true,
         title: "dualStudent",
         company: "adesso SE",
         companyLink: "https://www.adesso.de",
