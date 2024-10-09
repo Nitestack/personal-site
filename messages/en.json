@@ -29,7 +29,7 @@
     "Descriptions": {
       "comingSoon": "Coming soon...",
       "personalSite": "Bilingual portfolio showcasing me, my skills, my projects and my blog.",
-      "dotfiles": "Effortlessly personalize and secure your setups across Arch Linux, macOS, and Windows with curated configs and scripts using chezmoi.",
+      "dotfiles": "Effortlessly personalize and secure your setups across NixOS and Windows (including WSL) with curated configs and scripts using chezmoi.",
       "projectManagerCli": "A cross-platform CLI tool for optimized project management and quick switching between projects.",
       "nvimSwitcher": "A cross-platform CLI tool for effortless switching between various Neovim distributions.",
       "playersAllianceDashboard": "A dashboard designed for the 'Players Alliance', a gaming community dedicated to 'Clash of Clans'. This management tool enables moderators and administrators to oversee monthly in-game events. It interfaces with the CoC API to retrieve player data.",
