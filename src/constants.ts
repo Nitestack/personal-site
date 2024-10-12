@@ -271,7 +271,7 @@ export const SITE_CONFIG: {
       imageUrl: "/images/tic-tac-toe.png",
       description: "ticTacToe",
       repoLink: "tic-tac-toe",
-      liveLink: "https://tic-tac-toe-informatik-s2-alex-nhan.vercel.app",
+      liveLink: "https://tic-tac-toe.npham.de",
       tags: ["Solid.js", "Vercel"],
     },
     {
@@ -289,7 +289,7 @@ export const SITE_CONFIG: {
             {
               name: "Live",
               type: "live",
-              url: "https://chart-bar-solid.vercel.app",
+              url: "https://chart-bar-solid.npham.de",
             },
             {
               name: "GitHub",
@@ -304,7 +304,7 @@ export const SITE_CONFIG: {
             {
               name: "Live",
               type: "live",
-              url: "https://interactive-rating-solid.vercel.app",
+              url: "https://interactive-rating-solid.npham.de",
             },
             {
               name: "GitHub",
@@ -319,7 +319,7 @@ export const SITE_CONFIG: {
             {
               name: "Live",
               type: "live",
-              url: "https://qr-code-solid.vercel.app",
+              url: "https://qr-code-solid.npham.de",
             },
             {
               name: "GitHub",
@@ -334,7 +334,7 @@ export const SITE_CONFIG: {
             {
               name: "Live",
               type: "live",
-              url: "https://nft-preview-card-solid.vercel.app",
+              url: "https://nft-preview-card-solid.npham.de",
             },
             {
               name: "GitHub",
@@ -349,7 +349,7 @@ export const SITE_CONFIG: {
             {
               name: "Live",
               type: "live",
-              url: "https://tip-calculator-solid.vercel.app",
+              url: "https://tip-calculator-solid.npham.de",
             },
             {
               name: "GitHub",
@@ -741,7 +741,7 @@ export const SITE_CONFIG: {
   url:
     process.env.NODE_ENV == "development"
       ? "http://localhost:3000"
-      : "https://nhanpham.vercel.app",
+      : "https://npham.de",
   routes: sections
     .filter((section) => section !== "intro")
     .map<NavigationRoute>((section) => ({
