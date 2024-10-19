@@ -143,11 +143,11 @@ export const SITE_CONFIG: {
   projects: [
     {
       name: "Life OS",
-      startDate: "8-2024",
+      startDate: "10-2024",
       visibility: "private",
-      status: "active",
-      imageUrl: "/images/coming-soon.png",
+      status: "developing",
       description: "comingSoon",
+      imageUrl: "/images/coming-soon.png",
       tags: [
         "Next.js",
         "Material UI",
@@ -157,6 +157,16 @@ export const SITE_CONFIG: {
         "drizzle",
         "Auth.js",
       ],
+    },
+    {
+      name: "Raspberry Pi 5",
+      startDate: "10-2024",
+      visibility: "public",
+      status: "active",
+      imageUrl: "/images/raspberry-pi-5.jpg",
+      description: "raspberryPi5",
+      tags: ["Ansible", "Docker", "Caddy", "PiVPN", "Vaultwarden", "NextCloud"],
+      repoLink: "raspberry-pi-5",
     },
     {
       name: "Personal Site",
