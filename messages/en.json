@@ -28,6 +28,7 @@
     "readMore": "More",
     "Descriptions": {
       "comingSoon": "Coming soon...",
+      "raspberryPi5": "A streamlined Ansible setup designed to automate and manage the configuration of a Raspberry Pi 5 as a home server, ensuring efficient deployment and consistent performance for various services.",
       "personalSite": "Bilingual portfolio showcasing me, my skills, my projects and my blog.",
       "dotfiles": "Effortlessly personalize and secure your setups across NixOS and Windows (including WSL) with curated configs and scripts using chezmoi.",
       "projectManagerCli": "A cross-platform CLI tool for optimized project management and quick switching between projects.",
