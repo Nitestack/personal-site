@@ -192,7 +192,7 @@ export const SITE_CONFIG: {
       startDate: "12-2023",
       visibility: "public",
       status: "active",
-      imageUrl: "/images/arch-linux-desktop.png",
+      imageUrl: "/images/nixos-desktop.png",
       description: "dotfiles",
       tags: [
         "chezmoi",
