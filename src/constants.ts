@@ -115,7 +115,7 @@ export const SITE_CONFIG: {
 } = {
   firstName: "Nhan",
   name: "Nhan Pham",
-  email: "nhan.pham@mail.de",
+  email: "business@npham.de",
   githubUsername: "Nitestack",
   birthday: new Date(2006, 2, 6),
   location: "Dortmund, Germany",
