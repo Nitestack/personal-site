@@ -22,9 +22,9 @@ const workSans = Work_Sans({
   variable: "--font-work-sans",
 });
 
-const monaspace = localFont({
-  src: "../fonts/MonaspaceNeon.woff2",
-  variable: "--font-monaspace",
+const commitMono = localFont({
+  src: "../fonts/CommitMonoNerdFont.otf",
+  variable: "--font-commit-mono",
 });
 
 export const generateMetadata = defaultMetadata;
@@ -52,7 +52,7 @@ const LocaleLayout: FC<{ children: ReactNode; params: { locale: string } }> = ({
     <html
       className={classNames(
         workSans.variable,
-        monaspace.variable,
+        commitMono.variable,
         "scroll-smooth antialiased scrollbar-none"
       )}
       lang={locale}
