@@ -2,9 +2,10 @@ import "server-only";
 
 import { env } from "@env";
 import { type Endpoints } from "@octokit/types";
-import Link from "next/link";
 import { Octokit } from "octokit";
 import { cache } from "react";
+
+import { Link } from "@/i18n/routing";
 
 import type { FC } from "react";
 

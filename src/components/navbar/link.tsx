@@ -1,7 +1,6 @@
 "use client";
 
 import { type Section } from "@constants";
-import { Link } from "@navigation";
 import {
   NavigationMenuItem,
   NavigationMenuLink,
@@ -10,6 +9,7 @@ import { classNames } from "@utils";
 import { type LinkProps } from "next/link";
 import { type FC } from "react";
 
+import { Link } from "@/i18n/routing";
 import { MotionSpan } from "@components/motion";
 import { useSectionsContext } from "@components/sections/context";
 import { navigationMenuTriggerStyle } from "@components/ui/navigation-menu";

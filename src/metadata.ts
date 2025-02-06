@@ -1,4 +1,4 @@
-import { LOCALIZATION_CONFIG, SITE_CONFIG } from "@constants";
+import { SITE_CONFIG } from "@constants";
 import { type Metadata, type ResolvingMetadata } from "next";
 import { getTranslations } from "next-intl/server";
 import {
@@ -6,6 +6,8 @@ import {
   type AbsoluteTemplateString,
   type DefaultTemplateString,
 } from "next/dist/lib/metadata/types/metadata-types";
+
+import { routing } from "@/i18n/routing";
 
 interface RequiredMetadata {
   title: NonNullable<Metadata["title"]>;
@@ -93,8 +95,8 @@ export function metadata<
     const resolvedTitle: string =
       typeof metadata.title === "string"
         ? metadata.title
-        : (metadata.title as DefaultTemplateString).default ??
-          (metadata.title as AbsoluteTemplateString | AbsoluteString).absolute;
+        : ((metadata.title as DefaultTemplateString).default ??
+          (metadata.title as AbsoluteTemplateString | AbsoluteString).absolute);
     if (!metadata.description) metadata.description = t("All.description");
     const resolvedDescription = metadata.description;
     (metadata as Metadata).openGraph = {
@@ -105,7 +107,7 @@ export function metadata<
       title: resolvedTitle,
       description: resolvedDescription,
       locale: locale,
-      alternateLocale: LOCALIZATION_CONFIG.locales.filter(
+      alternateLocale: routing.locales.filter(
         (currentLocale) => currentLocale.toLowerCase() !== locale.toLowerCase()
       ),
     };
@@ -121,7 +123,7 @@ export function metadata<
       ...metadata.alternates,
       languages: {},
     };
-    for (const currentLocale of LOCALIZATION_CONFIG.locales) {
+    for (const currentLocale of routing.locales) {
       ((metadata as Metadata).alternates!.languages as Record<string, string>)[
         currentLocale
       ] = `/${currentLocale}${metadata.alternates.canonical}`;

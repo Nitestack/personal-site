@@ -1,9 +1,9 @@
 "use client";
 
-import { useRouter } from "@navigation";
 import { useSearchParams } from "next/navigation";
 import { type ChangeEvent, type FC } from "react";
 
+import { useRouter } from "@/i18n/routing";
 import { Input } from "@components/ui/input";
 import { Label } from "@components/ui/label";
 

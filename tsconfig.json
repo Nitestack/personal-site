@@ -19,6 +19,7 @@
     "noUncheckedIndexedAccess": true,
     "baseUrl": ".",
     "paths": {
+      "@/*": ["./src/*"],
       "@public/*": ["./public/*"],
       "@lib/*": ["./src/lib/*"],
       "@types": ["./types.d.ts"],

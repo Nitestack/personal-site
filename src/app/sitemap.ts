@@ -1,5 +1,6 @@
-import { LOCALIZATION_CONFIG, SITE_CONFIG } from "@constants";
+import { SITE_CONFIG } from "@constants";
 
+import { routing } from "@/i18n/routing";
 import {
   getBlogPages,
   parseBlogPageProperties,
@@ -29,7 +30,7 @@ export default async function sitemap() {
 
   for (const page of pages) {
     routes.push(
-      ...LOCALIZATION_CONFIG.locales.map((locale) => ({
+      ...routing.locales.map((locale) => ({
         url: `${SITE_CONFIG.url}/${locale}${page}`,
         lastModified: new Date().toISOString().split("T")[0],
       }))
@@ -41,7 +42,7 @@ export default async function sitemap() {
     for (const page of pages) {
       const { slug } = parseBlogPageProperties(page.properties);
       routes.push(
-        ...LOCALIZATION_CONFIG.locales.map((locale) => ({
+        ...routing.locales.map((locale) => ({
           url: `${SITE_CONFIG.url}/${locale}/blog/${slug}`,
           lastModified: page.last_edited_time,
         }))

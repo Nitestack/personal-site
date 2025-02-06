@@ -1,8 +1,8 @@
 import { SITE_CONFIG } from "@constants";
 import { useTranslations } from "next-intl";
-import Link from "next/link";
 import { type FC } from "react";
 
+import { Link } from "@/i18n/routing";
 import LucideIcon from "@components/lucide-icon";
 import { MotionFooter } from "@components/motion";
 

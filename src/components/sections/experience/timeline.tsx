@@ -1,9 +1,9 @@
 import { type MonthIndex } from "@constants";
-import { Link } from "@navigation";
 import { classNames } from "@utils";
 import { useTranslations } from "next-intl";
 import { type FC, type ReactNode } from "react";
 
+import { Link } from "@/i18n/routing";
 import { MotionDiv } from "@components/motion";
 
 export interface ExperienceTimelineItem {

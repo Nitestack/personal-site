@@ -1,4 +1,4 @@
-import { unstable_setRequestLocale } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
 import { type FC } from "react";
 
 import AboutSection from "@components/sections/about";
@@ -11,7 +11,7 @@ import ProjectsSection from "@components/sections/projects";
 const HomePage: FC<{ params: { locale: string } }> = ({
   params: { locale },
 }) => {
-  unstable_setRequestLocale(locale);
+  setRequestLocale(locale);
   return (
     <div className="space-y-20 leading-loose">
       <HeroSection />

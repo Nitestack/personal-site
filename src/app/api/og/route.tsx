@@ -1,7 +1,9 @@
-import { LOCALIZATION_CONFIG, SITE_CONFIG } from "@constants";
+import { SITE_CONFIG } from "@constants";
 import { getTranslations } from "next-intl/server";
 import { ImageResponse } from "next/og";
 import { type NextRequest } from "next/server";
+
+import { routing } from "@/i18n/routing";
 
 export const runtime = "edge";
 
@@ -18,11 +20,9 @@ export async function GET(request: NextRequest) {
   const title = hasTitle ? searchParams.get("title")! : SITE_CONFIG.name;
   const locale =
     hasLocale &&
-    LOCALIZATION_CONFIG.locales.includes(
-      searchParams.get("locale")!.toLowerCase()
-    )
+    routing.locales.includes(searchParams.get("locale")!.toLowerCase())
       ? searchParams.get("locale")!
-      : LOCALIZATION_CONFIG.defaultLocale;
+      : routing.defaultLocale;
 
   try {
     const t = await getTranslations({ locale, namespace: "All" });
