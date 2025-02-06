@@ -17,7 +17,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ["var(--font-work-sans)", ...fontFamily.sans],
-        mono: ["var(--font-monaspace)", ...fontFamily.mono],
+        mono: ["var(--font-commit-mono)", ...fontFamily.mono],
       },
       colors: {
         border: "hsl(var(--border))",
