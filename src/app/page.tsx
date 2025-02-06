@@ -1,9 +1,8 @@
-import { LOCALIZATION_CONFIG } from "@constants";
-import { redirect } from "next/navigation";
+import { redirect, routing } from "@/i18n/routing";
 
 // This page only renders when the app is built statically (output: 'export')
 const RootPage = () => {
-  redirect(`/${LOCALIZATION_CONFIG.defaultLocale}`);
+  redirect({ href: "/", locale: routing.defaultLocale });
 };
 
 export default RootPage;

@@ -9,8 +9,6 @@ import {
 
 import { type ExperienceTimelineItem } from "@components/sections/experience/timeline";
 
-import type createMiddleware from "next-intl/middleware";
-
 interface NavigationRoute {
   id: Section;
   translationKey: TranslationKey<"Routes">;
@@ -81,8 +79,6 @@ export const sections = [
   "blog",
   "contact",
 ] as const;
-
-type LocalePrefix = Parameters<typeof createMiddleware>[0]["localePrefix"];
 
 export type Section = (typeof sections)[number];
 
@@ -750,12 +746,10 @@ export const SITE_CONFIG: {
 export const LOCALIZATION_CONFIG: {
   locales: string[];
   defaultLocale: string;
-  localePrefix: LocalePrefix;
   localeMap: Record<string, string>;
 } = {
   locales: ["en", "de"],
   defaultLocale: "en",
-  localePrefix: "always",
   localeMap: {
     en: "English",
     de: "Deutsch",

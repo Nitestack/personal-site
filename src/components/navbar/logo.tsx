@@ -1,10 +1,10 @@
 "use client";
 
 import { SITE_CONFIG } from "@constants";
-import { Link } from "@navigation";
 import NextImage from "next/image";
 import { type FC } from "react";
 
+import { Link } from "@/i18n/routing";
 import { MotionA } from "@components/motion";
 import { useSectionsContext } from "@components/sections/context";
 import Logo from "@public/images/logo.png";

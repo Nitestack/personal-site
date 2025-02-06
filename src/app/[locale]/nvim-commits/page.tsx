@@ -5,9 +5,9 @@ import { getLocaleDateString } from "@utils";
 import { intlFormatDistance } from "date-fns";
 import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
-import Link from "next/link";
 import { Suspense } from "react";
 
+import { Link } from "@/i18n/routing";
 import { getOGImage } from "@app/[locale]/blog/notion";
 import Calender from "@app/[locale]/nvim-commits/calender";
 import {

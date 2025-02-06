@@ -1,10 +1,10 @@
 import { type ProjectSingleLink } from "@constants";
-import { Link } from "@navigation";
 import { getGitHubRepositoryUrl } from "@utils";
 import { GithubIcon, LinkIcon, ZapIcon } from "lucide-react";
 import NextImage from "next/image";
 import { type FC } from "react";
 
+import { Link } from "@/i18n/routing";
 import { type TranslatedProject } from "@components/sections/projects/project";
 import ProjectTags from "@components/sections/projects/project/tags";
 import { Button } from "@components/ui/button";

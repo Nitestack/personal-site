@@ -1,11 +1,11 @@
 "use client";
 
 import { type Section } from "@constants";
-import { Link } from "@navigation";
 import { classNames } from "@utils";
 import { type LinkProps } from "next/link";
 import { type FC } from "react";
 
+import { Link } from "@/i18n/routing";
 import { MotionSpan } from "@components/motion";
 import { useMobileSidebarContext } from "@components/navbar/mobile/context";
 import { useSectionsContext } from "@components/sections/context";

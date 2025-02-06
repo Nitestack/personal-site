@@ -1,4 +1,6 @@
-import withNextIntl from "next-intl/plugin";
+import createNextIntlPlugin from "next-intl/plugin";
+
+const withNextIntl = createNextIntlPlugin();
 
 /**
  * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially useful
@@ -57,4 +59,4 @@ const nextConfig = {
   ],
 };
 
-export default withNextIntl()(nextConfig);
+export default withNextIntl(nextConfig);

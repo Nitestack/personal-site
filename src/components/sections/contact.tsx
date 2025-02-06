@@ -1,9 +1,9 @@
 import { SITE_CONFIG } from "@constants";
 import { Building2, Mail, MapPin, User } from "lucide-react";
 import { useTranslations } from "next-intl";
-import Link from "next/link";
 import { type FC } from "react";
 
+import { Link } from "@/i18n/routing";
 import LucideIcon from "@components/lucide-icon";
 import { MotionDiv } from "@components/motion";
 import Section from "@components/sections/section";
