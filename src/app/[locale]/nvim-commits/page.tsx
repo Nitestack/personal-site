@@ -48,9 +48,12 @@ export const generateMetadata = metadata((t, { params: { locale } }) => {
 });
 
 const NeovimCommitsPage: FC<{
-  params: { locale: string };
-  searchParams: { until: string; since: string };
-}> = ({ params: { locale }, searchParams: { until, since } }) => {
+  params: Promise<{ locale: string }>;
+  searchParams: Promise<{ until: string; since: string }>;
+}> = async ({ params, searchParams }) => {
+  const { locale } = await params;
+  const { until, since } = await searchParams;
+
   const t = useTranslations("NeovimConfig");
   return (
     <Layout title={t("title")} description={t("description")}>
