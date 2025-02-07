@@ -39,6 +39,9 @@ interface WithLocaleProps<
   searchParams: SearchParams;
 }
 
+type Promisify<T> = {
+  [K in keyof T]: Promise<T[K]>;
+};
 type MaybePromise<T> = T | Promise<T>;
 
 export const defaultMetadata = metadata((t, { params: { locale } }) => {
@@ -85,12 +88,18 @@ export function metadata<
   >
 ) {
   return async function (
-    props: WithLocaleProps<Params, SearchParams>,
+    props: Promisify<WithLocaleProps<Params, SearchParams>>,
     parent: ResolvingMetadata
   ): Promise<Metadata | undefined> {
-    const { locale } = props.params;
+    const params = await props.params;
+    const { locale } = params;
+    const searchParams = await props.searchParams;
     const t = await getTranslations({ locale });
-    const metadata = await generateMetadata(t, props, parent);
+    const metadata = await generateMetadata(
+      t,
+      { params, searchParams },
+      parent
+    );
     if (!metadata) return;
     const resolvedTitle: string =
       typeof metadata.title === "string"

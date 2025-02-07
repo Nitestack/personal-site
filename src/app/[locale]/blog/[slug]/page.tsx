@@ -64,9 +64,10 @@ export const generateMetadata = metadata<{ slug: string }>(
   }
 );
 
-const BlogPage: FC<{ params: { slug: string; locale: string } }> = ({
-  params: { slug, locale },
-}) => {
+const BlogPage: FC<{
+  params: Promise<{ slug: string; locale: string }>;
+}> = async ({ params }) => {
+  const { slug, locale } = await params;
   const t = useTranslations("Blog");
 
   return (

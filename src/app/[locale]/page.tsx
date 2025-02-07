@@ -8,10 +8,13 @@ import ExperienceSection from "@components/sections/experience";
 import HeroSection from "@components/sections/hero";
 import ProjectsSection from "@components/sections/projects";
 
-const HomePage: FC<{ params: { locale: string } }> = ({
-  params: { locale },
+const HomePage: FC<{ params: Promise<{ locale: string }> }> = async ({
+  params,
 }) => {
+  const { locale } = await params;
+
   setRequestLocale(locale);
+
   return (
     <div className="space-y-20 leading-loose">
       <HeroSection />

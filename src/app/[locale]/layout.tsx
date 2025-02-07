@@ -8,7 +8,7 @@ import { NextIntlClientProvider, useMessages } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 import { Work_Sans } from "next/font/google";
 import localFont from "next/font/local";
-import { type FC, type ReactNode } from "react";
+import { use } from "react";
 
 import { redirect, routing } from "@/i18n/routing";
 import Providers from "@app/providers";
@@ -16,6 +16,8 @@ import Footer from "@components/footer";
 import Navbar from "@components/navbar";
 import ScrollProgress from "@components/scroll-progress";
 import { Toaster } from "@components/ui/sonner";
+
+import type { FC, ReactNode } from "react";
 
 const workSans = Work_Sans({
   subsets: ["latin"],
@@ -42,8 +44,10 @@ export function generateStaticParams() {
 
 const LocaleLayout: FC<{
   children: ReactNode;
-  params: { locale: string };
-}> = ({ children, params: { locale } }) => {
+  params: Promise<{ locale: string }>;
+}> = ({ children, params }) => {
+  const { locale } = use(params);
+
   if (!routing.locales.includes(locale)) {
     redirect({ href: "/", locale: "en" });
   }
