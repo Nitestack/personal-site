@@ -42,7 +42,6 @@
     "embla-carousel-react": "8.0.0-rc22",
     "framer-motion": "^11.18.2",
     "highlight.js": "^11.11.1",
-    "lodash.pick": "^4.4.0",
     "lucide-react": "^0.303.0",
     "next": "15.1.6",
     "next-intl": "^3.26.3",
