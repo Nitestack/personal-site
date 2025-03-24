@@ -2,7 +2,6 @@ import { defaultMetadata } from "@metadata";
 import { classNames } from "@utils";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import pick from "lodash.pick";
 import { type Viewport } from "next";
 import { NextIntlClientProvider, useMessages } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
@@ -17,6 +16,7 @@ import Navbar from "@components/navbar";
 import ScrollProgress from "@components/scroll-progress";
 import { Toaster } from "@components/ui/sonner";
 
+import type { AbstractIntlMessages } from "next-intl";
 import type { FC, ReactNode } from "react";
 
 const workSans = Work_Sans({
@@ -68,7 +68,9 @@ const LocaleLayout: FC<{
     >
       <head />
       <body className="relative flex min-h-screen flex-col">
-        <NextIntlClientProvider messages={pick(messages, "Error")}>
+        <NextIntlClientProvider
+          messages={{ Error: messages["Error"] as AbstractIntlMessages }}
+        >
           <Providers
             themeProps={{
               attribute: "class",
