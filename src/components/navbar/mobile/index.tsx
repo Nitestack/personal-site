@@ -41,7 +41,6 @@ const MobileSidebar: FC = () => {
           <div className="space-y-2">
             {SITE_CONFIG.routes.map((route) => (
               <MobileSidebarLink id={route.id} key={route.id} href={route.url}>
-                {/* eslint-disable-next-line @typescript-eslint/restrict-template-expressions */}
                 {t(`Routes.${route.translationKey}`)}
               </MobileSidebarLink>
             ))}

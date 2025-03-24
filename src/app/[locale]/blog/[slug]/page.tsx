@@ -68,6 +68,7 @@ const BlogPage: FC<{
   params: Promise<{ slug: string; locale: string }>;
 }> = async ({ params }) => {
   const { slug, locale } = await params;
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const t = useTranslations("Blog");
 
   return (

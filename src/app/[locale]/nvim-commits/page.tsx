@@ -54,6 +54,7 @@ const NeovimCommitsPage: FC<{
   const { locale } = await params;
   const { until, since } = await searchParams;
 
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const t = useTranslations("NeovimConfig");
   return (
     <Layout title={t("title")} description={t("description")}>

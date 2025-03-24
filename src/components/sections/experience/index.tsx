@@ -48,9 +48,7 @@ const ExperienceSection: FC<{ locale: string }> = ({ locale }) => {
               items={SITE_CONFIG.experience.events.map(
                 ({ title, description, techStack, ...restEvent }) => ({
                   ...restEvent,
-                  // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
                   title: t(`Experience.JobTitles.${title}`),
-                  // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
                   description: t(
                     `Experience.CompanyDescriptions.${description}`
                   ),
