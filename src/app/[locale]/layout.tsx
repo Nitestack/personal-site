@@ -16,7 +16,6 @@ import Navbar from "@components/navbar";
 import ScrollProgress from "@components/scroll-progress";
 import { Toaster } from "@components/ui/sonner";
 
-import type { AbstractIntlMessages } from "next-intl";
 import type { FC, ReactNode } from "react";
 
 const workSans = Work_Sans({
@@ -68,9 +67,7 @@ const LocaleLayout: FC<{
     >
       <head />
       <body className="relative flex min-h-screen flex-col">
-        <NextIntlClientProvider
-          messages={{ Error: messages["Error"] as AbstractIntlMessages }}
-        >
+        <NextIntlClientProvider messages={{ Error: messages.Error! }}>
           <Providers
             themeProps={{
               attribute: "class",

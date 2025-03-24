@@ -44,9 +44,7 @@ const ProjectsSection: FC<{ locale: string }> = ({ locale }) => {
           readMoreLabel={t("Projects.readMore")}
           projects={SITE_CONFIG.projects.map((project) => ({
             ...project,
-            // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
             description: t(`Projects.Descriptions.${project.description}`),
-            // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
             visibilityLabel: t(`Projects.Visibility.${project.visibility}`),
           }))}
         />

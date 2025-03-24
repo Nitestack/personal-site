@@ -88,7 +88,12 @@ export async function GET(request: NextRequest) {
             }}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img width="50" height="50" src={`${origin}/images/logo.png`} />
+            <img
+              width="50"
+              height="50"
+              src={`${origin}/images/logo.png`}
+              alt="Logo"
+            />
             <div
               style={{
                 display: "flex",

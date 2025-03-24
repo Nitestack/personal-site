@@ -44,7 +44,6 @@ const Navbar: FC = () => {
           >
             {SITE_CONFIG.routes.map((route) => (
               <NavbarLink id={route.id} key={route.id} href={route.url}>
-                {/* eslint-disable-next-line @typescript-eslint/restrict-template-expressions */}
                 {t(`Routes.${route.translationKey}`)}
               </NavbarLink>
             ))}

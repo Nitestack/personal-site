@@ -85,6 +85,8 @@ const SheetClose = forwardRef<
   />
 ));
 
+SheetClose.displayName = SheetPrimitive.Close.displayName;
+
 const SheetHeader = ({
   className,
   ...props
