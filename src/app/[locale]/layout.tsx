@@ -3,11 +3,10 @@ import { classNames } from "@utils";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { type Viewport } from "next";
-import { NextIntlClientProvider, useMessages } from "next-intl";
+import { NextIntlClientProvider } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 import { Work_Sans } from "next/font/google";
 import localFont from "next/font/local";
-import { use } from "react";
 
 import { redirect, routing } from "@/i18n/routing";
 import Providers from "@app/providers";
@@ -44,16 +43,14 @@ export function generateStaticParams() {
 const LocaleLayout: FC<{
   children: ReactNode;
   params: Promise<{ locale: string }>;
-}> = ({ children, params }) => {
-  const { locale } = use(params);
+}> = async ({ children, params }) => {
+  const { locale } = await params;
 
   if (!routing.locales.includes(locale)) {
     redirect({ href: "/", locale: "en" });
   }
 
   setRequestLocale(locale);
-
-  const messages = useMessages();
 
   return (
     <html
@@ -67,7 +64,7 @@ const LocaleLayout: FC<{
     >
       <head />
       <body className="relative flex min-h-screen flex-col">
-        <NextIntlClientProvider messages={{ Error: messages.Error! }}>
+        <NextIntlClientProvider>
           <Providers
             themeProps={{
               attribute: "class",

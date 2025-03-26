@@ -54,8 +54,7 @@ const NeovimCommitsPage: FC<{
   const { locale } = await params;
   const { until, since } = await searchParams;
 
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const t = useTranslations("NeovimConfig");
+  const t = await getTranslations("NeovimConfig");
   return (
     <Layout title={t("title")} description={t("description")}>
       <section className="space-y-6">
@@ -140,9 +139,7 @@ const CommitsAccordion: FC<{
         ),
         locale
       );
-      if (!acc[date]) {
-        acc[date] = [];
-      }
+      acc[date] ??= [];
       acc[date]?.push(commitInfo);
       return acc;
     },
