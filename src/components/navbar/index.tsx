@@ -25,7 +25,7 @@ import {
 const Navbar: FC = () => {
   const t = useTranslations();
   return (
-    <NavigationMenu className="sticky inset-x-0 top-0 z-50 mx-auto w-full max-w-screen-md rounded-none border border-border/40 bg-background/80 shadow-lg shadow-ring/5 backdrop-blur supports-[backdrop-filter]:bg-background/60 md:top-6 md:rounded-full">
+    <NavigationMenu className="border-border/40 bg-background/80 shadow-ring/5 supports-backdrop-filter:bg-background/60 sticky inset-x-0 top-0 z-50 mx-auto w-full max-w-(--breakpoint-md) rounded-none border shadow-lg backdrop-blur-sm md:top-6 md:rounded-full">
       <div className="flex items-center justify-between gap-8 px-4 py-1 lg:px-6">
         <div className="flex items-center gap-2">
           <div className="md:hidden">
@@ -72,7 +72,7 @@ const Navbar: FC = () => {
           </DropdownMenu>
         </MotionDiv>
       </div>
-      <NavigationMenuViewport className="origin-top-center relative mt-1.5 h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden rounded-md border bg-popover text-popover-foreground shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90 md:w-[var(--radix-navigation-menu-viewport-width)]" />
+      <NavigationMenuViewport className="origin-top-center bg-popover text-popover-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90 relative mt-1.5 h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden rounded-md border shadow-lg md:w-[var(--radix-navigation-menu-viewport-width)]" />
     </NavigationMenu>
   );
 };

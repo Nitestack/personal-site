@@ -28,7 +28,7 @@ const Section: FC<
       ref={ref}
       id={sectionID}
     >
-      <h2 className="mb-6 text-center font-mono text-3xl font-medium uppercase tracking-[0.5em] md:mb-12">
+      <h2 className="mb-6 text-center font-mono text-3xl font-medium tracking-[0.5em] uppercase md:mb-12">
         {heading}
       </h2>
       {children}

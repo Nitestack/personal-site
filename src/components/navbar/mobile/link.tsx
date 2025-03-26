@@ -40,7 +40,7 @@ const MobileSidebarLink: FC<{
         {children}
         {isActive && (
           <MotionSpan
-            className="absolute inset-0 -z-10 bg-accent"
+            className="bg-accent absolute inset-0 -z-10"
             layoutId="activeMobileSection"
             transition={{
               type: "spring",

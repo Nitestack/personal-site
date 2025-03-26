@@ -33,7 +33,7 @@ const HeroSection: FC = () => {
           <h1 className="mb-3 text-5xl font-bold tracking-wider sm:text-8xl">
             {SITE_CONFIG.name}
           </h1>
-          <p className="text-balance text-xl text-muted-foreground">
+          <p className="text-muted-foreground text-xl text-balance">
             {t("All.description")}
           </p>
         </MotionDiv>

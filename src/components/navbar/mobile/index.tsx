@@ -28,7 +28,7 @@ const MobileSidebar: FC = () => {
       </SheetTrigger>
       <SheetContent className="px-0 pt-0" side="left">
         <SheetHeader>
-          <SheetTitle className="flex items-center gap-2 border-b border-border/40 px-4 py-1">
+          <SheetTitle className="border-border/40 flex items-center gap-2 border-b px-4 py-1">
             <SheetClose asChild>
               <Button className="px-2 shadow-none" size="icon" variant="ghost">
                 <X className="h-6 w-6" />
@@ -37,7 +37,7 @@ const MobileSidebar: FC = () => {
             <MobileSidebarLogo />
           </SheetTitle>
         </SheetHeader>
-        <div className="space-y-4 text-muted-foreground">
+        <div className="text-muted-foreground space-y-4">
           <div className="space-y-2">
             {SITE_CONFIG.routes.map((route) => (
               <MobileSidebarLink id={route.id} key={route.id} href={route.url}>
@@ -45,13 +45,13 @@ const MobileSidebar: FC = () => {
               </MobileSidebarLink>
             ))}
           </div>
-          <div className="border-t border-border" />
+          <div className="border-border border-t" />
           <MobileThemeSelection
             label={t("Settings.Theme.name")}
             lightLabel={t("Settings.Theme.light")}
             darkLabel={t("Settings.Theme.dark")}
           />
-          <div className="border-t border-border" />
+          <div className="border-border border-t" />
           <MobileLanguageSelection label={t("Settings.language")} />
         </div>
       </SheetContent>

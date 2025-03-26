@@ -21,7 +21,7 @@ const SkillCategory: FC<{
   return (
     <AccordionItem value={id} className="border-0">
       <AccordionTrigger className="justify-center gap-2">
-        <h3 className="text-xl uppercase tracking-widest">{name}</h3>
+        <h3 className="text-xl tracking-widest uppercase">{name}</h3>
       </AccordionTrigger>
       <AccordionContent>
         <div className="flex w-full snap-x snap-mandatory overflow-x-auto rounded-xl p-1 md:justify-center md:overflow-x-hidden">

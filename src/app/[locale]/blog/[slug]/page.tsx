@@ -134,14 +134,14 @@ const BlogPost: FC<{
       />
       <section className="space-y-4 md:space-y-8">
         <div className="space-y-4 text-center md:space-y-8 lg:space-y-12">
-          <h1 className="text-balance text-3xl font-extrabold tracking-wide sm:text-4xl lg:text-5xl">
+          <h1 className="text-3xl font-extrabold tracking-wide text-balance sm:text-4xl lg:text-5xl">
             {title}
           </h1>
-          <p className="mt-4 text-balance font-mono text-sm sm:text-base md:italic lg:text-lg">
+          <p className="mt-4 font-mono text-sm text-balance sm:text-base md:italic lg:text-lg">
             {excerpt}
           </p>
         </div>
-        <div className="flex flex-row items-center justify-between gap-4 rounded-lg bg-muted p-2 shadow-sm shadow-ring">
+        <div className="bg-muted shadow-ring flex flex-row items-center justify-between gap-4 rounded-lg p-2 shadow-xs">
           <div className="hidden items-center gap-2 sm:flex">
             <Avatar>
               <AvatarImage src={Logo.src} alt={SITE_CONFIG.name} />
@@ -181,7 +181,7 @@ const BlogDescription: FC<{ postID: string }> = async ({ postID }) => {
 
   return (
     <div
-      className="notion-render prose prose-orange max-w-3xl dark:prose-invert lg:prose-lg prose-code:break-words prose-pre:relative prose-pre:mt-0 prose-pre:rounded-b-md prose-pre:rounded-t-none md:prose-code:break-normal"
+      className="notion-render prose prose-orange dark:prose-invert lg:prose-lg prose-code:break-words prose-pre:relative prose-pre:mt-0 prose-pre:rounded-b-md prose-pre:rounded-t-none md:prose-code:break-normal max-w-3xl"
       dangerouslySetInnerHTML={{ __html: htmlContent }}
     />
   );

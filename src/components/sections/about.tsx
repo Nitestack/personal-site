@@ -34,7 +34,7 @@ const AboutSection: FC = () => {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.25 }}
         >
-          <div className="relative aspect-video w-full overflow-hidden rounded-sm border-2 border-border/40 shadow-lg shadow-ring dark:shadow-ring/10">
+          <div className="border-border/40 shadow-ring dark:shadow-ring/10 relative aspect-video w-full overflow-hidden rounded-sm border-2 shadow-lg">
             <NextImage
               fill
               className="object-contai"

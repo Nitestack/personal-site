@@ -82,34 +82,34 @@ const CommitsSkeleton: FC = () => {
     <div className="space-y-2">
       <Skeleton className="my-4 ml-2 h-5 w-36" />
       <div className="space-y-2">
-        <div className="flex flex-col gap-3 rounded-lg border border-border p-2">
+        <div className="border-border flex flex-col gap-3 rounded-lg border p-2">
           <Skeleton className="h-5 w-44" />
           <Skeleton className="h-4 w-11/12" />
-          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+          <div className="text-muted-foreground flex items-center gap-2 text-sm">
             <Skeleton className="h-6 w-6 rounded-full" />
             <Skeleton className="h-4 w-3/12" />
           </div>
         </div>
-        <div className="flex flex-col gap-3 rounded-lg border border-border p-2">
+        <div className="border-border flex flex-col gap-3 rounded-lg border p-2">
           <Skeleton className="h-5 w-48" />
           <Skeleton className="h-4 w-8/12" />
-          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+          <div className="text-muted-foreground flex items-center gap-2 text-sm">
             <Skeleton className="h-6 w-6 rounded-full" />
             <Skeleton className="h-4 w-5/12" />
           </div>
         </div>
-        <div className="flex flex-col gap-3 rounded-lg border border-border p-2">
+        <div className="border-border flex flex-col gap-3 rounded-lg border p-2">
           <Skeleton className="h-5 w-40" />
           <Skeleton className="h-4 w-10/12" />
-          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+          <div className="text-muted-foreground flex items-center gap-2 text-sm">
             <Skeleton className="h-6 w-6 rounded-full" />
             <Skeleton className="h-4 w-2/12" />
           </div>
         </div>
-        <div className="flex flex-col gap-3 rounded-lg border border-border p-2">
+        <div className="border-border flex flex-col gap-3 rounded-lg border p-2">
           <Skeleton className="h-5 w-52" />
           <Skeleton className="h-4 w-9/12" />
-          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+          <div className="text-muted-foreground flex items-center gap-2 text-sm">
             <Skeleton className="h-6 w-6 rounded-full" />
             <Skeleton className="h-4 w-4/12" />
           </div>
@@ -156,7 +156,7 @@ const CommitsAccordion: FC<{
         {groupedByDate[date]!.map((commitInfo) => (
           <div
             key={commitInfo.sha}
-            className="flex flex-col gap-1 rounded-lg border border-border p-2 hover:bg-accent"
+            className="border-border hover:bg-accent flex flex-col gap-1 rounded-lg border p-2"
           >
             <Link
               target="_blank"
@@ -169,7 +169,7 @@ const CommitsAccordion: FC<{
               commitUrl={commitInfo.html_url}
               commitMessage={commitInfo.commit.message}
             />
-            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <div className="text-muted-foreground flex items-center gap-2 text-sm">
               <Avatar className="h-6 w-6">
                 {commitInfo.author?.avatar_url && (
                   <AvatarImage

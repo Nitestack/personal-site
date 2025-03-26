@@ -19,7 +19,7 @@ const ContactSection: FC = () => {
     >
       <div className="grid items-center justify-center gap-4 overflow-x-hidden px-4 text-center md:px-6 lg:gap-10">
         <MotionDiv
-          className="mx-auto grid max-w-sm gap-1.5 rounded-lg border border-border p-4 text-left"
+          className="border-border mx-auto grid max-w-sm gap-1.5 rounded-lg border p-4 text-left"
           initial={{ opacity: 0, x: "-100%" }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
@@ -54,7 +54,7 @@ const ContactSection: FC = () => {
           )}
         </MotionDiv>
         <MotionDiv
-          className="flex justify-center space-x-4 rounded-lg border border-border p-2"
+          className="border-border flex justify-center space-x-4 rounded-lg border p-2"
           initial={{ opacity: 0, x: "100%" }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}

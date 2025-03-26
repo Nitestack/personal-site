@@ -25,7 +25,7 @@ const ProjectInfo: FC<
       </Button>
       <Button
         size="sm"
-        className="h-fit rounded bg-muted px-1.5 py-0.5 text-muted-foreground"
+        className="bg-muted text-muted-foreground h-fit rounded px-1.5 py-0.5"
       >
         {date.toLocaleDateString(locale ?? undefined, {
           month: "long",

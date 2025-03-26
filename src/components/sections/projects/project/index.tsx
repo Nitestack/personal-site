@@ -48,7 +48,7 @@ const Project: FC<
       className="h-full"
     >
       <Card className="flex h-full flex-col gap-2 overflow-x-hidden shadow-md">
-        <div className="relative hidden aspect-video w-full border-b border-border sm:block">
+        <div className="border-border relative hidden aspect-video w-full border-b sm:block">
           <NextImage
             fill
             className="object-contain"
@@ -58,7 +58,7 @@ const Project: FC<
         </div>
         <CardHeader className="flex-1 space-y-2 py-2 md:py-4">
           <ProjectTitle status={project.status} className="mt-2 sm:mt-0">
-            <CardTitle className="text-balance font-bold">
+            <CardTitle className="font-bold text-balance">
               {project.name}
             </CardTitle>
           </ProjectTitle>
@@ -84,7 +84,7 @@ const Project: FC<
                 {readMoreLabel}
               </Button>
             </DialogTrigger>
-            <DialogContent className="max-h-[80%] overflow-auto scrollbar-none">
+            <DialogContent className="scrollbar-none max-h-[80%] overflow-auto">
               <DialogHeader>
                 <DialogTitle className="space-y-1">
                   <ProjectTitle status={project.status}>
@@ -97,7 +97,7 @@ const Project: FC<
                     visibilityLabel={project.visibilityLabel}
                   />
                 </DialogTitle>
-                <DialogDescription className="text-balance text-center">
+                <DialogDescription className="text-center text-balance">
                   {project.description}
                 </DialogDescription>
               </DialogHeader>
