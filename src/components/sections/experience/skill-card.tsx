@@ -9,7 +9,7 @@ import { MotionDiv } from "@components/motion";
 const SkillCard: FC<Skill> = (skill) => {
   return (
     <MotionDiv
-      className="min-w-24 cursor-pointer select-none snap-center"
+      className="min-w-24 cursor-pointer snap-center select-none"
       initial={{ opacity: 0 }}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
@@ -18,7 +18,7 @@ const SkillCard: FC<Skill> = (skill) => {
     >
       <div
         className={classNames(
-          "h-full rounded-xl bg-background p-0.5 shadow-lg shadow-ring/20",
+          "bg-background shadow-ring/20 h-full rounded-xl p-0.5 shadow-lg",
           skill.bgColor
         )}
       >
@@ -55,7 +55,7 @@ const SkillCard: FC<Skill> = (skill) => {
         </div>
         <p
           className={classNames(
-            "whitespace-nowrap rounded-b-xl p-0.5 text-center font-semibold text-foreground",
+            "text-foreground rounded-b-xl p-0.5 text-center font-semibold whitespace-nowrap",
             skill.textColor
           )}
         >

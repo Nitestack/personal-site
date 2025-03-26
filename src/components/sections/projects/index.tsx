@@ -29,7 +29,7 @@ const ProjectsSection: FC<{ locale: string }> = ({ locale }) => {
     >
       <ProjectStatusContextProvider>
         <div className="flex items-center justify-center">
-          <div className="flex flex-col gap-1 overflow-x-hidden rounded-lg border border-border px-3 py-4">
+          <div className="border-border flex flex-col gap-1 overflow-x-hidden rounded-lg border px-3 py-4">
             {status.map((status) => (
               <LegendProjectStatus
                 key={status}

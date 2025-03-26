@@ -17,7 +17,7 @@ const LocaleNotFoundPage: FC = () => {
           alt="Not Found"
         />
       </div>
-      <h1 className="text-balance text-center text-3xl font-bold">
+      <h1 className="text-center text-3xl font-bold text-balance">
         {t("message")}
       </h1>
       <Button asChild variant="destructive">

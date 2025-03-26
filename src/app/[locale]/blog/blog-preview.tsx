@@ -40,7 +40,7 @@ const BlogPostPreview: FC<
       href={`/blog/${slug}`}
     >
       <Card className="flex flex-col overflow-x-hidden">
-        <div className="relative aspect-video h-full border-b border-border group-hover:opacity-75">
+        <div className="border-border relative aspect-video h-full border-b group-hover:opacity-75">
           <NextImage
             className="object-cover"
             fill
@@ -50,19 +50,19 @@ const BlogPostPreview: FC<
         </div>
         <CardHeader
           className={classNames(
-            "flex h-full flex-col space-y-6 group-hover:bg-accent",
+            "group-hover:bg-accent flex h-full flex-col space-y-6",
             carouselItem && "px-2 py-3 sm:px-4 sm:py-5 md:px-6 md:py-7"
           )}
         >
           <div className="flex-1 space-y-4">
-            <CardTitle className="text-balance text-center font-bold">
+            <CardTitle className="text-center font-bold text-balance">
               {title}
             </CardTitle>
-            <CardDescription className="line-clamp-3 overflow-hidden text-ellipsis text-balance md:text-base">
+            <CardDescription className="line-clamp-3 overflow-hidden text-balance text-ellipsis md:text-base">
               {excerpt}
             </CardDescription>
           </div>
-          <div className="space-y-1 rounded-md bg-muted p-2 shadow-sm shadow-ring">
+          <div className="bg-muted shadow-ring space-y-1 rounded-md p-2 shadow-xs">
             <div className="flex items-center justify-between">
               <p className="font-mono text-xs">{viewsLabel}</p>
               <p className="font-mono text-xs">{publishedAtLabel}</p>

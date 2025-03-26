@@ -21,7 +21,7 @@ const BlogSection: FC<{ locale: string }> = ({ locale }) => {
       heading="Blog"
       sectionID="blog"
     >
-      <p className="text-balance text-center">{t("description")}</p>
+      <p className="text-center text-balance">{t("description")}</p>
       <div className="mx-auto px-7 lg:max-w-5xl">
         <Carousel className="w-full" opts={{ loop: true }}>
           <CarouselContent>

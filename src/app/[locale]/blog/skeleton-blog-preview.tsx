@@ -5,7 +5,7 @@ import { Skeleton } from "@components/ui/skeleton";
 
 const SkeletonBlogPreview: FC = () => {
   return (
-    <Card className="flex min-w-72 max-w-md snap-center flex-col overflow-hidden lg:min-w-96">
+    <Card className="flex max-w-md min-w-72 snap-center flex-col overflow-hidden lg:min-w-96">
       <Skeleton className="aspect-video h-full rounded-none" />
       <CardHeader className="flex h-full flex-col space-y-6">
         <div className="flex-1 space-y-4">

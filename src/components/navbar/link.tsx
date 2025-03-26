@@ -39,7 +39,7 @@ const NavbarLink: FC<{
           {children}
           {isActive && (
             <MotionSpan
-              className="absolute inset-0 -z-10 rounded-full bg-accent"
+              className="bg-accent absolute inset-0 -z-10 rounded-full"
               layoutId="activeSection"
               transition={{
                 type: "spring",

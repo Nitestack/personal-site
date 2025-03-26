@@ -35,5 +35,5 @@ module.exports = {
     TYPES.THIRD_PARTY,
     TYPES.RELATIVE,
   ],
-  importOrderTypeScriptVersion: "5.4.3",
+  importOrderTypeScriptVersion: "5.8.2",
 };

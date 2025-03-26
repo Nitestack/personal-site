@@ -35,7 +35,7 @@ const ExperienceTimeline: FC<{
 
         const endDate = event.endDate?.split("-");
         return (
-          <li key={event.title + event.date.toString()} className="mb-10 ms-4">
+          <li key={event.title + event.date.toString()} className="ms-4 mb-10">
             <MotionDiv
               className={classNames(
                 "absolute -start-1.5 mt-1 h-3 w-3 rounded-full border",
@@ -63,8 +63,8 @@ const ExperienceTimeline: FC<{
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <div className="flex flex-wrap items-center gap-2 text-sm font-normal leading-none">
-                <p className="py-1 text-muted-foreground">
+              <div className="flex flex-wrap items-center gap-2 text-sm leading-none font-normal">
+                <p className="text-muted-foreground py-1">
                   {new Date(year, monthIndex - 1).toLocaleDateString(
                     locale ?? undefined,
                     {
@@ -93,7 +93,7 @@ const ExperienceTimeline: FC<{
                   )}
                 </p>
                 {event.current && (
-                  <span className="w-fit rounded bg-primary px-2 py-1 font-medium text-primary-foreground">
+                  <span className="bg-primary text-primary-foreground w-fit rounded px-2 py-1 font-medium">
                     {t("current")}
                   </span>
                 )}
@@ -102,7 +102,7 @@ const ExperienceTimeline: FC<{
                 <span className="flex flex-wrap items-center gap-2">
                   {event.title}
                   {event.company && (
-                    <span className="rounded bg-muted px-2 py-0.5 leading-8">
+                    <span className="bg-muted rounded px-2 py-0.5 leading-8">
                       {event.companyLink ? (
                         <Link
                           className="text-primary hover:underline"
@@ -118,7 +118,7 @@ const ExperienceTimeline: FC<{
                   )}
                 </span>
               </h3>
-              <p className="text-base font-normal text-muted-foreground">
+              <p className="text-muted-foreground text-base font-normal">
                 {event.description}
               </p>
               {event.tags?.length && (
@@ -126,7 +126,7 @@ const ExperienceTimeline: FC<{
                   {event.tags.map((tag) => (
                     <span
                       key={`${event.title}-${tag}`}
-                      className="rounded bg-muted px-2 py-0.5 leading-8"
+                      className="bg-muted rounded px-2 py-0.5 leading-8"
                     >
                       {tag}
                     </span>

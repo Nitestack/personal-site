@@ -60,7 +60,7 @@ const LocaleLayout: FC<{
       className={classNames(
         workSans.variable,
         commitMono.variable,
-        "scroll-smooth antialiased scrollbar-none"
+        "scrollbar-none scroll-smooth antialiased"
       )}
       lang={locale}
       suppressHydrationWarning
@@ -77,7 +77,7 @@ const LocaleLayout: FC<{
             }}
           >
             <Navbar />
-            <main className="container mx-auto mb-8 mt-4 w-full flex-grow px-6 sm:px-6 md:mt-12 lg:px-8">
+            <main className="container mx-auto mt-4 mb-8 w-full grow px-6 sm:px-6 md:mt-12 lg:px-8">
               {children}
             </main>
             <Footer />

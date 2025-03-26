@@ -16,7 +16,7 @@ const ProjectTags: FC<
       {tags.map((tag) => (
         <span
           key={`${name}-${tag}`}
-          className="flex items-center rounded border bg-primary px-1.5 py-0.5 text-xs/4 text-primary-foreground md:px-2.5 md:py-1.5"
+          className="bg-primary text-primary-foreground flex items-center rounded border px-1.5 py-0.5 text-xs/4 md:px-2.5 md:py-1.5"
         >
           {tag}
         </span>

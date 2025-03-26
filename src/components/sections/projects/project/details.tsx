@@ -27,11 +27,11 @@ const ProjectDetailsLink: FC<ProjectSingleLink & { fullWidth?: boolean }> = ({
         target="_blank"
       >
         {type === "github" ? (
-          <GithubIcon className="h-4 w-4 text-primary lg:h-5 lg:w-5" />
+          <GithubIcon className="text-primary h-4 w-4 lg:h-5 lg:w-5" />
         ) : type === "live" ? (
-          <ZapIcon className="h-4 w-4 text-primary lg:h-5 lg:w-5" />
+          <ZapIcon className="text-primary h-4 w-4 lg:h-5 lg:w-5" />
         ) : (
-          <LinkIcon className="h-4 w-4 text-primary lg:h-5 lg:w-5" />
+          <LinkIcon className="text-primary h-4 w-4 lg:h-5 lg:w-5" />
         )}
         <span>{name}</span>
       </Link>
@@ -62,7 +62,7 @@ const ProjectDetails: FC<TranslatedProject> = (project) => {
 
   return (
     <div className="flex flex-col gap-3 overflow-x-hidden">
-      <div className="relative aspect-video w-full rounded-md border border-border">
+      <div className="border-border relative aspect-video w-full rounded-md border">
         <div className="relative aspect-video w-full">
           <NextImage
             fill
@@ -81,7 +81,7 @@ const ProjectDetails: FC<TranslatedProject> = (project) => {
                   key={link.name + i.toString()}
                   className="flex w-full flex-col flex-wrap items-start justify-between gap-2 md:flex-row md:items-center"
                 >
-                  <p className="rounded bg-accent px-1 py-0.5">{link.name}:</p>
+                  <p className="bg-accent rounded px-1 py-0.5">{link.name}:</p>
                   <div className="flex items-center gap-1">
                     {link.links.map((l) => (
                       <ProjectDetailsLink

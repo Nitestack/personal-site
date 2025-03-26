@@ -35,7 +35,7 @@ const Error: FC<{ message: string } & ErrorComponentProps> = ({
           alt="Error"
         />
       </div>
-      <h1 className="text-balance text-center text-3xl font-bold">{message}</h1>
+      <h1 className="text-center text-3xl font-bold text-balance">{message}</h1>
       <Button variant="destructive" onClick={reset}>
         {t("retry")}
       </Button>
