@@ -3,7 +3,6 @@
 import { metadata } from "@metadata";
 import { getLocaleDateString } from "@utils";
 import { intlFormatDistance } from "date-fns";
-import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import { Suspense } from "react";
 
