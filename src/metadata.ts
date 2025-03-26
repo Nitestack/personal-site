@@ -106,7 +106,7 @@ export function metadata<
         ? metadata.title
         : ((metadata.title as DefaultTemplateString).default ??
           (metadata.title as AbsoluteTemplateString | AbsoluteString).absolute);
-    if (!metadata.description) metadata.description = t("All.description");
+    metadata.description ??= t("All.description");
     const resolvedDescription = metadata.description;
     (metadata as Metadata).openGraph = {
       type: "website",

@@ -1,10 +1,13 @@
-// prettier-ignore
-// eslint-disable-next-line @typescript-eslint/consistent-type-imports
-import en from "./messages/en.json";
+/* eslint-disable @typescript-eslint/consistent-type-imports */
 
-type Messages = typeof en;
+import { formats } from "@/i18n/request";
+import { routing } from "@/i18n/routing";
+import messages from "./messages/en.json";
 
-declare global {
-  // eslint-disable-next-line @typescript-eslint/no-empty-interface
-  interface IntlMessages extends Messages {}
+declare module "next-intl" {
+  interface AppConfig {
+    Locale: (typeof routing.locales)[number];
+    Messages: typeof messages;
+    Formats: typeof formats;
+  }
 }

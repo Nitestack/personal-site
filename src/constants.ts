@@ -1,13 +1,16 @@
 import { type UrlObject } from "node:url";
 
 import { type icons } from "lucide-react";
-import {
-  type NamespaceKeys,
-  type NestedKeyOf,
-  type useTranslations,
-} from "next-intl";
 
 import { type ExperienceTimelineItem } from "@components/sections/experience/timeline";
+
+import type {
+  Messages,
+  NamespaceKeys,
+  NestedKeyOf,
+  useTranslations,
+} from "next-intl";
+import type messages from "../messages/en.json";
 
 interface NavigationRoute {
   id: Section;
@@ -16,10 +19,7 @@ interface NavigationRoute {
 }
 
 export type TranslationKey<
-  NestedKey extends NamespaceKeys<
-    IntlMessages,
-    NestedKeyOf<IntlMessages>
-  > = never,
+  NestedKey extends NamespaceKeys<Messages, NestedKeyOf<Messages>> = never,
 > = Parameters<ReturnType<typeof useTranslations<NestedKey>>>["0"];
 
 export type MonthIndex = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
@@ -58,7 +58,7 @@ export interface ProjectMultiLink extends ProjectBaseLink {
 export interface Project {
   name: string;
   startDate: `${MonthIndex}-${number}`;
-  visibility: TranslationKey<"Projects.Visibility">;
+  visibility: keyof (typeof messages)["Projects"]["Visibility"];
   imageUrl: string;
   description: TranslationKey<"Projects.Descriptions">;
   tags: string[];
@@ -735,7 +735,7 @@ export const SITE_CONFIG: {
     .filter((section) => section !== "intro")
     .map<NavigationRoute>((section) => ({
       id: section,
-      translationKey: section as TranslationKey<"Routes">,
+      translationKey: section,
       url: {
         pathname: "/",
         hash: `#${section}`,
