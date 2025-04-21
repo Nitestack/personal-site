@@ -5,7 +5,6 @@ import { routing } from "./routing";
 
 export default getRequestConfig(async ({ requestLocale }) => {
   const requested = await requestLocale;
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-call
   const locale = hasLocale(routing.locales, requested)
     ? requested
     : routing.defaultLocale;
