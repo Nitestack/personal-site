@@ -37,6 +37,11 @@ const nextConfig = {
   },
   redirects: async () => [
     {
+      source: "/linkedin",
+      destination: "https://www.linkedin.com/in/nhan-pham-6702922b3",
+      permanent: true,
+    },
+    {
       source: "/twitter",
       destination: "https://twitter.com/nitestack",
       permanent: true,
