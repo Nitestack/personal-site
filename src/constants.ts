@@ -121,6 +121,11 @@ export const SITE_CONFIG: {
   },
   socials: [
     {
+      name: "LinkedIn",
+      url: "/linkedin",
+      iconName: "Linkedin",
+    },
+    {
       name: "GitHub",
       url: "/github",
       iconName: "Github",
