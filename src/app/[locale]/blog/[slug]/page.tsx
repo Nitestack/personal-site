@@ -4,7 +4,7 @@ import { metadata } from "@metadata";
 import bookmarkPlugin from "@notion-render/bookmark-plugin";
 import { NotionRenderer } from "@notion-render/client";
 import { getAvatarFallback, getLocaleDateString } from "@utils";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { type OpenGraph } from "next/dist/lib/metadata/types/opengraph-types";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
@@ -68,8 +68,7 @@ const BlogPage: FC<{
   params: Promise<{ slug: string; locale: string }>;
 }> = async ({ params }) => {
   const { slug, locale } = await params;
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const t = useTranslations("Blog");
+  const t = await getTranslations("Blog");
 
   return (
     <Suspense>
