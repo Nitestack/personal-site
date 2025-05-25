@@ -1,7 +1,5 @@
 import { defaultMetadata } from "@metadata";
 import { classNames } from "@utils";
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import { type Viewport } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
@@ -80,8 +78,6 @@ const LocaleLayout: FC<{
             <Footer />
             <Toaster />
             <ScrollProgress />
-            <Analytics />
-            <SpeedInsights />
           </Providers>
         </NextIntlClientProvider>
       </body>
