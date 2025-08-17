@@ -53,11 +53,6 @@ const nextConfig = {
       permanent: true,
     },
     {
-      source: "/dotfiles",
-      destination: "https://github.com/Nitestack/dotfiles",
-      permanent: true,
-    },
-    {
       source: "/discord",
       destination: "https://discordapp.com/users/1082266135627579412",
       permanent: true,
