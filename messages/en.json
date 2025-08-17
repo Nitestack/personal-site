@@ -30,7 +30,7 @@
       "comingSoon": "Coming soon...",
       "raspberryPi5": "A streamlined Ansible setup designed to automate and manage the configuration of a Raspberry Pi 5 as a home server, ensuring efficient deployment and consistent performance for various services.",
       "personalSite": "Bilingual portfolio showcasing me, my skills, my projects and my blog.",
-      "dotfiles": "Effortlessly personalize and secure your setups across NixOS and Windows (including WSL) with curated configs and scripts using chezmoi.",
+      "nix-config": "A comprehensive, cross-platform Nix configuration repository managing system settings and user environments across multiple operating systems. This repository provides reproducible, declarative configurations for NixOS (including NixOS via WSL) and macOS.",
       "projectManagerCli": "A cross-platform CLI tool for optimized project management and quick switching between projects.",
       "nvimSwitcher": "A cross-platform CLI tool for effortless switching between various Neovim distributions.",
       "playersAllianceDashboard": "A dashboard designed for the 'Players Alliance', a gaming community dedicated to 'Clash of Clans'. This management tool enables moderators and administrators to oversee monthly in-game events. It interfaces with the CoC API to retrieve player data.",
