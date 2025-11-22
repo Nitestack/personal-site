@@ -1,7 +1,7 @@
 "use client";
 
-import { type Skill } from "@constants";
-import { getStarRating } from "@utils";
+import { type Skill } from "@/constants";
+import { getStarRating } from "@/utils";
 import { createContext, useCallback, useContext, useState } from "react";
 
 import type { FC, ReactNode } from "react";

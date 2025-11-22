@@ -9,7 +9,7 @@ export const env = createEnv({
   server: {
     NODE_ENV: z.enum(["development", "test", "production"]),
     NOTION_SECRET: z.string(),
-    NOTION_DATABASE_ID: z.string(),
+    NOTION_DATASOURCE_ID: z.string(),
     GITHUB_PERSONAL_ACCESS_TOKEN: z.string(),
   },
 
@@ -29,7 +29,7 @@ export const env = createEnv({
   runtimeEnv: {
     NODE_ENV: process.env.NODE_ENV,
     NOTION_SECRET: process.env.NOTION_SECRET,
-    NOTION_DATABASE_ID: process.env.NOTION_DATABASE_ID,
+    NOTION_DATASOURCE_ID: process.env.NOTION_DATASOURCE_ID,
     GITHUB_PERSONAL_ACCESS_TOKEN: process.env.GITHUB_PERSONAL_ACCESS_TOKEN,
     // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
   },

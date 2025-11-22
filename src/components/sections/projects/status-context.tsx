@@ -1,9 +1,9 @@
 "use client";
 
-import { status } from "@constants";
+import { status } from "@/constants";
 import { createContext, useCallback, useContext, useState } from "react";
 
-import type { ProjectStatus } from "@constants";
+import type { ProjectStatus } from "@/constants";
 import type { FC, ReactNode } from "react";
 
 interface ProjectStatusType {

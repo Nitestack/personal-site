@@ -1,18 +1,18 @@
 "use client";
 
-import { type Section } from "@constants";
+import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
+
+import { MotionSpan } from "@/components/motion";
+import { useSectionsContext } from "@/components/sections/context";
+import { type Section } from "@/constants";
+import { Link } from "@/i18n/routing";
+import { cn } from "@/utils";
 import {
   NavigationMenuItem,
   NavigationMenuLink,
 } from "@radix-ui/react-navigation-menu";
-import { classNames } from "@utils";
 import { type LinkProps } from "next/link";
 import { type FC } from "react";
-
-import { Link } from "@/i18n/routing";
-import { MotionSpan } from "@components/motion";
-import { useSectionsContext } from "@components/sections/context";
-import { navigationMenuTriggerStyle } from "@components/ui/navigation-menu";
 
 const NavbarLink: FC<{
   id: Section;
@@ -28,14 +28,15 @@ const NavbarLink: FC<{
   }
   return (
     <NavigationMenuItem>
-      <Link href={href} passHref legacyBehavior>
-        <NavigationMenuLink
-          className={classNames(navigationMenuTriggerStyle(), {
-            "text-accent-foreground": isActive,
-          })}
-          onClick={handleOnClick}
-          active={isActive}
-        >
+      <NavigationMenuLink
+        asChild
+        className={cn(navigationMenuTriggerStyle(), {
+          "text-accent-foreground": isActive,
+        })}
+        onClick={handleOnClick}
+        active={isActive}
+      >
+        <Link href={href}>
           {children}
           {isActive && (
             <MotionSpan
@@ -48,8 +49,8 @@ const NavbarLink: FC<{
               }}
             />
           )}
-        </NavigationMenuLink>
-      </Link>
+        </Link>
+      </NavigationMenuLink>
     </NavigationMenuItem>
   );
 };

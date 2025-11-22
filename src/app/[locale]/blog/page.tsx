@@ -1,19 +1,19 @@
-import { SITE_CONFIG } from "@constants";
-import { metadata } from "@metadata";
-import { useTranslations } from "next-intl";
-import { unstable_noStore } from "next/cache";
-import { Fragment, Suspense } from "react";
+import { CarouselItem } from "@/components/ui/carousel";
 
-import BlogPostPreview from "@app/[locale]/blog/blog-preview";
+import BlogPostPreview from "@/app/[locale]/blog/blog-preview";
 import {
   getBlogPages,
   getOGImage,
   parseBlogPageProperties,
   trimExcerpt,
-} from "@app/[locale]/blog/notion";
-import SkeletonBlogPreview from "@app/[locale]/blog/skeleton-blog-preview";
-import Layout from "@components/layout";
-import { CarouselItem } from "@components/ui/carousel";
+} from "@/app/[locale]/blog/notion";
+import SkeletonBlogPreview from "@/app/[locale]/blog/skeleton-blog-preview";
+import Layout from "@/components/layout";
+import { SITE_CONFIG } from "@/constants";
+import { metadata } from "@/metadata";
+import { useTranslations } from "next-intl";
+import { unstable_noStore } from "next/cache";
+import { Fragment, Suspense } from "react";
 
 import type { FC } from "react";
 

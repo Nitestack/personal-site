@@ -1,26 +1,26 @@
-import { SITE_CONFIG } from "@constants";
-import { Settings } from "lucide-react";
-import { useTranslations } from "next-intl";
-import { type FC } from "react";
-
-import { MotionDiv, MotionUl } from "@components/motion";
-import {
-  NavigationMenu,
-  NavigationMenuList,
-  NavigationMenuViewport,
-} from "@components/navbar/client";
-import LanguageSelection from "@components/navbar/language-selection";
-import NavbarLink from "@components/navbar/link";
-import NavbarLogo from "@components/navbar/logo";
-import MobileSidebar from "@components/navbar/mobile";
-import ThemeSelection from "@components/navbar/theme-selection";
-import { Button } from "@components/ui/button";
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@components/ui/dropdown-menu";
+} from "@/components/ui/dropdown-menu";
+
+import { MotionDiv, MotionUl } from "@/components/motion";
+import {
+  NavigationMenu,
+  NavigationMenuList,
+  NavigationMenuViewport,
+} from "@/components/navbar/client";
+import LanguageSelection from "@/components/navbar/language-selection";
+import NavbarLink from "@/components/navbar/link";
+import NavbarLogo from "@/components/navbar/logo";
+import MobileSidebar from "@/components/navbar/mobile";
+import ThemeSelection from "@/components/navbar/theme-selection";
+import { SITE_CONFIG } from "@/constants";
+import { Settings } from "lucide-react";
+import { useTranslations } from "next-intl";
+import { type FC } from "react";
 
 const Navbar: FC = () => {
   const t = useTranslations();

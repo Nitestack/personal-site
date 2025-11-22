@@ -1,12 +1,12 @@
 "use client";
 
-import { LOCALIZATION_CONFIG } from "@constants";
+import { Label } from "@/components/ui/label";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+
+import { LOCALIZATION_CONFIG } from "@/constants";
+import { usePathname, useRouter } from "@/i18n/routing";
 import { useLocale } from "next-intl";
 import { useTransition } from "react";
-
-import { usePathname, useRouter } from "@/i18n/routing";
-import { Label } from "@components/ui/label";
-import { RadioGroup, RadioGroupItem } from "@components/ui/radio-group";
 
 import type { FC } from "react";
 

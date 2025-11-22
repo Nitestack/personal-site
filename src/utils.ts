@@ -1,18 +1,14 @@
-import { SITE_CONFIG } from "@constants";
+import { SITE_CONFIG } from "@/constants";
 import { clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
-import type { Skill } from "@constants";
+import type { Skill } from "@/constants";
 import type { ClassValue } from "clsx";
 
 /**
  * Converts all class names into one class string
  * @param classLists The class(es)
  */
-export function classNames(...classLists: ClassValue[]) {
-  return twMerge(clsx(classLists));
-}
-
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }

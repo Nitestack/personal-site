@@ -1,12 +1,11 @@
 "use client";
 
-import { sections } from "@constants";
+import { MotionSection } from "@/components/motion";
+import { sections } from "@/constants";
 import { createContext, useContext, useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 
-import { MotionSection } from "@components/motion";
-
-import type { Section } from "@constants";
+import type { Section } from "@/constants";
 import type {
   ComponentPropsWithoutRef,
   Dispatch,

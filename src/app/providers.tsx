@@ -1,9 +1,8 @@
 "use client";
 
+import { SectionsContextProvider } from "@/components/sections/context";
 import { ThemeProvider } from "next-themes";
 import { type FC, type ReactNode } from "react";
-
-import { SectionsContextProvider } from "@components/sections/context";
 
 import type { ThemeProviderProps } from "next-themes";
 

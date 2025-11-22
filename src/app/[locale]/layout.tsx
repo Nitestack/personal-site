@@ -1,17 +1,17 @@
-import { defaultMetadata } from "@metadata";
-import { classNames } from "@utils";
+import { Toaster } from "@/components/ui/sonner";
+
+import Providers from "@/app/providers";
+import Footer from "@/components/footer";
+import Navbar from "@/components/navbar";
+import ScrollProgress from "@/components/scroll-progress";
+import { redirect, routing } from "@/i18n/routing";
+import { defaultMetadata } from "@/metadata";
+import { cn } from "@/utils";
 import { type Viewport } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 import { Work_Sans } from "next/font/google";
 import localFont from "next/font/local";
-
-import { redirect, routing } from "@/i18n/routing";
-import Providers from "@app/providers";
-import Footer from "@components/footer";
-import Navbar from "@components/navbar";
-import ScrollProgress from "@components/scroll-progress";
-import { Toaster } from "@components/ui/sonner";
 
 import type { FC, ReactNode } from "react";
 
@@ -52,7 +52,7 @@ const LocaleLayout: FC<{
 
   return (
     <html
-      className={classNames(
+      className={cn(
         workSans.variable,
         commitMono.variable,
         "scrollbar-none scroll-smooth antialiased"

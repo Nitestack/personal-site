@@ -1,21 +1,21 @@
-import { SITE_CONFIG } from "@constants";
-import { Menu, X } from "lucide-react";
-import { useTranslations } from "next-intl";
-import { type FC } from "react";
-
-import { MobileSidebarContextProvider } from "@components/navbar/mobile/context";
-import MobileLanguageSelection from "@components/navbar/mobile/language-selection";
-import MobileSidebarLink from "@components/navbar/mobile/link";
-import MobileSidebarLogo from "@components/navbar/mobile/logo";
-import MobileThemeSelection from "@components/navbar/mobile/theme-selection";
-import { Button } from "@components/ui/button";
+import { Button } from "@/components/ui/button";
 import {
   SheetClose,
   SheetContent,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@components/ui/sheet";
+} from "@/components/ui/sheet";
+
+import { MobileSidebarContextProvider } from "@/components/navbar/mobile/context";
+import MobileLanguageSelection from "@/components/navbar/mobile/language-selection";
+import MobileSidebarLink from "@/components/navbar/mobile/link";
+import MobileSidebarLogo from "@/components/navbar/mobile/logo";
+import MobileThemeSelection from "@/components/navbar/mobile/theme-selection";
+import { SITE_CONFIG } from "@/constants";
+import { Menu, X } from "lucide-react";
+import { useTranslations } from "next-intl";
+import { type FC } from "react";
 
 const MobileSidebar: FC = () => {
   const t = useTranslations();

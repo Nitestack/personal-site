@@ -1,4 +1,4 @@
-import { LOCALIZATION_CONFIG } from "@constants";
+import { LOCALIZATION_CONFIG } from "@/constants";
 import { createNavigation } from "next-intl/navigation";
 import { defineRouting } from "next-intl/routing";
 

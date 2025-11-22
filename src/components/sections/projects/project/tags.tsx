@@ -1,14 +1,13 @@
-import { classNames } from "@utils";
+import { type TranslatedProject } from "@/components/sections/projects/project";
+import { cn } from "@/utils";
 import { type FC } from "react";
-
-import { type TranslatedProject } from "@components/sections/projects/project";
 
 const ProjectTags: FC<
   Pick<TranslatedProject, "tags" | "name"> & { onCard?: boolean }
 > = ({ name, tags, onCard }) => {
   return (
     <div
-      className={classNames(
+      className={cn(
         "flex-wrap items-end justify-center gap-2",
         onCard ? "hidden md:flex" : "flex"
       )}

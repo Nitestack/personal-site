@@ -1,10 +1,9 @@
-import { type MonthIndex } from "@constants";
-import { classNames } from "@utils";
+import { MotionDiv } from "@/components/motion";
+import { type MonthIndex } from "@/constants";
+import { Link } from "@/i18n/routing";
+import { cn } from "@/utils";
 import { useTranslations } from "next-intl";
 import { type FC, type ReactNode } from "react";
-
-import { Link } from "@/i18n/routing";
-import { MotionDiv } from "@components/motion";
 
 export interface ExperienceTimelineItem {
   date: `${MonthIndex}-${number}`;
@@ -35,9 +34,9 @@ const ExperienceTimeline: FC<{
 
         const endDate = event.endDate?.split("-");
         return (
-          <li key={event.title + event.date.toString()} className="mb-10 ms-4">
+          <li key={event.title + event.date.toString()} className="ms-4 mb-10">
             <MotionDiv
-              className={classNames(
+              className={cn(
                 "absolute -start-1.5 mt-1 h-3 w-3 rounded-full border",
                 event.current
                   ? "border-primary bg-primary"
@@ -63,7 +62,7 @@ const ExperienceTimeline: FC<{
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <div className="flex flex-wrap items-center gap-2 text-sm font-normal leading-none">
+              <div className="flex flex-wrap items-center gap-2 text-sm leading-none font-normal">
                 <p className="text-muted-foreground py-1">
                   {new Date(year, monthIndex - 1).toLocaleDateString(
                     locale ?? undefined,

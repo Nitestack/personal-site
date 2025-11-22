@@ -1,7 +1,7 @@
 "use client";
 
+import { cn } from "@/utils";
 import * as LabelPrimitive from "@radix-ui/react-label";
-import { cn } from "@utils";
 import { cva } from "class-variance-authority";
 import { forwardRef } from "react";
 

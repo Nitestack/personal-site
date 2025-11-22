@@ -1,20 +1,11 @@
-import { type Project } from "@constants";
-import NextImage from "next/image";
-import { type FC } from "react";
-
-import { MotionDiv } from "@components/motion";
-import ProjectDetails from "@components/sections/projects/project/details";
-import ProjectInfo from "@components/sections/projects/project/info";
-import ProjectTags from "@components/sections/projects/project/tags";
-import ProjectTitle from "@components/sections/projects/project/title";
-import { Button } from "@components/ui/button";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@components/ui/card";
+} from "@/components/ui/card";
 import {
   Dialog,
   DialogContent,
@@ -22,7 +13,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@components/ui/dialog";
+} from "@/components/ui/dialog";
 import {
   Drawer,
   DrawerContent,
@@ -30,7 +21,16 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from "@components/ui/drawer";
+} from "@/components/ui/drawer";
+
+import { MotionDiv } from "@/components/motion";
+import ProjectDetails from "@/components/sections/projects/project/details";
+import ProjectInfo from "@/components/sections/projects/project/info";
+import ProjectTags from "@/components/sections/projects/project/tags";
+import ProjectTitle from "@/components/sections/projects/project/title";
+import { type Project } from "@/constants";
+import NextImage from "next/image";
+import { type FC } from "react";
 
 export type TranslatedProject = Omit<Project, "description"> & {
   description: string;

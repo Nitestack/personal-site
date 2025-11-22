@@ -1,10 +1,9 @@
-import { SITE_CONFIG } from "@constants";
-
-import { routing } from "@/i18n/routing";
 import {
   getBlogPages,
   parseBlogPageProperties,
-} from "@app/[locale]/blog/notion";
+} from "@/app/[locale]/blog/notion";
+import { SITE_CONFIG } from "@/constants";
+import { routing } from "@/i18n/routing";
 
 /**
  * @see https://nextjs.org/docs/app/api-reference/file-conventions/metadata/sitemap#returns

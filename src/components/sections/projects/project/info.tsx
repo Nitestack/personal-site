@@ -1,8 +1,8 @@
-import { classNames } from "@utils";
-import { type FC } from "react";
+import { Button } from "@/components/ui/button";
 
-import { type TranslatedProject } from "@components/sections/projects/project";
-import { Button } from "@components/ui/button";
+import { type TranslatedProject } from "@/components/sections/projects/project";
+import { cn } from "@/utils";
+import { type FC } from "react";
 
 const ProjectInfo: FC<
   Pick<TranslatedProject, "visibility" | "visibilityLabel" | "startDate"> & {
@@ -16,7 +16,7 @@ const ProjectInfo: FC<
     <div className="pointer-events-none flex items-center justify-center gap-1">
       <Button
         size="sm"
-        className={classNames(
+        className={cn(
           "h-fit rounded px-1.5 py-0.5",
           visibility === "private" ? "bg-red-500" : "bg-blue-500"
         )}

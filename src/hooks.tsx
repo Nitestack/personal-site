@@ -1,8 +1,7 @@
 "use client";
 
-import { useTransition } from "react";
-
 import { Link, useRouter } from "@/i18n/routing";
+import { useTransition } from "react";
 
 import type { ComponentPropsWithoutRef, FC, ReactNode } from "react";
 

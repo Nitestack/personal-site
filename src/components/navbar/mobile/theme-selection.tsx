@@ -1,10 +1,10 @@
 "use client";
 
+import { Label } from "@/components/ui/label";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-
-import { Label } from "@components/ui/label";
-import { RadioGroup, RadioGroupItem } from "@components/ui/radio-group";
 
 import type { FC } from "react";
 

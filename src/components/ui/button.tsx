@@ -1,5 +1,5 @@
+import { cn } from "@/utils";
 import { Slot } from "@radix-ui/react-slot";
-import { classNames } from "@utils";
 import { cva } from "class-variance-authority";
 import { forwardRef } from "react";
 
@@ -47,7 +47,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <Comp
         ref={ref}
-        className={classNames(buttonVariants({ variant, size, className }))}
+        className={cn(buttonVariants({ variant, size, className }))}
         {...props}
       />
     );

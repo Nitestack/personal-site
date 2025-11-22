@@ -1,14 +1,14 @@
-import { SITE_CONFIG } from "@constants";
+import { Button } from "@/components/ui/button";
+
+import LucideIcon from "@/components/lucide-icon";
+import { MotionDiv } from "@/components/motion";
+import { HeroSectionView } from "@/components/sections/context";
+import { SITE_CONFIG } from "@/constants";
+import AppNetwork from "@public/images/app-network.png";
 import { useTranslations } from "next-intl";
 import NextImage from "next/image";
 import Link from "next/link";
 import { type FC } from "react";
-
-import LucideIcon from "@components/lucide-icon";
-import { MotionDiv } from "@components/motion";
-import { HeroSectionView } from "@components/sections/context";
-import { Button } from "@components/ui/button";
-import AppNetwork from "@public/images/app-network.png";
 
 const HeroSection: FC = () => {
   const t = useTranslations();
@@ -37,7 +37,7 @@ const HeroSection: FC = () => {
           <h1 className="text-5xl font-bold tracking-wider sm:text-8xl">
             {SITE_CONFIG.name}
           </h1>
-          <p className="text-balance text-xl text-muted-foreground">
+          <p className="text-muted-foreground text-xl text-balance">
             {t("All.description")}
           </p>
           <div className="flex justify-center space-x-4 p-2">

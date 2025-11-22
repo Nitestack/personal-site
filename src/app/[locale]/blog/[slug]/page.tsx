@@ -1,15 +1,3 @@
-import { SITE_CONFIG } from "@constants";
-import { env } from "@env";
-import { metadata } from "@metadata";
-import bookmarkPlugin from "@notion-render/bookmark-plugin";
-import { NotionRenderer } from "@notion-render/client";
-import { getAvatarFallback, getLocaleDateString } from "@utils";
-import { getTranslations } from "next-intl/server";
-import { type OpenGraph } from "next/dist/lib/metadata/types/opengraph-types";
-import { notFound } from "next/navigation";
-import { Suspense } from "react";
-import { type BlogPosting, type Thing, type WithContext } from "schema-dts";
-
 import {
   getBlogPageBySlug,
   getNotionPageContent,
@@ -19,10 +7,21 @@ import {
   notionClient,
   parseBlogPageProperties,
   trimExcerpt,
-} from "@app/[locale]/blog/notion";
-import { Avatar, AvatarFallback, AvatarImage } from "@components/ui/avatar";
-import { Skeleton } from "@components/ui/skeleton";
+} from "@/app/[locale]/blog/notion";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Skeleton } from "@/components/ui/skeleton";
+import { SITE_CONFIG } from "@/constants";
+import { env } from "@/env";
+import { metadata } from "@/metadata";
+import { getAvatarFallback, getLocaleDateString } from "@/utils";
+import bookmarkPlugin from "@notion-render/bookmark-plugin";
+import { NotionRenderer } from "@notion-render/client";
 import Logo from "@public/images/logo.png";
+import { getTranslations } from "next-intl/server";
+import { type OpenGraph } from "next/dist/lib/metadata/types/opengraph-types";
+import { notFound } from "next/navigation";
+import { Suspense } from "react";
+import { type BlogPosting, type Thing, type WithContext } from "schema-dts";
 
 import type { FC } from "react";
 

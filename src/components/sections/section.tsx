@@ -1,11 +1,10 @@
 "use client";
 
-import { type Section as SectionType } from "@constants";
-import { classNames } from "@utils";
+import { MotionSection } from "@/components/motion";
+import { useSectionInView } from "@/components/sections/context";
+import { type Section as SectionType } from "@/constants";
+import { cn } from "@/utils";
 import { type ComponentPropsWithoutRef, type FC, type ReactNode } from "react";
-
-import { MotionSection } from "@components/motion";
-import { useSectionInView } from "@components/sections/context";
 
 const Section: FC<
   Omit<ComponentPropsWithoutRef<typeof MotionSection>, "id" | "children"> & {
@@ -21,10 +20,7 @@ const Section: FC<
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1 }}
       {...props}
-      className={classNames(
-        "min-h-svh scroll-mt-20 md:scroll-mt-24",
-        className
-      )}
+      className={cn("min-h-svh scroll-mt-20 md:scroll-mt-24", className)}
       ref={ref}
       id={sectionID}
     >

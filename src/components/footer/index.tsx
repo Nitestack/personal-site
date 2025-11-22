@@ -1,10 +1,9 @@
-import { SITE_CONFIG } from "@constants";
+import LucideIcon from "@/components/lucide-icon";
+import { MotionFooter } from "@/components/motion";
+import { SITE_CONFIG } from "@/constants";
+import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 import { type FC } from "react";
-
-import { Link } from "@/i18n/routing";
-import LucideIcon from "@components/lucide-icon";
-import { MotionFooter } from "@components/motion";
 
 const Footer: FC = () => {
   const t = useTranslations("Footer");

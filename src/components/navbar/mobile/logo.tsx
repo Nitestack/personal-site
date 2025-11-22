@@ -1,7 +1,7 @@
 "use client";
 
-import NavbarLogo from "@components/navbar/logo";
-import { useMobileSidebarContext } from "@components/navbar/mobile/context";
+import NavbarLogo from "@/components/navbar/logo";
+import { useMobileSidebarContext } from "@/components/navbar/mobile/context";
 
 const MobileSidebarLogo = () => {
   const { setOpen } = useMobileSidebarContext();

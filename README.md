@@ -87,7 +87,7 @@ cp .env.example .env
 
 - `NOTION_SECRET`: Your Notion API secret key.
 
-- `NOTION_DATABASE_ID`: The ID of the Notion database where your blog posts are stored.
+- `NOTION_DATASOURCE_ID`: The ID of the Notion datasource where your blog posts are stored.
 
 ### 2. Global Constants (`src/constants.ts`)
 

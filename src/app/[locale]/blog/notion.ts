@@ -1,7 +1,7 @@
 import "server-only";
 
-import { SITE_CONFIG } from "@constants";
-import { env } from "@env";
+import { SITE_CONFIG } from "@/constants";
+import { env } from "@/env";
 import { createBlockRenderer } from "@notion-render/client";
 import { Client, collectPaginatedAPI } from "@notionhq/client";
 import {
@@ -48,8 +48,8 @@ export const incrementViewCount = cache(
 );
 
 export const getBlogPages = cache(async () => {
-  const pages = await notionClient.databases.query({
-    database_id: env.NOTION_DATABASE_ID,
+  const pages = await notionClient.dataSources.query({
+    data_source_id: env.NOTION_DATASOURCE_ID,
     filter: env.NODE_ENV === "production" ? filterByStatus : undefined,
     sorts: [
       {
@@ -66,8 +66,8 @@ export const getBlogPages = cache(async () => {
 });
 
 export const getBlogPageBySlug = cache(async (slug: string) => {
-  const pages = await notionClient.databases.query({
-    database_id: env.NOTION_DATABASE_ID,
+  const pages = await notionClient.dataSources.query({
+    data_source_id: env.NOTION_DATASOURCE_ID,
     filter: {
       and: [
         {
@@ -168,7 +168,7 @@ const codeBlockRenderer = (options: Config) =>
 
       return `
         <div class="notion-${data.type}">
-          <div class="bg-muted flex justify-between items-center gap-2 h-full w-full font-bold rounded-t px-[calc(16_/_14_*1em)] md:py-2 lg:px-6 py-1">
+          <div class="bg-muted flex justify-between items-center gap-2 h-full w-full font-bold rounded-t px-[calc(16/14*1em)] md:py-2 lg:px-6 py-1">
             <legend class="font-mono text-xs md:text-sm truncate">${data.code.caption.length >= 1 ? await renderer.render(...data.code.caption) : "Code"}</legend>
             <div class="flex items-center">
               <button class="hover:text-foreground/50 w-5 h-5" onclick="navigator.clipboard.writeText(\`${clipboardText}\`); this.innerHTML = \`${checkIconSvg}\`; setTimeout(() => { this.innerHTML = \`${copyIconSvg}\`; }, 2000);">

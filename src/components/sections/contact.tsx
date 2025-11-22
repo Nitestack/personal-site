@@ -1,13 +1,12 @@
-import { SITE_CONFIG } from "@constants";
+import LucideIcon from "@/components/lucide-icon";
+import { MotionDiv } from "@/components/motion";
+import Section from "@/components/sections/section";
+import { Button } from "@/components/ui/button";
+import { SITE_CONFIG } from "@/constants";
 import { Building2, Mail, MapPin, User } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { type FC } from "react";
-
-import LucideIcon from "@components/lucide-icon";
-import { MotionDiv } from "@components/motion";
-import Section from "@components/sections/section";
-import { Button } from "@components/ui/button";
 
 const ContactSection: FC = () => {
   const t = useTranslations();
@@ -37,10 +36,12 @@ const ContactSection: FC = () => {
               {SITE_CONFIG.email}
             </Link>
           </div>
-          <p className="flex items-center gap-2">
-            <MapPin className="h-5 w-5" />
-            <span className="font-medium">{SITE_CONFIG.location}</span>
-          </p>
+          {SITE_CONFIG.location && (
+            <p className="flex items-center gap-2">
+              <MapPin className="h-5 w-5" />
+              <span className="font-medium">{SITE_CONFIG.location}</span>
+            </p>
+          )}
           {SITE_CONFIG.employer && (
             <div className="flex items-center gap-2">
               <Building2 className="h-5 w-5" />

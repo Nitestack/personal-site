@@ -1,6 +1,8 @@
 "use client";
 
-import { cn } from "@utils";
+import { Button } from "@/components/ui/button";
+
+import { cn } from "@/utils";
 import useEmblaCarousel from "embla-carousel-react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import {
@@ -11,8 +13,6 @@ import {
   useEffect,
   useState,
 } from "react";
-
-import { Button } from "@components/ui/button";
 
 import type { UseEmblaCarouselType } from "embla-carousel-react";
 import type { ComponentProps, FC, HTMLAttributes, KeyboardEvent } from "react";

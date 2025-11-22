@@ -1,9 +1,8 @@
 "use client";
 
-import { useScroll } from "framer-motion";
+import { MotionDiv } from "@/components/motion";
+import { useScroll } from "motion/react";
 import { type FC } from "react";
-
-import { MotionDiv } from "@components/motion";
 
 const ScrollProgress: FC = () => {
   const { scrollYProgress } = useScroll();

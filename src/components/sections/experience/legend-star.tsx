@@ -1,11 +1,11 @@
 "use client";
 
+import { Checkbox } from "@/components/ui/checkbox";
+
+import { MotionDiv } from "@/components/motion";
+import { useSkillContext } from "@/components/sections/experience/skill-context";
 import { Star } from "lucide-react";
 import { type FC } from "react";
-
-import { MotionDiv } from "@components/motion";
-import { useSkillContext } from "@components/sections/experience/skill-context";
-import { Checkbox } from "@components/ui/checkbox";
 
 const LegendStar: FC<{ stars: number; label: string }> = ({ stars, label }) => {
   const { isFiltered, toggleStar } = useSkillContext();

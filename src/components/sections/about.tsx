@@ -1,11 +1,10 @@
-import { SITE_CONFIG } from "@constants";
+import { MotionDiv } from "@/components/motion";
+import Section from "@/components/sections/section";
+import { SITE_CONFIG } from "@/constants";
+import NixOSDesktop from "@public/images/nixos-desktop.png";
 import { useTranslations } from "next-intl";
 import NextImage from "next/image";
 import { type FC } from "react";
-
-import { MotionDiv } from "@components/motion";
-import Section from "@components/sections/section";
-import NixOSDesktop from "@public/images/nixos-desktop.png";
 
 function calculateAge(dateOfBirth: Date) {
   const currentDate = new Date();

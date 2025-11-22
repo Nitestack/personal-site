@@ -1,7 +1,7 @@
 "use client";
 
+import { cn } from "@/utils";
 import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
-import { cn } from "@utils";
 import { Check } from "lucide-react";
 import { forwardRef } from "react";
 

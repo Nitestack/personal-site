@@ -1,15 +1,15 @@
 "use client";
 
-import { type Section } from "@constants";
-import { classNames } from "@utils";
+import { Button } from "@/components/ui/button";
+
+import { MotionSpan } from "@/components/motion";
+import { useMobileSidebarContext } from "@/components/navbar/mobile/context";
+import { useSectionsContext } from "@/components/sections/context";
+import { type Section } from "@/constants";
+import { Link } from "@/i18n/routing";
+import { cn } from "@/utils";
 import { type LinkProps } from "next/link";
 import { type FC } from "react";
-
-import { Link } from "@/i18n/routing";
-import { MotionSpan } from "@components/motion";
-import { useMobileSidebarContext } from "@components/navbar/mobile/context";
-import { useSectionsContext } from "@components/sections/context";
-import { Button } from "@components/ui/button";
 
 const MobileSidebarLink: FC<{
   id: Section;
@@ -27,7 +27,7 @@ const MobileSidebarLink: FC<{
   }
   return (
     <Button
-      className={classNames(
+      className={cn(
         "relative z-0 w-full rounded-none border-none text-xl font-bold tracking-wider shadow-none",
         {
           "text-accent-foreground": isActive,

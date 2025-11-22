@@ -1,9 +1,8 @@
-import { SITE_CONFIG } from "@constants";
+import { SITE_CONFIG } from "@/constants";
+import { routing } from "@/i18n/routing";
 import { getTranslations } from "next-intl/server";
 import { ImageResponse } from "next/og";
 import { type NextRequest } from "next/server";
-
-import { routing } from "@/i18n/routing";
 
 export const runtime = "edge";
 

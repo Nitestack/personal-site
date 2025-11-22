@@ -1,16 +1,16 @@
 "use client";
 
-import { LOCALIZATION_CONFIG } from "@constants";
-import { useLocale } from "next-intl";
-import { useTransition } from "react";
-
-import { usePathname, useRouter } from "@/i18n/routing";
 import {
   DropdownMenuLabel,
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
   DropdownMenuSeparator,
-} from "@components/ui/dropdown-menu";
+} from "@/components/ui/dropdown-menu";
+
+import { LOCALIZATION_CONFIG } from "@/constants";
+import { usePathname, useRouter } from "@/i18n/routing";
+import { useLocale } from "next-intl";
+import { useTransition } from "react";
 
 import type { FC } from "react";
 

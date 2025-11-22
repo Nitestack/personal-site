@@ -1,17 +1,16 @@
 import createNextIntlPlugin from "next-intl/plugin";
 
-const withNextIntl = createNextIntlPlugin();
-
+import type { NextConfig } from "next";
 /**
  * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially useful
  * for Docker builds.
  */
-await import("./src/env.mjs");
+import "./src/env";
 
-/** @type {import("next").NextConfig} */
-const nextConfig = {
+const withNextIntl = createNextIntlPlugin();
+
+const nextConfig: NextConfig = {
   output: "standalone",
-  reactCompiler: true,
   experimental: {
     turbopackFileSystemCacheForDev: true,
   },
@@ -39,10 +38,10 @@ const nextConfig = {
       },
     ],
   },
-  redirects: async () => [
+  redirects: () => [
     {
       source: "/linkedin",
-      destination: "https://www.linkedin.com/in/nhan-pham-6702922b3",
+      destination: "https://linkedin.com/in/pham-nhan",
       permanent: true,
     },
     {
@@ -53,6 +52,11 @@ const nextConfig = {
     {
       source: "/github",
       destination: "https://github.com/Nitestack",
+      permanent: true,
+    },
+    {
+      source: "/gitlab",
+      destination: "https://gitlab.com/Nitestack",
       permanent: true,
     },
     {

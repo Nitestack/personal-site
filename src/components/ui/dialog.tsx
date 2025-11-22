@@ -1,7 +1,7 @@
 "use client";
 
+import { cn } from "@/utils";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
-import { cn } from "@utils";
 import { X } from "lucide-react";
 import { forwardRef } from "react";
 

@@ -1,4 +1,5 @@
-import { SITE_CONFIG } from "@constants";
+import { SITE_CONFIG } from "@/constants";
+import { routing } from "@/i18n/routing";
 import { type Metadata, type ResolvingMetadata } from "next";
 import { getTranslations } from "next-intl/server";
 import {
@@ -6,8 +7,6 @@ import {
   type AbsoluteTemplateString,
   type DefaultTemplateString,
 } from "next/dist/lib/metadata/types/metadata-types";
-
-import { routing } from "@/i18n/routing";
 
 interface RequiredMetadata {
   title: NonNullable<Metadata["title"]>;

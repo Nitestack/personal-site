@@ -1,4 +1,4 @@
-import "@app/globals.css";
+import "@/app/globals.css";
 import "highlight.js/styles/github-dark-dimmed.css";
 
 import { type FC, type ReactNode } from "react";

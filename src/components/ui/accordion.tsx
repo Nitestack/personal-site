@@ -1,7 +1,7 @@
 "use client";
 
+import { cn } from "@/utils";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
-import { cn } from "@utils";
 import { ChevronDown } from "lucide-react";
 import { forwardRef } from "react";
 
