@@ -1,6 +1,6 @@
 {
   "All": {
-    "description": "A Dual Student dedicated to learning and specializing in creating modern, performant applications",
+    "description": "A CS Student dedicated to learning and specializing in creating modern, performant applications",
     "comingSoon": "Coming soon"
   },
   "Routes": {
@@ -11,7 +11,7 @@
     "contact": "Contact"
   },
   "Home": {
-    "aboutMe": "Hello! I'm a {age}-year-old Dual Student from Germany, pursuing a degree in Computer Science with a focus on Software Engineering. As part of my dual studies, I'm also completing an integrated apprenticeship as an IT specialist for application development. I'm passionate about programming and enjoy working on small projects in my free time, exploring new technologies, and improving my skills. I'm always eager to learn new things and grow both professionally and personally.",
+    "aboutMe": "Hello! I'm a {age}-year-old student, pursuing a degree in Computer Science with a focus on Software Engineering. I'm passionate about programming and enjoy working on small projects in my free time, exploring new technologies, and improving my skills. I'm always eager to learn new things and grow both professionally and personally.",
     "aboutMyOtherHobbies": "In addition to coding, I'm passionate about playing the piano and enjoy traveling and exploring new places with friends."
   },
   "Projects": {

@@ -1,6 +1,6 @@
 {
   "All": {
-    "description": "Ein Dualer Student mit Fokus auf Entwicklung von modernen, performanten Anwendungen",
+    "description": "Ein Informatikstudent mit Fokus auf Entwicklung von modernen, performanten Anwendungen",
     "comingSoon": "Kommt bald"
   },
   "Routes": {
@@ -11,7 +11,7 @@
     "contact": "Kontakt"
   },
   "Home": {
-    "aboutMe": "Hallo! Ich bin ein {age}-jähriger Dualer Student aus Deutschland und studiere Informatik mit der Vertiefung Softwaretechnik. Im Rahmen des dualen Studiums absolviere ich gleichzeitig eine integrierte Ausbildung zum Fachinformatiker für Anwendungsentwicklung. Programmieren ist einer meiner Leidenschaften, und in meiner Freizeit arbeite ich gerne an kleinen Projekten, probiere neue Technologien aus und verbessere meine Fähigkeiten. Ich bin immer offen dafür, Neues zu lernen und mich sowohl beruflich als auch persönlich weiterzuentwickeln.",
+    "aboutMe": "Hallo! Ich bin ein {age}-jähriger Student und studiere Informatik mit der Vertiefung Softwaretechnik. Programmieren ist einer meiner Leidenschaften, und in meiner Freizeit arbeite ich gerne an kleinen Projekten, probiere neue Technologien aus und verbessere meine Fähigkeiten. Ich bin immer offen dafür, Neues zu lernen und mich sowohl beruflich als auch persönlich weiterzuentwickeln.",
     "aboutMyOtherHobbies": "Neben dem Programmieren spiele ich gerne Klavier und reise gerne mit Freunden, um neue Orte zu erkunden."
   },
   "Projects": {
