@@ -29,7 +29,7 @@
     "Descriptions": {
       "comingSoon": "Coming soon...",
       "raspberryPi5": "A streamlined Ansible setup designed to automate and manage the configuration of a Raspberry Pi 5 as a home server, ensuring efficient deployment and consistent performance for various services.",
-      "personalSite": "Bilingual portfolio showcasing me, my skills, my projects and my blog.",
+      "personalSite": "Bilingual portfolio showcasing me, my hobby projects and my blog.",
       "nix-config": "A comprehensive, cross-platform Nix configuration repository managing system settings and user environments across multiple operating systems. This repository provides reproducible, declarative configurations for NixOS (including NixOS via WSL) and macOS.",
       "projectManagerCli": "A cross-platform CLI tool for optimized project management and quick switching between projects.",
       "nvimSwitcher": "A cross-platform CLI tool for effortless switching between various Neovim distributions.",
@@ -69,7 +69,7 @@
     }
   },
   "Blog": {
-    "description": "Blog posts and tutorials on my learning journey as a developer.",
+    "description": "Blog posts and tutorials on my hobby projects.",
     "publishedAt": "Published at",
     "author": "Author",
     "views": "Views",

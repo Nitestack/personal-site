@@ -16,12 +16,14 @@ const Footer: FC = () => {
     >
       <div className="container mx-auto px-6 py-4 text-center">
         <h3 className="text-xl font-bold">{new URL(SITE_CONFIG.url).host}</h3>
-        <Link
-          className="text-primary mt-2 hover:underline"
-          href={`mailto:${SITE_CONFIG.email}`}
-        >
-          Email: {SITE_CONFIG.email}
-        </Link>
+        {SITE_CONFIG.email && (
+          <Link
+            className="text-primary mt-2 hover:underline"
+            href={`mailto:${SITE_CONFIG.email}`}
+          >
+            Email: {SITE_CONFIG.email}
+          </Link>
+        )}
         <div className="mt-4 flex justify-center space-x-2">
           {SITE_CONFIG.socials.map(({ name, url, iconName }) => (
             <Link key={name} target="_blank" href={url}>

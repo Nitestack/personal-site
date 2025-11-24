@@ -29,7 +29,7 @@
     "Descriptions": {
       "comingSoon": "Kommt bald...",
       "raspberryPi5": "Eine einfache Ansible-Einrichtung zur Automatisierung und Verwaltung des Raspberry Pi 5 als Home-Server, um verschiedene Dienste effizient bereitzustellen und konstant gut zu betreiben.",
-      "personalSite": "Englisch-/deutschsprachiges Portfolio, welches mich, mein Fähigkeiten, meine Projekte und meinen Blog präsentieren.",
+      "personalSite": "Englisch-/deutschsprachiges Portfolio, welches mich, meine privaten Projekte und meinen Blog präsentieren.",
       "nix-config": "Eine umfassende, plattformübergreifende Nix-Konfigurations-Repository, die Systemeinstellungen und Benutzerumgebungen über mehrere Betriebssysteme hinweg verwaltet. Diese Repository bietet reproduzierbare, deklarative Konfigurationen für NixOS (einschließlich NixOS über WSL) und macOS.",
       "projectManagerCli": "Ein plattformübergreifendes CLI-Tool, um das Projektmanagement zu optimieren und schnell zwischen verschiedenen Projekten zu wechseln.",
       "nvimSwitcher": "Ein plattformübergreifendes CLI-Tool zum einfachen Wechsel zwischen verschiedenen Neovim-Distributionen.",
@@ -69,7 +69,7 @@
     }
   },
   "Blog": {
-    "description": "Blogbeiträge und Tutorials zu meiner Laufbahn als Entwickler. Im Moment ausschließlich auf Englisch.",
+    "description": "Blogbeiträge und Tutorials zu meinen privaten Projekten. Im Moment ausschließlich auf Englisch.",
     "publishedAt": "Veröffentlicht am",
     "author": "Autor",
     "views": "Aufrufe",

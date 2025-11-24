@@ -85,7 +85,7 @@ export const SITE_CONFIG: {
   firstName: string;
   name: string;
   githubUsername: string;
-  email: string;
+  email?: string;
   birthday: Date;
   location?: string;
   employer?: {
@@ -110,7 +110,6 @@ export const SITE_CONFIG: {
 } = {
   firstName: "Nhan",
   name: "Nhan Pham",
-  email: "code@npham.de",
   githubUsername: "Nitestack",
   birthday: new Date(2006, 2, 6),
   socials: [

@@ -1,7 +1,8 @@
+import { Button } from "@/components/ui/button";
+
 import LucideIcon from "@/components/lucide-icon";
 import { MotionDiv } from "@/components/motion";
 import Section from "@/components/sections/section";
-import { Button } from "@/components/ui/button";
 import { SITE_CONFIG } from "@/constants";
 import { Building2, Mail, MapPin, User } from "lucide-react";
 import { useTranslations } from "next-intl";
@@ -27,15 +28,17 @@ const ContactSection: FC = () => {
             <User className="h-5 w-5" />
             <span className="font-medium">{SITE_CONFIG.name}</span>
           </p>
-          <div className="flex items-center gap-2">
-            <Mail className="h-5 w-5" />
-            <Link
-              className="font-medium hover:underline"
-              href={`mailto:${SITE_CONFIG.email}`}
-            >
-              {SITE_CONFIG.email}
-            </Link>
-          </div>
+          {SITE_CONFIG.email && (
+            <div className="flex items-center gap-2">
+              <Mail className="h-5 w-5" />
+              <Link
+                className="font-medium hover:underline"
+                href={`mailto:${SITE_CONFIG.email}`}
+              >
+                {SITE_CONFIG.email}
+              </Link>
+            </div>
+          )}
           {SITE_CONFIG.location && (
             <p className="flex items-center gap-2">
               <MapPin className="h-5 w-5" />
