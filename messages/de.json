@@ -28,6 +28,7 @@
     "readMore": "Mehr",
     "Descriptions": {
       "comingSoon": "Kommt bald...",
+      "keyTrack": "Alles in einem: Dein Trainings-Hub, um Noten und Stücke zu organisieren und tägliches Üben in messbare Erfolge umzuwandeln.",
       "raspberryPi5": "Eine einfache Ansible-Einrichtung zur Automatisierung und Verwaltung des Raspberry Pi 5 als Home-Server, um verschiedene Dienste effizient bereitzustellen und konstant gut zu betreiben.",
       "personalSite": "Englisch-/deutschsprachiges Portfolio, welches mich, meine privaten Projekte und meinen Blog präsentieren.",
       "nix-config": "Eine umfassende, plattformübergreifende Nix-Konfigurations-Repository, die Systemeinstellungen und Benutzerumgebungen über mehrere Betriebssysteme hinweg verwaltet. Diese Repository bietet reproduzierbare, deklarative Konfigurationen für NixOS (einschließlich NixOS über WSL) und macOS.",
