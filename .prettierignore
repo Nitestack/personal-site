@@ -1,1 +1,4 @@
 global.d.ts
+
+pnpm-workspace.yaml
+pnpm-lock.yaml
