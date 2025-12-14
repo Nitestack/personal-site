@@ -31,7 +31,7 @@
     "global.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "**/*.mjs",
+    "**/*.js",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts"
   ],
