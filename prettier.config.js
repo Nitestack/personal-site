@@ -9,7 +9,6 @@ const TYPES = {
 
 /** @type {import("prettier").Config & import("@ianvs/prettier-plugin-sort-imports").PluginConfig & import("prettier-plugin-tailwindcss").PluginOptions} */
 const config = {
-  trailingComma: "es5",
   plugins: [
     "@ianvs/prettier-plugin-sort-imports",
     "prettier-plugin-tailwindcss",
@@ -30,7 +29,7 @@ const config = {
     "^(?!.*[.]css$)[./].*$",
     ".css$",
   ],
-  importOrderTypeScriptVersion: "5.8.2",
+  importOrderTypeScriptVersion: "5.9.3",
 };
 
 export default config;
