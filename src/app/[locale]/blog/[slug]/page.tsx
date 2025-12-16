@@ -1,3 +1,6 @@
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Skeleton } from "@/components/ui/skeleton";
+
 import {
   getBlogPageBySlug,
   getNotionPageContent,
@@ -8,15 +11,13 @@ import {
   parseBlogPageProperties,
   trimExcerpt,
 } from "@/app/[locale]/blog/notion";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Skeleton } from "@/components/ui/skeleton";
 import { SITE_CONFIG } from "@/constants";
 import { env } from "@/env";
 import { metadata } from "@/metadata";
 import { getAvatarFallback, getLocaleDateString } from "@/utils";
 import bookmarkPlugin from "@notion-render/bookmark-plugin";
 import { NotionRenderer } from "@notion-render/client";
-import Logo from "@public/images/logo.png";
+import AvatarPicture from "@public/images/avatar.jpg";
 import { getTranslations } from "next-intl/server";
 import { type OpenGraph } from "next/dist/lib/metadata/types/opengraph-types";
 import { notFound } from "next/navigation";
@@ -34,7 +35,7 @@ export const generateMetadata = metadata<{ slug: string }>(
     const post = await getBlogPageBySlug(slug);
     if (!post) return;
     const { title, excerpt, publishedAt, tags } = parseBlogPageProperties(
-      post.properties
+      post.properties,
     );
     const description = trimExcerpt(excerpt);
     const imageUrl = getOGImage(post.cover, {
@@ -60,7 +61,7 @@ export const generateMetadata = metadata<{ slug: string }>(
         canonical: `/blog/${slug}`,
       },
     };
-  }
+  },
 );
 
 const BlogPage: FC<{
@@ -106,7 +107,7 @@ const BlogPost: FC<{
   if (!post) notFound();
 
   const { title, excerpt, views, publishedAt, tags } = parseBlogPageProperties(
-    post.properties
+    post.properties,
   );
 
   if (env.NODE_ENV === "production") void incrementViewCount(post.id, views);
@@ -142,7 +143,7 @@ const BlogPost: FC<{
         <div className="bg-muted shadow-ring flex flex-row items-center justify-between gap-4 rounded-lg p-2 shadow-xs">
           <div className="hidden items-center gap-2 sm:flex">
             <Avatar>
-              <AvatarImage src={Logo.src} alt={SITE_CONFIG.name} />
+              <AvatarImage src={AvatarPicture.src} alt={SITE_CONFIG.name} />
               <AvatarFallback>
                 {getAvatarFallback(SITE_CONFIG.name)}
               </AvatarFallback>

@@ -4,7 +4,7 @@ import LucideIcon from "@/components/lucide-icon";
 import { MotionDiv } from "@/components/motion";
 import { HeroSectionView } from "@/components/sections/context";
 import { SITE_CONFIG } from "@/constants";
-import AppNetwork from "@public/images/app-network.png";
+import Avatar from "@public/images/avatar.jpg";
 import { useTranslations } from "next-intl";
 import NextImage from "next/image";
 import Link from "next/link";
@@ -14,22 +14,22 @@ const HeroSection: FC = () => {
   const t = useTranslations();
   return (
     <HeroSectionView className="h-svh scroll-mt-48 text-center">
-      <div className="mt-8 flex h-full flex-col items-center gap-10 xl:mt-12">
+      <div className="mt-8 flex h-full flex-col items-center gap-14 xl:mt-12">
         <MotionDiv
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.25 }}
-          className="relative aspect-video w-full max-w-xl xl:max-w-3xl"
+          className="relative aspect-square w-full max-w-40 overflow-hidden rounded-full sm:max-w-xs xl:max-w-md"
         >
           <NextImage
             className="object-contain"
             fill
-            src={AppNetwork}
-            alt="App Network"
+            src={Avatar}
+            alt={SITE_CONFIG.name}
           />
         </MotionDiv>
         <MotionDiv
-          className="space-y-3"
+          className="space-y-5"
           initial={{ opacity: 0, y: "100%" }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
