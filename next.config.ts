@@ -1,6 +1,7 @@
 import createNextIntlPlugin from "next-intl/plugin";
 
 import type { NextConfig } from "next";
+
 /**
  * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially useful
  * for Docker builds.
@@ -10,7 +11,7 @@ import "./src/env";
 const withNextIntl = createNextIntlPlugin();
 
 const nextConfig: NextConfig = {
-  output: "standalone",
+  // output: "standalone", // enable standalone output for Docker deployment
   experimental: {
     turbopackFileSystemCacheForDev: true,
   },
