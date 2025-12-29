@@ -36,7 +36,7 @@ const AboutSection: FC = () => {
           <div className="border-border/40 shadow-ring dark:shadow-ring/10 relative aspect-video w-full overflow-hidden rounded-sm border-2 shadow-lg">
             <NextImage
               fill
-              className="object-contai"
+              className="object-contain"
               src={NixOSDesktop}
               alt="Arch Linux Desktop"
             />

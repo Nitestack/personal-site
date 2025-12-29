@@ -79,11 +79,6 @@
   "Footer": {
     "allRightsReserved": "All rights reserved"
   },
-  "NeovimConfig": {
-    "title": "Commits of Neovim Distributions",
-    "description": "Latest commits of the following Neovim distributions: NvChad, LazyVim, AstroNvim, LunarVim",
-    "committed": "committed {relativeTime}"
-  },
   "Settings": {
     "language": "Language",
     "Theme": {

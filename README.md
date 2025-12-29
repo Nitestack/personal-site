@@ -49,7 +49,7 @@ Follow these steps to set up the project on your local machine.
 1. **Clone the repository**:
 
 ```sh
-git clone https://git.npham.de/Nitestack/personal-site.git
+git clone https://github.com/Nitestack/personal-site.git
 cd personal-site
 ```
 
@@ -82,8 +82,6 @@ cp .env.example .env
 ```
 
 2. **Fill in your secrets**: Open the `.env` file and add your credentials.
-
-- `GITHUB_PERSONAL_ACCESS_TOKEN`: A personal access token for the GitHub API, used to fetch repository information.
 
 - `NOTION_SECRET`: Your Notion API secret key.
 
