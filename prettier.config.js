@@ -1,6 +1,6 @@
 const THIRD_PARTY_MODULES = "<THIRD_PARTY_MODULES>"; // Imports not matched by other special words or groups
 const BUILTIN_MODULES = "<BUILTIN_MODULES>"; // Node.js built-in modules
-const IMPORT_ALIAS = "^~/.*$";
+const IMPORT_ALIAS = "^@/.*$";
 const TYPES = {
   NODE: "<TYPES>^(node:)", // Types from Node.js built-in modules
   THIRD_PARTY: "<TYPES>", // Types from third party modules
@@ -14,7 +14,7 @@ const config = {
     "prettier-plugin-tailwindcss",
   ],
   importOrder: [
-    "^@/components/ui/.*$",
+    "^@/components/.*$",
     "",
     BUILTIN_MODULES,
     "",

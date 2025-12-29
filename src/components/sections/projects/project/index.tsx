@@ -1,3 +1,8 @@
+import { MotionDiv } from "@/components/motion";
+import ProjectDetails from "@/components/sections/projects/project/details";
+import ProjectInfo from "@/components/sections/projects/project/info";
+import ProjectTags from "@/components/sections/projects/project/tags";
+import ProjectTitle from "@/components/sections/projects/project/title";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -23,14 +28,10 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer";
 
-import { MotionDiv } from "@/components/motion";
-import ProjectDetails from "@/components/sections/projects/project/details";
-import ProjectInfo from "@/components/sections/projects/project/info";
-import ProjectTags from "@/components/sections/projects/project/tags";
-import ProjectTitle from "@/components/sections/projects/project/title";
-import { type Project } from "@/constants";
 import NextImage from "next/image";
 import { type FC } from "react";
+
+import { type Project } from "@/constants";
 
 export type TranslatedProject = Omit<Project, "description"> & {
   description: string;

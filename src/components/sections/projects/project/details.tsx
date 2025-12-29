@@ -1,13 +1,14 @@
-import { Button } from "@/components/ui/button";
-
 import { type TranslatedProject } from "@/components/sections/projects/project";
 import ProjectTags from "@/components/sections/projects/project/tags";
-import { type ProjectSingleLink } from "@/constants";
-import { Link } from "@/i18n/routing";
-import { getGitHubRepositoryUrl } from "@/utils";
+import { Button } from "@/components/ui/button";
+
 import { GithubIcon, LinkIcon, ZapIcon } from "lucide-react";
 import NextImage from "next/image";
 import { type FC } from "react";
+
+import { type ProjectSingleLink } from "@/constants";
+import { Link } from "@/i18n/routing";
+import { getGitHubRepositoryUrl } from "@/utils";
 
 const ProjectDetailsLink: FC<ProjectSingleLink & { fullWidth?: boolean }> = ({
   name,

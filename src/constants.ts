@@ -1,6 +1,7 @@
+import { type ExperienceTimelineItem } from "@/components/sections/experience/timeline";
+
 import { type UrlObject } from "node:url";
 
-import { type ExperienceTimelineItem } from "@/components/sections/experience/timeline";
 import { type icons } from "lucide-react";
 
 import type {

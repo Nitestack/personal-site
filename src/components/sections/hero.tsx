@@ -1,14 +1,15 @@
-import { Button } from "@/components/ui/button";
-
 import LucideIcon from "@/components/lucide-icon";
 import { MotionDiv } from "@/components/motion";
 import { HeroSectionView } from "@/components/sections/context";
-import { SITE_CONFIG } from "@/constants";
+import { Button } from "@/components/ui/button";
+
 import Avatar from "@public/images/avatar.jpg";
 import { useTranslations } from "next-intl";
 import NextImage from "next/image";
 import Link from "next/link";
 import { type FC } from "react";
+
+import { SITE_CONFIG } from "@/constants";
 
 const HeroSection: FC = () => {
   const t = useTranslations();

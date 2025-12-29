@@ -1,9 +1,10 @@
 "use client";
 
-import { cn } from "@/utils";
 import * as RadioGroupPrimitive from "@radix-ui/react-radio-group";
 import { Circle } from "lucide-react";
 import { forwardRef } from "react";
+
+import { cn } from "@/utils";
 
 import type { ComponentPropsWithoutRef, ElementRef } from "react";
 
@@ -30,7 +31,7 @@ const RadioGroupItem = forwardRef<
       ref={ref}
       className={cn(
         "border-primary text-primary ring-offset-background focus-visible:ring-ring aspect-square h-4 w-4 rounded-full border focus:outline-hidden focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
-        className
+        className,
       )}
       {...props}
     >

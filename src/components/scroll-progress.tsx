@@ -1,6 +1,7 @@
 "use client";
 
 import { MotionDiv } from "@/components/motion";
+
 import { useScroll } from "motion/react";
 import { type FC } from "react";
 

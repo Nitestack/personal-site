@@ -4,9 +4,11 @@ import { SkillContextProvider } from "@/components/sections/experience/skill-con
 import ExperienceTimeline from "@/components/sections/experience/timeline";
 import Section from "@/components/sections/section";
 import { Accordion } from "@/components/ui/accordion";
-import { SITE_CONFIG } from "@/constants";
+
 import { useTranslations } from "next-intl";
 import { type FC } from "react";
+
+import { SITE_CONFIG } from "@/constants";
 
 import type { Skill } from "@/constants";
 
@@ -51,10 +53,10 @@ const ExperienceSection: FC<{ locale: string }> = ({ locale }) => {
                   ...restEvent,
                   title: t(`Experience.JobTitles.${title}`),
                   description: t(
-                    `Experience.CompanyDescriptions.${description}`
+                    `Experience.CompanyDescriptions.${description}`,
                   ),
                   tags: techStack,
-                })
+                }),
               )}
             />
             {!isEmpty && (

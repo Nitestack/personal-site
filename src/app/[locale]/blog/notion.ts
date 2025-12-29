@@ -1,7 +1,5 @@
 import "server-only";
 
-import { SITE_CONFIG } from "@/constants";
-import { env } from "@/env";
 import { createBlockRenderer } from "@notion-render/client";
 import { Client, collectPaginatedAPI } from "@notionhq/client";
 import {
@@ -11,6 +9,9 @@ import {
 } from "@notionhq/client/build/src/api-endpoints";
 import hljs from "highlight.js";
 import { cache } from "react";
+
+import { SITE_CONFIG } from "@/constants";
+import { env } from "@/env";
 
 import type { Plugin } from "@notion-render/client";
 import type { HighlightOptions } from "highlight.js";
@@ -44,7 +45,7 @@ export const incrementViewCount = cache(
         },
       },
     });
-  }
+  },
 );
 
 export const getBlogPages = cache(async () => {
@@ -90,7 +91,7 @@ export const getOGImage = (
     description?: string;
     locale?: string;
     fullUrl?: boolean;
-  }
+  },
 ) => {
   let imageUrl =
     cover?.type == "external" ? cover.external.url : cover?.file?.url;
@@ -108,7 +109,7 @@ export const getOGImage = (
 };
 
 export const parseBlogPageProperties = (
-  properties: PageObjectResponse["properties"]
+  properties: PageObjectResponse["properties"],
 ) => {
   return {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-explicit-any
@@ -130,7 +131,7 @@ export const parseBlogPageProperties = (
     tags:
       // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-explicit-any
       ((properties.Tags as any).multi_select.map(
-        (tag: { name: string }) => tag.name
+        (tag: { name: string }) => tag.name,
       ) as string[] | undefined) ?? [],
   };
 };
@@ -179,7 +180,7 @@ const codeBlockRenderer = (options: Config) =>
           <pre class="bg-[#22272E]"><code class="language-${data.code.language}">${result.value}</code></pre>
         </div>
     `;
-    }
+    },
   );
 
 export const hljsPlugin: Plugin<Config> = (options) => ({

@@ -7,10 +7,11 @@ import {
   DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
 
-import { LOCALIZATION_CONFIG } from "@/constants";
-import { usePathname, useRouter } from "@/i18n/routing";
 import { useLocale } from "next-intl";
 import { useTransition } from "react";
+
+import { LOCALIZATION_CONFIG } from "@/constants";
+import { usePathname, useRouter } from "@/i18n/routing";
 
 import type { FC } from "react";
 

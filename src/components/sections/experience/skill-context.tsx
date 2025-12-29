@@ -1,8 +1,9 @@
 "use client";
 
+import { createContext, useCallback, useContext, useState } from "react";
+
 import { type Skill } from "@/constants";
 import { getStarRating } from "@/utils";
-import { createContext, useCallback, useContext, useState } from "react";
 
 import type { FC, ReactNode } from "react";
 
@@ -25,22 +26,22 @@ export const SkillContextProvider: FC<{ children: ReactNode }> = ({
       return () => {
         if (filteredStars.includes(star)) {
           setFilteredStars((currentStars) =>
-            currentStars.filter((s) => s !== star)
+            currentStars.filter((s) => s !== star),
           );
         } else {
           setFilteredStars((currentStars) => [...currentStars, star]);
         }
       };
     },
-    [filteredStars]
+    [filteredStars],
   );
   const isFiltered = useCallback(
     (star: number) => filteredStars.includes(star),
-    [filteredStars]
+    [filteredStars],
   );
   const isValid = useCallback(
     (level: Skill["level"]) => filteredStars.includes(getStarRating(level)),
-    [filteredStars]
+    [filteredStars],
   );
 
   return (
@@ -57,7 +58,7 @@ export function useSkillContext() {
 
   if (context === null) {
     throw new Error(
-      "useSkillContext must be inside of <SkillContextProvider />"
+      "useSkillContext must be inside of <SkillContextProvider />",
     );
   }
 

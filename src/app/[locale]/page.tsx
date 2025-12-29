@@ -4,6 +4,7 @@ import ContactSection from "@/components/sections/contact";
 import ExperienceSection from "@/components/sections/experience";
 import HeroSection from "@/components/sections/hero";
 import ProjectsSection from "@/components/sections/projects";
+
 import { setRequestLocale } from "next-intl/server";
 import { type FC } from "react";
 

@@ -1,11 +1,3 @@
-import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-
 import { MotionDiv, MotionUl } from "@/components/motion";
 import {
   NavigationMenu,
@@ -17,10 +9,19 @@ import NavbarLink from "@/components/navbar/link";
 import NavbarLogo from "@/components/navbar/logo";
 import MobileSidebar from "@/components/navbar/mobile";
 import ThemeSelection from "@/components/navbar/theme-selection";
-import { SITE_CONFIG } from "@/constants";
+import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+
 import { Settings } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { type FC } from "react";
+
+import { SITE_CONFIG } from "@/constants";
 
 const Navbar: FC = () => {
   const t = useTranslations();

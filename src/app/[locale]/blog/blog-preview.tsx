@@ -1,15 +1,17 @@
-import SkeletonBlogPreview from "@/app/[locale]/blog/skeleton-blog-preview";
-import { type BlogPostPreview } from "@/app/[locale]/blog/types";
 import {
   Card,
   CardDescription,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { TransitionLink } from "@/hooks";
-import { cn, getLocaleDateString } from "@/utils";
+
 import NextImage from "next/image";
 import { type FC } from "react";
+
+import SkeletonBlogPreview from "@/app/[locale]/blog/skeleton-blog-preview";
+import { type BlogPostPreview } from "@/app/[locale]/blog/types";
+import { TransitionLink } from "@/hooks";
+import { cn, getLocaleDateString } from "@/utils";
 
 const BlogPostPreview: FC<
   BlogPostPreview & {
@@ -50,7 +52,7 @@ const BlogPostPreview: FC<
         <CardHeader
           className={cn(
             "group-hover:bg-accent flex h-full flex-col space-y-6",
-            carouselItem && "px-2 py-3 sm:px-4 sm:py-5 md:px-6 md:py-7"
+            carouselItem && "px-2 py-3 sm:px-4 sm:py-5 md:px-6 md:py-7",
           )}
         >
           <div className="flex-1 space-y-4">

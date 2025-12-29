@@ -2,9 +2,11 @@
 
 import { MotionSection } from "@/components/motion";
 import { useSectionInView } from "@/components/sections/context";
+
+import { type ComponentPropsWithoutRef, type FC, type ReactNode } from "react";
+
 import { type Section as SectionType } from "@/constants";
 import { cn } from "@/utils";
-import { type ComponentPropsWithoutRef, type FC, type ReactNode } from "react";
 
 const Section: FC<
   Omit<ComponentPropsWithoutRef<typeof MotionSection>, "id" | "children"> & {

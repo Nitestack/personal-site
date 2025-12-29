@@ -1,6 +1,7 @@
 "use client";
 
 import Error from "@/components/error";
+
 import { useTranslations } from "next-intl";
 
 import type { ErrorComponentProps } from "@/components/error";

@@ -1,7 +1,8 @@
 "use client";
 
-import { Link } from "@/i18n/routing";
 import { motion } from "motion/react";
+
+import { Link } from "@/i18n/routing";
 
 export const MotionDiv = motion.div;
 export const MotionA = motion.a;

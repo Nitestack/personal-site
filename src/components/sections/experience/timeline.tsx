@@ -1,9 +1,11 @@
 import { MotionDiv } from "@/components/motion";
+
+import { useTranslations } from "next-intl";
+import { type FC, type ReactNode } from "react";
+
 import { type MonthIndex } from "@/constants";
 import { Link } from "@/i18n/routing";
 import { cn } from "@/utils";
-import { useTranslations } from "next-intl";
-import { type FC, type ReactNode } from "react";
 
 export interface ExperienceTimelineItem {
   date: `${MonthIndex}-${number}`;
@@ -40,7 +42,7 @@ const ExperienceTimeline: FC<{
                 "absolute -start-1.5 mt-1 h-3 w-3 rounded-full border",
                 event.current
                   ? "border-primary bg-primary"
-                  : "border-muted bg-muted"
+                  : "border-muted bg-muted",
               )}
               initial={event.current ? { opacity: 0 } : undefined}
               animate={
@@ -69,14 +71,14 @@ const ExperienceTimeline: FC<{
                     {
                       month: "long",
                       year: "numeric",
-                    }
+                    },
                   )}
                   {endDate && (
                     <>
                       {" - "}
                       {new Date(
                         Number(endDate[1]),
-                        Number(endDate[0]) - 1
+                        Number(endDate[0]) - 1,
                       ).toLocaleDateString(locale ?? undefined, {
                         month: "long",
                         year: "numeric",

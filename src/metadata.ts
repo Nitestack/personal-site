@@ -1,5 +1,3 @@
-import { SITE_CONFIG } from "@/constants";
-import { routing } from "@/i18n/routing";
 import { type Metadata, type ResolvingMetadata } from "next";
 import { getTranslations } from "next-intl/server";
 import {
@@ -7,6 +5,9 @@ import {
   type AbsoluteTemplateString,
   type DefaultTemplateString,
 } from "next/dist/lib/metadata/types/metadata-types";
+
+import { SITE_CONFIG } from "@/constants";
+import { routing } from "@/i18n/routing";
 
 interface RequiredMetadata {
   title: NonNullable<Metadata["title"]>;
@@ -79,16 +80,16 @@ export function metadata<
   generateMetadata: (
     t: Awaited<ReturnType<typeof getTranslations<never>>>,
     props: WithLocaleProps<Params, SearchParams>,
-    parent: ResolvingMetadata
+    parent: ResolvingMetadata,
   ) => MaybePromise<
     | (Omit<Metadata, keyof RequiredMetadata | "metadataBase"> &
         RequiredMetadata)
     | undefined
-  >
+  >,
 ) {
   return async function (
     props: Promisify<WithLocaleProps<Params, SearchParams>>,
-    parent: ResolvingMetadata
+    parent: ResolvingMetadata,
   ): Promise<Metadata | undefined> {
     const params = await props.params;
     const { locale } = params;
@@ -97,7 +98,7 @@ export function metadata<
     const metadata = await generateMetadata(
       t,
       { params, searchParams },
-      parent
+      parent,
     );
     if (!metadata) return;
     const resolvedTitle: string =
@@ -116,7 +117,7 @@ export function metadata<
       description: resolvedDescription,
       locale: locale,
       alternateLocale: routing.locales.filter(
-        (currentLocale) => currentLocale.toLowerCase() !== locale.toLowerCase()
+        (currentLocale) => currentLocale.toLowerCase() !== locale.toLowerCase(),
       ),
     };
     (metadata as Metadata).twitter = {

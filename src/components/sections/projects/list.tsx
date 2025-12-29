@@ -1,5 +1,8 @@
 "use client";
 
+import { AnimatePresence } from "@/components/motion";
+import Project from "@/components/sections/projects/project";
+import { useProjectStatusContext } from "@/components/sections/projects/status-context";
 import {
   Carousel,
   CarouselContent,
@@ -8,9 +11,6 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
-import { AnimatePresence } from "@/components/motion";
-import Project from "@/components/sections/projects/project";
-import { useProjectStatusContext } from "@/components/sections/projects/status-context";
 import { type FC } from "react";
 
 import type { TranslatedProject } from "@/components/sections/projects/project";

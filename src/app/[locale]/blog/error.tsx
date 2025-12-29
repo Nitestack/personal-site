@@ -1,6 +1,7 @@
 "use client";
 
 import ErrorUI from "@/components/error";
+
 import { useTranslations } from "next-intl";
 import { type FC } from "react";
 

@@ -32,7 +32,7 @@ export default async function sitemap() {
       ...routing.locales.map((locale) => ({
         url: `${SITE_CONFIG.url}/${locale}${page}`,
         lastModified: new Date().toISOString().split("T")[0],
-      }))
+      })),
     );
   }
 
@@ -44,7 +44,7 @@ export default async function sitemap() {
         ...routing.locales.map((locale) => ({
           url: `${SITE_CONFIG.url}/${locale}/blog/${slug}`,
           lastModified: page.last_edited_time,
-        }))
+        })),
       );
     }
   } catch (err) {

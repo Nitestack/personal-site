@@ -1,6 +1,7 @@
-import { SITE_CONFIG } from "@/constants";
 import { clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
+
+import { SITE_CONFIG } from "@/constants";
 
 import type { Skill } from "@/constants";
 import type { ClassValue } from "clsx";
@@ -48,7 +49,7 @@ export function getStarRating(level: Skill["level"]) {
 
 export const getLocaleDateString = (
   date: Date,
-  locales?: Intl.LocalesArgument
+  locales?: Intl.LocalesArgument,
 ) => {
   return date.toLocaleDateString(locales, {
     dateStyle: "long",

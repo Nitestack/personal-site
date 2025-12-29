@@ -1,15 +1,16 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-
 import { MotionSpan } from "@/components/motion";
 import { useMobileSidebarContext } from "@/components/navbar/mobile/context";
 import { useSectionsContext } from "@/components/sections/context";
+import { Button } from "@/components/ui/button";
+
+import { type LinkProps } from "next/link";
+import { type FC } from "react";
+
 import { type Section } from "@/constants";
 import { Link } from "@/i18n/routing";
 import { cn } from "@/utils";
-import { type LinkProps } from "next/link";
-import { type FC } from "react";
 
 const MobileSidebarLink: FC<{
   id: Section;
@@ -31,7 +32,7 @@ const MobileSidebarLink: FC<{
         "relative z-0 w-full rounded-none border-none text-xl font-bold tracking-wider shadow-none",
         {
           "text-accent-foreground": isActive,
-        }
+        },
       )}
       variant="outline"
       asChild

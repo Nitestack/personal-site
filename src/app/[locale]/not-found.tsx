@@ -1,9 +1,10 @@
 import { Button } from "@/components/ui/button";
 
-import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 import NextImage from "next/image";
 import { type FC } from "react";
+
+import { Link } from "@/i18n/routing";
 
 const LocaleNotFoundPage: FC = () => {
   const t = useTranslations("NotFound");

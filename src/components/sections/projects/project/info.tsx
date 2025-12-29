@@ -1,8 +1,9 @@
+import { type TranslatedProject } from "@/components/sections/projects/project";
 import { Button } from "@/components/ui/button";
 
-import { type TranslatedProject } from "@/components/sections/projects/project";
-import { cn } from "@/utils";
 import { type FC } from "react";
+
+import { cn } from "@/utils";
 
 const ProjectInfo: FC<
   Pick<TranslatedProject, "visibility" | "visibilityLabel" | "startDate"> & {
@@ -18,7 +19,7 @@ const ProjectInfo: FC<
         size="sm"
         className={cn(
           "h-fit rounded px-1.5 py-0.5",
-          visibility === "private" ? "bg-red-500" : "bg-blue-500"
+          visibility === "private" ? "bg-red-500" : "bg-blue-500",
         )}
       >
         {visibilityLabel}

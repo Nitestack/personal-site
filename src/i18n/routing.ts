@@ -1,6 +1,7 @@
-import { LOCALIZATION_CONFIG } from "@/constants";
 import { createNavigation } from "next-intl/navigation";
 import { defineRouting } from "next-intl/routing";
+
+import { LOCALIZATION_CONFIG } from "@/constants";
 
 export const routing = defineRouting({
   locales: LOCALIZATION_CONFIG.locales,

@@ -1,7 +1,9 @@
 import { getProjectStatusIcon } from "@/components/sections/projects";
 import { type TranslatedProject } from "@/components/sections/projects/project";
-import { cn } from "@/utils";
+
 import { type FC, type ReactNode } from "react";
+
+import { cn } from "@/utils";
 
 const ProjectTitle: FC<
   Pick<TranslatedProject, "status"> & {

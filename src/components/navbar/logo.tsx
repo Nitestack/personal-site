@@ -2,8 +2,10 @@
 
 import { MotionLink } from "@/components/motion";
 import { useSectionsContext } from "@/components/sections/context";
-import { SITE_CONFIG } from "@/constants";
+
 import { type FC } from "react";
+
+import { SITE_CONFIG } from "@/constants";
 
 const NavbarLogo: FC<{ onClick?: () => void }> = ({ onClick }) => {
   const { setActiveSection, setTimeOfLastClick } = useSectionsContext();

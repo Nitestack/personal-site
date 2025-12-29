@@ -29,7 +29,7 @@ export function useMobileSidebarContext() {
 
   if (context === null) {
     throw new Error(
-      "useMobileSidebarContext must be inside of <MobileSidebarContextProvider />"
+      "useMobileSidebarContext must be inside of <MobileSidebarContextProvider />",
     );
   }
 

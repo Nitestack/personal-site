@@ -1,4 +1,9 @@
+import Layout from "@/components/layout";
 import { CarouselItem } from "@/components/ui/carousel";
+
+import { useTranslations } from "next-intl";
+import { unstable_noStore } from "next/cache";
+import { Fragment, Suspense } from "react";
 
 import BlogPostPreview from "@/app/[locale]/blog/blog-preview";
 import {
@@ -8,12 +13,8 @@ import {
   trimExcerpt,
 } from "@/app/[locale]/blog/notion";
 import SkeletonBlogPreview from "@/app/[locale]/blog/skeleton-blog-preview";
-import Layout from "@/components/layout";
 import { SITE_CONFIG } from "@/constants";
 import { metadata } from "@/metadata";
-import { useTranslations } from "next-intl";
-import { unstable_noStore } from "next/cache";
-import { Fragment, Suspense } from "react";
 
 import type { FC } from "react";
 
